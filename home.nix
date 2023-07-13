@@ -17,4 +17,9 @@
         obs-studio-plugins.input-overlay
       ];
     };
+
+  xdg.configFile."hypr" = {
+    source = ./config/hypr;
+    recursive = true;
+  };
 }
