@@ -1,11 +1,11 @@
-{ lib, inputs, system, home-manager, username, ... };
+{ lib, inputs, system, home-manager, username, ... }:
 
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgss = { inherit user inputs; };
+    specialArgs = { inherit username inputs; };
     modules = [
-      ./configuration.nix
+      ../configuration.nix
       ./desktop
 
       home-manager.nixosModules.home-manager {
@@ -15,6 +15,7 @@
         home-manager.users.${username} = {
           imports = [ ../home.nix ];
         };
-      };
+      }
+    ];
   };
 }
