@@ -3,7 +3,7 @@
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
-    home.stateVersion = "23.05";
+  home.stateVersion = "23.05";
 
     programs.git = {
       enable = true;
@@ -46,5 +46,12 @@ echo "Welcome back $USER!"
 
   programs.wofi = {
     style = builtins.readFile ./config/wofi/style.css;
+  };
+
+  programs.waybar = {
+    style = ./config/waybar/style.css;
+  };
+  xdg.configFile."waybar/config" = {
+    source = ./config/waybar/config;
   };
 }
