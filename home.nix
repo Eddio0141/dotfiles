@@ -43,4 +43,8 @@ neofetch
 echo "Welcome back $USER!"
 '';
   };
+
+  programs.wofi = {
+    style = builtins.readFile ./config/wofi/style.css;
+  };
 }
