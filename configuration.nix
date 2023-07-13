@@ -126,6 +126,13 @@
      git
      obsidian
      obs-studio
+     syncthing
+     vscode
+
+     # hypr stuff
+     dunst
+     waybar
+     kitty
   ];
 
   nixpkgs.overlays = [
@@ -245,4 +252,17 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  services.syncthing = {
+    devices = {
+      name = "mobile";
+      id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
+    };
+    folders = {
+      "/home/${username}/Documents/Obsidian" = {
+        id = "obsidian";
+        devices = [ "mobile" ];
+      };
+    };
+  };
 }
