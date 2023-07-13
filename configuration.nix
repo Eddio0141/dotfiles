@@ -133,6 +133,8 @@
      dunst
      waybar
      kitty
+     wofi
+     libsForQt5.dolphin
   ];
 
   nixpkgs.overlays = [
@@ -183,6 +185,8 @@
   # fonts
   fonts.fonts = with pkgs; [
     ipafont
+    # for waybar
+    font-awesome
   ];
 
   # system upgrade

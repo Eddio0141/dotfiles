@@ -21,6 +21,12 @@
   xdg.configFile."hypr" = {
     source = ./config/hypr;
     recursive = true;
-    onChange = "hyprctl reload";
+    onChange = "/run/current-system/sw/bin/hyprctl reload";
+  };
+
+  programs.waybar = {
+    settings = {
+
+    };
   };
 }
