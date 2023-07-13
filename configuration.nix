@@ -135,6 +135,7 @@
      kitty
      wofi
      xfce.thunar
+     udisks
   ];
 
   nixpkgs.overlays = [
@@ -170,10 +171,18 @@
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
   ];
 
-  # OpenCL
   hardware.opengl.extraPackages = with pkgs; [
+    # OpenCL
     rocm-opencl-icd
     rocm-opencl-runtime
+
+    # vulkan
+    amdvlk
+  ];
+
+  # vulkan 32 bit apps
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
   ];
 
   # vulkan
@@ -217,6 +226,7 @@
     ohMyZsh = {
       enable = true;
       plugins = [ "git" ];
+      theme = "random";
     };
   };
 
@@ -278,4 +288,8 @@
 
   # polkit
   security.polkit.enable = true;
+
+  environment.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+  };
 }

@@ -29,4 +29,14 @@
 
     };
   };
+
+  home.file.".zshrc" = {
+    text = ''
+[[ $- != *i* ]] && return
+
+neofetch
+
+echo "Welcome back $USER!"
+'';
+  };
 }
