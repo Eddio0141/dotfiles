@@ -28,7 +28,7 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.yuu.imports = [ ./home-manager.nix ];
+              home-manager.users.yuu.imports = [ ./home.nix ];
             }
           ];
         };
