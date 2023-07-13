@@ -220,6 +220,7 @@
       update = "sudo nixos-rebuild switch --flake '.#desktop'";
       update-test = "sudo nixos-rebuild test --flake '.#desktop'";
       upgrade = "nix flake update";
+      neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
     };
 
     # oh my zsh

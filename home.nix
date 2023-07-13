@@ -30,6 +30,10 @@
     };
   };
 
+  xdg.configFile."neofetch/ascii-anime" = {
+    source = ./config/neofetch/ascii-anime;
+  };
+
   home.file.".zshrc" = {
     text = ''
 [[ $- != *i* ]] && return
