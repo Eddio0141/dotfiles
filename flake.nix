@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = inputs @ { self, nixpkgs, home-manager }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -18,20 +18,14 @@
       };
 
       lib = nixpkgs.lib;
-    in {
-      nixosConfigurations = {
-        yuu = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
 
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yuu.imports = [ ./home.nix ];
-            }
-          ];
-        };
-      };
+      username = "yuu";
+    in {
+      nixosConfigurations = (
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          inherit inputs username system home-manager;
+        }
+      );
     };
 }

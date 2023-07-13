@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      #./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -19,7 +19,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "yuu"; # Define your hostname.
+  networking.hostName = "${username}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -100,9 +100,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.yuu = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "yuu";
+    description = "${username}";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
@@ -178,16 +178,18 @@
   ];
 
   # system upgrade
-  system.autoUpgrade = {
-    enable = true;
-    dates = "daily";
-  };
+  #system.autoUpgrade = {
+  #  enable = true;
+  #  dates = "daily";
+  #};
 
   # gc
   nix.gc = {
     automatic = true;
     dates = "weekly";
   };
+
+  nix.settings.auto-optimise-store = true;
 
   # zsh
   programs.zsh = {
@@ -240,4 +242,6 @@
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
+
+  security.sudo.wheelNeedsPassword = false;
 }
