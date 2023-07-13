@@ -194,7 +194,8 @@
     enable = true;
     enableBashCompletion = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch --flake '.#.";
+      update = "sudo nixos-rebuild switch --flake '.#";
+      upgrade = "nix flake update";
     };
 
     # oh my zsh
