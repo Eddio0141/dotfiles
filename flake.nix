@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprcontrib.url = "github:hyprwm/contrib";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
