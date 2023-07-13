@@ -1,4 +1,4 @@
-{ lib, inputs, system, home-manager, username, ... }:
+{ lib, inputs, system, home-manager, username, hyprland, ... }:
 
 {
   desktop = lib.nixosSystem {
