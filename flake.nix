@@ -22,17 +22,15 @@
       nixosConfigurations = {
         yuu = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
-        };
-      };
-      home-managerConfig = {
-        yuu = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "yuu";
-          homeDirectory = "/home/yuu";
-          configuration = {
-            imports = [ ./home-manager.nix ];
-          };
+          modules = [
+            ./configuration.nix
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yuu.imports = [ ./home-manager.nix ];
+            }
+          ];
         };
       };
     };
