@@ -209,6 +209,7 @@
     enableBashCompletion = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake '.#desktop'";
+      update-test = "sudo nixos-rebuild test --flake '.#desktop'";
       upgrade = "nix flake update";
     };
 
@@ -274,4 +275,7 @@
 
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
+
+  # polkit
+  security.polkit.enable = true;
 }
