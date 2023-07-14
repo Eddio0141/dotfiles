@@ -120,7 +120,6 @@
      vim
      avalonia-ilspy
      neofetch
-     jetbrains-toolbox
      dotnet-sdk_7
      btop
      git
@@ -129,6 +128,9 @@
      syncthing
      vscode
      killall
+     jetbrains.rider
+     unityhub
+     waydroid
 
      # hypr stuff
      dunst
@@ -302,6 +304,11 @@
   security.polkit.enable = true;
 
   environment.sessionVariables = {
-  #  QT_QPA_PLATFORM = "wayland";
+    #QT_QPA_PLATFORM = "wayland";
+    XMODIFIERS = "@im=fcitx";
+    XMODIFIER = "fcitx";
+    QT_IM_MODULE = "fcitx";
   };
+
+  virtualisation.waydroid.enable = true;
 }
