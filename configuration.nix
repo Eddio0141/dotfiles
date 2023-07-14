@@ -195,7 +195,10 @@
 
   # fonts
   fonts.fonts = with pkgs; [
+    # japanese
     ipafont
+    kochi-substitute
+
     # for waybar
     font-awesome
   ];
@@ -273,14 +276,20 @@
 
   services.syncthing = {
     devices = {
-      name = "mobile";
-      id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
+      mobile = {
+        id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
+      };
     };
     folders = {
       "/home/${username}/Documents/Obsidian" = {
         id = "obsidian";
         devices = [ "mobile" ];
       };
+    };
+    enable = true;
+    extraOptions = {
+      startBrowser = false;
+      urAccepted = -1;
     };
   };
 
@@ -292,7 +301,7 @@
   # polkit
   security.polkit.enable = true;
 
-  #environment.sessionVariables = {
+  environment.sessionVariables = {
   #  QT_QPA_PLATFORM = "wayland";
-  #};
+  };
 }
