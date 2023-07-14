@@ -44,9 +44,6 @@ echo "Welcome back $USER!"
 
   programs.waybar = {
     style = ./config/waybar/style.css;
-  };
-  xdg.configFile."waybar/config" = {
-    source = ./config/waybar/config;
-    onChange = "${pkgs.killall}/bin/killall -SIGUSR2 waybar";
+    settings = builtins.fromJson ./config/waybar/config;
   };
 }
