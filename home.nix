@@ -24,12 +24,6 @@
     onChange = "${pkgs.hyprland}/bin/hyprctl reload";
   };
 
-  programs.waybar = {
-    settings = {
-
-    };
-  };
-
   xdg.configFile."neofetch/ascii-anime" = {
     source = ./config/neofetch/ascii-anime;
   };
@@ -53,5 +47,6 @@ echo "Welcome back $USER!"
   };
   xdg.configFile."waybar/config" = {
     source = ./config/waybar/config;
+    onChange = "${pkgs.killall}/bin/killall -SIGUSR2 waybar";
   };
 }

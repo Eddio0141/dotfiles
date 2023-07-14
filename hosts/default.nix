@@ -1,9 +1,9 @@
-{ lib, inputs, system, home-manager, username, hyprland, ... }:
+{ lib, inputs, system, home-manager, username, hyprland, hyprcontrib, ... }:
 
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit username inputs; };
+    specialArgs = { inherit username inputs hyprcontrib; };
     modules = [
       ../configuration.nix
       ./desktop
