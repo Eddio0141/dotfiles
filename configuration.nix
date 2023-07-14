@@ -292,7 +292,7 @@
   # polkit
   security.polkit.enable = true;
 
-  environment.sessionVariables = {
-    QT_QPA_PLATFORM = "wayland";
-  };
+  #environment.sessionVariables = {
+  #  QT_QPA_PLATFORM = "wayland";
+  #};
 }
