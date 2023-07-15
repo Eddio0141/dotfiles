@@ -131,6 +131,7 @@
      jetbrains.rider
      unityhub
      waydroid
+     #xdg-utils
 
      # hypr stuff
      dunst
@@ -226,7 +227,7 @@
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake '.#desktop'";
       update-test = "sudo nixos-rebuild test --flake '.#desktop'";
-      upgrade = "nix flake update";
+      upgrade = "sudo nix flake update";
       neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
     };
 
@@ -313,4 +314,10 @@
   };
 
   virtualisation.waydroid.enable = true;
+
+  xdg.portal.enable = true;
+  #xdg.portal = {
+  #  enable = true;
+  #  xdgOpenUsePortal = true;
+  #};
 }
