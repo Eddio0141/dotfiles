@@ -47,5 +47,6 @@ echo "Welcome back $USER!"
     enable = true;
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
+    systemd.enable = true;
   };
 }
