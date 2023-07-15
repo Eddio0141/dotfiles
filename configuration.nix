@@ -129,9 +129,7 @@
      vscode
      killall
      jetbrains.rider
-     unityhub
      waydroid
-     #xdg-utils
 
      # hypr stuff
      dunst
@@ -309,15 +307,7 @@
     XMODIFIERS = "@im=fcitx";
     XMODIFIER = "fcitx";
     QT_IM_MODULE = "fcitx";
-
-    BROWSER = "firefox";
   };
 
   virtualisation.waydroid.enable = true;
-
-  xdg.portal.enable = true;
-  #xdg.portal = {
-  #  enable = true;
-  #  xdgOpenUsePortal = true;
-  #};
 }
