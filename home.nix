@@ -39,11 +39,13 @@ echo "Welcome back $USER!"
   };
 
   programs.wofi = {
+    enable = true;
     style = builtins.readFile ./config/wofi/style.css;
   };
 
   programs.waybar = {
+    enable = true;
     style = ./config/waybar/style.css;
-    settings = builtins.fromJson ./config/waybar/config;
+    settings = import ./config/waybar/config;
   };
 }

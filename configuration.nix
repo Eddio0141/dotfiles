@@ -308,6 +308,8 @@
     XMODIFIERS = "@im=fcitx";
     XMODIFIER = "fcitx";
     QT_IM_MODULE = "fcitx";
+
+    BROWSER = "firefox";
   };
 
   virtualisation.waydroid.enable = true;
