@@ -130,6 +130,9 @@
      killall
      jetbrains.rider
      waydroid
+     p7zip
+     unityhub
+     protontricks
 
      # hypr stuff
      dunst
