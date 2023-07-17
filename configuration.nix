@@ -133,6 +133,7 @@
      xdg-utils
 
      # hypr stuff
+     xfce.thunar
      dunst
      waybar
      kitty
