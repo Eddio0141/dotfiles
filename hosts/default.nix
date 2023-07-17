@@ -1,4 +1,4 @@
-{ lib, inputs, system, home-manager, username, hyprland, hyprcontrib, ... }:
+{ lib, inputs, system, home-manager, username, hyprcontrib, ... }:
 
 {
   desktop = lib.nixosSystem {
@@ -16,8 +16,6 @@
           imports = [ ../home.nix ];
         };
       }
-
-      hyprland.nixosModules.default { programs.hyprland.enable = true; }
     ];
   };
 }

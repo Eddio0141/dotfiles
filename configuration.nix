@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, username, hyprcontrib, ... }:
+{ config, pkgs, username, hyprcontrib, inputs, ... }:
 
 {
   imports =
@@ -116,7 +116,6 @@
      firefox
      kate
      discord-canary
-     steam
      vim
      avalonia-ilspy
      neofetch
@@ -125,21 +124,19 @@
      git
      obsidian
      obs-studio
-     syncthing
      vscode
      killall
      jetbrains.rider
-     waydroid
      p7zip
      unityhub
      protontricks
+     xdg-utils
 
      # hypr stuff
      dunst
      waybar
      kitty
      wofi
-     xfce.thunar
      udisks
      hyprcontrib.packages.${pkgs.system}.grimblast
   ];
@@ -153,24 +150,13 @@
         };
       });
     })
-    (final: prev: {
-      steam = prev.steam.override ({ extraPkgs ? pkgs': [], ... }: {
-        extraPkgs = pkgs': (extraPkgs pkgs') ++ (with pkgs'; [
-          libgdiplus
-          bumblebee
-          glxinfo
-        ]);
-      });
-    })
   ];
 
   # java
   programs.java.enable = true;
 
   # steam
-  programs.steam = {
-    enable = true;
-  };
+  programs.steam.enable = true;
 
   # HIP
   systemd.tmpfiles.rules = [
@@ -279,6 +265,10 @@
   security.sudo.wheelNeedsPassword = false;
 
   services.syncthing = {
+    user = "${username}";
+    group = "wheel";
+    dataDir = "/home/${username}/.config/syncthing";
+    openDefaultPorts = true;
     devices = {
       mobile = {
         id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
@@ -297,7 +287,11 @@
     };
   };
 
-  programs.thunar.plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+  # thunar stuff
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+  };
 
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
@@ -305,12 +299,23 @@
   # polkit
   security.polkit.enable = true;
 
-  environment.sessionVariables = {
-    #QT_QPA_PLATFORM = "wayland";
-    XMODIFIERS = "@im=fcitx";
-    XMODIFIER = "fcitx";
-    QT_IM_MODULE = "fcitx";
+  virtualisation.waydroid.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      # xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
   };
 
-  virtualisation.waydroid.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland = {
+      hidpi = true;
+      enable = true;
+    };
+  };
 }
