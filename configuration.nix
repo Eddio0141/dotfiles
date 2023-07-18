@@ -113,33 +113,37 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     firefox
-     kate
-     discord-canary
-     vim
-     avalonia-ilspy
-     neofetch
-     dotnet-sdk_7
-     btop
-     git
-     obsidian
-     obs-studio
-     vscode
-     killall
-     jetbrains.rider
-     p7zip
-     unityhub
-     protontricks
-     xdg-utils
+    firefox
+    kate
+    discord-canary
+    vim
+    avalonia-ilspy
+    neofetch
+    dotnet-sdk_7
+    btop
+    git
+    obsidian
+    obs-studio
+    vscode
+    killall
+    jetbrains.rider
+    p7zip
+    (pkgs.unityhub.override {
+      extraLibs = pkgs: with pkgs; [
+        openssl_1_1
+      ];
+    })
+    protontricks
+    xdg-utils
 
-     # hypr stuff
-     xfce.thunar
-     dunst
-     waybar
-     kitty
-     wofi
-     udisks
-     hyprcontrib.packages.${pkgs.system}.grimblast
+    # hypr stuff
+    xfce.thunar
+    dunst
+    waybar
+    kitty
+    wofi
+    udisks
+    hyprcontrib.packages.${pkgs.system}.grimblast
   ];
 
   nixpkgs.overlays = [
@@ -151,6 +155,10 @@
         };
       });
     })
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1u"
   ];
 
   # java
