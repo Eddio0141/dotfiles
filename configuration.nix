@@ -135,8 +135,11 @@
     })
     protontricks
     xdg-utils
+    distrobox
 
     # hypr stuff
+    pavucontrol
+    mpv
     xfce.thunar
     dunst
     waybar
@@ -200,6 +203,8 @@
 
     # for waybar
     font-awesome
+
+    corefonts
   ];
 
   # system upgrade
@@ -327,4 +332,7 @@
       enable = true;
     };
   };
+
+  # podman for distrobox
+  virtualisation.podman.enable = true;
 }
