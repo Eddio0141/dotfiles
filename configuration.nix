@@ -136,6 +136,7 @@
     protontricks
     xdg-utils
     distrobox
+    webcord
 
     # hypr stuff
     pavucontrol
@@ -205,6 +206,7 @@
     font-awesome
 
     corefonts
+    jetbrains-mono
   ];
 
   # system upgrade
