@@ -16,19 +16,19 @@
         # "backlight" "keyboard-state" "sway/language"
         "clock" "tray"];
         # Modules configuration
-        "hyprland/workspaces" = {
-	        format = "{id}: {icon}";
-	        format-icons = {
-		        active = "";
-		        default = "";
-	        };
-        };
+        # "hyprland/workspaces" = {
+	    #     format = "{id}: {icon}";
+	    #     format-icons = {
+		#         active = "";
+		#         default = "";
+	    #     };
+        # };
         "hyprland/window" = {
             # format = "👉 {}";
             rewrite = {
                 "(.*) - Mozilla Firefox" = "🌎 $1";
             };
-            "separate-outputs" = true;
+            # "separate-outputs" = true;
         };
     #    "keyboard-state" = {
     #        "numlock" = true;
