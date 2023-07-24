@@ -287,22 +287,24 @@
     group = "wheel";
     dataDir = "/home/${username}/.config/syncthing";
     openDefaultPorts = true;
-    devices = {
-      mobile = {
-        id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
+    settings = {
+      devices = {
+        mobile = {
+          id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
+        };
       };
-    };
-    folders = {
-      "/home/${username}/Documents/Obsidian" = {
-        id = "obsidian";
-        devices = [ "mobile" ];
+      extraOptions = {
+        startBrowser = false;
+        urAccepted = -1;
+      };
+      folders = {
+        "/home/${username}/Documents/Obsidian" = {
+          id = "obsidian";
+          devices = [ "mobile" ];
+        };
       };
     };
     enable = true;
-    extraOptions = {
-      startBrowser = false;
-      urAccepted = -1;
-    };
   };
 
   # thunar stuff
