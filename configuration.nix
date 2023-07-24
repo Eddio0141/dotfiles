@@ -150,6 +150,7 @@
     wofi
     udisks
     hyprcontrib.packages.${pkgs.system}.grimblast
+    libsForQt5.gwenview
   ];
 
   nixpkgs.overlays = [
@@ -310,7 +311,11 @@
   # thunar stuff
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    plugins = with pkgs.xfce; [
+      thunar-volman
+      thunar-archive-plugin
+      thunar-media-tags-plugin
+    ];
   };
 
   services.gvfs.enable = true; # Mount, trash, and other functionalities
