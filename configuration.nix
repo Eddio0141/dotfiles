@@ -137,8 +137,7 @@
     xdg-utils
     distrobox
     webcord
-    winePackages.waylandFull
-    wine64Packages.waylandFull
+    wine
 
     # hypr stuff
     pavucontrol
