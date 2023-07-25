@@ -23,13 +23,14 @@
 		#         default = "";
 	    #     };
         # };
-        # "hyprland/window" = {
-        #     # format = "👉 {}";
-        #     rewrite = {
-        #         "(.*) - Mozilla Firefox" = "🌎 $1";
-        #     };
-        #     # "separate-outputs" = true;
-        # };
+        "hyprland/window" = {
+            # format = "👉 {}";
+            # rewrite = {
+            #     "(.*) - Mozilla Firefox" = "🌎 $1";
+            # };
+            "max-length" = 200;
+            "separate-outputs" = true;
+        };
     #    "keyboard-state" = {
     #        "numlock" = true;
     #        "capslock" = true;
