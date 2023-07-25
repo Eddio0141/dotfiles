@@ -138,6 +138,7 @@
     distrobox
     webcord
     wine
+    wine64
 
     # hypr stuff
     pavucontrol
