@@ -200,7 +200,7 @@
   };
 
   # fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     # japanese
     ipafont
     kochi-substitute
