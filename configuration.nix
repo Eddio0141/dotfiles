@@ -330,18 +330,9 @@
     enable = true;
     # xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      # xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
     ];
-  };
-
-  programs.hyprland = {
-    enable = true;
-    xwayland = {
-      hidpi = true;
-      enable = true;
-    };
   };
 
   # podman for distrobox

@@ -18,12 +18,6 @@
     ];
   };
 
-  xdg.configFile."hypr" = {
-    source = ./config/hypr;
-    recursive = true;
-    onChange = "${pkgs.hyprland}/bin/hyprctl reload";
-  };
-
   xdg.configFile."neofetch/ascii-anime" = {
     source = ./config/neofetch/ascii-anime;
   };
@@ -47,5 +41,16 @@ echo "Welcome back $USER!"
     enable = true;
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # plugins = [];
+    extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
+    systemdIntegration = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
   };
 }
