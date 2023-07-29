@@ -11,9 +11,13 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprwm = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, hyprcontrib, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprcontrib, hyprwm, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -28,7 +32,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit inputs username system home-manager hyprcontrib;
+          inherit inputs username system home-manager hyprcontrib hyprwm;
         }
       );
     };

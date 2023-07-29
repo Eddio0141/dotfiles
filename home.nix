@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, inputs, hyprwm, ... }:
 {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -45,6 +45,7 @@ echo "Welcome back $USER!"
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = hyprwm.packages.${pkgs.system}.hyprland;
     # plugins = [];
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
     systemdIntegration = true;
