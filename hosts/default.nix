@@ -16,7 +16,6 @@
           imports = [
             ../home.nix
             inputs.hyprland.homeManagerModules.default
-            { wayland.windowManager.hyprland.enable = true; }
           ];
         };
       }

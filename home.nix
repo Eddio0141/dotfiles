@@ -51,7 +51,7 @@ echo "Welcome back $USER!"
   };
 
   wayland.windowManager.hyprland = {
-    # enable = true;
+    enable = true;
     # plugins = [];
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
     systemdIntegration = true;
