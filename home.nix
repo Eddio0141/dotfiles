@@ -1,9 +1,16 @@
-{ config, pkgs, username, inputs, hyprwm, ... }:
+{ config, pkgs, username, inputs, ... }:
 {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
   home.stateVersion = "23.05";
+
+  programs.home-manager.enable = true;
+
+  services.home-manager.autoUpgrade = {
+    enable = true;
+    frequency = "daily";
+  };
 
   programs.git = {
     enable = true;
@@ -44,8 +51,7 @@ echo "Welcome back $USER!"
   };
 
   wayland.windowManager.hyprland = {
-    enable = true;
-    package = hyprwm.packages.${pkgs.system}.hyprland;
+    # enable = true;
     # plugins = [];
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
     systemdIntegration = true;

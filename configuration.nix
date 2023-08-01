@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, username, hyprcontrib, inputs, ... }:
+{ config, pkgs, username, inputs, ... }:
 
 {
   imports =
@@ -149,7 +149,7 @@
     kitty
     wofi
     udisks
-    hyprcontrib.packages.${pkgs.system}.grimblast
+    inputs.hyprcontrib.packages.${pkgs.system}.grimblast
     libsForQt5.gwenview
   ];
 
@@ -324,7 +324,7 @@
   # polkit
   security.polkit.enable = true;
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -337,4 +337,10 @@
 
   # podman for distrobox
   virtualisation.podman.enable = true;
+
+  # using cachix for hyprland
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
 }
