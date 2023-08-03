@@ -128,11 +128,6 @@
     killall
     jetbrains.rider
     p7zip
-    (pkgs.unityhub.override {
-      extraLibs = pkgs: with pkgs; [
-        openssl_1_1
-      ];
-    })
     protontricks
     xdg-utils
     distrobox
