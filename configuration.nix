@@ -134,6 +134,8 @@
     webcord
     wine
     wine64
+    libreoffice-qt
+    unityhub
 
     # hypr stuff
     pavucontrol
