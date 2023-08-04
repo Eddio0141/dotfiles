@@ -135,7 +135,11 @@
     wine
     wine64
     libreoffice-qt
-    unityhub
+    (pkgs.unityhub.override {
+      extraLibs = pkgs: with pkgs; [
+        openssl_1_1
+      ];
+    })
 
     # hypr stuff
     pavucontrol
@@ -150,6 +154,11 @@
     libsForQt5.gwenview
   ];
 
+  # insecure packages
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1v"
+  ];
+
   nixpkgs.overlays = [
     (final: prev: {
       discord-canary = prev.discord.overrideAttrs (_: {
@@ -159,10 +168,6 @@
         };
       });
     })
-  ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1u"
   ];
 
   # java
