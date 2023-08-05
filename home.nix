@@ -16,6 +16,11 @@
     enable = true;
     userName = "Eddio0141";
     userEmail = "eddio0141@gmail.com";
+    
+    extraConfig = {
+      init.defaultBranch = "main";
+      advice.addIgnoredFile = "false";
+    };
   };
 
   programs.obs-studio = {
