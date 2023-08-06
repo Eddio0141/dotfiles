@@ -140,18 +140,39 @@
         openssl_1_1
       ];
     })
+    gamemode
+    mangohud
+    ffmpeg
 
     # hypr stuff
+    # TODO see if I can move this to plugins in hm config
     pavucontrol
     mpv
-    xfce.thunar
     dunst
     waybar
     kitty
     wofi
-    udisks
     inputs.hyprcontrib.packages.${pkgs.system}.grimblast
     libsForQt5.gwenview
+
+    # dolphin
+    # libsForQt5.dolphin
+    # libsForQt5.kdegraphics-thumbnailers
+    # libsForQt5.kimageformats
+    # libheif
+    # libsForQt5.qt5.qtimageformats
+    # resvg
+    # libsForQt5.ffmpegthumbs
+    # taglib
+    # libsForQt5.oxygen
+    # libsForQt5.oxygen-icons5
+
+    xfce.thunar
+    # thunar archive manager
+    libsForQt5.ark
+    # thunar external storage
+    gvfs
+    udisks
   ];
 
   # insecure packages
@@ -347,4 +368,9 @@
   };
 
   programs.hyprland.enable = true;
+
+  # env vars
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
 }
