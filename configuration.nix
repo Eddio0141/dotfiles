@@ -144,6 +144,10 @@
     mangohud
     ffmpeg
 
+    # rust
+    rustc
+    cargo
+
     # hypr stuff
     # TODO see if I can move this to plugins in hm config
     pavucontrol
