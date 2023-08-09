@@ -141,12 +141,7 @@
       ];
     })
     gamemode
-    mangohud
     ffmpeg
-
-    # rust
-    rustc
-    cargo
 
     # hypr stuff
     # TODO see if I can move this to plugins in hm config
@@ -213,11 +208,15 @@
 
     # vulkan
     amdvlk
+
+    mangohud
   ];
 
-  # vulkan 32 bit apps
   hardware.opengl.extraPackages32 = with pkgs; [
+    # vulkan 32 bit apps
     driversi686Linux.amdvlk
+
+    mangohud
   ];
 
   # vulkan
