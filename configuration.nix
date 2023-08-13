@@ -260,7 +260,7 @@
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake '.#desktop'";
       update-test = "sudo nixos-rebuild test --flake '.#desktop'";
-      upgrade = "sudo nix flake update";
+      upgrade = "nix flake update";
       neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
     };
 
