@@ -119,7 +119,6 @@
     vim
     avalonia-ilspy
     neofetch
-    dotnet-sdk_7
     btop
     git
     obsidian
@@ -134,6 +133,7 @@
     webcord
     wine
     wine64
+    winetricks
     libreoffice-qt
     (pkgs.unityhub.override {
       extraLibs = pkgs: with pkgs; [
@@ -142,6 +142,7 @@
     })
     gamemode
     ffmpeg
+    lutris
 
     # hypr stuff
     # TODO see if I can move this to plugins in hm config
@@ -371,6 +372,9 @@
   };
 
   programs.hyprland.enable = true;
+
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
 
   # env vars
   environment.sessionVariables = {

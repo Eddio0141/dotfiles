@@ -65,4 +65,19 @@ echo "Welcome back $USER!"
       hidpi = true;
     };
   };
+
+  # mangohud
+  programs.mangohud = {
+    enable = true;
+    enableSessionWide = true;
+    settings = {
+      position = "top-right";
+    };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 }
