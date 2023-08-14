@@ -34,13 +34,33 @@
     source = ./config/neofetch/ascii-anime;
   };
 
-  home.file.".zshrc" = {
-    text = ''
-[[ $- != *i* ]] && return
+  # zsh
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    
+    shellAliases = {
+      update = "sudo nixos-rebuild switch --flake '.#desktop'";
+      update-test = "sudo nixos-rebuild test --flake '.#desktop'";
+      upgrade = "nix flake update";
+      neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
+    };
 
-neofetch
+    # oh my zsh
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "random";
+    };
 
-echo "Welcome back $USER!"
+    initExtra = ''
+if [[ $- = *i* ]]; then
+  neofetch --source ~/.config/neofetch/ascii-anime
+
+  echo "Welcome back $USER!"
+fi
 '';
   };
 

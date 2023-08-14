@@ -255,23 +255,7 @@
   nix.settings.auto-optimise-store = true;
 
   # zsh
-  programs.zsh = {
-    enable = true;
-    enableBashCompletion = true;
-    shellAliases = {
-      update = "sudo nixos-rebuild switch --flake '.#desktop'";
-      update-test = "sudo nixos-rebuild test --flake '.#desktop'";
-      upgrade = "nix flake update";
-      neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
-    };
-
-    # oh my zsh
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "random";
-    };
-  };
+  programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;
 
