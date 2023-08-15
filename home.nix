@@ -80,7 +80,10 @@ fi
     # plugins = [];
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
     systemdIntegration = true;
-    xwayland.enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
   };
 
   # mangohud
