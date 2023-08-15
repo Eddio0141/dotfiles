@@ -20,6 +20,7 @@
     extraConfig = {
       init.defaultBranch = "main";
       advice.addIgnoredFile = "false";
+      pull.rebase = "false";
     };
   };
 
