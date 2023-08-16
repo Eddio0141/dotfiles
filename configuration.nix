@@ -150,7 +150,6 @@
     pavucontrol
     mpv
     dunst
-    waybar-hyprland
     kitty
     wofi
     inputs.hyprcontrib.packages.${pkgs.system}.grimblast
