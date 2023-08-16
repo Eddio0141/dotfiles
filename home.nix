@@ -71,7 +71,6 @@ fi
   };
 
   programs.waybar = {
-    enable = true;
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
   };
