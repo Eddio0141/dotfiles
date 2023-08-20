@@ -146,7 +146,6 @@
     thunderbird
 
     # hypr stuff
-    # TODO see if I can move this to plugins in hm config
     pavucontrol
     mpv
     dunst
