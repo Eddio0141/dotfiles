@@ -138,6 +138,7 @@
     (pkgs.unityhub.override {
       extraLibs = pkgs: with pkgs; [
         openssl_1_1
+        dotnet-sdk_7
       ];
     })
     gamemode
