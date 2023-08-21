@@ -72,7 +72,7 @@ fi
 
   programs.waybar = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
+    package = pkgs.waybar-hyprland;
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
   };
