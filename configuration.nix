@@ -138,13 +138,13 @@
       extraLibs = pkgs: with pkgs; [
         openssl_1_1
         dotnet-sdk_7
-        blender
       ];
     })
     gamemode
     ffmpeg
     lutris
     thunderbird
+    blender
 
     # hypr stuff
     pavucontrol
