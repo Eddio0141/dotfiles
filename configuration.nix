@@ -239,16 +239,10 @@
     jetbrains-mono
   ];
 
-  # system upgrade
-  #system.autoUpgrade = {
-  #  enable = true;
-  #  dates = "daily";
-  #};
-
   # gc
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    dates = "daily";
   };
 
   nix.settings.auto-optimise-store = true;
