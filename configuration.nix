@@ -153,6 +153,7 @@
     kitty
     wofi
     inputs.hyprcontrib.packages.${pkgs.system}.grimblast
+    hyprpicker # this is needed for grimblast
     libsForQt5.gwenview
 
     # dolphin
