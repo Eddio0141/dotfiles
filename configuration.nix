@@ -125,6 +125,7 @@
     obs-studio
     vscode
     jetbrains.rider
+    github-copilot-intellij-agent
     p7zip
     protontricks
     xdg-utils
