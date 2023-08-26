@@ -31,9 +31,7 @@
     ];
   };
 
-  xdg.configFile."neofetch/ascii-anime" = {
-    source = ./config/neofetch/ascii-anime;
-  };
+  xdg.configFile."neofetch/ascii-anime".source = ./config/neofetch/ascii-anime;
 
   # zsh
   programs.zsh = {
@@ -98,6 +96,8 @@ fi
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+
+  xdg.configFile."qt5ct/qt5ct.conf".source = ./config/qt5ct/qt5ct.conf;
 
   xdg.configFile."qt5ct/colors/Dracula.conf".text = builtins.readFile (pkgs.fetchFromGitHub {
     owner = "dracula";
