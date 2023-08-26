@@ -159,25 +159,29 @@
     hyprpicker # this is needed for grimblast
     libsForQt5.gwenview
 
-    # dolphin
-    # libsForQt5.dolphin
-    # libsForQt5.kdegraphics-thumbnailers
-    # libsForQt5.kimageformats
-    # libheif
-    # libsForQt5.qt5.qtimageformats
-    # resvg
-    # libsForQt5.ffmpegthumbs
-    # taglib
-    # libsForQt5.oxygen
-    # libsForQt5.oxygen-icons5
-
-    xfce.thunar
-    # thunar archive manager
-    libsForQt5.ark
-    # thunar external storage
+    # external storage
     gvfs
     udisks
+
+    # dolphin
+    libsForQt5.dolphin
+    libsForQt5.dolphin-plugins
+    libsForQt5.kdegraphics-thumbnailers
+    libsForQt5.kimageformats
+    libheif
+    libsForQt5.qt5.qtimageformats
+    resvg
+    libsForQt5.ffmpegthumbs
+    taglib
+    libsForQt5.breeze-qt5
+    libsForQt5.breeze-icons
+    libsForQt5.ark
+
+    # managing qt5 themes
+    libsForQt5.qt5ct
   ];
+
+  qt.platformTheme = "qt5ct";
 
   # insecure packages
   nixpkgs.config.permittedInsecurePackages = [
@@ -355,7 +359,6 @@
   virtualisation.virtualbox.host.enable = true;
 
   # env vars
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-  };
+  # environment.sessionVariables = {
+  # };
 }
