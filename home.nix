@@ -105,4 +105,6 @@ fi
     rev = "master";
     sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
   } + "/Dracula.conf";
+
+  xdg.dataFile."fonts".source = ./share/fonts;
 }
