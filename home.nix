@@ -99,10 +99,10 @@ fi
 
   xdg.configFile."qt5ct/qt5ct.conf".source = ./config/qt5ct/qt5ct.conf;
 
-  xdg.configFile."qt5ct/colors/Dracula.conf".text = builtins.readFile (pkgs.fetchFromGitHub {
+  xdg.configFile."qt5ct/colors/Dracula.conf".source = pkgs.fetchFromGitHub {
     owner = "dracula";
     repo = "qt5";
     rev = "master";
     sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
-  } + "/Dracula.conf");
+  } + "/Dracula.conf";
 }
