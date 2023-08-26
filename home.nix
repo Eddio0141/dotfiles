@@ -98,4 +98,11 @@ fi
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+
+  xdg.configFile."qt5ct/colors/Dracula.conf".text = builtins.readFile (pkgs.fetchFromGitHub {
+    owner = "dracula";
+    repo = "qt5";
+    rev = "master";
+    sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
+  } + "/Dracula.conf");
 }
