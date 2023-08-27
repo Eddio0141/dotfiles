@@ -359,6 +359,7 @@
   virtualisation.virtualbox.host.enable = true;
 
   # env vars
-  # environment.sessionVariables = {
-  # };
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
 }
