@@ -164,9 +164,11 @@
     udisks
 
     # dolphin
+    libsForQt5.kio-extras
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
     libsForQt5.kdegraphics-thumbnailers
+    ffmpegthumbnailer
     libsForQt5.kimageformats
     libheif
     libsForQt5.qt5.qtimageformats
