@@ -148,6 +148,7 @@
     lutris
     thunderbird
     blender
+    ani-cli
 
     # hypr stuff
     pavucontrol
