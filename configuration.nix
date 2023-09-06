@@ -112,8 +112,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
     kate
@@ -131,7 +129,7 @@
     p7zip
     protontricks
     xdg-utils
-    distrobox
+    # distrobox
     webcord
     wine
     wine64
@@ -337,7 +335,7 @@
   };
 
   # podman for distrobox
-  virtualisation.podman.enable = true;
+  # virtualisation.podman.enable = true;
 
   # using cachix for hyprland
   nix.settings = {
@@ -346,9 +344,6 @@
   };
 
   programs.hyprland.enable = true;
-
-  # virtualbox
-  virtualisation.virtualbox.host.enable = true;
 
   # env vars
   environment.sessionVariables = {
