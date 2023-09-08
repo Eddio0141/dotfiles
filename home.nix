@@ -107,4 +107,6 @@ fi
   } + "/Dracula.conf";
 
   xdg.dataFile."fonts".source = ./share/fonts;
+
+  # TODO add dolphin settings
 }
