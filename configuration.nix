@@ -147,6 +147,7 @@
     thunderbird
     blender
     ani-cli
+    qbittorrent
 
     # hypr stuff
     pavucontrol
