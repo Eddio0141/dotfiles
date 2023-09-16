@@ -131,7 +131,7 @@
     xdg-utils
     # distrobox
     webcord
-    wineWowPackages.full
+    wineWowPackages.staging
     winetricks
     libreoffice-qt
     (pkgs.unityhub.override {
