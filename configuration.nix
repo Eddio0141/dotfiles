@@ -147,6 +147,7 @@
     blender
     ani-cli
     qbittorrent
+    skypeforlinux
 
     # hypr stuff
     pavucontrol
