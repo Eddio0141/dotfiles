@@ -296,7 +296,7 @@
         };
         laptop = {
           id = "XTDP516-5NPJXNL-CQIYBAP-TN75VCX-37RWFBV-YAJSB6X-6URZYEN-HG7EJQP";
-        }
+        };
       };
       extraOptions = {
         startBrowser = false;
