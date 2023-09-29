@@ -305,7 +305,7 @@
       folders = {
         "/home/${username}/Documents/Obsidian" = {
           id = "obsidian";
-          devices = [ "mobile", "laptop" ];
+          devices = [ "mobile" "laptop" ];
         };
       };
     };
