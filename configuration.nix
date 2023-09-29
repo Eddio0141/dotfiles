@@ -294,6 +294,9 @@
         mobile = {
           id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
         };
+        laptop = {
+          id = "XTDP516-5NPJXNL-CQIYBAP-TN75VCX-37RWFBV-YAJSB6X-6URZYEN-HG7EJQP";
+        }
       };
       extraOptions = {
         startBrowser = false;
@@ -302,7 +305,7 @@
       folders = {
         "/home/${username}/Documents/Obsidian" = {
           id = "obsidian";
-          devices = [ "mobile" ];
+          devices = [ "mobile", "laptop" ];
         };
       };
     };
