@@ -148,6 +148,7 @@
     ani-cli
     qbittorrent
     skypeforlinux
+    davinci-resolve
 
     # hypr stuff
     pavucontrol
