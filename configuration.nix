@@ -115,7 +115,9 @@
   environment.systemPackages = with pkgs; [
     firefox
     kate
-    discord-canary
+    (discord-canary.override {
+      withVencord = true;
+    })
     vim
     avalonia-ilspy
     neofetch
