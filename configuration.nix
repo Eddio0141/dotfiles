@@ -234,8 +234,20 @@
     # for waybar
     font-awesome
 
+    # other stuff
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
     corefonts
     jetbrains-mono
+
+    # idk what those are
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
   ];
 
   # gc
