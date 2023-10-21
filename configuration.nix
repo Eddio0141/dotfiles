@@ -105,7 +105,8 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    # kvm and libvirtd groups are needed for virt-manager
+    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" ];
     shell = pkgs.zsh;
   };
 
@@ -151,6 +152,9 @@
     qbittorrent
     skypeforlinux
     davinci-resolve
+
+    # vm stuff
+    virt-manager
 
     # hypr stuff
     pavucontrol
@@ -357,6 +361,20 @@
   # podman for distrobox
   # virtualisation.podman.enable = true;
 
+  # for virt-manager
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      runAsRoot = true;
+      ovmf.enable = true;
+      verbatimConfig = ''
+        user = "yuu"
+        group = "kvm"
+        namespaces = []
+      '';
+    };
+  };
+
   # using cachix for hyprland
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" "https://devenv.cachix.org" ];
@@ -364,6 +382,8 @@
   };
 
   programs.hyprland.enable = true;
+
+  programs.dconf.enable = true;
 
   # env vars
   environment.sessionVariables = {
