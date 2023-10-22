@@ -19,15 +19,36 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "${username}"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "${username}"; # Define your hostname.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    # Enable networking
+    networkmanager.enable = true;
+
+    # virtual interfaces
+    # interfaces = {
+    #   "virbr0" = {
+    #     name = "virbr0";
+    #   };
+    # };
+
+    # bridge
+    # bridges."virbr0" = {
+    #   interfaces = [ "enp5s0" ];
+    #   rstp = true;
+    # };
+
+    # Open ports in the firewall.
+    # firewall.allowedTCPPorts = [ ... ];
+    # firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    # firewall.enable = false;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -286,12 +307,6 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -372,7 +387,7 @@
       runAsRoot = true;
       ovmf.enable = true;
       verbatimConfig = ''
-        user = "yuu"
+        user = "${username}"
         group = "kvm"
         namespaces = []
       '';
