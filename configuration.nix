@@ -153,6 +153,10 @@
     skypeforlinux
     davinci-resolve
 
+    # spell checking
+    hunspell
+    hunspellDicts.en_GB-large
+
     # vm stuff
     virt-manager
 
