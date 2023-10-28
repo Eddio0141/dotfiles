@@ -40,7 +40,7 @@
     # bridge
     # bridges."virbr0" = {
     #   interfaces = [ "enp5s0" ];
-    #   rstp = true;
+    #   rstp = false;
     # };
 
     # Open ports in the firewall.
@@ -172,7 +172,9 @@
     ani-cli
     qbittorrent
     skypeforlinux
-    davinci-resolve
+    #davinci-resolve
+    yt-dlp
+    clementine
 
     # spell checking
     hunspell
