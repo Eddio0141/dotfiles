@@ -176,6 +176,7 @@
     #davinci-resolve
     yt-dlp
     clementine
+    ydotool
 
     # spell checking
     hunspell
