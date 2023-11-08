@@ -412,5 +412,6 @@
   # env vars
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
+    YDOTOOL_SOCKET = "/tmp/ydotool";
   };
 }
