@@ -193,6 +193,7 @@
     inputs.hyprcontrib.packages.${pkgs.system}.grimblast
     hyprpicker # this is needed for grimblast
     libsForQt5.gwenview
+    pamixer # volume control
 
     # external storage
     gvfs
