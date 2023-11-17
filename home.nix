@@ -108,5 +108,8 @@ fi
 
   xdg.dataFile."fonts".source = ./share/fonts;
 
+  # hyprpaper
+  xdg.configFile."hypr/hyprpaper.conf".source = ./config/hypr/hyprpaper.conf;
+
   # TODO add dolphin settings
 }

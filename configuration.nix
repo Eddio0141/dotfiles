@@ -195,6 +195,7 @@
     hyprpicker # this is needed for grimblast
     libsForQt5.gwenview
     pamixer # volume control
+    hyprpaper
 
     # external storage
     gvfs
