@@ -376,7 +376,7 @@
   # polkit
   security.polkit.enable = true;
 
-  # virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.enable = true;
 
   xdg.portal = {
     enable = true;
