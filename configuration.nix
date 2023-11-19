@@ -351,6 +351,10 @@
           id = "obsidian";
           devices = [ "mobile" "laptop" ];
         };
+        "/home/${username}/Sync" = {
+          id = "sync";
+          devices = [ "mobile" "laptop" ];
+        };
       };
     };
     enable = true;
