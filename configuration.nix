@@ -351,7 +351,7 @@
           id = "obsidian";
           devices = [ "mobile" "laptop" ];
         };
-        "/home/${username}/Sync" = {
+        "/home/${username}/sync" = {
           id = "sync";
           devices = [ "mobile" "laptop" ];
         };
