@@ -419,4 +419,7 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     YDOTOOL_SOCKET = "/tmp/ydotool";
   };
+
+  # for ssh agent
+  programs.ssh.startAgent = true;
 }
