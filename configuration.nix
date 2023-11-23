@@ -422,4 +422,6 @@
 
   # for ssh agent
   programs.ssh.startAgent = true;
+
+  services.teamviewer.enable = true;
 }
