@@ -137,10 +137,10 @@
   environment.systemPackages = with pkgs; [
     firefox
     kate
-    # (discord-canary.override {
-    #   withVencord = true;
-    # })
-    discord
+    (discord.override {
+      withVencord = true;
+    })
+    # discord
     vim
     avalonia-ilspy
     neofetch
@@ -159,6 +159,7 @@
     wineWowPackages.staging
     winetricks
     libreoffice-qt
+    # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
     (pkgs.unityhub.override {
       extraLibs = pkgs: with pkgs; [
         openssl_1_1
