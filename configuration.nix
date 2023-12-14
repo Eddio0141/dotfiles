@@ -149,8 +149,7 @@
     obsidian
     obs-studio
     vscode
-    jetbrains.rider
-    github-copilot-intellij-agent
+    (jetbrains.plugins.addPlugins jetbrains.rider [ "github-copilot" ])
     p7zip
     protontricks
     xdg-utils
@@ -193,7 +192,6 @@
     kitty
     wofi
     inputs.hyprcontrib.packages.${pkgs.system}.grimblast
-    hyprpicker # this is needed for grimblast
     libsForQt5.gwenview
     pamixer # volume control
     hyprpaper
@@ -228,6 +226,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1v"
     "openssl-1.1.1w"
+    "electron-25.9.0"
   ];
 
   # java
