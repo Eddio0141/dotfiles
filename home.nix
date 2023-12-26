@@ -78,7 +78,7 @@ fi
     enable = true;
     # plugins = [];
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
-    systemdIntegration = true;
+    systemd.enable = true;
     xwayland.enable = true;
   };
 

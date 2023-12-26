@@ -177,6 +177,8 @@
     yt-dlp
     clementine
     ydotool
+    pkgsi686Linux.gperftools # TODO remove when tf2 is fixed, also update tf2's launch options after
+    r2modman
 
     # spell checking
     hunspell
@@ -424,4 +426,6 @@
   programs.ssh.startAgent = true;
 
   services.teamviewer.enable = true;
+
+  # services.flatpak.enable = true;
 }
