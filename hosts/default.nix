@@ -3,7 +3,7 @@
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit username inputs; };
+    specialArgs = { inherit username inputs system; };
     modules = [
       ../configuration.nix
       ./desktop
@@ -11,7 +11,7 @@
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit username inputs; };
+        home-manager.extraSpecialArgs = { inherit username inputs system; };
         home-manager.users.${username} = {
           imports = [
             ../home.nix

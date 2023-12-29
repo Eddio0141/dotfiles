@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, username, inputs, ... }:
+{ config, pkgs, username, inputs, system, ... }:
 
 {
   imports =
@@ -193,7 +193,7 @@
     dunst
     kitty
     wofi
-    inputs.hyprcontrib.packages.${pkgs.system}.grimblast
+    inputs.hyprcontrib.packages.${system}.grimblast
     libsForQt5.gwenview
     pamixer # volume control
     hyprpaper
