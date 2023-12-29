@@ -1,4 +1,4 @@
-{ config, pkgs, username, inputs, ... }:
+{ config, pkgs, username, inputs, system, ... }:
 {
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -70,8 +70,10 @@ fi
 
   programs.waybar = {
     enable = true;
+    package = inputs.waybar.packages.${system}.waybar;
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
+    systemd.enable = true;
   };
 
   wayland.windowManager.hyprland = {
