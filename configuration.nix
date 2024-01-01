@@ -179,6 +179,7 @@
     ydotool
     pkgsi686Linux.gperftools # TODO remove when tf2 is fixed, also update tf2's launch options after
     r2modman
+    inputs.gpt4all.packages.${system}.gpt4all-chat
 
     # spell checking
     hunspell
