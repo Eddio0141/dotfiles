@@ -51,7 +51,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
-      theme = "random";
+      theme = "fino-time";
     };
 
     initExtra = ''
