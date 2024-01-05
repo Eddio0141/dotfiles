@@ -127,7 +127,7 @@
     isNormalUser = true;
     description = "${username}";
     # kvm and libvirtd groups are needed for virt-manager
-    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "docker" ];
     shell = pkgs.zsh;
   };
 
@@ -429,4 +429,9 @@
   services.teamviewer.enable = true;
 
   # services.flatpak.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless.enable = true;
+  };
 }
