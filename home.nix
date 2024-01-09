@@ -70,7 +70,19 @@ fi
 
   programs.waybar = {
     enable = true;
-    package = inputs.waybar.packages.${system}.waybar;
+    # TODO wait for this fix
+    package = inputs.waybar.packages.${system}.waybar.override (prev: {
+      waybar = prev.waybar.override {
+        catch2_3 = pkgs.catch2.overrideAttrs {
+          src = pkgs.fetchFromGitHub {
+            owner = "catchorg";
+            repo = "Catch2";
+            rev = "v3.5.1";
+            hash = "sha256-OyYNUfnu6h1+MfCF8O+awQ4Usad0qrdCtdZhYgOY+Vw=";
+          };
+        };
+      };
+    });
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
     systemd.enable = true;
