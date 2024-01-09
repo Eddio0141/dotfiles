@@ -5,6 +5,8 @@
 { config, pkgs, username, inputs, system, ... }:
 
 {
+  # TODO rewrite this shit
+
   imports =
     [ # Include the results of the hardware scan.
       #./hardware-configuration.nix
@@ -194,6 +196,8 @@
     dunst
     kitty
     wofi
+    # TODO merge this into grimblast
+    inputs.hyprpicker.packages.${system}.default
     inputs.hyprcontrib.packages.${system}.grimblast
     libsForQt5.gwenview
     pamixer # volume control
@@ -238,10 +242,27 @@
   # steam
   programs.steam.enable = true;
 
-  # HIP
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
+  systemd = {
+    # HIP
+    tmpfiles.rules = [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    ];
+
+    # polkit agent
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+  };
 
   hardware.opengl.extraPackages = with pkgs; [
     # OpenCL

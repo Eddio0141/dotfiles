@@ -23,10 +23,10 @@
       url = "github:polygon/gpt4all-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprpicker = {
-    #   url = "github:hyprwm/hyprpicker";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
