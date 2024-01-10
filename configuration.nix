@@ -142,7 +142,6 @@
     (discord.override {
       withVencord = true;
     })
-    # discord
     vim
     avalonia-ilspy
     neofetch
@@ -150,7 +149,6 @@
     git
     obsidian
     obs-studio
-    vscode
     (jetbrains.plugins.addPlugins jetbrains.rider [ "github-copilot" ])
     p7zip
     protontricks

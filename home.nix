@@ -126,4 +126,41 @@ fi
   xdg.configFile."hypr/hyprpaper.conf".source = ./config/hypr/hyprpaper.conf;
 
   # TODO add dolphin settings
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      vadimcn.vscode-lldb
+      serayuzgur.crates
+      mkhl.direnv
+      ms-azuretools.vscode-docker
+      usernamehw.errorlens
+      github.copilot
+      github.copilot-chat
+      wmaurer.change-case
+      ms-ceintl.vscode-language-pack-ja
+      ms-toolsai.jupyter
+      ms-toolsai.vscode-jupyter-cell-tags
+      ms-toolsai.jupyter-keymap
+      ms-toolsai.jupyter-renderers
+      ms-toolsai.vscode-jupyter-slideshow
+      yzhang.markdown-all-in-one
+      jnoortheen.nix-ide
+      ms-python.vscode-pylance
+      ms-python.python
+      mechatroner.rainbow-csv
+      rust-lang.rust-analyzer
+      foxundermoon.shell-format
+      wakatime.vscode-wakatime
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      { name = "discord-vscode"; publisher = "icrawl"; version = "5.8.0"; sha256 = "IU/looiu6tluAp8u6MeSNCd7B8SSMZ6CEZ64mMsTNmU="; }
+      { name = "feather-vscode"; publisher = "melishev"; version = "1.0.1"; sha256 = "sFgNgNAFlTfx6m+Rp5lQxWnjSe7LLzB6N/gq7jQhRJs="; }
+      { name = "cosmicsarthak-neon-theme"; publisher = "cosmicsarthak"; version = "4.4.7"; sha256 = "/vuogor5TMuBY8z9tJsd0PZAoPixgCYJsEfxHA14I/Q="; }
+      { name = "theme-pink-cat-boo"; publisher = "ftsamoyed"; version = "1.3.0"; sha256 = "FD7fim0sRWAADzDAbhV3dnYW3mxoSgVPLs5Wkg5r01k="; }
+      { name = "vscode-rhai"; publisher = "rhaiscript"; version = "0.6.6"; sha256 = "Yw+wq67u55Hr0Kan/3RrG8Rf6F2pU2FvkD30i4S3paE="; }
+      { name = "vscode-todo-highlight"; publisher = "wayou"; version = "1.0.5"; sha256 = "CQVtMdt/fZcNIbH/KybJixnLqCsz5iF1U0k+GfL65Ok="; }
+      { name = "toml"; publisher = "be5invis"; version = "0.6.0"; sha256 = "yk7buEyQIw6aiUizAm+sgalWxUibIuP9crhyBaOjC2E="; }
+      { name = "vscode-counter"; publisher = "uctakeoff"; version = "3.4.0"; sha256 = "4kdcq+a366PA1Lh2kwx37qV6YxWvqzmUVByRxpvul9g="; }
+    ];
+  };
 }
