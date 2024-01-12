@@ -77,6 +77,7 @@
   services.xserver.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
   };
   #services.xserver.desktopManager.plasma5.enable = true;
 
@@ -212,6 +213,9 @@
 
     # managing qt5 themes
     libsForQt5.qt5ct
+
+    # sddm theme TODO for hyprland only
+    sddm-chili-theme
   ];
 
   qt.platformTheme = "qt5ct";
