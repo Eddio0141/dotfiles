@@ -87,7 +87,10 @@
   };
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm {
+    enable = true;
+    wayland.enable = true;
+  };
   #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -440,6 +443,7 @@
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
     YDOTOOL_SOCKET = "/tmp/ydotool";
+    GTK_IM_MODULE = "";
   };
 
   # for ssh agent
@@ -453,4 +457,10 @@
     enable = true;
     rootless.enable = true;
   };
+
+  # for unwrapped binaries
+  # programs.nix-ld = {
+  #   enable = true;
+  #   # libraries = [];
+  # };
 }
