@@ -68,6 +68,7 @@ fi
     style = builtins.readFile ./config/wofi/style.css;
   };
 
+  # TODO waybar is only when hyprland is enabled
   programs.waybar = {
     enable = true;
     # TODO wait for this fix
@@ -91,6 +92,7 @@ fi
   wayland.windowManager.hyprland = {
     enable = true;
     # plugins = [];
+    settings = {};
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
     systemd.enable = true;
     xwayland.enable = true;
