@@ -32,19 +32,6 @@
     # Enable networking
     networkmanager.enable = true;
 
-    # virtual interfaces
-    # interfaces = {
-    #   "virbr0" = {
-    #     name = "virbr0";
-    #   };
-    # };
-
-    # bridge
-    # bridges."virbr0" = {
-    #   interfaces = [ "enp5s0" ];
-    #   rstp = false;
-    # };
-
     # Open ports in the firewall.
     # firewall.allowedTCPPorts = [ ... ];
     # firewall.allowedUDPPorts = [ ... ];
@@ -87,7 +74,7 @@
   };
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm {
+  services.xserver.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
@@ -179,7 +166,6 @@
     #davinci-resolve
     yt-dlp
     clementine
-    ydotool
     pkgsi686Linux.gperftools # TODO remove when tf2 is fixed, also update tf2's launch options after
     r2modman
     inputs.gpt4all.packages.${system}.gpt4all-chat
@@ -249,19 +235,37 @@
       "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
 
-    # polkit agent
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
+    user.services = {
+      # polkit agent
+      # TODO this is for hyprland only
+      polkit-gnome-authentication-agent-1 = {
+        description = "polkit-gnome-authentication-agent-1";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+            Type = "simple";
+            ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+      };
+
+      # to let x11 apps access wayland for stuff like discord screenshare
+      xwaylandvideobridge = {
+        description = "xwaylandvideobridge";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+            Type = "simple";
+            ExecStart = "${pkgs.xwaylandvideobridge}/bin/xwaylandvideobridge";
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+      };
     };
   };
 
@@ -292,6 +296,7 @@
     kochi-substitute
 
     # for waybar
+    # TODO for waybar only
     font-awesome
 
     # other stuff
@@ -386,14 +391,14 @@
   };
 
   # thunar stuff
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-volman
-      thunar-archive-plugin
-      thunar-media-tags-plugin
-    ];
-  };
+  # programs.thunar = {
+  #   enable = true;
+  #   plugins = with pkgs.xfce; [
+  #     thunar-volman
+  #     thunar-archive-plugin
+  #     thunar-media-tags-plugin
+  #   ];
+  # };
 
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
@@ -442,8 +447,8 @@
   # env vars
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    YDOTOOL_SOCKET = "/tmp/ydotool";
     GTK_IM_MODULE = "";
+    XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
   };
 
   # for ssh agent
