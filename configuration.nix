@@ -389,6 +389,10 @@
           id = "sync";
           devices = [ "mobile" "laptop" ];
         };
+        "/home/${username}/Music" = {
+          id = "music";
+          devices = [ "mobile" "laptop" ];
+        };
       };
     };
     enable = true;
