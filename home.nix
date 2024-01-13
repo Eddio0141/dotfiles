@@ -86,7 +86,6 @@ fi
     });
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
-    systemd.enable = true;
   };
 
   wayland.windowManager.hyprland = {
