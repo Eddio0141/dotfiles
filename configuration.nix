@@ -416,15 +416,6 @@
 
   virtualisation.waydroid.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    # xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-  };
-
   # podman for distrobox
   virtualisation.podman.enable = true;
 
