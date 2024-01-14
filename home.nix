@@ -1,9 +1,33 @@
 { config, pkgs, username, inputs, system, ... }:
 {
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home = {
+    username = "${username}";
+    homeDirectory = "/home/${username}";
+    stateVersion = "23.05";
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Amber";
+      size = 16;
+    };
+  };
 
-  home.stateVersion = "23.05";
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.libsForQt5.breeze-gtk;
+      name = "Breeze-Dark";
+    };
+    iconTheme = {
+      package = pkgs.libsForQt5.breeze-icons;
+      name = "breeze-dark";
+    };
+    font = {
+      name = "Noto Sans";
+      size = 10;
+    };
+  };
 
   programs.home-manager.enable = true;
 
