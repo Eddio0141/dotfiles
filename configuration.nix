@@ -445,7 +445,6 @@
 
   # env vars
   environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
     # TODO fix this
     # GTK_IM_MODULE = "";
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
