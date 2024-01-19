@@ -96,26 +96,14 @@ fi
   programs.waybar = {
     enable = true;
     # TODO wait for this fix
-    package = inputs.waybar.packages.${system}.waybar.override (prev: {
-      waybar = prev.waybar.override {
-        catch2_3 = pkgs.catch2.overrideAttrs {
-          src = pkgs.fetchFromGitHub {
-            owner = "catchorg";
-            repo = "Catch2";
-            rev = "v3.5.1";
-            hash = "sha256-OyYNUfnu6h1+MfCF8O+awQ4Usad0qrdCtdZhYgOY+Vw=";
-          };
-        };
-      };
-    });
+    # package = inputs.waybar.packages.${system}.waybar;
+    package = pkgs.waybar;
     style = ./config/waybar/style.css;
     settings = import ./config/waybar/config;
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # plugins = [];
-    settings = {};
     extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
     systemd.enable = true;
     xwayland.enable = true;
