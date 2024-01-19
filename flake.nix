@@ -13,7 +13,23 @@
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        xdph.follows = "xdph";
+        hyprland-protocols.follows = "hyprland-protocols";
+      };
+    };
+    # just for syncing
+    hyprland-protocols = {
+      url = "github:hyprwm/hyprland-protocols";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xdph = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        hyprland-protocols.follows = "hyprland-protocols";
+      };
     };
     waybar = {
       url = "github:Alexays/Waybar";
@@ -36,9 +52,6 @@
         inherit system;
         config.allowUnfree = true;
       };
-
-      lib = nixpkgs.lib;
-
       username = "yuu";
     in {
       nixosConfigurations = (
@@ -47,5 +60,7 @@
           inherit nixpkgs inputs username system home-manager;
         }
       );
+      # TODO sort this out
+      packages."${system}" = (import ./pkgs { pkgs = pkgs.legacyPackages.x86_64-linux; });
     };
 }
