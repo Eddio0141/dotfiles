@@ -130,9 +130,7 @@
   environment.systemPackages = with pkgs; [
     firefox
     kate
-    (discord.override {
-      withVencord = true;
-    })
+    vesktop
     vim
     avalonia-ilspy
     neofetch
