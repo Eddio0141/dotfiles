@@ -253,21 +253,6 @@
             TimeoutStopSec = 10;
           };
       };
-
-      # to let x11 apps access wayland for stuff like discord screenshare
-      xwaylandvideobridge = {
-        description = "xwaylandvideobridge";
-        wantedBy = [ "graphical-session.target" ];
-        wants = [ "graphical-session.target" ];
-        after = [ "graphical-session.target" ];
-        serviceConfig = {
-            Type = "simple";
-            ExecStart = "${pkgs.xwaylandvideobridge}/bin/xwaylandvideobridge";
-            Restart = "on-failure";
-            RestartSec = 1;
-            TimeoutStopSec = 10;
-          };
-      };
     };
   };
 
@@ -297,10 +282,6 @@
     ipafont
     kochi-substitute
 
-    # for waybar
-    # TODO for waybar only
-    font-awesome
-
     # other stuff
     noto-fonts
     noto-fonts-cjk
@@ -315,6 +296,11 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
+
+    # for waybar TODO
+    (nerdfonts.override {
+      fonts = [ "CodeNewRoman" ];
+    })
   ];
 
   # gc
