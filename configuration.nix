@@ -169,6 +169,14 @@
     r2modman
     inputs.gpt4all.packages.${system}.gpt4all-chat
     libtas
+    # https://nixos.org/manual/nixpkgs/unstable/#sec-fhs-environments
+    (buildFHSEnv (
+       appimageTools.defaultFhsEnvArgs //
+    {
+      name = "fhs-env";
+      multiArch = true;
+      runScript = "zsh";
+    }))
 
     # spell checking
     hunspell
