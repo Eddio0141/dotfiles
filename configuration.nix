@@ -177,6 +177,9 @@
       multiArch = true;
       runScript = "zsh";
     }))
+    (gimp-with-plugins.override { plugins = with gimpPlugins; [
+      gap
+    ];})
 
     # spell checking
     hunspell
