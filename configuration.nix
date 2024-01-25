@@ -142,7 +142,7 @@
     p7zip
     protontricks
     xdg-utils
-    distrobox
+    # distrobox
     webcord
     wineWowPackages.staging
     winetricks
@@ -411,7 +411,7 @@
   virtualisation.waydroid.enable = true;
 
   # podman for distrobox
-  virtualisation.podman.enable = true;
+  # virtualisation.podman.enable = true;
 
   # for virt-manager
   virtualisation.libvirtd = {
