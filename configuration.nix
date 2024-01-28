@@ -131,7 +131,6 @@
     firefox
     kate
     vesktop
-    vim
     avalonia-ilspy
     neofetch
     btop
