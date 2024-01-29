@@ -283,6 +283,7 @@ fi
               { import = "plugins" },
               -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
               { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+              { "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = true } } },
             },
           })
         '';
@@ -297,6 +298,7 @@ fi
           c
           lua
           vimdoc
+          bash
         ])).dependencies;
       };
     in
