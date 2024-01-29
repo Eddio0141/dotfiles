@@ -183,6 +183,8 @@
     (gimp-with-plugins.override { plugins = with gimpPlugins; [
       gap
     ];})
+    wl-clipboard
+    cliphist
 
     # spell checking
     hunspell
