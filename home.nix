@@ -188,10 +188,11 @@ fi
       stylua
       ripgrep
       lazygit
+      nodejs
+      fd
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
-      direnv-vim
     ];
 
     extraLuaConfig =
@@ -239,6 +240,9 @@ fi
           vim-illuminate
           vim-startuptime
           which-key-nvim
+          guess-indent-nvim
+          copilot-cmp
+          copilot-lua
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }
@@ -292,6 +296,7 @@ fi
         paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
           c
           lua
+          vimdoc
         ])).dependencies;
       };
     in
@@ -300,3 +305,4 @@ fi
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
   xdg.configFile."nvim/lua".source = ./config/lazyvim/lua;
 }
+

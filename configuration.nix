@@ -127,6 +127,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [
+    inputs.neovim-nightly-overlay.overlay
+  ];
+
   environment.systemPackages = with pkgs; [
     firefox
     kate
@@ -450,9 +454,6 @@
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
   };
 
-  # for ssh agent
-  programs.ssh.startAgent = true;
-
   services.teamviewer.enable = true;
 
   # services.flatpak.enable = true;
@@ -462,9 +463,11 @@
     rootless.enable = true;
   };
 
-  # for unwrapped binaries
-  # programs.nix-ld = {
-  #   enable = true;
-  #   # libraries = [];
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableBrowserSocket = true;
+    enableExtraSocket = true;
+    enableSSHSupport = true;
+  };
 }
+
