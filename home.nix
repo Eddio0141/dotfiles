@@ -190,6 +190,9 @@ fi
       lazygit
       nodejs
       fd
+      cargo-nextest
+      fish
+      shfmt
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
@@ -243,6 +246,11 @@ fi
           guess-indent-nvim
           copilot-cmp
           copilot-lua
+          neotest
+          neotest-rust
+          FixCursorHold-nvim
+          vim-wakatime
+          presence-nvim
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }
@@ -283,7 +291,6 @@ fi
               { import = "plugins" },
               -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
               { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
-              { "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = true } } },
             },
           })
         '';
@@ -299,12 +306,14 @@ fi
           lua
           vimdoc
           bash
+          rust
+          regex
+          markdown_inline
         ])).dependencies;
       };
     in
       "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile."nvim/lua".source = ./config/lazyvim/lua;
-}
+  xdg.configFile."nvim/lua".source = ./config/lazyvim/lua; }
 
