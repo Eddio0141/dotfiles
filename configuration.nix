@@ -141,7 +141,10 @@
     git
     obsidian
     obs-studio
-    (jetbrains.plugins.addPlugins jetbrains.rider [ "github-copilot" ])
+    (jetbrains.plugins.addPlugins jetbrains.rider [
+      "github-copilot"
+      "ideavim"
+    ])
     p7zip
     protontricks
     xdg-utils
