@@ -143,8 +143,7 @@
     obs-studio
     (jetbrains.plugins.addPlugins jetbrains.rider [
       "github-copilot"
-      "ideavim"
-    ])
+      ])
     p7zip
     protontricks
     xdg-utils
@@ -167,7 +166,6 @@
     blender
     ani-cli
     qbittorrent
-    skypeforlinux
     #davinci-resolve
     yt-dlp
     clementine
@@ -290,6 +288,9 @@
     driversi686Linux.amdvlk
   ];
 
+  # vulkan
+  hardware.opengl = {
+    driSupport = true;
   # vulkan
   hardware.opengl = {
     driSupport = true;
@@ -437,9 +438,6 @@
       '';
     };
   };
-
-  # using cachix for hyprland
-  nix.settings = {
     substituters = [ "https://hyprland.cachix.org" "https://devenv.cachix.org" ];
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
