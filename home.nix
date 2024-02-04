@@ -156,6 +156,8 @@ fi
       cargo-nextest
       fish
       shfmt
+      typescript
+      nodePackages.typescript-language-server
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
