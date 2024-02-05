@@ -158,6 +158,8 @@ fi
       shfmt
       typescript
       nodePackages.typescript-language-server
+      taplo
+      marksman
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
