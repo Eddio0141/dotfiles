@@ -76,15 +76,15 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-    theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
+    # wayland.enable = true;
+    # theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
   };
   #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "gb";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
@@ -187,6 +187,8 @@
     ];})
     wl-clipboard
     cliphist
+    quickemu
+    upwork
 
     # spell checking
     hunspell
