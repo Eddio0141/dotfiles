@@ -188,7 +188,10 @@
     wl-clipboard
     cliphist
     quickemu
-    upwork
+    (upwork.overrideAttrs (final: prev: rec {
+      version = "5.8.0.24";
+      src = ./files/${prev.pname}_${version}_amd64.deb;
+    }))
 
     # spell checking
     hunspell
