@@ -1,9 +1,9 @@
-{ nixpkgs, lib, inputs, system, home-manager, username, ... }:
+{ self, nixpkgs, lib, inputs, system, home-manager, username, ... }:
 
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit username inputs system; };
+    specialArgs = { inherit username inputs system self; };
     modules = [
       ../configuration.nix
       ./desktop

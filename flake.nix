@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/v0.35.0";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         xdph.follows = "xdph";
@@ -61,10 +61,10 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit nixpkgs inputs username system home-manager;
+          inherit nixpkgs inputs username system home-manager self;
         }
       );
       # TODO sort this out
-      packages."${system}" = (import ./pkgs { pkgs = pkgs.legacyPackages.x86_64-linux; });
+      packages."${system}" = (import ./pkgs) pkgs;
     };
 }

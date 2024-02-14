@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, username, inputs, system, ... }:
+{ config, pkgs, username, inputs, system, self, ... }:
 
 {
   # TODO rewrite this shit
@@ -188,10 +188,7 @@
     wl-clipboard
     cliphist
     quickemu
-    (upwork.overrideAttrs (final: prev: rec {
-      version = "5.8.0.24";
-      src = ./files/${prev.pname}_${version}_amd64.deb;
-    }))
+    upwork
 
     # spell checking
     hunspell
@@ -478,5 +475,10 @@
     enableExtraSocket = true;
     enableSSHSupport = true;
   };
+
+  # programs.sway = {
+  #   enable = true;
+  #   package = pkgs.swayfx;
+  # };
 }
 
