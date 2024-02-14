@@ -1,4 +1,4 @@
 { pkgs }: with pkgs;
 {
-  hypr-move-firefox-yt = callPackage ./hypr-move-firefox-yt.nix { };
+  hypr-move-firefox-yt = callPackage ./hypr-move-firefox-yt { };
 }

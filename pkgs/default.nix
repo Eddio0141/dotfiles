@@ -1,2 +1,2 @@
 pkgs:
-  import ./scripts { inherit pkgs; };
+  import ./scripts { inherit pkgs; }
