@@ -31,10 +31,6 @@
         hyprland-protocols.follows = "hyprland-protocols";
       };
     };
-    waybar = {
-      url = "github:Alexays/Waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     gpt4all = {
       url = "github:polygon/gpt4all-nix";
       inputs.nixpkgs.follows = "nixpkgs";

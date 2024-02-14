@@ -198,9 +198,7 @@
     virt-manager
 
     # hypr stuff
-    pavucontrol
     mpv
-    dunst
     kitty
     wofi
     # TODO merge this into grimblast
@@ -257,24 +255,6 @@
     tmpfiles.rules = [
       "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
-
-    user.services = {
-      # polkit agent
-      # TODO this is for hyprland only
-      polkit-gnome-authentication-agent-1 = {
-        description = "polkit-gnome-authentication-agent-1";
-        wantedBy = [ "graphical-session.target" ];
-        wants = [ "graphical-session.target" ];
-        after = [ "graphical-session.target" ];
-        serviceConfig = {
-            Type = "simple";
-            ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-            Restart = "on-failure";
-            RestartSec = 1;
-            TimeoutStopSec = 10;
-          };
-      };
-    };
   };
 
   hardware.opengl.extraPackages = with pkgs; [
@@ -439,18 +419,6 @@
     };
   };
 
-  # cachix for hyprland
-  nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" "https://devenv.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-  };
-
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${system}.default;
-    portalPackage = inputs.xdph.packages.${system}.default;
-  };
-
   programs.dconf.enable = true;
 
   # env vars
@@ -480,5 +448,7 @@
   #   enable = true;
   #   package = pkgs.swayfx;
   # };
+  
+  de.hyprland.enable = true;
 }
 

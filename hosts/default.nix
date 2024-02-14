@@ -7,6 +7,7 @@
     modules = [
       ../configuration.nix
       ./desktop
+      ../modules
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;

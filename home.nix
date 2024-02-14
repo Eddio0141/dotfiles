@@ -92,23 +92,6 @@ fi
     style = builtins.readFile ./config/wofi/style.css;
   };
 
-  # TODO waybar is only when hyprland is enabled
-  programs.waybar = {
-    enable = true;
-    # TODO wait for this fix
-    # package = inputs.waybar.packages.${system}.waybar;
-    package = pkgs.waybar;
-    style = ./config/waybar/style.css;
-    settings = import ./config/waybar/config;
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ./config/hypr/hyprland.conf;
-    systemd.enable = true;
-    xwayland.enable = true;
-  };
-
   # mangohud
   programs.mangohud = {
     enable = true;
