@@ -42,15 +42,16 @@ in {
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
-        extraConfig = builtins.readFile ../../config/hypr/hyprland.conf;
         systemd.enable = true;
         xwayland.enable = true;
+        # if variable or colours, quote them
+        settings = import ./hyprland-config.nix;
       };
       programs.waybar = {
         enable = true;
         package = pkgs.waybar;
-        style = ../../config/waybar/style.css;
-        settings = import ../../config/waybar/config;
+        style = ../../../config/waybar/style.css;
+        settings = import ../../../config/waybar/config;
       };
     };
   });
