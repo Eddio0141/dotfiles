@@ -89,10 +89,8 @@
     gaps_in = 5;
     gaps_out = 20;
     border_size = 3;
-    col = {
-      active_border = "$border_pink_active";
-      inactive_border = "$border_pink_inactive";
-    };
+    "col.active_border" = "$border_pink_active";
+    "col.inactive_border" = "$border_pink_inactive";
     layout = "dwindle";
     allow_tearing = true;
   };
@@ -101,7 +99,7 @@
     drop_shadow = "yes";
     shadow_range = 4;
     shadow_render_power = 3;
-    col.shadow = "rgba(1a1a1aee)";
+    "col.shadow" = "rgba(1a1a1aee)";
     blur.enabled = true;
   };
   animations = {
@@ -127,13 +125,11 @@
   };
   xwayland.force_zero_scaling = true;
   group = {
-    col = {
-      border_active = "$border_pink_active";
-      border_inactive = "$border_pink_inactive";
-    };
-    groupbar.col = {
-      active = "rgba(b700ffff)";
-      inactive = "rgba(3c0054aa)";
+    "col.border_active" = "$border_pink_active";
+    "col.border_inactive" = "$border_pink_inactive";
+    groupbar = {
+      "col.active" = "rgba(b700ffff)";
+      "col.inactive" = "rgba(3c0054aa)";
     };
   };
 
