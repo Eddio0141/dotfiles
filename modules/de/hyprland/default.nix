@@ -45,7 +45,7 @@ in {
         systemd.enable = true;
         xwayland.enable = true;
         # if variable or colours, quote them
-        settings = import ./hyprland-config.nix;
+        settings = import ./config.nix;
       };
       programs.waybar = {
         enable = true;
