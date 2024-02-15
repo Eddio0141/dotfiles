@@ -211,8 +211,8 @@
     "CTRL, Print, exec, grimblast --notify --freeze copysave area"
 
     # volume
-    "XF86AudioRaiseVolume, exec, pamixer -i 5"
-    "XF86AudioLowerVolume, exec, pamixer -d 5"
+    ", XF86AudioRaiseVolume, exec, pamixer -i 5"
+    ", XF86AudioLowerVolume, exec, pamixer -d 5"
 
     # music
     "$altCombo, P, exec, clementine --play-pause"
