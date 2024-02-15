@@ -444,11 +444,6 @@
     enableSSHSupport = true;
   };
 
-  # programs.sway = {
-  #   enable = true;
-  #   package = pkgs.swayfx;
-  # };
-  
   de.hyprland.enable = true;
 }
 
