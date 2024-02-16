@@ -134,7 +134,7 @@
   };
 
   "$mainMod" = "SUPER";
-  "$altCombo" = "$mainMod ALT";
+  "$altCombo" = "SUPER ALT";
 
   bind = [
     "$mainMod, Q, exec, kitty"
