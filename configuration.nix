@@ -127,10 +127,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    inputs.neovim-nightly-overlay.overlay
-  ];
-
   environment.systemPackages = with pkgs; [
     firefox
     kate
