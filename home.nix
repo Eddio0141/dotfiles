@@ -143,6 +143,7 @@ fi
       nodePackages.typescript-language-server
       taplo
       marksman
+      lldb
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
@@ -201,6 +202,7 @@ fi
           FixCursorHold-nvim
           vim-wakatime
           presence-nvim
+          nvim-dap
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }
@@ -241,6 +243,8 @@ fi
               { import = "plugins" },
               -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
               { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+              -- disable mason-nvim-dap
+              { "jay-babu/mason-nvim-dap.nvim", enable = false },
             },
           })
         '';
