@@ -430,7 +430,7 @@
     enableSSHSupport = true;
   };
 
-  de.hyprland.enable = true;
-  de.sway.enable = true;
+  yuu.de.hyprland.enable = true;
+  yuu.de.sway.enable = true;
 }
 

@@ -1,9 +1,9 @@
 { config, lib, pkgs, inputs, system, home-manager, username, ... }:
 with lib;
 let
-  cfg = config.de.hyprland;
+  cfg = config.yuu.de.hyprland;
 in {
-  options.de.hyprland.enable = mkEnableOption "hyprland";
+  options.yuu.de.hyprland.enable = mkEnableOption "hyprland";
 
   config = (mkIf cfg.enable {
     # polkit agent
@@ -39,6 +39,8 @@ in {
       kitty
     ];
 
+    yuu.programs.waybar.enable = true;
+
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {
         enable = true;
@@ -46,12 +48,6 @@ in {
         xwayland.enable = true;
         # if variable or colours, quote them
         settings = import ./config.nix;
-      };
-      programs.waybar = {
-        enable = true;
-        package = pkgs.waybar;
-        style = ../../../config/waybar/style.css;
-        settings = import ../../../config/waybar/config;
       };
     };
   });

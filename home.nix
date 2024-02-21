@@ -144,6 +144,7 @@ fi
       taplo
       marksman
       lldb
+      nixpkgs-fmt
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim

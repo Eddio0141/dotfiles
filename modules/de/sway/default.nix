@@ -1,15 +1,17 @@
 { config, lib, pkgs, home-manager, username, ... }:
 with lib;
 let
-  cfg = config.de.sway;
+  cfg = config.yuu.de.sway;
 in {
-  options.de.sway.enable = mkEnableOption "sway";
+  options.yuu.de.sway.enable = mkEnableOption "sway";
 
   config = (mkIf cfg.enable {
     programs.sway = {
       enable = true;
       package = pkgs.swayfx;
     };
+
+    yuu.programs.waybar.enable = true;
 
     home-manager.users.${username}.wayland.windowManager.sway = {
       enable = true;
@@ -20,7 +22,7 @@ in {
         export QT_QPA_PLATFORMTHEME=qt5ct
       '';
       swaynag.enable = true;
-      config = (import ./config.nix) pkgs;
+      config = import ./config.nix { inherit pkgs; };
     };
   });
 }
