@@ -386,7 +386,7 @@
   # polkit
   security.polkit.enable = true;
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
 
   # podman for distrobox
   # virtualisation.podman.enable = true;
@@ -431,5 +431,6 @@
   };
 
   de.hyprland.enable = true;
+  de.sway.enable = true;
 }
 
