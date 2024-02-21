@@ -20,7 +20,7 @@ in {
         export QT_QPA_PLATFORMTHEME=qt5ct
       '';
       swaynag.enable = true;
-      config = import ./config.nix;
+      config = (import ./config.nix) pkgs;
     };
   });
 }

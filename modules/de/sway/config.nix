@@ -1,30 +1,31 @@
+{ pkgs, ... }:
 let
   mod = "Mod4";
   term = "${pkgs.kitty}/bin/kitty";
 in {
   startup = [
-    { command = "waybar"; always = true; }
-    { command = "dunst"; always = true; }
-    { command = "hyprpaper"; always = true; }
-    { command = "firefox"; always = true; }
-    { command = "clementine"; always = true; }
-    { command = "dolphin --daemon"; always = true; }
-    { command = "thunderbird"; always = true; }
-    { command = "obsidian"; always = true; }
-    { command = "steam -silent"; always = true; }
-    { command = "vesktop"; always = true; }
-    { command = "wl-paste --type text --watch cliphist store"; always = true; }
-    { command = "wl-paste --type image --watch cliphist store"; always = true; }
-    { command = "fcitx5 -d"; always = true; }
-    { command = "thunar --daemon"; always = true; }
-    { command = "${pkgs.autotiling-rs}"; always = true; }
+    { command = "waybar"; }
+    { command = "dunst"; }
+    { command = "hyprpaper"; }
+    { command = "firefox"; }
+    { command = "clementine"; }
+    { command = "dolphin --daemon"; }
+    { command = "thunderbird"; }
+    { command = "obsidian"; }
+    { command = "steam -silent"; }
+    { command = "vesktop"; }
+    { command = "wl-paste --type text --watch cliphist store"; }
+    { command = "wl-paste --type image --watch cliphist store"; }
+    { command = "fcitx5 -d"; }
+    { command = "thunar --daemon"; }
+    { command = "${pkgs.autotiling-rs}"; }
   ];
   modifier = "${mod}";
   terminal = "${term}";
-  keycodebindings = pkgs.lib.mkOptionDefault {
-    "XF86AudioRaiseVolume" = "exec pamixer -i 5";
-    "XF86AudioLowerVolume" = "exec pamixer -d 5";
-  };
+  # keycodebindings = {
+  #  "XF86AudioRaiseVolume" = "exec pamixer -i 5";
+  #  "XF86AudioLowerVolume" = "exec pamixer -d 5";
+  #};
   keybindings = pkgs.lib.mkOptionDefault {
     "${mod}+q" = "exec ${term}";
     "${mod}+w" = "kill";
@@ -33,7 +34,6 @@ in {
     "${mod}+s" = "wofi --show drun -I -m -i -W 25% -H 75%";
     # bind = $mainMod, P, pseudo, # dwindle
     # bind = $mainMod, J, togglesplit, # dwindle
-    # bind = $mainMod, F, fullscreen,
     # bind = $mainMod, G, togglegroup,
     # bind = $mainMod, H, lockactivegroup, toggle
     # bind = $mainMod, Next, changegroupactive, f
@@ -56,4 +56,11 @@ in {
     "${mod}+alt+o" = "clementine --next";
     "${mod}+alt+i" = "clementine --previous";
   };
-};
+  input = {
+    "*" = {
+      xkb_layout = "gb";
+      accel_profile = "flat";
+      pointer_accel = "-0.35";
+    };
+  };
+}
