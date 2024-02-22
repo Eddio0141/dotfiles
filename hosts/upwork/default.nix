@@ -6,7 +6,7 @@
 
   home-manager.users.${username} = {
     imports = [
-      ({ ... }:{ home.stateVersion = "23.11"; })
+      ./home.nix
     ];
   };
 
@@ -115,9 +115,12 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  yuu.programs = {
-    git.enable = true;
-    lazyvim.enable = true;
+  yuu = {
+    programs = {
+      git.enable = true;
+      lazyvim.enable = true;
+    };
+    pack.comfy-shell.enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;

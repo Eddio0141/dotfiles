@@ -118,7 +118,6 @@
     description = "${username}";
     # kvm and libvirtd groups are needed for virt-manager
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "docker" ];
-    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -166,14 +165,6 @@
     r2modman
     inputs.gpt4all.packages.${system}.gpt4all-chat
     libtas
-    # https://nixos.org/manual/nixpkgs/unstable/#sec-fhs-environments
-    (buildFHSEnv (
-       appimageTools.defaultFhsEnvArgs //
-    {
-      name = "fhs-env";
-      multiArch = true;
-      runScript = "zsh";
-    }))
     (gimp-with-plugins.override { plugins = with gimpPlugins; [
       gap
     ];})
@@ -274,25 +265,28 @@
     ipafont
     kochi-substitute
 
-    # other stuff
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
+    # basic
     corefonts
-    jetbrains-mono
+
+    # code stuff
+    (nerdfonts.override {
+      fonts = [
+        "CodeNewRoman"
+        "JetBrainsMono"
+      ];
+    })
+    # noto-fonts
+    # noto-fonts-cjk
+    # noto-fonts-emoji
+    # liberation_ttf
+    # jetbrains-mono
 
     # idk what those are
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-
-    # for waybar TODO
-    (nerdfonts.override {
-      fonts = [ "CodeNewRoman" ];
-    })
+    # fira-code
+    # fira-code-symbols
+    # mplus-outline-fonts.githubRelease
+    # dina-font
+    # proggyfonts
   ];
 
   # gc
@@ -303,13 +297,6 @@
   };
 
   nix.settings.auto-optimise-store = true;
-
-  # zsh
-  programs.zsh.enable = true;
-
-  users.defaultUserShell = pkgs.zsh;
-
-  environment.shells = [ pkgs.zsh ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -434,6 +421,7 @@
       git.enable = true;
       lazyvim.enable = true;
     };
+    pack.comfy-shell.enable = true;
   };
 }
 

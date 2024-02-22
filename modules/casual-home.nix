@@ -43,36 +43,6 @@
 
   xdg.configFile."neofetch/ascii-anime".source = ../config/neofetch/ascii-anime;
 
-  # zsh
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    
-    shellAliases = {
-      update = "sudo nixos-rebuild switch --flake '.#desktop'";
-      update-test = "sudo nixos-rebuild test --flake '.#desktop'";
-      upgrade = "nix flake update";
-      neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
-    };
-
-    # oh my zsh
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "fino-time";
-    };
-
-    initExtra = ''
-if [[ $- = *i* ]]; then
-  neofetch --source ~/.config/neofetch/ascii-anime
-
-  echo "Welcome back $USER!"
-fi
-'';
-  };
-
   programs.wofi = {
     enable = true;
     style = builtins.readFile ../config/wofi/style.css;
@@ -85,12 +55,6 @@ fi
     settings = {
       position = "top-right";
     };
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
   };
 
   xdg.configFile."qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
