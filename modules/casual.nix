@@ -131,7 +131,6 @@
     avalonia-ilspy
     neofetch
     btop
-    git
     obsidian
     obs-studio
     (jetbrains.plugins.addPlugins jetbrains.rider [
@@ -429,5 +428,6 @@
 
   yuu.de.hyprland.enable = true;
   yuu.de.sway.enable = true;
+  yuu.programs.git.enable = true;
 }
 
