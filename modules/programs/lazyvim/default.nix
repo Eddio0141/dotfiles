@@ -6,6 +6,12 @@ in {
   options.yuu.programs.lazyvim.enable = mkEnableOption "lazyvim";
 
   config = (mkIf cfg.enable {
+    fonts.packages = with pkgs; [
+      (nerdfonts.override {
+        fonts = [ "CodeNewRoman" ];
+      })
+    ];
+
     home-manager.users.${username} = {
       # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
       xdg.configFile = {
