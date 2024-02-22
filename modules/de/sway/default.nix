@@ -24,5 +24,9 @@ in {
       swaynag.enable = true;
       config = import ./config.nix { inherit pkgs; };
     };
+
+    environment.systemPackages = with pkgs; [
+      kitty
+    ];
   });
 }

@@ -191,7 +191,6 @@
 
     # hypr stuff
     mpv
-    kitty
     wofi
     # TODO merge this into grimblast
     inputs.hyprpicker.packages.${system}.default
