@@ -1,4 +1,4 @@
-{ username, inputs, system, ... }:
+{ username, inputs, system, home-manager, ... }:
 {
   imports = [
     ../../modules/casual.nix 

@@ -2,7 +2,7 @@
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit username inputs system self; };
+    specialArgs = { inherit username inputs system self home-manager; };
     modules = [
       ./desktop
       ../modules
@@ -10,7 +10,7 @@
   };
   upwork = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit username inputs system self; };
+    specialArgs = { inherit username inputs system self home-manager; };
     modules = [
       ./upwork
       ../modules

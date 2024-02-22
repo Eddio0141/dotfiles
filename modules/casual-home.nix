@@ -55,7 +55,7 @@
     ];
   };
 
-  xdg.configFile."neofetch/ascii-anime".source = ./config/neofetch/ascii-anime;
+  xdg.configFile."neofetch/ascii-anime".source = ../config/neofetch/ascii-anime;
 
   # zsh
   programs.zsh = {
@@ -89,7 +89,7 @@ fi
 
   programs.wofi = {
     enable = true;
-    style = builtins.readFile ./config/wofi/style.css;
+    style = builtins.readFile ../config/wofi/style.css;
   };
 
   # mangohud
@@ -107,7 +107,7 @@ fi
     nix-direnv.enable = true;
   };
 
-  xdg.configFile."qt5ct/qt5ct.conf".source = ./config/qt5ct/qt5ct.conf;
+  xdg.configFile."qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
 
   xdg.configFile."qt5ct/colors/Dracula.conf".source = pkgs.fetchFromGitHub {
     owner = "dracula";
@@ -116,10 +116,10 @@ fi
     sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
   } + "/Dracula.conf";
 
-  xdg.dataFile."fonts".source = ./share/fonts;
+  xdg.dataFile."fonts".source = ../share/fonts;
 
   # hyprpaper
-  xdg.configFile."hypr/hyprpaper.conf".source = ./config/hypr/hyprpaper.conf;
+  xdg.configFile."hypr/hyprpaper.conf".source = ../config/hypr/hyprpaper.conf;
 
   # TODO add dolphin settings
 
@@ -270,7 +270,7 @@ fi
       "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile."nvim/lua".source = ./config/lazyvim/lua;
+  xdg.configFile."nvim/lua".source = ../config/lazyvim/lua;
 
   programs.zoxide = {
     enable = true;
