@@ -237,26 +237,6 @@ fi
         '';
   };
 
-  # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
-  xdg.configFile."nvim/parser".source =
-    let
-      parsers = pkgs.symlinkJoin {
-        name = "treesitter-parsers";
-        paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
-          c
-          lua
-          vimdoc
-          bash
-          rust
-          regex
-          markdown_inline
-        ])).dependencies;
-      };
-    in
-      "${parsers}/parser";
-
-  # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile."nvim/lua".source = ../config/lazyvim/lua;
 
   programs.zoxide = {
     enable = true;

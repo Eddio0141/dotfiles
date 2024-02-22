@@ -425,8 +425,15 @@
     enableSSHSupport = true;
   };
 
-  yuu.de.hyprland.enable = true;
-  yuu.de.sway.enable = true;
-  yuu.programs.git.enable = true;
+  yuu = {
+    de = {
+      hyprland.enable = true;
+      sway.enable = true;
+    };
+    programs = {
+      git.enable = true;
+      lazyvim.enable = true;
+    };
+  };
 }
 

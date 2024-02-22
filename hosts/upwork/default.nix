@@ -115,5 +115,10 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  yuu.programs.git.enable = true;
+  yuu.programs = {
+    git.enable = true;
+    lazyvim.enable = true;
+  };
+
+  security.sudo.wheelNeedsPassword = false;
 }
