@@ -6,7 +6,7 @@
 
   home-manager.users.${username} = {
     imports = [
-     # ({ ... }:{ home.stateVersion = "23.11"; })
+      ({ ... }:{ home.stateVersion = "23.11"; })
     ];
   };
 
