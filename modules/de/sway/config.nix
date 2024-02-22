@@ -18,7 +18,7 @@ in {
     { command = "wl-paste --type image --watch cliphist store"; }
     { command = "fcitx5 -d"; }
     { command = "thunar --daemon"; }
-    { command = "${pkgs.autotiling-rs}"; }
+    { command = "exec ${pkgs.autotiling-rs}/bin/autotiling-rs"; }
   ];
   modifier = "${mod}";
   terminal = "${term}";
@@ -29,9 +29,11 @@ in {
   keybindings = pkgs.lib.mkOptionDefault {
     "${mod}+q" = "exec ${term}";
     "${mod}+w" = "kill";
-    "${mod}+e" = "dolphin";
+    "${mod}+e" = "exec dolphin";
     "${mod}+t" = "floating toggle";
-    "${mod}+s" = "wofi --show drun -I -m -i -W 25% -H 75%";
+    "${mod}+s" = "exec wofi --show drun -I -m -i -W 25% -H 75%";
+    "${mod}+shift+s" = "move scratchpad";
+    "${mod}+ctrl+s" = "scratchpad show";
     # bind = $mainMod, P, pseudo, # dwindle
     # bind = $mainMod, J, togglesplit, # dwindle
     # bind = $mainMod, G, togglegroup,
@@ -40,21 +42,16 @@ in {
     # bind = $mainMod, Prior, changegroupactive, b
     # bind = $mainMod SHIFT, End, moveoutofgroup,
     # bind = $mainMod SHIFT, E, workspace, empty
-
     # bind = $mainMod, mouse_up, workspace, e+1
     # bind = $mainMod, mouse_down, workspace, e-1
-
-    # bindm = $mainMod, mouse:272, movewindow
-    # bindm = $mainMod, mouse:273, resizewindow
-
-    # bind = $mainMod, comma, focusmonitor, 0
-    # bind = $mainMod, period, focusmonitor, 1
-
-    "ctrl+print" = "grimblast --notify --freeze copysave area";
-
+    "${mod}+comma" = "focus output DP-3";
+    "${mod}+period" = "focus output HDMI-A-1";
+    "ctrl+print" = "${pkgs.sway-contrib.grimshot}/bin/grimshot --notify copysave area";
     "${mod}+alt+p" = "clementine --play-pause";
     "${mod}+alt+o" = "clementine --next";
     "${mod}+alt+i" = "clementine --previous";
+    "ctrl+alt+delete" =
+      "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
   };
   input = {
     "*" = {
@@ -63,4 +60,11 @@ in {
       pointer_accel = "-0.35";
     };
   };
+  output = {
+    HDMI-A-1.mode = "1920x1080@60Hz";
+    DP-3.mode = "1920x1080@144Hz";
+  };
+  bars = [];
+  window.titlebar = false;
+  floating.titlebar = false;
 }

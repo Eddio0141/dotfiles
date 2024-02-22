@@ -1,25 +1,19 @@
 { self, nixpkgs, lib, inputs, system, home-manager, username, ... }:
-
 {
   desktop = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit username inputs system self; };
     modules = [
-      ../configuration.nix
       ./desktop
       ../modules
-
-      home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit username inputs system; };
-        home-manager.users.${username} = {
-          imports = [
-            ../home.nix
-            inputs.hyprland.homeManagerModules.default
-          ];
-        };
-      }
+    ];
+  };
+  upwork = lib.nixosSystem {
+    inherit system;
+    specialArgs = { inherit username inputs system self; };
+    modules = [
+      ./upwork
+      ../modules
     ];
   };
 }

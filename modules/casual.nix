@@ -2,15 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+# module for a casual desktop
+
 { config, pkgs, username, inputs, system, self, ... }:
 
 {
   # TODO rewrite this shit
-
-  imports =
-    [ # Include the results of the hardware scan.
-      #./hardware-configuration.nix
-    ];
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
