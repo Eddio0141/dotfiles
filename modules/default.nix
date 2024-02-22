@@ -8,10 +8,14 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         extraSpecialArgs = { inherit username inputs system; };
-        home = {
-          username = "${username}";
-          homeDirectory = "/home/${username}";
-        };
+        users.${username}.imports = [
+          ({
+            home = {
+              username = "${username}";
+              homeDirectory = "/home/${username}";
+            };
+          })
+        ];
       };
     }
   ];
