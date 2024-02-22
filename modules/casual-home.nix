@@ -1,8 +1,6 @@
 { config, pkgs, username, ... }:
 {
   home = {
-    username = "${username}";
-    homeDirectory = "/home/${username}";
     stateVersion = "23.05";
     pointerCursor = {
       gtk.enable = true;
