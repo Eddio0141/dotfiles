@@ -46,7 +46,7 @@ in {
     # bind = $mainMod, mouse_down, workspace, e-1
     "${mod}+comma" = "focus output DP-3";
     "${mod}+period" = "focus output HDMI-A-1";
-    "ctrl+print" = "${pkgs.sway-contrib.grimshot}/bin/grimshot --notify copysave area";
+    "ctrl+print" = "${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy area";
     "${mod}+alt+p" = "clementine --play-pause";
     "${mod}+alt+o" = "clementine --next";
     "${mod}+alt+i" = "clementine --previous";
