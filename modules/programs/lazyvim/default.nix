@@ -116,6 +116,8 @@ in {
               vim-wakatime
               presence-nvim
               nvim-dap
+              yanky-nvim
+              sqlite-lua
               { name = "LuaSnip"; path = luasnip; }
               { name = "catppuccin"; path = catppuccin-nvim; }
               { name = "mini.ai"; path = mini-nvim; }

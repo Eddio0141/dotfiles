@@ -10,6 +10,8 @@
     ];
   };
 
+  networking.hostName = "yuu-upwork";
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -63,9 +65,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    git
     firefox
+    upwork
+    kitty
+    xclip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -124,4 +127,8 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  nixpkgs.config.allowUnfree = true;
+
+  fonts.enableDefaultPackages = true;
 }

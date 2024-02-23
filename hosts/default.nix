@@ -1,18 +1,18 @@
 { self, nixpkgs, lib, inputs, system, home-manager, username, ... }:
 {
-  desktop = lib.nixosSystem {
+  yuu-desktop = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit username inputs system self home-manager; };
     modules = [
-      ./desktop
+      ./yuu-desktop
       ../modules
     ];
   };
-  upwork = lib.nixosSystem {
+  yuu-upwork = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit username inputs system self home-manager; };
     modules = [
-      ./upwork
+      ./yuu-upwork
       ../modules
     ];
   };

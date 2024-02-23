@@ -41,8 +41,6 @@
     ];
   };
 
-  xdg.configFile."neofetch/ascii-anime".source = ../config/neofetch/ascii-anime;
-
   programs.wofi = {
     enable = true;
     style = builtins.readFile ../config/wofi/style.css;
