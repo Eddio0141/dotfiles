@@ -19,7 +19,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "${username}"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
@@ -128,7 +127,6 @@
     kate
     vesktop
     avalonia-ilspy
-    neofetch
     btop
     obsidian
     obs-studio
@@ -171,7 +169,6 @@
     wl-clipboard
     cliphist
     quickemu
-    upwork
 
     # spell checking
     hunspell

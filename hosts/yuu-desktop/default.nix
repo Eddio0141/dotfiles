@@ -11,4 +11,6 @@
       inputs.hyprland.homeManagerModules.default
     ];
   };
+
+  networking.hostName = "yuu-desktop";
 }

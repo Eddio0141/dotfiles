@@ -25,9 +25,15 @@ in {
         multiArch = true;
         runScript = "zsh";
       }))
+
+      neofetch
     ];
 
     home-manager.users.${username} = {
+      # neofetch art
+      # TODO: move to local location
+      xdg.configFile."neofetch/ascii-anime".source = ../../../config/neofetch/ascii-anime;
+
       # direnv
       programs.direnv = {
         enable = true;
@@ -42,8 +48,8 @@ in {
         syntaxHighlighting.enable = true;
         
         shellAliases = {
-          update = "sudo nixos-rebuild switch --flake '.#desktop'";
-          update-test = "sudo nixos-rebuild test --flake '.#desktop'";
+          update = "sudo nixos-rebuild switch --flake '.'";
+          update-test = "sudo nixos-rebuild test --flake '.'";
           upgrade = "nix flake update";
           neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
         };
