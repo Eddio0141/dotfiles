@@ -63,9 +63,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    git
     firefox
+    upwork
+    kitty
+    xclip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -124,4 +125,6 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  nixpkgs.config.allowUnfree = true;
 }
