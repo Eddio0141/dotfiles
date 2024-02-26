@@ -39,6 +39,8 @@
     ./yanky.nix
     ./noice.nix
     ./presence-nvim.nix
+    ./cmp-nvim-lsp.nix
+    ./nvim-cmp.nix
   ];
 
   config = {
@@ -49,6 +51,7 @@
     extraPackages = with pkgs; [
       ripgrep
       lazygit
+      fd
     ];
 
     extraPlugins = with pkgs.vimPlugins; [
@@ -62,6 +65,9 @@
       number = true;
       wrap = true;
       clipboard = "unnamedplus";
+      confirm = true;
+      cursorline = true;
+      expandtab = true;
     };
 
     viAlias = true;
@@ -228,6 +234,48 @@
         key = "<A-k>";
         action = "<cmd>m .-2<cr>==";
         options.desc = "Move up";
+      }
+      {
+        mode = "n";
+        key = "<leader>w-";
+        action = "<C-W>s";
+        options.desc = "Split window below";
+      }
+      {
+        mode = "n";
+        key = "<leader>w|";
+        action = "<C-W>v";
+        options.desc = "Split window right";
+      }
+      {
+        mode = "n";
+        key = "<leader>wd";
+        action = "<C-W>c";
+        options.desc = "Delete window";
+      }
+      {
+        mode = "n";
+        key = "<C-Up>";
+        action = "<cmd>resize +2<cr>";
+        options.desc = "Increase window width";
+      }
+      {
+        mode = "n";
+        key = "<C-Down>";
+        action = "<cmd>resize -2<cr>";
+        options.desc = "Decrease window width";
+      }
+      {
+        mode = "n";
+        key = "<C-Left>";
+        action = "<cmd>vertical resize -2<cr>";
+        options.desc = "Decrease window width";
+      }
+      {
+        mode = "n";
+        key = "<C-Right>";
+        action = "<cmd>vertical resize +2<cr>";
+        options.desc = "Increase window width";
       }
     ];
   };
