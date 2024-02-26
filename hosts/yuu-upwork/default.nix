@@ -121,7 +121,7 @@
   yuu = {
     programs = {
       git.enable = true;
-      lazyvim.enable = true;
+      nvim.enable = true;
     };
     pack.comfy-shell.enable = true;
   };

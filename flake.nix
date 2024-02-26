@@ -1,6 +1,6 @@
 {
   description = "my system flake";
-
+ 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
     home-manager = {
@@ -39,6 +39,10 @@
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -56,7 +60,9 @@
           inherit nixpkgs inputs username system home-manager self;
         }
       );
-      # TODO sort this out
-      packages."${system}" = (import ./pkgs) pkgs;
+      packages."${system}" = import ./pkgs { inherit pkgs inputs system; };
+      checks."${system}" = {
+        "nvim" = inputs.nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule self.packages."${system}".nvim;
+      };
     };
 }

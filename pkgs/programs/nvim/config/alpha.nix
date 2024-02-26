@@ -1,0 +1,5 @@
+{
+  plugins.alpha = {
+    enable = false;
+  };
+}

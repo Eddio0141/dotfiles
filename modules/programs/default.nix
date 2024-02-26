@@ -3,5 +3,6 @@
     ./waybar
     ./git
     ./lazyvim
+    ./nvim
   ];
 }
