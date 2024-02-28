@@ -5,7 +5,6 @@
     ./toggleterm.nix
     ./which-key.nix
     ./telescope.nix
-    ./airline.nix
     ./lsp.nix
     ./bufferline.nix
     ./persistence.nix
@@ -41,6 +40,11 @@
     ./presence-nvim.nix
     ./cmp-nvim-lsp.nix
     ./nvim-cmp.nix
+    ./nvim-neotest.nix
+    ./profiling.nix
+    ./lightline.nix
+    ./notify.nix
+    ./luasnip.nix
   ];
 
   config = {
@@ -205,12 +209,6 @@
         options.desc = "Signature help";
       }
       {
-        mode = "n";
-        key = "gr";
-        action = "<cmd>Telescope lsp_references<cr>";
-        options.desc = "References";
-      }
-      {
         mode = ["n" "v"];
         key = "<leader>ca";
         action = "vim.lsp.buf.code_action";
@@ -276,6 +274,28 @@
         key = "<C-Right>";
         action = "<cmd>vertical resize +2<cr>";
         options.desc = "Increase window width";
+      }
+      {
+        mode = "n";
+        key = "<leader>cl";
+        action = "<cmd>LspInfo<cr>";
+        options.desc = "lsp info";
+      }
+      {
+        mode = "n";
+        key = "gD";
+        action = "vim.lsp.buf.declaration";
+        options.desc = "Goto declaration";
+      }
+      {
+        mode = "v";
+        key = "<";
+        action = "<gv";
+      }
+      {
+        mode = "v";
+        key = ">";
+        action = ">gv";
       }
     ];
   };
