@@ -1,5 +1,5 @@
 {
-  plugins.lightline = {
+  plugins.inc-rename = {
     enable = true;
   };
 }

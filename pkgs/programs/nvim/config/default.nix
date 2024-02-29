@@ -42,9 +42,10 @@
     ./nvim-cmp.nix
     ./nvim-neotest.nix
     ./profiling.nix
-    ./lightline.nix
     ./notify.nix
     ./luasnip.nix
+    ./airline.nix
+    ./inc-rename.nix
   ];
 
   config = {
@@ -183,6 +184,24 @@
       }
       {
         mode = "n";
+        key = "<leader>bo";
+        action = "<cmd>BufferLineCloseOthers<cr>";
+        options.desc = "Delete other buffers";
+      }
+      {
+        mode = "n";
+        key = "<leader>br";
+        action = "<cmd>BufferLineCloseRight<cr>";
+        options.desc = "Delete buffers to the right";
+      }
+      {
+        mode = "n";
+        key = "<leader>bl";
+        action = "<cmd>BufferLineCloseLeft<cr>";
+        options.desc = "Delete buffers to the left";
+      }
+      {
+        mode = "n";
         key = "<leader>qq";
         action = "<cmd>qa<cr>";
         options.desc = "Quit all";
@@ -216,19 +235,31 @@
         options.desc = "Code action";
       }
       {
+        mode = ["n" "v"];
+        key = "<leader>cr";
+        action = ''
+        function()
+          local inc_rename = require("inc_rename")
+          return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
+        end
+        '';
+        lua = true;
+        options.desc = "Rename";
+      }
+      {
         mode = ["i" "n"];
         key = "<esc>";
         action = "<cmd>noh<cr><esc>";
         options.desc = "Escape and clear hlsearch";
       }
       {
-        mode = "n";
+        mode = ["n" "v"];
         key = "<A-j>";
         action = "<cmd>m .+1<cr>==";
         options.desc = "Move down";
       }
       {
-        mode = "n";
+        mode = ["n" "v"];
         key = "<A-k>";
         action = "<cmd>m .-2<cr>==";
         options.desc = "Move up";
