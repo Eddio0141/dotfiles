@@ -46,6 +46,7 @@
     ./luasnip.nix
     ./airline.nix
     ./inc-rename.nix
+    ./neogen.nix
   ];
 
   config = {
