@@ -65,6 +65,13 @@ in {
     DP-3.mode = "1920x1080@144Hz";
   };
   bars = [];
-  window.titlebar = false;
+  window = {
+    titlebar = false;
+    border = 3;
+  };
+  gaps = {
+    outer = 20;
+    inner = 5;
+  };
   floating.titlebar = false;
 }
