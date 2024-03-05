@@ -179,6 +179,8 @@
         hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
       };
     })
+    yuzu-early-access
+    citra-canary
 
     # spell checking
     hunspell
