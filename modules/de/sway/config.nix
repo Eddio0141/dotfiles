@@ -8,7 +8,7 @@ in {
     { command = "dunst"; }
     { command = "hyprpaper"; }
     { command = "firefox"; }
-    { command = "clementine"; }
+    { command = "exec clementine"; }
     { command = "dolphin --daemon"; }
     { command = "thunderbird"; }
     { command = "obsidian"; }
@@ -50,8 +50,7 @@ in {
     "${mod}+alt+p" = "exec clementine --play-pause";
     "${mod}+alt+o" = "exec clementine --next";
     "${mod}+alt+i" = "exec clementine --previous";
-    "ctrl+alt+delete" =
-      "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+    "ctrl+alt+delete" = "exec sway exit";
   };
   input = {
     "*" = {
