@@ -74,4 +74,13 @@ in {
     inner = 5;
   };
   floating.titlebar = false;
+  colors = {
+    focused = {
+      border = "ff8cec";
+      background = "ff8cec";
+      text = "ffffff";
+      indicator = "ff8cec";
+      childBorder = "ff8cec";
+    };
+  };
 }
