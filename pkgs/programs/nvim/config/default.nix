@@ -26,7 +26,6 @@
     ./fidget.nix
     ./flash.nix
     ./friendly-snippets.nix
-    ./hardtime.nix
     ./hmts.nix
     ./indent-blankline.nix
     ./leap.nix
