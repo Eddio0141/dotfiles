@@ -4,11 +4,11 @@
     keymaps = {
       "<leader><space>" = {
         action = "find_files";
-	desc = "Finds files in root dir";
+        desc = "Finds files in root dir";
       };
       "<leader>/" = {
         action = "live_grep";
-	desc = "Grep in root dir";
+        desc = "Grep in root dir";
       };
       "<leader>sK" = {
         action = "keymaps";

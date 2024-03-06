@@ -163,9 +163,11 @@
     r2modman
     inputs.gpt4all.packages.${system}.gpt4all-chat
     libtas
-    (gimp-with-plugins.override { plugins = with gimpPlugins; [
-      gap
-    ];})
+    (gimp-with-plugins.override {
+      plugins = with gimpPlugins; [
+        gap
+      ];
+    })
     wl-clipboard
     cliphist
     quickemu

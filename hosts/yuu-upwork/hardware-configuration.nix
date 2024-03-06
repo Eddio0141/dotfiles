@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ohci_pci" "ehci_pci" "virtio_pci" "ahci" "usbhid" "sr_mod" "virtio_blk" ];
@@ -14,18 +15,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e69769fb-6e70-4c1d-b6cf-fae7635fdc28";
+    {
+      device = "/dev/disk/by-uuid/e69769fb-6e70-4c1d-b6cf-fae7635fdc28";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6CB9-7F27";
+    {
+      device = "/dev/disk/by-uuid/6CB9-7F27";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/9b63914d-7f3c-4564-842d-f5e42c316116"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/9b63914d-7f3c-4564-842d-f5e42c316116"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

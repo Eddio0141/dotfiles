@@ -21,12 +21,12 @@
     "clementine"
     "dolphin --daemon"
     "fcitx5 -d"
-    
+
     "[ workspace special silent ] thunderbird"
     "obsidian"
     "steam -silent"
     "vesktop"
-    
+
     # TODO fix this
     # "noisetorch -i alsa_input.usb-Razer_Inc_Razer_Seiren_Mini_UC2220L03401755-00.mono-fallback"
 

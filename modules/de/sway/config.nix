@@ -2,7 +2,8 @@
 let
   mod = "Mod4";
   term = "${pkgs.kitty}/bin/kitty";
-in {
+in
+{
   startup = [
     { command = "waybar"; }
     { command = "dunst"; }
@@ -63,7 +64,7 @@ in {
     HDMI-A-1.mode = "1920x1080@60Hz";
     DP-3.mode = "1920x1080@144Hz";
   };
-  bars = [];
+  bars = [ ];
   window = {
     titlebar = false;
     border = 3;

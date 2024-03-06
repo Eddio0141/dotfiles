@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.yuu.programs.git;
-in {
+in
+{
   options.yuu.programs.git.enable = mkEnableOption "git";
 
   config = (mkIf cfg.enable {

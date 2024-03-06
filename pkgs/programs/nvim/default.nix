@@ -6,4 +6,4 @@ let
     # extraSpecialArgs = {};
   };
 in
-  nixvim.makeNixvimWithModule nixvimModule
+nixvim.makeNixvimWithModule nixvimModule

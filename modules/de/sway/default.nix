@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.yuu.de.sway;
-in {
+in
+{
   options.yuu.de.sway.enable = mkEnableOption "sway";
 
   config = (mkIf cfg.enable {
@@ -10,8 +11,8 @@ in {
       enable = true;
       package = pkgs.swayfx;
       extraSessionCommands = ''
-      export QT_QPA_PLATFORM=wayland
-      export QT_QPA_PLATFORMTHEME=qt5ct
+        export QT_QPA_PLATFORM=wayland
+        export QT_QPA_PLATFORMTHEME=qt5ct
       '';
     };
 
@@ -28,7 +29,7 @@ in {
     environment.systemPackages = with pkgs; [
       kitty
     ];
-    
+
     xdg.portal = {
       enable = true;
       wlr.enable = true;

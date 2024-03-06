@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.yuu.pack.comfy-shell;
-in {
+in
+{
   options.yuu.pack.comfy-shell.enable = mkEnableOption "shell environment";
 
   config = (mkIf cfg.enable {
@@ -20,11 +21,12 @@ in {
     environment.systemPackages = with pkgs; [
       (buildFHSEnv (
         appimageTools.defaultFhsEnvArgs //
-      {
-        name = "fhs-env";
-        multiArch = true;
-        runScript = "zsh";
-      }))
+        {
+          name = "fhs-env";
+          multiArch = true;
+          runScript = "zsh";
+        }
+      ))
 
       neofetch
     ];
@@ -46,7 +48,7 @@ in {
         enableAutosuggestions = true;
         enableCompletion = true;
         syntaxHighlighting.enable = true;
-        
+
         shellAliases = {
           update = "sudo nixos-rebuild switch --flake '.'";
           update-test = "sudo nixos-rebuild test --flake '.'";

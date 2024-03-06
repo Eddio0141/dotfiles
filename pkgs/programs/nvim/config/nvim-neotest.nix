@@ -5,23 +5,23 @@
       cargo-nextest
       lldb
     ];
-    
+
     extraPlugins = with pkgs.vimPlugins; [
       neotest
     ];
 
     extraConfigLua = ''
-    require("neotest").setup({
-      adapters = {
-        require("rustaceanvim.neotest")
-      },
-      status = {
-        virtual_text = true
-      },
-      output = {
-        open_on_run = true
-      },
-    })
+      require("neotest").setup({
+        adapters = {
+          require("rustaceanvim.neotest")
+        },
+        status = {
+          virtual_text = true
+        },
+        output = {
+          open_on_run = true
+        },
+      })
     '';
 
     keymaps = [
