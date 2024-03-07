@@ -8,7 +8,8 @@ let
     module = ./config;
     # extraSpecialArgs = {};
   };
-in {
+in
+{
   options.yuu.programs.nvim.enable = mkEnableOption "nvim";
 
   config = (mkIf cfg.enable {

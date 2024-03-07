@@ -3,7 +3,8 @@ with lib;
 let
   cfg = config.yuu.programs.waybar;
   useHyprland = config.yuu.de.hyprland.enable;
-in {
+in
+{
   options.yuu.programs.waybar.enable = mkEnableOption "waybar";
 
   config = (mkIf cfg.enable {

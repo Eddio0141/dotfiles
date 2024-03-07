@@ -1,7 +1,7 @@
 { username, inputs, system, home-manager, ... }:
 {
   imports = [
-    ../../modules/casual.nix 
+    ../../modules/casual.nix
     ./hardware-configuration.nix
   ];
 

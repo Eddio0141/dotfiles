@@ -2,13 +2,14 @@
 let
   mod = "Mod4";
   term = "${pkgs.kitty}/bin/kitty";
-in {
+in
+{
   startup = [
     { command = "waybar"; }
     { command = "dunst"; }
     { command = "hyprpaper"; }
     { command = "firefox"; }
-    { command = "clementine"; }
+    { command = "exec clementine"; }
     { command = "dolphin --daemon"; }
     { command = "thunderbird"; }
     { command = "obsidian"; }
@@ -46,12 +47,11 @@ in {
     # bind = $mainMod, mouse_down, workspace, e-1
     "${mod}+comma" = "focus output DP-3";
     "${mod}+period" = "focus output HDMI-A-1";
-    "ctrl+print" = "${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy area";
-    "${mod}+alt+p" = "clementine --play-pause";
-    "${mod}+alt+o" = "clementine --next";
-    "${mod}+alt+i" = "clementine --previous";
-    "ctrl+alt+delete" =
-      "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+    "ctrl+print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy area";
+    "${mod}+alt+p" = "exec clementine --play-pause";
+    "${mod}+alt+o" = "exec clementine --next";
+    "${mod}+alt+i" = "exec clementine --previous";
+    "ctrl+alt+delete" = "exec sway exit";
   };
   input = {
     "*" = {
@@ -64,7 +64,23 @@ in {
     HDMI-A-1.mode = "1920x1080@60Hz";
     DP-3.mode = "1920x1080@144Hz";
   };
-  bars = [];
-  window.titlebar = false;
+  bars = [ ];
+  window = {
+    titlebar = false;
+    border = 3;
+  };
+  gaps = {
+    outer = 20;
+    inner = 5;
+  };
   floating.titlebar = false;
+  colors = {
+    focused = {
+      border = "ff8cec";
+      background = "ff8cec";
+      text = "ffffff";
+      indicator = "ff8cec";
+      childBorder = "ff8cec";
+    };
+  };
 }

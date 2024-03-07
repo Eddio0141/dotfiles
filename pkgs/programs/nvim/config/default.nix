@@ -5,7 +5,6 @@
     ./toggleterm.nix
     ./which-key.nix
     ./telescope.nix
-    ./airline.nix
     ./lsp.nix
     ./bufferline.nix
     ./persistence.nix
@@ -27,7 +26,6 @@
     ./fidget.nix
     ./flash.nix
     ./friendly-snippets.nix
-    ./hardtime.nix
     ./hmts.nix
     ./indent-blankline.nix
     ./leap.nix
@@ -41,6 +39,13 @@
     ./presence-nvim.nix
     ./cmp-nvim-lsp.nix
     ./nvim-cmp.nix
+    ./nvim-neotest.nix
+    ./profiling.nix
+    ./notify.nix
+    ./luasnip.nix
+    ./airline.nix
+    ./inc-rename.nix
+    ./neogen.nix
   ];
 
   config = {
@@ -74,7 +79,7 @@
     vimAlias = true;
 
     autoGroups = {
-      close_with_q = {};
+      close_with_q = { };
     };
 
     autoCmd = [
@@ -98,41 +103,41 @@
           "neotest-output-panel"
         ];
         callback = helpers.mkRaw ''
-        function(arg)
-          vim.bo[arg.buf].buflisted = false
-          vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = arg.buf, silent = true})
-        end
+          function(arg)
+            vim.bo[arg.buf].buflisted = false
+            vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = arg.buf, silent = true})
+          end
         '';
       }
     ];
 
     keymaps = [
       {
-        mode = ["i" "x" "n" "s"];
+        mode = [ "i" "x" "n" "s" ];
         key = "<C-s>";
         action = "<cmd>write<cr><ESC>";
         options.desc = "Save";
       }
       {
-        mode = ["n" "t"];
+        mode = [ "n" "t" ];
         key = "<C-h>";
         action = "<cmd>wincmd h<cr>";
         options.desc = "Move cursor to window left";
       }
       {
-        mode = ["n" "t"];
+        mode = [ "n" "t" ];
         key = "<C-j>";
         action = "<cmd>wincmd j<cr>";
         options.desc = "Move cursor to window down";
       }
       {
-        mode = ["n" "t"];
+        mode = [ "n" "t" ];
         key = "<C-k>";
         action = "<cmd>wincmd k<cr>";
         options.desc = "Move cursor to window up";
       }
       {
-        mode = ["n" "t"];
+        mode = [ "n" "t" ];
         key = "<C-l>";
         action = "<cmd>wincmd l<cr>";
         options.desc = "Move cursor to window right";
@@ -151,8 +156,8 @@
       }
       {
         mode = "n";
-	key = "<leader>gg";
-	action = "<cmd>LazyGit<cr>";
+        key = "<leader>gg";
+        action = "<cmd>LazyGit<cr>";
         options.desc = "Open LazyGit";
       }
       {
@@ -176,6 +181,24 @@
         '';
         lua = true;
         options.desc = "Delete buffer";
+      }
+      {
+        mode = "n";
+        key = "<leader>bo";
+        action = "<cmd>BufferLineCloseOthers<cr>";
+        options.desc = "Delete other buffers";
+      }
+      {
+        mode = "n";
+        key = "<leader>br";
+        action = "<cmd>BufferLineCloseRight<cr>";
+        options.desc = "Delete buffers to the right";
+      }
+      {
+        mode = "n";
+        key = "<leader>bl";
+        action = "<cmd>BufferLineCloseLeft<cr>";
+        options.desc = "Delete buffers to the left";
       }
       {
         mode = "n";
@@ -205,32 +228,38 @@
         options.desc = "Signature help";
       }
       {
-        mode = "n";
-        key = "gr";
-        action = "<cmd>Telescope lsp_references<cr>";
-        options.desc = "References";
-      }
-      {
-        mode = ["n" "v"];
+        mode = [ "n" "v" ];
         key = "<leader>ca";
         action = "vim.lsp.buf.code_action";
         lua = true;
         options.desc = "Code action";
       }
       {
-        mode = ["i" "n"];
+        mode = [ "n" "v" ];
+        key = "<leader>cr";
+        action = ''
+          function()
+            local inc_rename = require("inc_rename")
+            return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
+          end
+        '';
+        lua = true;
+        options.desc = "Rename";
+      }
+      {
+        mode = [ "i" "n" ];
         key = "<esc>";
         action = "<cmd>noh<cr><esc>";
         options.desc = "Escape and clear hlsearch";
       }
       {
-        mode = "n";
+        mode = [ "n" "v" ];
         key = "<A-j>";
         action = "<cmd>m .+1<cr>==";
         options.desc = "Move down";
       }
       {
-        mode = "n";
+        mode = [ "n" "v" ];
         key = "<A-k>";
         action = "<cmd>m .-2<cr>==";
         options.desc = "Move up";
@@ -276,6 +305,28 @@
         key = "<C-Right>";
         action = "<cmd>vertical resize +2<cr>";
         options.desc = "Increase window width";
+      }
+      {
+        mode = "n";
+        key = "<leader>cl";
+        action = "<cmd>LspInfo<cr>";
+        options.desc = "lsp info";
+      }
+      {
+        mode = "n";
+        key = "gD";
+        action = "vim.lsp.buf.declaration";
+        options.desc = "Goto declaration";
+      }
+      {
+        mode = "v";
+        key = "<";
+        action = "<gv";
+      }
+      {
+        mode = "v";
+        key = ">";
+        action = ">gv";
       }
     ];
   };

@@ -1,5 +1,5 @@
 {
-  plugins.hardtime = {
+  plugins.luasnip = {
     enable = true;
   };
 }

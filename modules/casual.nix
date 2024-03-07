@@ -163,12 +163,26 @@
     r2modman
     inputs.gpt4all.packages.${system}.gpt4all-chat
     libtas
-    (gimp-with-plugins.override { plugins = with gimpPlugins; [
-      gap
-    ];})
+    (gimp-with-plugins.override {
+      plugins = with gimpPlugins; [
+        gap
+      ];
+    })
     wl-clipboard
     cliphist
     quickemu
+    (godot_4.overrideAttrs rec {
+      version = "4.1.1-stable";
+      commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
+      src = pkgs.fetchFromGitHub {
+        owner = "godotengine";
+        repo = "godot";
+        rev = commitHash;
+        hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
+      };
+    })
+    yuzu-early-access
+    citra-canary
 
     # spell checking
     hunspell

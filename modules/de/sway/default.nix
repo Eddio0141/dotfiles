@@ -2,13 +2,18 @@
 with lib;
 let
   cfg = config.yuu.de.sway;
-in {
+in
+{
   options.yuu.de.sway.enable = mkEnableOption "sway";
 
   config = (mkIf cfg.enable {
     programs.sway = {
       enable = true;
       package = pkgs.swayfx;
+      extraSessionCommands = ''
+        export QT_QPA_PLATFORM=wayland
+        export QT_QPA_PLATFORMTHEME=qt5ct
+      '';
     };
 
     yuu.programs.waybar.enable = true;
@@ -17,10 +22,6 @@ in {
       enable = true;
       package = null;
       systemd.enable = true;
-      extraSessionCommands = ''
-        export QT_QPA_PLATFORM=wayland
-        export QT_QPA_PLATFORMTHEME=qt5ct
-      '';
       swaynag.enable = true;
       config = import ./config.nix { inherit pkgs; };
     };
@@ -28,5 +29,13 @@ in {
     environment.systemPackages = with pkgs; [
       kitty
     ];
+
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+    };
   });
 }

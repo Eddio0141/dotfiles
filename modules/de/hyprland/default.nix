@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.yuu.de.hyprland;
-in {
+in
+{
   options.yuu.de.hyprland.enable = mkEnableOption "hyprland";
 
   config = (mkIf cfg.enable {
