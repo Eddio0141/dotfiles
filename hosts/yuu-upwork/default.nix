@@ -69,6 +69,7 @@
     upwork
     kitty
     xclip
+    anydesk
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
