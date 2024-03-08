@@ -130,6 +130,6 @@
   security.sudo.wheelNeedsPassword = false;
 
   nixpkgs.config.allowUnfree = true;
-
-  fonts.enableDefaultPackages = true;
+  
+  nix.settings.auto-optimise-store = true;
 }
