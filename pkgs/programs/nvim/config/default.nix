@@ -43,7 +43,7 @@
     ./profiling.nix
     ./notify.nix
     ./luasnip.nix
-    ./airline.nix
+    # ./airline.nix TODO: fix this
     ./inc-rename.nix
     ./neogen.nix
   ];
@@ -66,8 +66,10 @@
     globals = {
       mapleader = " ";
     };
+
     options = {
       number = true;
+      relativenumber = true;
       wrap = true;
       clipboard = "unnamedplus";
       confirm = true;
