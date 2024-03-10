@@ -272,12 +272,12 @@
 
   # fonts
   fonts.packages = with pkgs; [
+    # basic stuff
+    corefonts
+    
     # japanese
     ipafont
     kochi-substitute
-
-    # basic
-    corefonts
 
     # code stuff
     (nerdfonts.override {
@@ -286,18 +286,10 @@
         "JetBrainsMono"
       ];
     })
-    # noto-fonts
-    # noto-fonts-cjk
-    # noto-fonts-emoji
-    # liberation_ttf
-    # jetbrains-mono
 
-    # idk what those are
-    # fira-code
-    # fira-code-symbols
-    # mplus-outline-fonts.githubRelease
-    # dina-font
-    # proggyfonts
+    # emojis
+    openmoji-color
+    noto-fonts-emoji
   ];
 
   # gc

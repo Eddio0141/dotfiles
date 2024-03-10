@@ -132,4 +132,22 @@
   nixpkgs.config.allowUnfree = true;
   
   nix.settings.auto-optimise-store = true;
+
+  # fonts
+  fonts.packages = with pkgs; [
+    # basic stuff
+    corefonts
+    
+    # code stuff
+    (nerdfonts.override {
+      fonts = [
+        "CodeNewRoman"
+        "JetBrainsMono"
+      ];
+    })
+
+    # emojis
+    openmoji-color
+    noto-fonts-emoji
+  ];
 }
