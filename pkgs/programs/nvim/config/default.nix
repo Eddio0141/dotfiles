@@ -24,7 +24,6 @@
     ./crates-nvim.nix
     ./dap.nix
     ./fidget.nix
-    ./flash.nix
     ./friendly-snippets.nix
     ./hmts.nix
     ./indent-blankline.nix
