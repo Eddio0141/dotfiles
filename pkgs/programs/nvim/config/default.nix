@@ -13,11 +13,6 @@
     ./autoclose.nix
     ./mini.nix
     ./better-escape.nix
-    ./cmp-buffer.nix
-    ./cmp-calc.nix
-    ./cmp-cmdline.nix
-    ./cmp-fuzzy-path.nix
-    ./cmp-path.nix
     ./comment-nvim.nix
     ./conform-nvim.nix
     ./coverage.nix
@@ -36,8 +31,7 @@
     ./yanky.nix
     ./noice.nix
     ./presence-nvim.nix
-    ./cmp-nvim-lsp.nix
-    ./nvim-cmp.nix
+    ./cmp.nix
     ./nvim-neotest.nix
     ./profiling.nix
     ./notify.nix
@@ -45,6 +39,7 @@
     # ./airline.nix TODO: fix this
     ./inc-rename.nix
     ./neogen.nix
+    ./copilot-lua.nix
   ];
 
   config = {
