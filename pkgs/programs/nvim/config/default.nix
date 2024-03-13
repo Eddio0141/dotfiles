@@ -1,5 +1,6 @@
 { pkgs, helpers, ... }:
 {
+  # TODO: move this to modules. no point being in programs
   imports = [
     ./neo-tree.nix
     ./toggleterm.nix
@@ -60,6 +61,11 @@
 
     globals = {
       mapleader = " ";
+    };
+
+    globalOptions = {
+      smartcase = true;
+      ignorecase = true;
     };
 
     options = {
