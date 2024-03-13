@@ -42,6 +42,7 @@
     ./neogen.nix
     ./copilot-lua.nix
     ./wakatime.nix
+    ./spectre.nix
   ];
 
   config = {
