@@ -40,6 +40,7 @@
     ./inc-rename.nix
     ./neogen.nix
     ./copilot-lua.nix
+    ./wakatime.nix
   ];
 
   config = {
