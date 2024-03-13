@@ -108,6 +108,7 @@
       }
     ];
 
+    # TODO separate this to own files
     keymaps = [
       {
         mode = [ "i" "x" "n" "s" ];
@@ -230,18 +231,6 @@
         action = "vim.lsp.buf.code_action";
         lua = true;
         options.desc = "Code action";
-      }
-      {
-        mode = [ "n" "v" ];
-        key = "<leader>cr";
-        action = ''
-          function()
-            local inc_rename = require("inc_rename")
-            return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
-          end
-        '';
-        lua = true;
-        options.desc = "Rename";
       }
       {
         mode = [ "i" "n" ];
