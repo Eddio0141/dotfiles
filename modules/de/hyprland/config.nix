@@ -123,7 +123,10 @@
     enable_swallow = true;
     no_direct_scanout = true;
   };
-  xwayland.force_zero_scaling = true;
+  xwayland = {
+    use_nearest_neighbor = false;
+    force_zero_scaling = false;
+  };
   group = {
     "col.border_active" = "$border_pink_active";
     "col.border_inactive" = "$border_pink_inactive";

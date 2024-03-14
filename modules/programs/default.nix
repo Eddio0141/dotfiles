@@ -4,5 +4,6 @@
     ./git
     ./lazyvim
     ./nvim
+    ./kitty
   ];
 }

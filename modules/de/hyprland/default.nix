@@ -37,10 +37,12 @@ in
     environment.systemPackages = with pkgs; [
       dunst
       pavucontrol
-      kitty
     ];
 
-    yuu.programs.waybar.enable = true;
+    yuu.programs = {
+      waybar.enable = true;
+      kitty.enable = true;
+    };
 
     home-manager.users.${username} = {
       wayland.windowManager.hyprland = {

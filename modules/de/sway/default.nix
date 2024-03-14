@@ -16,7 +16,10 @@ in
       '';
     };
 
-    yuu.programs.waybar.enable = true;
+    yuu.programs = {
+      waybar.enable = true;
+      kitty.enable = true;
+    };
 
     home-manager.users.${username}.wayland.windowManager.sway = {
       enable = true;
@@ -25,10 +28,6 @@ in
       swaynag.enable = true;
       config = import ./config.nix { inherit pkgs; };
     };
-
-    environment.systemPackages = with pkgs; [
-      kitty
-    ];
 
     xdg.portal = {
       enable = true;

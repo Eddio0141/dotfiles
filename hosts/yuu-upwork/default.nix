@@ -67,7 +67,6 @@
   environment.systemPackages = with pkgs; [
     firefox
     upwork
-    kitty
     xclip
     anydesk
   ];
@@ -123,6 +122,7 @@
     programs = {
       git.enable = true;
       nvim.enable = true;
+      kitty.enable = true;
     };
     pack.comfy-shell.enable = true;
   };

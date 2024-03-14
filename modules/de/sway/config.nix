@@ -1,7 +1,7 @@
 { pkgs }:
 let
   mod = "Mod4";
-  term = "${pkgs.kitty}/bin/kitty";
+  term = "kitty";
 in
 {
   startup = [
