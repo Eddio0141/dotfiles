@@ -183,6 +183,7 @@
     })
     yuzu-early-access
     citra-canary
+    exodus
 
     # spell checking
     hunspell
