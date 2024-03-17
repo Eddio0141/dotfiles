@@ -418,7 +418,7 @@
 
   yuu = {
     de = {
-      hyprland.enable = true;
+      # hyprland.enable = true;
       sway.enable = true;
     };
     programs = {
