@@ -7,21 +7,6 @@ in
   options.yuu.de.hyprland.enable = mkEnableOption "hyprland";
 
   config = (mkIf cfg.enable {
-    # polkit agent
-    systemd.user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
-
     # cachix for hyprland
     nix.settings = {
       substituters = [ "https://hyprland.cachix.org" "https://devenv.cachix.org" ];
@@ -39,9 +24,12 @@ in
       pavucontrol
     ];
 
-    yuu.programs = {
-      waybar.enable = true;
-      kitty.enable = true;
+    yuu = {
+      programs = {
+        waybar.enable = true;
+        kitty.enable = true;
+      };
+      security.polkit-gnome.enable = true;
     };
 
     home-manager.users.${username} = {

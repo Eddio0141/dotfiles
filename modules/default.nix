@@ -4,6 +4,7 @@
     ./de
     ./programs
     ./pack
+    ./security
     home-manager.nixosModules.home-manager
     {
       home-manager = {
