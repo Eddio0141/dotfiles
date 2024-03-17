@@ -17,17 +17,25 @@
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
 
-  fileSystems."/" =
-    {
+  fileSystems = {
+    "/" = {
       device = "/dev/disk/by-uuid/be78a0d2-2d43-418f-80ae-0246402a4613";
       fsType = "ext4";
     };
-
-  fileSystems."/boot" =
-    {
+    "/boot" = {
       device = "/dev/disk/by-uuid/5857-5B5B";
       fsType = "vfat";
     };
+    "/mnt/hdd" = {
+      device = "/dev/disk/by-uuid/8958aba8-553d-4eba-a06b-9f3c88a1eddc";
+      fsType = "ext4";
+      options = [
+        "users"
+        "nofail"
+        "x-gvfs-show"
+      ];
+    };
+  };
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/6653517d-30dc-4f52-a78b-d2081f0a4773"; }];
