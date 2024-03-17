@@ -7,6 +7,10 @@ in
   options.yuu.de.sway.enable = mkEnableOption "sway";
 
   config = (mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      dunst
+    ];
+    
     programs.sway = {
       enable = true;
       package = pkgs.swayfx;
@@ -16,9 +20,12 @@ in
       '';
     };
 
-    yuu.programs = {
-      waybar.enable = true;
-      kitty.enable = true;
+    yuu = {
+      programs = {
+        waybar.enable = true;
+        kitty.enable = true;
+      };
+      security.polkit-gnome.enable = true;
     };
 
     home-manager.users.${username}.wayland.windowManager.sway = {
