@@ -184,6 +184,7 @@
     yuzu-early-access
     citra-canary
     exodus
+    zoom-us
 
     # spell checking
     hunspell
