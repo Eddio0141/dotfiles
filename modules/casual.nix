@@ -185,6 +185,7 @@
     citra-canary
     exodus
     zoom-us
+    slack
 
     # spell checking
     hunspell
