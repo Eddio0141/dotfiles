@@ -43,6 +43,7 @@
     ./copilot-lua.nix
     ./wakatime.nix
     ./spectre.nix
+    ./aw-watcher-vim.nix
   ];
 
   config = {
