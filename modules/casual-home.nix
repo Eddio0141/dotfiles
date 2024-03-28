@@ -76,5 +76,18 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  services.activitywatch = {
+    enable = true;
+    watchers = {
+      aw-watcher-windows = {
+        package = pkgs.activitywatch;
+        settings = {
+          poll_time = 1;
+          exclude_title = true;
+        };
+      };
+    };
+  };
 }
 
