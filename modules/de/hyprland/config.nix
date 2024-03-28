@@ -10,7 +10,15 @@
     # disables usage of newer DRM API that doesn't support tearing yet
     "WLR_DRM_NO_ATOMIC,1"
 
+    # for wayland
     "QT_QPA_PLATFORM,wayland"
+    "QT_QPA_PLATFORMTHEME,qt5ct"
+    "GDK_BACKEND,wayland,x11"
+    "QT_QPA_PLATFORM,wayland;xcb"
+    "SDL_VIDEODRIVER,wayland"
+    "CLUTTER_BACKEND,wayland"
+    "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+    "QT_AUTO_SCREEN_SCALE_FACTOR,1"
     "QT_QPA_PLATFORMTHEME,qt5ct"
   ];
   exec-once = [
