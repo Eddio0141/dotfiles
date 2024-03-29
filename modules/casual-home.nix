@@ -88,6 +88,31 @@
       aw-qt = {
         package = pkgs.aw-qt;
       };
+      aw-watcher-steam = {
+        package = pkgs.python3Packages.buildPythonApplication {
+          pname = "aw-watcher-steam";
+          version = "0.1.0";
+          pyproject = true;
+          src = pkgs.fetchFromGitHub {
+            owner = "Edwardsoen";
+            repo = "aw-watcher-steam";
+            rev = "13c4b65e3ea68b60112d359128272475cf69ce93";
+            hash = "sha256-WTgu/3NrZyHXFMTAgp9SC3OeS/spThNBG2TFhiJDnno=";
+          };
+          nativeBuildInputs = with pkgs.python3Packages; [
+            pkgs.poetry
+            poetry-core
+          ];
+          dependencies = with pkgs.python3Packages; [
+            aw-client
+            requests
+          ];
+        };
+        settings.aw-watcher-steam = {
+          steam_id = "76561198289540452";
+          api_key = "22F93C780AB37A97026026370EB932CF";
+        };
+      };
     };
   };
 
