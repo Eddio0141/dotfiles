@@ -415,6 +415,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-awatcher-temp": {
+      "locked": {
+        "lastModified": 1707684694,
+        "narHash": "sha256-PZho0+qLOfq3rmAdo75s7zCCKhiAeZ6xtEeqbPFrRwI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "44a5529bbad6159aaf72b066419081319c37f4a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "44a5529bbad6159aaf72b066419081319c37f4a1",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "devshell": "devshell",
@@ -480,6 +496,7 @@
         "hyprland-protocols": "hyprland-protocols",
         "hyprpicker": "hyprpicker",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-awatcher-temp": "nixpkgs-awatcher-temp",
         "nixvim": "nixvim",
         "xdph": "xdph"
       }

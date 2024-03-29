@@ -186,7 +186,6 @@
     exodus
     zoom-us
     slack
-    activitywatch 
 
     # spell checking
     hunspell

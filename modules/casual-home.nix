@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, inputs, system, ... }:
 {
   home = {
     stateVersion = "23.05";
@@ -77,17 +77,53 @@
     enableZshIntegration = true;
   };
 
+  # TODO bundle this in a module
   services.activitywatch = {
     enable = true;
+    package = pkgs.aw-server-rust;
     watchers = {
-      aw-watcher-windows = {
-        package = pkgs.activitywatch;
-        settings = {
-          poll_time = 1;
-          exclude_title = true;
-        };
+      awatcher = {
+        package = inputs.nixpkgs-awatcher-temp.legacyPackages.${system}.awatcher;
+      };
+      aw-qt = {
+        package = pkgs.aw-qt;
       };
     };
   };
+
+  # TODO wait for hm to do something about this
+  xdg.configFile."awatcher/config.toml".text = ''
+  # The commented values are the defaults on the file creation
+  [server]
+  # port = 5600
+  # host = "localhost"
+
+  [awatcher]
+  # idle-timeout-seconds=180
+  # poll-time-idle-seconds=5
+  # poll-time-window-seconds=1
+
+  # Add as many filters as needed. The first matching filter stops the replacement.
+  # There should be at least 1 match field, and at least 1 replace field.
+  # Matches are case sensitive regular expressions between implici ^ and $, e.g.
+  # - "." matches 1 any character
+  # - ".*" matches any number of any characters
+  # - ".+" matches 1 or more any characters.
+  # - "word" is an exact match.
+  # [[awatcher.filters]]
+  # match-app-id = "navigator"
+  # match-title = ".*Firefox.*"
+  # replace-app-id = "firefox"
+  # replace-title = "Unknown"
+
+  # Use captures for app-id or title in the regular form to use parts of the original text
+  # (parentheses for a capture, $1, $2 etc for each capture).
+  # The example rule removes the changed file indicator from the title in Visual Studio Code:
+  # "● file_config.rs - awatcher - Visual Studio Code" to "file_config.rs - awatcher - Visual Studio Code".
+  # [[awatcher.filters]]
+  # match-app-id = "code"
+  # match-title = "● (.*)"
+  # replace-title = "$1"
+  '';
 }
 
