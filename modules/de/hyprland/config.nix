@@ -11,11 +11,9 @@
     "WLR_DRM_NO_ATOMIC,1"
 
     # for wayland
-    # "SDL_VIDEODRIVER,wayland" # NOTE: this causes games to not laucnh
     "GDK_BACKEND,wayland,x11"
     "QT_QPA_PLATFORM,wayland;xcb"
     "QT_QPA_PLATFORMTHEME,qt5ct"
-    "CLUTTER_BACKEND,wayland"
     "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
     "QT_AUTO_SCREEN_SCALE_FACTOR,1"
   ];
