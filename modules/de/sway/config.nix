@@ -9,7 +9,7 @@ in
     { command = "dunst"; }
     { command = "hyprpaper"; }
     { command = "firefox"; }
-    { command = "exec clementine"; }
+    { command = "clementine"; }
     { command = "dolphin --daemon"; }
     { command = "thunderbird"; }
     { command = "obsidian"; }
