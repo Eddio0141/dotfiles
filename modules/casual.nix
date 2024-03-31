@@ -186,6 +186,31 @@
     exodus
     zoom-us
     slack
+    (python3Packages.buildPythonApplication rec {
+      pname = "gpt4free";
+      version = "0.2.7.1";
+      src = fetchFromGitHub {
+        owner = "xtekky";
+        repo = "gpt4free";
+        rev = version;
+        hash = "sha256-iVxXnRn13J+uQJ/8nELp8y1MAAVT59xoJpRsBGdZOw4=";
+      };
+      build-system = with python3Packages; [
+        setuptools-scm
+      ];
+      propagatedBuildInputs = with python3Packages; [
+        requests
+        aiohttp
+        brotli
+        pycryptodome
+      ];
+      dependencies = with python3Packages; [
+        flask
+        duckduckgo-search
+        beautifulsoup4
+      ];
+      pyproject = true;
+    })
 
     # spell checking
     hunspell
