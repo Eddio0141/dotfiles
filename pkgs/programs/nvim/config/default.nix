@@ -14,7 +14,7 @@
     ./autoclose.nix
     ./mini.nix
     ./better-escape.nix
-    ./comment-nvim.nix
+    ./comment.nix
     ./conform-nvim.nix
     ./coverage.nix
     ./crates-nvim.nix
@@ -65,12 +65,12 @@
       mapleader = " ";
     };
 
-    globalOptions = {
+    globalOpts = {
       smartcase = true;
       ignorecase = true;
     };
 
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
       wrap = true;

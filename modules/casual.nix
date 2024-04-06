@@ -4,7 +4,7 @@
 
 # module for a casual desktop
 
-{ config, pkgs, username, inputs, system, self, ... }:
+{ config, pkgs, username, inputs, system, self, pkgs-stable, ... }:
 
 {
   # TODO rewrite this shit
@@ -163,9 +163,10 @@
     r2modman
     inputs.gpt4all.packages.${system}.gpt4all-chat
     libtas
+    # TODO fix
     (gimp-with-plugins.override {
       plugins = with gimpPlugins; [
-        gap
+        # gap
       ];
     })
     wl-clipboard
@@ -181,35 +182,24 @@
         hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
       };
     })
-    yuzu-early-access
-    citra-canary
+    # yuzu-early-access
+    # citra-canary
     exodus
     zoom-us
     slack
-    (python3Packages.buildPythonApplication rec {
-      pname = "gpt4free";
-      version = "0.2.7.1";
+    ((pkgs-stable.python3Packages.callPackage (fetchFromGitHub {
+      owner = "TheSaintDiratof";
+      repo = "g4f-nix";
+      rev = "ec787b835b2583122196b5737447f4e76fe8fd0a";
+      hash = "sha256-tVSwLH/eAJ/ZnDKpQn1fW0T5iWKdFSSokwVRmE/8FKM=";
+    }) {}).overrideAttrs rec {
+      version = "0.2.8.0";
       src = fetchFromGitHub {
         owner = "xtekky";
         repo = "gpt4free";
-        rev = version;
-        hash = "sha256-iVxXnRn13J+uQJ/8nELp8y1MAAVT59xoJpRsBGdZOw4=";
+        rev = "refs/tags/${version}";
+        hash = "sha256-CKfyrB2JhGxxsIg3/7kE5oJtEimNSSBCVhi4o7GnSfA=";
       };
-      build-system = with python3Packages; [
-        setuptools-scm
-      ];
-      propagatedBuildInputs = with python3Packages; [
-        requests
-        aiohttp
-        brotli
-        pycryptodome
-      ];
-      dependencies = with python3Packages; [
-        flask
-        duckduckgo-search
-        beautifulsoup4
-      ];
-      pyproject = true;
     })
 
     # spell checking
