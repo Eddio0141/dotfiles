@@ -21,7 +21,7 @@ in
     };
     # TODO also hm for this too? idk
     environment.systemPackages = [
-      nixvim.makeNixvimWithModule nixvimModule
+      (nixvim.makeNixvimWithModule nixvimModule)
     ];
   });
 }
