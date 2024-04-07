@@ -13,13 +13,15 @@ in
   options.yuu.programs.nvim.enable = mkEnableOption "nvim";
 
   config = (mkIf cfg.enable {
+    # TODO i swear there were hm module that enalbes those
     environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
       GIT_EDITOR = "nvim";
     };
+    # TODO also hm for this too? idk
     environment.systemPackages = [
-      self.packages."${system}".nvim
+      nixvim.makeNixvimWithModule nixvimModule
     ];
   });
 }
