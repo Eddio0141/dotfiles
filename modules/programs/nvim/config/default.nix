@@ -214,6 +214,12 @@
       }
       {
         mode = "n";
+        key = "<leader>fn";
+        action = "<cmd>enew<cr>";
+        options.desc = "New file";
+      }
+      {
+        mode = "n";
         key = "<leader>qq";
         action = "<cmd>qa<cr>";
         options.desc = "Quit all";
