@@ -259,15 +259,39 @@
         options.desc = "Escape and clear hlsearch";
       }
       {
-        mode = [ "n" "v" ];
+        mode = "n";
         key = "<A-j>";
         action = "<cmd>m .+1<cr>==";
         options.desc = "Move down";
       }
       {
-        mode = [ "n" "v" ];
+        mode = "n";
         key = "<A-k>";
         action = "<cmd>m .-2<cr>==";
+        options.desc = "Move up";
+      }
+      {
+        mode = "i";
+        key = "<A-j>";
+        action = "<esc><cmd>m .+1<cr>==gi";
+        options.desc = "Move down";
+      }
+      {
+        mode = "i";
+        key = "<A-k>";
+        action = "<esc><cmd>m .-2<cr>==gi";
+        options.desc = "Move up";
+      }
+      {
+        mode = "v";
+        key = "<A-j>";
+        action = ":m '>+1<cr>gv=gv";
+        options.desc = "Move down";
+      }
+      {
+        mode = "v";
+        key = "<A-k>";
+        action = ":m '<-2<cr>gv=gv";
         options.desc = "Move up";
       }
       {
