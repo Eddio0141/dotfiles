@@ -41,8 +41,8 @@
       variant = "";
     };
     desktopManager.plasma5.enable = true;
-    displayManager.sddm.enable = true;
   };
+  services.displayManager.sddm.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
