@@ -85,9 +85,6 @@
       awatcher = {
         package = inputs.nixpkgs-awatcher-temp.legacyPackages.${system}.awatcher;
       };
-      aw-qt = {
-        package = pkgs.aw-qt;
-      };
       aw-watcher-steam = {
         package = pkgs.python3Packages.buildPythonApplication {
           pname = "aw-watcher-steam";
