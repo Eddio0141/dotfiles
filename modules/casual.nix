@@ -201,6 +201,7 @@
         hash = "sha256-CKfyrB2JhGxxsIg3/7kE5oJtEimNSSBCVhi4o7GnSfA=";
       };
     })
+    gnome.gnome-calculator
 
     # spell checking
     hunspell
