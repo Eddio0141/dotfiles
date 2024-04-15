@@ -44,6 +44,7 @@
     ./wakatime.nix
     ./spectre.nix
     ./aw-watcher-vim.nix
+    ./lualine.nix
   ];
 
   config = {
