@@ -311,13 +311,6 @@
     noto-fonts-emoji
   ];
 
-  # gc
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 30d";
-  };
-
   nix.settings.auto-optimise-store = true;
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -36,40 +36,53 @@ in
       # TODO: move to local location
       xdg.configFile."neofetch/ascii-anime".source = ../../../config/neofetch/ascii-anime;
 
-      # direnv
-      programs.direnv = {
-        enable = true;
-        enableZshIntegration = true;
-        nix-direnv.enable = true;
-      };
-      # zsh
-      programs.zsh = {
-        enable = true;
-        autosuggestion.enable = true;
-        enableCompletion = true;
-        syntaxHighlighting.enable = true;
-
-        shellAliases = {
-          update = "sudo nixos-rebuild switch --flake '.'";
-          update-test = "sudo nixos-rebuild test --flake '.'";
-          upgrade = "nix flake update";
-          neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
-        };
-
-        # oh my zsh
-        oh-my-zsh = {
+      programs = {
+        # direnv
+        direnv = {
           enable = true;
-          plugins = [ "git" ];
-          theme = "fino-time";
+          enableZshIntegration = true;
+          nix-direnv.enable = true;
+        };
+        
+        # zsh
+        programs.zsh = {
+          enable = true;
+          autosuggestion.enable = true;
+          enableCompletion = true;
+          syntaxHighlighting.enable = true;
+
+          shellAliases = {
+            update = "nh os switch";
+            update-test = "nh os test";
+            upgrade = "nh os switch -u";
+            neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
+          };
+
+          # oh my zsh
+          oh-my-zsh = {
+            enable = true;
+            plugins = [ "git" ];
+            theme = "fino-time";
+          };
+
+          initExtra = ''
+          if [[ $- = *i* ]]; then
+          neofetch --source ~/.config/neofetch/ascii-anime
+
+          echo "Welcome back $USER!"
+          fi
+          '';
         };
 
-        initExtra = ''
-          if [[ $- = *i* ]]; then
-            neofetch --source ~/.config/neofetch/ascii-anime
-
-            echo "Welcome back $USER!"
-          fi
-        '';
+        nh = {
+          enable = true;
+          flake = "/home/${username}/dotfiles";
+          clean = {
+            enable = true;
+            dates = "weekly";
+            extraArgs = "--keep-since 31d";
+          };
+        };
       };
     };
   });
