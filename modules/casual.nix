@@ -295,7 +295,7 @@
     corefonts
     
     # japanese
-    ipafont
+    ipaexfont
     kochi-substitute
 
     # code stuff
