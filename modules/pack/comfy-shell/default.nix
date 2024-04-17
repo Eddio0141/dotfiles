@@ -10,7 +10,19 @@ in
     # zsh setups
     users.users.${username}.shell = pkgs.zsh;
 
-    programs.zsh.enable = true;
+    programs = {
+      zsh.enable = true;
+      
+      nh = {
+        enable = true;
+        flake = "/home/${username}/dotfiles";
+        clean = {
+          enable = true;
+          dates = "weekly";
+          extraArgs = "--keep-since 31d";
+        };
+      };
+    };
 
     users.defaultUserShell = pkgs.zsh;
 
@@ -45,7 +57,7 @@ in
         };
         
         # zsh
-        programs.zsh = {
+        zsh = {
           enable = true;
           autosuggestion.enable = true;
           enableCompletion = true;
@@ -72,16 +84,6 @@ in
           echo "Welcome back $USER!"
           fi
           '';
-        };
-
-        nh = {
-          enable = true;
-          flake = "/home/${username}/dotfiles";
-          clean = {
-            enable = true;
-            dates = "weekly";
-            extraArgs = "--keep-since 31d";
-          };
         };
       };
     };
