@@ -10,6 +10,12 @@
         action = "<cmd>Neotree toggle<cr>";
         options.desc = "Explore NeoTree";
       }
+      {
+        mode = "n";
+        key = "<leader>r";
+        action = "<cmd>Neotree reveal<cr>";
+        options.desc = "Reveal current file in NeoTree";
+      }
     ];
   };
 }
