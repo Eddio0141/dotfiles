@@ -46,6 +46,7 @@
     ./aw-watcher-vim.nix
     ./lualine.nix
     ./typescript-tools.nix
+    ./ts-autotag.nix
   ];
 
   config = {
