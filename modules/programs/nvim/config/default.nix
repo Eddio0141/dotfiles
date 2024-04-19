@@ -45,6 +45,7 @@
     ./spectre.nix
     ./aw-watcher-vim.nix
     ./lualine.nix
+    ./typescript-tools.nix
   ];
 
   config = {
