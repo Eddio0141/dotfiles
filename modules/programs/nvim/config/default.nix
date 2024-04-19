@@ -118,8 +118,14 @@
       }
       {
         event = [ "BufRead" "BufNewFile" ];
+        command = "setlocal tabstop=2 shiftwidth=2 expandtab softtabstop=2";
+        desc = "Tab to spaces, 2 spaces";
+        pattern = [ "*.js" ];
+      }
+      {
+        event = [ "BufRead" "BufNewFile" ];
         command = "setlocal tabstop=4 shiftwidth=4 expandtab softtabstop=4";
-        desc = "Tab to spaces";
+        desc = "Tab to spaces, 4 spaces";
         pattern = [ "*.cl" ];
       }
     ];
