@@ -18,8 +18,7 @@
           name = "nvim_lsp";
         }
         {
-          # TODO better than path?
-          name = "fuzzy_path";
+          name = "path";
         }
         {
           name = "buffer";
