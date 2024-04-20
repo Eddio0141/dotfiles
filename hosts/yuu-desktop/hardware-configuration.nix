@@ -33,6 +33,7 @@
         "users"
         "nofail"
         "x-gvfs-show"
+        "exec"
       ];
     };
   };
