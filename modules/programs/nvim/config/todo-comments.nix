@@ -5,7 +5,9 @@
         mode = "n";
         key = "]t";
         action = ''
-        require("todo-comments").jump_next()
+        function()
+          require("todo-comments").jump_next()
+        end
         '';
         lua = true;
         options.desc = "Jump to next todo";
@@ -14,7 +16,9 @@
         mode = "n";
         key = "[t";
         action = ''
-        require("todo-comments").jump_prev()
+        function() 
+          require("todo-comments").jump_prev()
+        end
         '';
         lua = true;
         options.desc = "Jump to previous todo";
