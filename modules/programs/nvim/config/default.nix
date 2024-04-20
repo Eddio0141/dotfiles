@@ -47,6 +47,7 @@
     ./lualine.nix
     ./typescript-tools.nix
     ./ts-autotag.nix
+    ./todo-comments.nix
   ];
 
   config = {
