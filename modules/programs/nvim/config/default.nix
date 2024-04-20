@@ -11,7 +11,6 @@
     ./persistence.nix
     ./alpha.nix
     ./treesitter.nix
-    ./autoclose.nix
     ./mini.nix
     ./better-escape.nix
     ./comment.nix
@@ -37,7 +36,6 @@
     ./profiling.nix
     ./notify.nix
     ./luasnip.nix
-    # ./airline.nix TODO: fix this
     ./inc-rename.nix
     ./neogen.nix
     ./copilot-lua.nix
@@ -48,6 +46,7 @@
     ./typescript-tools.nix
     ./ts-autotag.nix
     ./todo-comments.nix
+    ./nvim-autopairs.nix
   ];
 
   config = {
