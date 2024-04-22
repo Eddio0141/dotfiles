@@ -7,7 +7,7 @@
       x11.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Amber";
-      size = 16;
+      size = 24;
     };
   };
 
@@ -155,6 +155,7 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    XCURSOR_SIZE = "24";
   };
 
   programs.ripgrep.enable = true;
