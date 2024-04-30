@@ -352,6 +352,9 @@
         mobile = {
           id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
         };
+        pixel7 = {
+          id = "TJC3PXB-MGZLOID-CY3FEQN-K3E6AIZ-5AORONW-KRJGODY-RCDLBFM-FKCIYAK";
+        };
         laptop = {
           id = "XTDP5I6-5NPJXNL-CQIYBAP-TN75VCX-37RWFBV-YAJSB6X-6URZYEN-HG7EJQP";
         };
@@ -363,15 +366,15 @@
       folders = {
         "/home/${username}/Documents/Obsidian" = {
           id = "obsidian";
-          devices = [ "mobile" "laptop" ];
+          devices = [ "mobile" "laptop" "pixel7" ];
         };
         "/home/${username}/sync" = {
           id = "sync";
-          devices = [ "mobile" "laptop" ];
+          devices = [ "mobile" "laptop" "pixel7" ];
         };
         "/home/${username}/Music" = {
           id = "music";
-          devices = [ "mobile" "laptop" ];
+          devices = [ "mobile" "laptop" "pixel7" ];
         };
       };
     };
@@ -436,6 +439,7 @@
     programs = {
       git.enable = true;
       nvim.enable = true;
+      gpu-screen-recorder.enable = true;
     };
     pack.comfy-shell.enable = true;
   };
