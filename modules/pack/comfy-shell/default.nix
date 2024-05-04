@@ -40,13 +40,13 @@ in
         }
       ))
 
-      neofetch
+      fastfetch
     ];
 
     home-manager.users.${username} = {
-      # neofetch art
+      # fastfetch art
       # TODO: move to local location
-      xdg.configFile."neofetch/ascii-anime".source = ../../../config/neofetch/ascii-anime;
+      xdg.configFile."fastfetch/ascii-anime".source = ../../../config/fastfetch/ascii-anime;
 
       programs = {
         # direnv
@@ -67,7 +67,7 @@ in
             update = "nh os switch";
             update-test = "nh os test";
             upgrade = "nh os switch -u";
-            neofetch = "neofetch --source ~/.config/neofetch/ascii-anime";
+            fastfetch = "fastfetch --source ~/.config/fastfetch/ascii-anime";
           };
 
           # oh my zsh
@@ -79,7 +79,7 @@ in
 
           initExtra = ''
           if [[ $- = *i* ]]; then
-          neofetch --source ~/.config/neofetch/ascii-anime
+          fastfetch -l ~/.config/fastfetch/ascii-anime
 
           echo "Welcome back $USER!"
           fi
