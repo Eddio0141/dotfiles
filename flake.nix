@@ -44,6 +44,7 @@
         home-manager.follows = "home-manager";
       };
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-stable, ... } @ inputs:
