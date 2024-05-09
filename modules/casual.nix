@@ -186,20 +186,6 @@
     exodus
     zoom-us
     slack
-    ((pkgs-stable.python3Packages.callPackage (fetchFromGitHub {
-      owner = "TheSaintDiratof";
-      repo = "g4f-nix";
-      rev = "ec787b835b2583122196b5737447f4e76fe8fd0a";
-      hash = "sha256-tVSwLH/eAJ/ZnDKpQn1fW0T5iWKdFSSokwVRmE/8FKM=";
-    }) {}).overrideAttrs rec {
-      version = "0.2.8.0";
-      src = fetchFromGitHub {
-        owner = "xtekky";
-        repo = "gpt4free";
-        rev = "refs/tags/${version}";
-        hash = "sha256-CKfyrB2JhGxxsIg3/7kE5oJtEimNSSBCVhi4o7GnSfA=";
-      };
-    })
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
 
@@ -433,8 +419,8 @@
 
   yuu = {
     de = {
-      # hyprland.enable = true;
-      sway.enable = true;
+      hyprland.enable = true;
+      # sway.enable = true;
     };
     programs = {
       git.enable = true;
