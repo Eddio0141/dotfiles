@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   "$border_pink_active" = "rgba(ff8cecff)";
   "$border_pink_inactive" = "rgba(595959aa)";
@@ -145,7 +146,7 @@
     "$mainMod, T, togglefloating, "
     "$mainMod, S, exec, wofi --show drun -I -m -i -W 25% -H 75%"
     "$mainMod, P, pseudo, # dwindle"
-    "$mainMod, J, togglesplit, # dwindle"
+    "$mainMod, U, togglesplit, # dwindle"
     "$mainMod, F, fullscreen,"
     "$mainMod, G, togglegroup,"
     "$mainMod, H, lockactivegroup, toggle"
@@ -158,12 +159,20 @@
     "$mainMod, right, movefocus, r"
     "$mainMod, up, movefocus, u"
     "$mainMod, down, movefocus, d"
+    "$mainMod, h, movefocus, l"
+    "$mainMod, l, movefocus, r"
+    "$mainMod, k, movefocus, u"
+    "$mainMod, j, movefocus, d"
 
     # Move windows with mainMod + SHIFT + arrow keys
     "$mainMod SHIFT, left, movewindow, l"
     "$mainMod SHIFT, right, movewindow, r"
     "$mainMod SHIFT, up, movewindow, u"
     "$mainMod SHIFT, down, movewindow, d"
+    "$mainMod SHIFT, h, movewindow, l"
+    "$mainMod SHIFT, l, movewindow, r"
+    "$mainMod SHIFT, k, movewindow, u"
+    "$mainMod SHIFT, j, movewindow, d"
 
     # Switch workspaces with mainMod + [0-9]
     "$mainMod, 1, workspace, 1"
