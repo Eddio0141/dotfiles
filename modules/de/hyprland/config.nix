@@ -149,7 +149,7 @@
     "$mainMod, U, togglesplit, # dwindle"
     "$mainMod, F, fullscreen,"
     "$mainMod, G, togglegroup,"
-    "$mainMod, H, lockactivegroup, toggle"
+    "$mainMod, End, lockactivegroup, toggle"
     "$mainMod, Next, changegroupactive, f"
     "$mainMod, Prior, changegroupactive, b"
     "$mainMod SHIFT, End, moveoutofgroup,"
@@ -226,6 +226,7 @@
     "$altCombo, I, exec, clementine --previous"
 
     # gpu-screen-recorder
+    # TODO: expand on this and make it better
     "ALT, F9, exec, ${pkgs.killall} -SIGINT gpu-screen-recorder"
     "ALT, F10, exec, ${pkgs.killall} -SIGUSR1 gpu-screen-recorder"
 ];
