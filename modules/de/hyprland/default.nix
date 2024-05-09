@@ -38,7 +38,7 @@ in
         systemd.enable = true;
         xwayland.enable = true;
         # if variable or colours, quote them
-        settings = import ./config.nix;
+        settings = (import ./config.nix) { inherit pkgs; };
       };
     };
   });

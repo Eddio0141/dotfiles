@@ -54,6 +54,9 @@ in
     "${mod}+alt+o" = "exec clementine --next";
     "${mod}+alt+i" = "exec clementine --previous";
     "ctrl+alt+delete" = "exec sway exit";
+
+    "Mod1+F9" = "exec ${pkgs.killall} -SIGINT gpu-screen-recorder";
+    "Mod1+F10" = "exec ${pkgs.killall} -SIGUSR1 gpu-screen-recorder";
   };
   input = {
     "*" = {
