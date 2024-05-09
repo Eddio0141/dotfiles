@@ -224,7 +224,11 @@
     "$altCombo, P, exec, clementine --play-pause"
     "$altCombo, O, exec, clementine --next"
     "$altCombo, I, exec, clementine --previous"
-  ];
+
+    # gpu-screen-recorder
+    "ALT, F9, exec, ${pkgs.killall} -SIGINT gpu-screen-recorder"
+    "ALT, F10, exec, ${pkgs.killall} -SIGUSR1 gpu-screen-recorder"
+];
 
   bindm = [
     # Move/resize windows with mainMod + LMB/RMB and dragging
