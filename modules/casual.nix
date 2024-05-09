@@ -137,7 +137,6 @@
     protontricks
     xdg-utils
     # distrobox
-    webcord
     wineWowPackages.staging
     winetricks
     libreoffice-qt
