@@ -6,10 +6,10 @@
     height = 30;
     spacing = 4;
     # TODO: hyprland, sway
-    # modules-left =   [ "hyprland/workspaces" ];
-    # modules-center = [ "hyprland/window" ];
-    modules-left = [ "sway/workspaces" ];
-    modules-center = [ "sway/window" ];
+    modules-left =   [ "hyprland/workspaces" ];
+    modules-center = [ "hyprland/window" ];
+    # modules-left = [ "sway/workspaces" ];
+    # modules-center = [ "sway/window" ];
     modules-right = [ "pulseaudio" "network" "cpu" "memory" "temperature" "clock" "tray" ];
 
     # Modules configuration
