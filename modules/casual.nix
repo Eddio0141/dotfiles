@@ -8,7 +8,20 @@
 
 {
   # TODO rewrite this shit
-
+  nixpkgs.overlays = [
+    # fixes tf2 not launching
+    # (final: prev: {
+    #   steam = prev.steam.override ({ extraLibraries ? pkgs': [], ... }: {
+    #     extraLibraries = pkgs': (extraLibraries pkgs') ++ [
+    #       pkgs'.gperftools
+    #     ];
+    #   });
+    # })
+    (final: prev: {
+      steam = pkgs-stable.steam;
+    })
+  ];
+  
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
   boot.loader.grub = {
@@ -157,7 +170,6 @@
     #davinci-resolve
     yt-dlp
     clementine
-    pkgsi686Linux.gperftools # TODO remove when tf2 is fixed, also update tf2's launch options after
     r2modman
     gpt4all
     libtas
