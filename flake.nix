@@ -48,11 +48,14 @@
       };
       pkgs-stable = import nixpkgs-stable {
         inherit system;
-        config.permittedInsecurePackages = [
-          "curl-impersonate-0.5.4"
-          "curl-impersonate-ff-0.5.4"
-          "curl-impersonate-chrome-0.5.4"
-        ];
+        config = {
+          permittedInsecurePackages = [
+            "curl-impersonate-0.5.4"
+            "curl-impersonate-ff-0.5.4"
+            "curl-impersonate-chrome-0.5.4"
+          ];
+          allowUnfree = true;
+        };
       };
       username = "yuu";
     in
