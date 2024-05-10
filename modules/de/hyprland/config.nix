@@ -142,6 +142,7 @@
     "$mainMod, Q, exec, kitty"
     "$mainMod, W, killactive,"
     "CTRL ALT, Delete, exit,"
+    "$mainMod, Delete, exec, ${pkgs.hyprlock}/bin/hyprlock"
     "$mainMod, E, exec, dolphin"
     "$mainMod, T, togglefloating, "
     "$mainMod, S, exec, wofi --show drun -I -m -i -W 25% -H 75%"

@@ -141,7 +141,7 @@
     winetricks
     libreoffice-qt
     # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-    (pkgs.unityhub.override {
+    (unityhub.override {
       extraLibs = pkgs: with pkgs; [
         openssl_1_1
         dotnet-sdk_7
@@ -164,7 +164,7 @@
     # TODO fix
     (gimp-with-plugins.override {
       plugins = with gimpPlugins; [
-        # gap
+        gap
       ];
     })
     wl-clipboard
@@ -173,7 +173,7 @@
     (godot_4.overrideAttrs rec {
       version = "4.1.1-stable";
       commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
-      src = pkgs.fetchFromGitHub {
+      src = fetchFromGitHub {
         owner = "godotengine";
         repo = "godot";
         rev = commitHash;
