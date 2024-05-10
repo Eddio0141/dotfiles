@@ -18,20 +18,11 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         xdph.follows = "xdph";
-        hyprland-protocols.follows = "hyprland-protocols";
       };
-    };
-    # just for syncing
-    hyprland-protocols = {
-      url = "github:hyprwm/hyprland-protocols";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     xdph = {
       url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        hyprland-protocols.follows = "hyprland-protocols";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
