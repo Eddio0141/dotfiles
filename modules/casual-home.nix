@@ -165,5 +165,23 @@
     allowUnfree = true;
   }
   '';
+
+  # for ideavim
+  home.file.".ideavimrc".text = ''
+  set relativenumber
+  let mapleader = " "
+
+  inoremap jj <Esc>
+
+  nmap <C-H> <Action>(PreviousTab)
+  nmap <C-L> <Action>(NextTab)
+  nmap bd <Action>(CloseContent)
+
+  nmap <leader>ca <Action>(ShowIntentionActions)
+
+  nmap <leader><space> <Action>(GotoFile)
+
+  imap <C-Space> <Action>(EditorChooseLookupItem)
+  '';
 }
 
