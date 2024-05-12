@@ -9,16 +9,14 @@
 {
   # TODO rewrite this shit
   nixpkgs.overlays = [
-    # fixes tf2 not launching
-    # (final: prev: {
-    #   steam = prev.steam.override ({ extraLibraries ? pkgs': [], ... }: {
-    #     extraLibraries = pkgs': (extraLibraries pkgs') ++ [
-    #       pkgs'.gperftools
-    #     ];
-    #   });
-    # })
+    # fixes 32 bit source games not launching
+    # TODO: issue to be tracked needs to be put here
     (final: prev: {
-      steam = pkgs-stable.steam;
+      steam = prev.steam.override ({ extraLibraries ? pkgs': [], ... }: {
+        extraLibraries = pkgs': (extraLibraries pkgs') ++ [
+          pkgs'.gperftools
+        ];
+      });
     })
   ];
   
