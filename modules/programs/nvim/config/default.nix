@@ -127,7 +127,7 @@
         event = [ "BufRead" "BufNewFile" ];
         command = "setlocal tabstop=4 shiftwidth=4 expandtab softtabstop=4";
         desc = "Tab to spaces, 4 spaces";
-        pattern = [ "*.cl" ];
+        pattern = [ "*.cl" "*.cs" ];
       }
     ];
 
