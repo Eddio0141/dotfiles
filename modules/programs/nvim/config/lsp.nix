@@ -5,6 +5,7 @@
       nixd.enable = true;
       jsonls.enable = true;
       ccls.enable = true;
+      omnisharp.enable = true;
     };
   };
 }

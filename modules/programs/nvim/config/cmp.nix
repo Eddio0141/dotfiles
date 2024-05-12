@@ -26,6 +26,9 @@
         {
           name = "calc";
         }
+        {
+          name = "omni";
+        }
       ];
       snippet.expand = ''
       function(args)
