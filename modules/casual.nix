@@ -160,7 +160,6 @@
         dotnet-sdk_7
       ];
     })
-    gamemode
     ffmpeg
     lutris
     thunderbird
@@ -427,6 +426,9 @@
     enableExtraSocket = true;
     enableSSHSupport = true;
   };
+
+
+  programs.gamemode.enable = true;
 
   yuu = {
     de = {
