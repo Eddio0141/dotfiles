@@ -180,6 +180,9 @@
   nmap <leader>ca <Action>(ShowIntentionActions)
 
   nmap <leader><space> <Action>(GotoFile)
+  nmap <leader>/ <Action>(FindInPath)
+
+  nmap gI <Action>(GotoImplementation)
 
   imap <C-Space> <Action>(EditorChooseLookupItem)
   '';
