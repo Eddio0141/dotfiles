@@ -73,6 +73,12 @@
         lua = true;
         options.desc = "Stop test";
       }
+      {
+        key = "<leader>td";
+        action = ''function() require("neotest").run.run({strategy = "dap"}) end'';
+        lua = true;
+        options.desc = "Debug nearest";
+      }
     ];
   };
 }
