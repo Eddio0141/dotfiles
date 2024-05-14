@@ -173,8 +173,8 @@
 
   inoremap jj <Esc>
 
-  nmap <C-H> <Action>(PreviousTab)
-  nmap <C-L> <Action>(NextTab)
+  nmap <S-H> <Action>(PreviousTab)
+  nmap <S-L> <Action>(NextTab)
   nmap bd <Action>(CloseContent)
 
   nmap <leader>ca <Action>(ShowIntentionActions)
