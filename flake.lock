@@ -430,6 +430,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-quickemu-temp": {
+      "locked": {
+        "lastModified": 1715331065,
+        "narHash": "sha256-AW8BYEpS/liBbWWMZgB2W23wiC5hk7OdOYGw4fWSSu8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "7f9f6da2f2b8b92b9392e8f9144844276d2b1019",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "7f9f6da2f2b8b92b9392e8f9144844276d2b1019",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1715395895,
@@ -513,6 +529,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-awatcher-temp": "nixpkgs-awatcher-temp",
+        "nixpkgs-quickemu-temp": "nixpkgs-quickemu-temp",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "xdph": "xdph"
