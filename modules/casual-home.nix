@@ -171,7 +171,7 @@
   set relativenumber
   let mapleader = " "
 
-  inoremap jj <Esc>
+  inoremap jk <Esc>
 
   nmap <S-H> <Action>(PreviousTab)
   nmap <S-L> <Action>(NextTab)
