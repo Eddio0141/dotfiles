@@ -337,45 +337,6 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  services.syncthing = {
-    user = "${username}";
-    group = "wheel";
-    dataDir = "/home/${username}/.config/syncthing";
-    openDefaultPorts = true;
-    settings = {
-      devices = {
-        mobile = {
-          id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
-        };
-        pixel7 = {
-          id = "TJC3PXB-MGZLOID-CY3FEQN-K3E6AIZ-5AORONW-KRJGODY-RCDLBFM-FKCIYAK";
-        };
-        laptop = {
-          id = "XTDP5I6-5NPJXNL-CQIYBAP-TN75VCX-37RWFBV-YAJSB6X-6URZYEN-HG7EJQP";
-        };
-      };
-      extraOptions = {
-        startBrowser = false;
-        urAccepted = -1;
-      };
-      folders = {
-        "/home/${username}/Documents/Obsidian" = {
-          id = "obsidian";
-          devices = [ "mobile" "laptop" "pixel7" ];
-        };
-        "/home/${username}/sync" = {
-          id = "sync";
-          devices = [ "mobile" "laptop" "pixel7" ];
-        };
-        "/home/${username}/Music" = {
-          id = "music";
-          devices = [ "mobile" "laptop" "pixel7" ];
-        };
-      };
-    };
-    enable = true;
-  };
-
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 

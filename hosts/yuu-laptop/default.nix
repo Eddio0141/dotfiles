@@ -13,4 +13,9 @@
   };
 
   networking.hostName = "yuu-laptop";
+
+  yuu.services.syncthing = {
+    enable = true;
+    device = "laptop";
+  };
 }

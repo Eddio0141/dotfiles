@@ -13,4 +13,10 @@
   };
 
   networking.hostName = "yuu-desktop";
+
+  # TODO: add
+  # yuu.services.syncthing = {
+  #   enable = true;
+  #   device = "desktop";
+  # };
 }
