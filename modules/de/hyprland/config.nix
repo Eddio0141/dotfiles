@@ -123,8 +123,7 @@
     no_direct_scanout = true;
   };
   xwayland = {
-    use_nearest_neighbor = false;
-    force_zero_scaling = false;
+    force_zero_scaling = true;
   };
   group = {
     "col.border_active" = "$border_pink_active";
