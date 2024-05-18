@@ -1,4 +1,4 @@
-{ username, inputs, system, home-manager, ... }:
+{ username, inputs, system, home-manager, pkgs, ... }:
 {
   imports = [
     ../../modules/casual.nix
@@ -13,6 +13,8 @@
   };
 
   networking.hostName = "yuu-laptop";
+
+  services.blueman.enable = true;
 
   yuu.services.syncthing = {
     enable = true;
