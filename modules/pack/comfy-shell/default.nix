@@ -39,6 +39,16 @@ in
           runScript = "zsh";
         }
       ))
+      (buildFHSEnv (
+      appimageTools.defaultFhsEnvArgs //
+        {
+          name = "fhs-bepinex";
+          runScript = "zsh";
+          targetPkgs = pkgs: with pkgs; [
+            file
+          ];
+        }
+      ))
 
       fastfetch
     ];
