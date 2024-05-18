@@ -74,10 +74,15 @@
     ];
   };
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "amdgpu" ];
+  services = {
+    # Enable the X11 windowing system.
+    xserver = {
+      enable = true;
+      videoDrivers = [ "amdgpu" ];
+    };
+
+    # dbus for updating firmware
+    fwupd.enable = true;
   };
 
   # Enable the KDE Plasma Desktop Environment.
