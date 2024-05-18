@@ -85,6 +85,10 @@
     sensitivity = -0.35;
     accel_profile = "flat";
   };
+  device = {
+    name = "pixa3854:00-093a:0274-touchpad";
+    sensitivity = 0.5;
+  };
   general = {
     gaps_in = 5;
     gaps_out = 20;
@@ -124,8 +128,7 @@
     no_direct_scanout = true;
   };
   xwayland = {
-    use_nearest_neighbor = false;
-    force_zero_scaling = false;
+    force_zero_scaling = true;
   };
   group = {
     "col.border_active" = "$border_pink_active";
@@ -226,6 +229,9 @@
     "$altCombo, P, exec, clementine --play-pause"
     "$altCombo, O, exec, clementine --next"
     "$altCombo, I, exec, clementine --previous"
+    ", XF86AudioPlay, exec, clementine --play-pause"
+    ", XF86AudioNext, exec, clementine --next"
+    ", XF86AudioPrev, exec, clementine --previous"
 
     # gpu-screen-recorder
     # TODO: expand on this and make it better

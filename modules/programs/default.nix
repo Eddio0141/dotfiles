@@ -5,5 +5,6 @@
     ./nvim
     ./kitty
     ./gpu-screen-recorder
+    ./fastfetch
   ];
 }

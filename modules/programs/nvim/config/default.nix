@@ -38,7 +38,6 @@
     ./inc-rename.nix
     ./neogen.nix
     ./copilot-lua.nix
-    ./wakatime.nix
     ./spectre.nix
     ./aw-watcher-vim.nix
     ./lualine.nix
