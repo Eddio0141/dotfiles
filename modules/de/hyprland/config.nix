@@ -19,6 +19,7 @@
     "clementine"
     "dolphin --daemon"
     "fcitx5 -d"
+    "slack"
 
     "[ workspace special silent ] thunderbird"
     "obsidian"
