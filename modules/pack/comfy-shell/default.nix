@@ -39,15 +39,9 @@ in
           runScript = "zsh";
         }
       ))
-
-      fastfetch
     ];
 
     home-manager.users.${username} = {
-      # fastfetch art
-      # TODO: move to local location
-      xdg.configFile."fastfetch/ascii-anime".source = ../../../config/fastfetch/ascii-anime;
-
       programs = {
         # direnv
         direnv = {
@@ -67,7 +61,6 @@ in
             update = "nh os switch";
             update-test = "nh os test";
             upgrade = "nh os switch -u";
-            fastfetch = "fastfetch --source ~/.config/fastfetch/ascii-anime";
           };
 
           # oh my zsh
@@ -79,7 +72,7 @@ in
 
           initExtra = ''
           if [[ $- = *i* ]]; then
-          fastfetch -l ~/.config/fastfetch/ascii-anime
+          fastfetch
 
           echo "Welcome back $USER!"
           fi
@@ -87,5 +80,7 @@ in
         };
       };
     };
+
+    yuu.programs.fastfetch.enable = true;
   });
 }
