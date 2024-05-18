@@ -84,6 +84,10 @@
     sensitivity = -0.35;
     accel_profile = "flat";
   };
+  device = {
+    name = "pixa3854:00-093a:0274-touchpad";
+    sensitivity = 0.5;
+  };
   general = {
     gaps_in = 5;
     gaps_out = 20;

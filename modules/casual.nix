@@ -397,7 +397,10 @@
 
   yuu = {
     de = {
-      hyprland.enable = true;
+      hyprland = {
+        enable = true;
+        brightness-change = true;
+      };
       # sway.enable = true;
     };
     programs = {

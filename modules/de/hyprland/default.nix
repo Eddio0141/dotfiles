@@ -4,7 +4,10 @@ let
   cfg = config.yuu.de.hyprland;
 in
 {
-  options.yuu.de.hyprland.enable = mkEnableOption "hyprland";
+  options.yuu.de.hyprland = {
+    enable = mkEnableOption "hyprland";
+    brightness-change = mkEnableOption "monitor brightness adjustment";
+  };
 
   config = (mkIf cfg.enable {
     # cachix for hyprland
@@ -38,7 +41,10 @@ in
         systemd.enable = true;
         xwayland.enable = true;
         # if variable or colours, quote them
-        settings = (import ./config.nix) { inherit pkgs; };
+        settings = mkMerge [
+          ((import ./config) { inherit pkgs; })
+          (mkIf cfg.brightness-change (import ./config/brightness.nix { inherit pkgs; }))
+        ];
       };
 
       # TODO: image to this repo
