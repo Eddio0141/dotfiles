@@ -228,6 +228,9 @@
     "$altCombo, P, exec, clementine --play-pause"
     "$altCombo, O, exec, clementine --next"
     "$altCombo, I, exec, clementine --previous"
+    ", XF86AudioPlay, exec, clementine --play-pause"
+    ", XF86AudioNext, exec, clementine --next"
+    ", XF86AudioPrev, exec, clementine --previous"
 
     # gpu-screen-recorder
     # TODO: expand on this and make it better
