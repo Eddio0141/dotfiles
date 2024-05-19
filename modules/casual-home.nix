@@ -34,6 +34,13 @@
     frequency = "daily";
   };
 
+  programs = {
+    ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
+    };
+  };
+
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs; [
