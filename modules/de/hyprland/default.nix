@@ -15,7 +15,7 @@ in
       substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
-
+    
     programs.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${system}.default;
@@ -36,6 +36,22 @@ in
     };
 
     home-manager.users.${username} = {
+      programs = {
+        wlogout.enable = true;
+        hyprlock.enable = true;
+      };
+
+      services.hypridle = {
+        enable = true;
+        settings = {
+          general = {
+            lock_cmd = "pidof hyprlock || hyprlock";
+            before_sleep_cmd = "loginctl lock-session";
+            after_sleep_cmd = "hyprctl dispatch dpms on";
+          };
+        };
+      };
+
       wayland.windowManager.hyprland = {
         enable = true;
         systemd.enable = true;
@@ -48,6 +64,7 @@ in
       };
 
       # TODO: image to this repo
+      # TODO: home manager has this option
       xdg.configFile."hypr/hyprlock.conf".text = ''
       background {
         path = /home/yuu/Pictures/wallpaper/frieren.png

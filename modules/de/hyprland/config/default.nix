@@ -10,6 +10,7 @@
   env = [
     # disables usage of newer DRM API that doesn't support tearing yet
     "WLR_DRM_NO_ATOMIC,1"
+    "GDK_SCALE,2"
   ];
   exec-once = [
     "waybar"
@@ -19,7 +20,7 @@
     "clementine"
     "dolphin --daemon"
     "fcitx5 -d"
-    "slack"
+    "[ workspace special silent ] slack"
 
     "[ workspace special silent ] thunderbird"
     "obsidian"
@@ -145,11 +146,11 @@
   bind = [
     "$mainMod, Q, exec, kitty"
     "$mainMod, W, killactive,"
-    "CTRL ALT, Delete, exit,"
-    "$mainMod, Delete, exec, ${pkgs.hyprlock}/bin/hyprlock"
+    "CTRL ALT, Delete, exec, pidof wlogout || wlogout"
+    "CTRL ALT, BackSpace, exec, hyprlock"
     "$mainMod, E, exec, dolphin"
     "$mainMod, T, togglefloating, "
-    "$mainMod, S, exec, wofi --show drun -I -m -i -W 25% -H 75%"
+    "$mainMod, S, exec, pidof wofi || wofi --show drun -I -m -i -W 25% -H 75%"
     "$mainMod, P, pseudo, # dwindle"
     "$mainMod, U, togglesplit, # dwindle"
     "$mainMod, F, fullscreen,"
