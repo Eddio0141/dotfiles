@@ -13,4 +13,8 @@
   };
 
   networking.hostName = "yuu-desktop";
+
+  yuu.de.hyprland.monitors = [
+    "DP-3, 1920x1080@144, 0x0, 1"
+  ];
 }

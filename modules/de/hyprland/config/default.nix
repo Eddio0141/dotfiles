@@ -3,10 +3,8 @@
   # "$border_pink_active" = "rgba(ff8cecff)";
   # "$border_pink_inactive" = "rgba(595959aa)";
 
-  monitor = [
-    ",preferred,auto,auto"
-    "DP-3, 1920x1080@144, 0x0, 1"
-  ];
+  # automatically add new monitors
+  monitor = [ ",preferred,auto,1" ] ++ cfg.monitors;
   env = [
     # disables usage of newer DRM API that doesn't support tearing yet
     "WLR_DRM_NO_ATOMIC,1"

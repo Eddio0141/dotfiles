@@ -12,6 +12,12 @@ in
       description = "Scaling factor for Xwayland applications";
     };
     brightness-change = mkEnableOption "monitor brightness adjustment";
+    monitors = mkOption {
+      # TODO: make this a proper structure
+      type = types.listOf types.string;
+      default = [ ];
+      description = "List of monitors to be added";
+    };
   };
 
   config = (mkIf cfg.enable {
@@ -63,7 +69,7 @@ in
         xwayland.enable = true;
         # if variable or colours, quote them
         settings = mkMerge [
-          ((import ./config) { inherit pkgs cfg; })
+          ((import ./config) { inherit pkgs cfg lib; })
           (mkIf cfg.brightness-change (import ./config/brightness.nix { inherit pkgs; }))
         ];
       };
