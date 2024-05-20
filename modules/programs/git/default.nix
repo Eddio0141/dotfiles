@@ -17,6 +17,8 @@ in
         advice.addIgnoredFile = "false";
         pull.rebase = "false";
       };
+
+      lfs.enable = true;
     };
   });
 }
