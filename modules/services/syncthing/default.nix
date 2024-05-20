@@ -9,9 +9,8 @@ let
     pixel7 = {
       id = "TJC3PXB-MGZLOID-CY3FEQN-K3E6AIZ-5AORONW-KRJGODY-RCDLBFM-FKCIYAK";
     };
-    # TODO: replace laptop with new laptop
     yuu-laptop = {
-      id = "XTDP5I6-5NPJXNL-CQIYBAP-TN75VCX-37RWFBV-YAJSB6X-6URZYEN-HG7EJQP";
+      id = "YBEBARB-5APCGQF-2B36JOC-5O7YMJE-5VTLDTJ-KQFMF26-25NHOF3-SCQIJA3";
     };
   };
   hostName = config.networking.hostName;
