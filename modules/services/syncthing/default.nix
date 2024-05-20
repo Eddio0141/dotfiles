@@ -1,28 +1,23 @@
 { config, lib, username, ... }:
-with lib;
+with lib; with builtins;
 let
   cfg = config.yuu.services.syncthing;
   allDevices = {
-    mobile = {
-      id = "ZOW4POS-N3SKSZ5-ECM6NB7-ICMENDW-LRYONHP-CPXJNHI-BU77TE5-T6W2MQM";
+    yuu-desktop = {
+      id = "J47AZ7V-MNCKDHS-74VGJYZ-KI3I54C-HTWIHJM-DLZHSWB-WZMVCGA-XEUWNAG";
     };
     pixel7 = {
       id = "TJC3PXB-MGZLOID-CY3FEQN-K3E6AIZ-5AORONW-KRJGODY-RCDLBFM-FKCIYAK";
     };
     # TODO: replace laptop with new laptop
-    laptop = {
+    yuu-laptop = {
       id = "XTDP5I6-5NPJXNL-CQIYBAP-TN75VCX-37RWFBV-YAJSB6X-6URZYEN-HG7EJQP";
     };
   };
+  hostName = config.networking.hostName;
 in
 {
-  options.yuu.services.syncthing = {
-    enable = mkEnableOption "syncthing";
-    device = mkOption {
-      type = types.str;
-      description = "which device is this";
-    };
-  };
+  options.yuu.services.syncthing.enable = mkEnableOption "syncthing";
 
   config = (mkIf cfg.enable {
     services.syncthing = {
@@ -32,7 +27,7 @@ in
       openDefaultPorts = true;
       settings =
       let
-        filteredDevices = filterAttrs (key: _: key != cfg.device) allDevices;
+        filteredDevices = filterAttrs (key: _: key != hostName) allDevices;
       in
       {
         devices = filteredDevices;
@@ -42,7 +37,7 @@ in
         };
         folders =
         let
-          deviceNames = builtins.attrNames filteredDevices;
+          deviceNames = attrNames filteredDevices;
         in
         {
           "/home/${username}/Documents/Obsidian" = {
@@ -61,5 +56,12 @@ in
       };
       enable = true;
     };
+
+    assertions = [
+      {
+        assertion = hasAttr hostName allDevices;
+        message = "No syncthing device defined for this host. Add a device for this host in the syncthing module";
+      }
+    ];
   });
 }

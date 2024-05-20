@@ -420,6 +420,7 @@
       gpu-screen-recorder.enable = true;
     };
     pack.comfy-shell.enable = true;
+    services.syncthing.enable = true;
   };
 }
 
