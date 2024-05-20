@@ -5,8 +5,11 @@
 # module for a casual desktop
 
 { config, pkgs, username, inputs, system, self, pkgs-stable, ... }:
-
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+  
   # TODO rewrite this shit
   nixpkgs.overlays = [
     # fixes 32 bit source games not launching
@@ -30,8 +33,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -207,6 +208,7 @@
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
+    networkmanagerapplet # for network menu
 
     # spell checking
     hunspell
@@ -405,6 +407,24 @@
   };
 
   programs.gamemode.enable = true;
+
+  stylix = {
+    image = ../assets/wallpaper/frieren.png;
+    polarity = "dark";
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Amber";
+      size = 24;
+    };
+    fonts = {
+      monospace = {
+        name = "JetBrainsMono Nerd Font";
+        package = (pkgs.nerdfonts.override {
+          fonts = [ "JetBrainsMono" ];
+        });
+      };
+    };
+  };
 
   yuu = {
     de = {

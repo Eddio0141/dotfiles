@@ -11,7 +11,8 @@ in
     home-manager.users.${username}.programs.waybar = {
       enable = true;
       package = pkgs.waybar;
-      style = ./style.css;
+      # TODO: review and maybe override or remove later on
+      # style = ./style.css;
       settings = import ./config.nix;
     };
   });

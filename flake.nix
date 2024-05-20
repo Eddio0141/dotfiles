@@ -38,12 +38,12 @@
       };
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-stable, ... } @ inputs:
     let
       system = "x86_64-linux";
-      # TODO what is this
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
