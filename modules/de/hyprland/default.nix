@@ -6,6 +6,11 @@ in
 {
   options.yuu.de.hyprland = {
     enable = mkEnableOption "hyprland";
+    xwaylandScale = mkOption {
+      type = types.int;
+      default = 1;
+      description = "Scaling factor for Xwayland applications";
+    };
     brightness-change = mkEnableOption "monitor brightness adjustment";
   };
 
@@ -58,7 +63,7 @@ in
         xwayland.enable = true;
         # if variable or colours, quote them
         settings = mkMerge [
-          ((import ./config) { inherit pkgs; })
+          ((import ./config) { inherit pkgs cfg; })
           (mkIf cfg.brightness-change (import ./config/brightness.nix { inherit pkgs; }))
         ];
       };

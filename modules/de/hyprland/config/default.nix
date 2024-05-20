@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, cfg }:
 {
   "$border_pink_active" = "rgba(ff8cecff)";
   "$border_pink_inactive" = "rgba(595959aa)";
@@ -10,7 +10,7 @@
   env = [
     # disables usage of newer DRM API that doesn't support tearing yet
     "WLR_DRM_NO_ATOMIC,1"
-    "GDK_SCALE,2"
+    "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
   ];
   exec-once = [
     "waybar"

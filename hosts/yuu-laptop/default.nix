@@ -16,8 +16,7 @@
 
   services.blueman.enable = true;
 
-  yuu.services.syncthing = {
-    enable = true;
-    device = "laptop";
+  yuu = {
+    de.hyprland.xwaylandScale = 2;
   };
 }
