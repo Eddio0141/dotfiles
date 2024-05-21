@@ -123,6 +123,7 @@
   master.new_is_master = true;
   gestures.workspace_swipe = "off";
   misc = {
+    disable_splash_rendering = true;
     enable_swallow = true;
     no_direct_scanout = true;
   };
