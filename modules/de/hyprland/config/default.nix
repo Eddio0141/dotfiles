@@ -65,6 +65,9 @@
     # unity reload domain, TODO make it check if its from unity
     "noinitialfocus,class:Unity,floating:1"
     "size 650 650,class:Unity,title:Build Settings"
+    # unity initial window
+    "center,class:^Unity$,initialTitle:^Unity$,floating:0"
+    "float,class:^Unity$,initialTitle:^Unity$,floating:0"
 
     # steam
     #"forceinput,class:steam"
