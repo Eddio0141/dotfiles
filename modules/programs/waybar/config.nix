@@ -1,6 +1,6 @@
 {
   mainBar = {
-    margin-top = 8;
+    # margin-top = 8;
     layer = "top";
     position = "top";
     height = 30;
@@ -10,9 +10,14 @@
     modules-center = [ "hyprland/window" ];
     # modules-left = [ "sway/workspaces" ];
     # modules-center = [ "sway/window" ];
-    modules-right = [ "pulseaudio" "network" "cpu" "memory" "temperature" "clock" "tray" ];
+    modules-right = [ "pulseaudio" "network" "cpu" "memory" "temperature" "battery" "clock" "tray" ];
 
     # Modules configuration
+    battery = {
+      format = "{capacity}% {icon}";
+      format-icons = ["" "" "" "" ""];
+      max-length = 25;
+    };
     "pulseaudio" = {
       "format" = "{volume}% {icon}";
       "format-icons" = {
@@ -54,15 +59,18 @@
     };
     "cpu" = {
       "format" = "{usage}% ";
+      interval = 1;
       "tooltip" = false;
     };
     "memory" = {
       "format" = "{}% ";
+      interval = 1;
     };
     "temperature" = {
       "critical-threshold" = 80;
       "format" = "{temperatureC}°C {icon}";
       "format-icons" = [ "" "" "" ];
+      interval = 1;
     };
   };
 }

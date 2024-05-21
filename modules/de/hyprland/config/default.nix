@@ -126,6 +126,7 @@
   master.new_is_master = true;
   gestures.workspace_swipe = "off";
   misc = {
+    disable_splash_rendering = true;
     enable_swallow = true;
     no_direct_scanout = true;
   };
@@ -224,8 +225,9 @@
     "CTRL, Print, exec, grimblast --notify --freeze copysave area"
 
     # volume
-    ", XF86AudioRaiseVolume, exec, pamixer -i 5"
-    ", XF86AudioLowerVolume, exec, pamixer -d 5"
+    ", XF86AudioRaiseVolume, exec, pamixer --increase 5"
+    ", XF86AudioLowerVolume, exec, pamixer --decrease 5"
+    ", XF86AudioMute, exec, pamixer --toggle-mute"
 
     # music
     "$altCombo, P, exec, clementine --play-pause"

@@ -209,7 +209,6 @@
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
-    networkmanagerapplet # for network menu
 
     # spell checking
     hunspell
@@ -318,6 +317,7 @@
     openmoji-color
     noto-fonts-emoji
   ];
+  fonts.fontDir.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;
