@@ -226,7 +226,6 @@
     inputs.hyprcontrib.packages.${system}.grimblast
     libsForQt5.gwenview
     pamixer # volume control
-    hyprpaper
 
     # external storage
     gvfs
