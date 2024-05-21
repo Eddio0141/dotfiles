@@ -2,12 +2,15 @@
 with lib;
 let
   cfg = config.yuu.programs.waybar;
-  useHyprland = config.yuu.de.hyprland.enable;
 in
 {
   options.yuu.programs.waybar.enable = mkEnableOption "waybar";
 
   config = (mkIf cfg.enable {
+    fonts.packages = with pkgs; [
+      font-awesome  
+    ];
+    
     home-manager.users.${username}.programs.waybar = {
       enable = true;
       package = pkgs.waybar;

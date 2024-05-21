@@ -13,6 +13,11 @@
     modules-right = [ "pulseaudio" "network" "cpu" "memory" "temperature" "battery" "clock" "tray" ];
 
     # Modules configuration
+    battery = {
+      format = "{capacity}% {icon}";
+      format-icons = ["" "" "" "" ""];
+      max-length = 25;
+    };
     "pulseaudio" = {
       "format" = "{volume}% {icon}";
       "format-icons" = {
