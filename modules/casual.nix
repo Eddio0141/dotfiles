@@ -318,6 +318,7 @@
     openmoji-color
     noto-fonts-emoji
   ];
+  fonts.fontDir.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;
