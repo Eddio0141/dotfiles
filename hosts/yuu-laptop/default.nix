@@ -16,6 +16,9 @@
 
   services.blueman.enable = true;
 
+  # wifi menu
+  programs.nm-applet.enable = true;
+
   yuu = {
     de.hyprland = {
       xwaylandScale = 2;
