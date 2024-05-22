@@ -240,7 +240,7 @@
     # TODO: expand on this and make it better
     "ALT, F9, exec, ${pkgs.killall}/bin/killall -SIGINT gpu-screen-recorder"
     "ALT, F10, exec, ${pkgs.killall}/bin/killall -SIGUSR1 gpu-screen-recorder"
-];
+  ];
 
   bindm = [
     # Move/resize windows with mainMod + LMB/RMB and dragging
