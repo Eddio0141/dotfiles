@@ -188,8 +188,7 @@
     })
     wl-clipboard
     cliphist
-    # TODO: eventually restore this
-    (inputs.nixpkgs-quickemu-temp.legacyPackages.${system}.quickemu.override { qemu = qemu_full; })
+    (quickemu.override { qemu = qemu_full; })
     (godot_4.overrideAttrs rec {
       version = "4.1.1-stable";
       commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
