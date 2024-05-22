@@ -52,13 +52,22 @@ in
         hyprlock.enable = true;
       };
 
-      services.hypridle = {
-        enable = true;
-        settings = {
-          general = {
-            lock_cmd = "pidof hyprlock || hyprlock";
-            before_sleep_cmd = "loginctl lock-session";
-            after_sleep_cmd = "hyprctl dispatch dpms on";
+      services = {
+        hypridle = {
+          enable = true;
+          settings = {
+            general = {
+              lock_cmd = "pidof hyprlock || hyprlock";
+              before_sleep_cmd = "loginctl lock-session";
+              after_sleep_cmd = "hyprctl dispatch dpms on";
+            };
+          };
+        };
+        hyprpaper = {
+          enable = true;
+          settings = {
+            preload = builtins.toString ../../../assets/wallpaper/frieren.png;
+            wallpaper = ",${../../../assets/wallpaper/frieren.png}";
           };
         };
       };
