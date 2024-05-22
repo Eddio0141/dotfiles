@@ -150,7 +150,6 @@
     avalonia-ilspy
     btop
     obsidian
-    obs-studio
     (jetbrains.plugins.addPlugins jetbrains.rider [
       "github-copilot"
       "ideavim"
