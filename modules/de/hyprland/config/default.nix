@@ -13,7 +13,6 @@
   exec-once = [
     "waybar"
     "dunst"
-    "hyprpaper"
     "firefox"
     "clementine"
     "dolphin --daemon"

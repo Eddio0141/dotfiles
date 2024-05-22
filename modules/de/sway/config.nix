@@ -7,7 +7,6 @@ in
   startup = [
     { command = "waybar"; }
     { command = "dunst"; }
-    { command = "hyprpaper"; }
     { command = "firefox"; }
     { command = "clementine"; }
     { command = "dolphin --daemon"; }

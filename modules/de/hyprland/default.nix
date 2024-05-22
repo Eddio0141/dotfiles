@@ -63,11 +63,16 @@ in
             };
           };
         };
-        hyprpaper = {
+        hyprpaper =
+        let
+          wallpaper = builtins.toString ../../../assets/wallpaper/frieren.png;
+        in
+        {
           enable = true;
           settings = {
-            preload = builtins.toString ../../../assets/wallpaper/frieren.png;
-            wallpaper = ",${../../../assets/wallpaper/frieren.png}";
+            preload = wallpaper;
+            wallpaper = ",${wallpaper}";
+            splash = false;
           };
         };
       };
