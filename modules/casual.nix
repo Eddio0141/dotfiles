@@ -10,20 +10,20 @@
     inputs.stylix.nixosModules.stylix
     ./stylix.nix
   ];
-  
+
   # TODO rewrite this shit
   nixpkgs.overlays = [
     # fixes 32 bit source games not launching
     # TODO: issue to be tracked needs to be put here
     (final: prev: {
-      steam = prev.steam.override ({ extraLibraries ? pkgs': [], ... }: {
+      steam = prev.steam.override ({ extraLibraries ? pkgs': [ ], ... }: {
         extraLibraries = pkgs': (extraLibraries pkgs') ++ [
           pkgs'.gperftools
         ];
       });
     })
   ];
-  
+
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
   boot.loader.grub = {
@@ -207,6 +207,7 @@
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
+    ghidra
 
     # spell checking
     hunspell
@@ -297,7 +298,7 @@
   fonts.packages = with pkgs; [
     # basic stuff
     corefonts
-    
+
     # japanese
     ipafont
     ipaexfont
