@@ -23,7 +23,7 @@
     de.hyprland = {
       xwaylandScale = 2;
       monitors = [
-        "eDP-2, 2560x1600@165, 0x0, 1.6"
+        "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1"
       ];
     };
   };
