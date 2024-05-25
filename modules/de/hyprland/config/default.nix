@@ -79,6 +79,9 @@
 
     # qemu
     "forceinput,class:^qemu-system-.+$"
+
+    # ghidra
+    "nofocus,class:^ghidra-Ghidra$,title:^win\d+$"
   ];
   input = {
     kb_layout = "gb";
