@@ -27,4 +27,12 @@
       ];
     };
   };
+
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "inputmodule-rs-udev";
+      text = builtins.readFile ./50-framework-inputmodule.rules;
+      destination = "/etc/udev/rules.d/50-framework-inputmodule.rules";
+    })
+  ];
 }
