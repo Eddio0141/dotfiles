@@ -127,30 +127,31 @@
   programs.ripgrep.enable = true;
 
   xdg.configFile."nixpkgs/config.nix".text = ''
-  {
-    allowUnfree = true;
-  }
+    {
+      allowUnfree = true;
+    }
   '';
 
   # for ideavim
   home.file.".ideavimrc".text = ''
-  set relativenumber
-  let mapleader = " "
+    set relativenumber
+    set clipboard=unnamedplus
+    let mapleader = " "
 
-  inoremap jk <Esc>
+    inoremap jk <Esc>
 
-  nmap <S-H> <Action>(PreviousTab)
-  nmap <S-L> <Action>(NextTab)
-  nmap bd <Action>(CloseContent)
+    nmap <S-H> <Action>(PreviousTab)
+    nmap <S-L> <Action>(NextTab)
+    nmap bd <Action>(CloseContent)
 
-  nmap <leader>ca <Action>(ShowIntentionActions)
+    nmap <leader>ca <Action>(ShowIntentionActions)
 
-  nmap <leader><space> <Action>(GotoFile)
-  nmap <leader>/ <Action>(FindInPath)
+    nmap <leader><space> <Action>(GotoFile)
+    nmap <leader>/ <Action>(FindInPath)
 
-  nmap gI <Action>(GotoImplementation)
+    nmap gI <Action>(GotoImplementation)
 
-  imap <C-Space> <Action>(EditorChooseLookupItem)
+    imap <C-Space> <Action>(EditorChooseLookupItem)
   '';
 }
 
