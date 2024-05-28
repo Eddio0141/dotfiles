@@ -25,34 +25,38 @@ in
       dataDir = "/home/${username}/.config/syncthing";
       openDefaultPorts = true;
       settings =
-      let
-        filteredDevices = filterAttrs (key: _: key != hostName) allDevices;
-      in
-      {
-        devices = filteredDevices;
-        extraOptions = {
-          startBrowser = false;
-          urAccepted = -1;
-        };
-        folders =
         let
-          deviceNames = attrNames filteredDevices;
+          filteredDevices = filterAttrs (key: _: key != hostName) allDevices;
         in
         {
-          "/home/${username}/Documents/Obsidian" = {
-            id = "obsidian";
-            devices = deviceNames;
+          devices = filteredDevices;
+          extraOptions = {
+            startBrowser = false;
+            urAccepted = -1;
           };
-          "/home/${username}/sync" = {
-            id = "sync";
-            devices = deviceNames;
-          };
-          "/home/${username}/Music" = {
-            id = "music";
-            devices = deviceNames;
-          };
+          folders =
+            let
+              deviceNames = attrNames filteredDevices;
+            in
+            {
+              "/home/${username}/Documents/Obsidian" = {
+                id = "obsidian";
+                devices = deviceNames;
+              };
+              "/home/${username}/sync" = {
+                id = "sync";
+                devices = deviceNames;
+              };
+              "/home/${username}/Music" = {
+                id = "music";
+                devices = deviceNames;
+              };
+              "/home/yuu/ghidra-projects" = {
+                id = "ghidra-projects";
+                devices = deviceNames;
+              };
+            };
         };
-      };
       enable = true;
     };
 
