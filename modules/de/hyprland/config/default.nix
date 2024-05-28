@@ -82,10 +82,15 @@
 
     # ghidra
     "nofocus,class:^ghidra-Ghidra$,title:^win\d+$"
+    "windowdance,class:^ghidra-Ghidra$,title:^win\d+$"
+    "tile,class:^ghidra-Ghidra$,initialTitle:^CodeBrowser$" # main window
+
+    # calc
+    "float,initialClass:^org.gnome.Calculator$"
   ];
   input = {
     kb_layout = "gb";
-    follow_mouse = 2;
+    follow_mouse = 1;
     sensitivity = -0.35;
     accel_profile = "flat";
   };
