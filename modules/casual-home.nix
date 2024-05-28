@@ -138,11 +138,11 @@
     set clipboard=unnamedplus
     let mapleader = " "
 
-    inoremap jk <Esc>
+    imap jk <Esc>
 
     nmap <S-H> <Action>(PreviousTab)
     nmap <S-L> <Action>(NextTab)
-    nmap bd <Action>(CloseContent)
+    nmap <leader>bd <Action>(CloseContent)
 
     nmap <leader>ca <Action>(ShowIntentionActions)
 
