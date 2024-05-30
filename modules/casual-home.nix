@@ -154,6 +154,7 @@
     imap <C-Space> <Action>(EditorChooseLookupItem)
 
     nmap <leader>gg <Action>(ActivateCommitToolWindow)
+    nmap <leader>e <Action>(ActivateProjectToolWindow)
   '';
 }
 
