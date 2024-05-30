@@ -152,6 +152,8 @@
     nmap gI <Action>(GotoImplementation)
 
     imap <C-Space> <Action>(EditorChooseLookupItem)
+
+    nmap <leader>gg <Action>(ActivateCommitToolWindow)
   '';
 }
 
