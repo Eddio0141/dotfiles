@@ -152,6 +152,9 @@
     nmap gI <Action>(GotoImplementation)
 
     imap <C-Space> <Action>(EditorChooseLookupItem)
+
+    nmap gcc <Action>(CommentByLineComment)
+    vmap gc <Action>(CommentByLineComment)
   '';
 }
 
