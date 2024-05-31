@@ -12,7 +12,7 @@ in
 
     programs = {
       zsh.enable = true;
-      
+
       nh = {
         enable = true;
         flake = "/home/${username}/dotfiles";
@@ -37,10 +37,13 @@ in
           name = "fhs-env";
           multiArch = true;
           runScript = "zsh";
+          targetPkgs = pkgs: (with pkgs; [
+            icu.dev
+          ]);
         }
       ))
       (buildFHSEnv (
-      appimageTools.defaultFhsEnvArgs //
+        appimageTools.defaultFhsEnvArgs //
         {
           name = "fhs-bepinex";
           runScript = "zsh";
@@ -59,7 +62,7 @@ in
           enableZshIntegration = true;
           nix-direnv.enable = true;
         };
-        
+
         # zsh
         zsh = {
           enable = true;
@@ -81,11 +84,11 @@ in
           };
 
           initExtra = ''
-          if [[ $- = *i* ]]; then
-          fastfetch
+            if [[ $- = *i* ]]; then
+            fastfetch
 
-          echo "Welcome back $USER!"
-          fi
+            echo "Welcome back $USER!"
+            fi
           '';
         };
       };
