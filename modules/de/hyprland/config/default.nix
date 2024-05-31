@@ -37,11 +37,6 @@ in
     "wl-paste --type image --watch cliphist store" # Stores only image data
   ];
   windowrulev2 = [
-    # firefox
-    "group set lock, class:^firefox$"
-    "group invade, class:^firefox$"
-    "monitor 0, class:^firefox$"
-
     # vesktop
     "workspace 2 silent, class:^(vesktop)$"
 

@@ -596,6 +596,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-citra-yuzu-temp": {
+      "locked": {
+        "lastModified": 1710429098,
+        "narHash": "sha256-irN9RgAuoouk7PhQapw6/p2hhwUNHwIPHE6b6ZaE5nE=",
+        "owner": "Atemu",
+        "repo": "nixpkgs",
+        "rev": "f20a0c955555fb68cfc72886d7476de2aacd1b4e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Atemu",
+        "ref": "revert-yuzu-removal",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1716218643,
@@ -694,6 +710,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-awatcher-temp": "nixpkgs-awatcher-temp",
+        "nixpkgs-citra-yuzu-temp": "nixpkgs-citra-yuzu-temp",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "stylix": "stylix",

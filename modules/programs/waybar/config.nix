@@ -6,7 +6,7 @@
     height = 30;
     spacing = 4;
     # TODO: hyprland, sway
-    modules-left =   [ "hyprland/workspaces" ];
+    modules-left = [ "hyprland/workspaces" ];
     modules-center = [ "hyprland/window" ];
     # modules-left = [ "sway/workspaces" ];
     # modules-center = [ "sway/window" ];
@@ -15,8 +15,7 @@
     # Modules configuration
     battery = {
       format = "{capacity}% {icon}";
-      format-icons = ["" "" "" "" ""];
-      max-length = 25;
+      format-icons = [ "" "" "" "" "" ];
     };
     "pulseaudio" = {
       "format" = "{volume}% {icon}";

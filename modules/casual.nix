@@ -199,7 +199,7 @@
         hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
       };
     })
-    # yuzu-early-access
+    inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
     exodus
     zoom-us

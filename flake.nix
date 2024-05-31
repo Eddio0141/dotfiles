@@ -4,8 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    # TODO: https://github.com/NixOS/nixpkgs/pull/287858
+    # NOTE: https://github.com/NixOS/nixpkgs/pull/287858
     nixpkgs-awatcher-temp.url = "github:nixos/nixpkgs/44a5529bbad6159aaf72b066419081319c37f4a1";
+    # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
+    nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
