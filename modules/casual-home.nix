@@ -154,6 +154,8 @@
 
     imap <C-Space> <Action>(EditorChooseLookupItem)
 
+    nmap gcc <Action>(CommentByLineComment)
+    vmap gc <Action>(CommentByLineComment)
     nmap <leader>gg <Action>(ActivateCommitToolWindow)
     nmap <leader>e <Action>(ActivateProjectToolWindow)
   '';
