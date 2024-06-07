@@ -35,7 +35,7 @@ in
         appimageTools.defaultFhsEnvArgs //
         {
           name = "fhs-env";
-          # multiArch = true;
+          multiArch = true;
           runScript = "zsh";
           profile = ''
             export DOTNET_ROOT="${pkgs.dotnet-runtime}"
