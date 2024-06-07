@@ -217,8 +217,9 @@ in
     "${mainMod} SHIFT, 9, movetoworkspace, 9"
     "${mainMod} SHIFT, 0, movetoworkspace, 10"
 
-    # Switch to empty workspace
-    "${mainMod} SHIFT, E, workspace, empty"
+    # empty workspace
+    "${mainMod} SHIFT, e, workspace, empty"
+    "${mainMod} CTRL, e, movetoworkspace, empty"
 
     # Special workspace actions
     "${mainMod} SHIFT, S, movetoworkspacesilent, special"
