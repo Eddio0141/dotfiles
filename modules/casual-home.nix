@@ -146,6 +146,7 @@
     nmap <leader>bo <Action>(CloseAllEditorsButActive)
 
     nmap <leader>ca <Action>(ShowIntentionActions)
+    nmap <leader>cr <Action>(RenameElement)
 
     nmap <leader><space> <Action>(GotoFile)
     nmap <leader>/ <Action>(FindInPath)
