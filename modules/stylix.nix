@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
+    enable = true;
     image = ../assets/wallpaper/frieren.png;
     polarity = "dark";
     cursor = {
