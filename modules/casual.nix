@@ -201,7 +201,7 @@
     })
     inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
-    exodus
+    # exodus # TODO: download still fails
     zoom-us
     slack
     gnome.gnome-calculator
