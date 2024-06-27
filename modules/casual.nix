@@ -48,9 +48,6 @@
     # firewall.enable = false;
   };
 
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
@@ -85,6 +82,8 @@
 
     # dbus for updating firmware
     fwupd.enable = true;
+
+    localtimed.enable = true;
   };
 
   # Enable the KDE Plasma Desktop Environment.
