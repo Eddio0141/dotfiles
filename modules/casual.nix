@@ -288,12 +288,6 @@
     driversi686Linux.amdvlk
   ];
 
-  # vulkan
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   # fonts
   fonts.packages = with pkgs; [
     # basic stuff

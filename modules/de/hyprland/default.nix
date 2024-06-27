@@ -63,18 +63,6 @@ in
             };
           };
         };
-        hyprpaper =
-          let
-            wallpaper = builtins.toString ../../../assets/wallpaper/frieren.png;
-          in
-          {
-            enable = true;
-            settings = {
-              preload = wallpaper;
-              wallpaper = ",${wallpaper}";
-              splash = false;
-            };
-          };
       };
 
       wayland.windowManager.hyprland = {
