@@ -40,7 +40,7 @@
       layout = "gb";
       variant = "";
     };
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
   };
   services.displayManager.sddm.enable = true;
 
@@ -131,14 +131,14 @@
   security.sudo.wheelNeedsPassword = false;
 
   nixpkgs.config.allowUnfree = true;
-  
+
   nix.settings.auto-optimise-store = true;
 
   # fonts
   fonts.packages = with pkgs; [
     # basic stuff
     corefonts
-    
+
     # code stuff
     (nerdfonts.override {
       fonts = [
