@@ -150,7 +150,6 @@
     btop
     obsidian
     (jetbrains.plugins.addPlugins jetbrains.rider [
-      "github-copilot"
       "ideavim"
     ])
     p7zip

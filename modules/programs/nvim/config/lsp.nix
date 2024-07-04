@@ -8,7 +8,7 @@
         settings.formatting.command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
       };
       jsonls.enable = true;
-      ccls.enable = true;
+      clangd.enable = true;
       omnisharp.enable = true;
     };
   };
