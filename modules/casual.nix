@@ -11,6 +11,8 @@
     ./stylix.nix
   ];
 
+  time.timeZone = "Europe/London";
+
   # TODO rewrite this shit
   nixpkgs.overlays = [
     # fixes 32 bit source games not launching
@@ -83,7 +85,8 @@
     # dbus for updating firmware
     fwupd.enable = true;
 
-    localtimed.enable = true;
+    # TODO: shit aint working
+    # automatic-timezoned.enable = true;
   };
 
   # Enable the KDE Plasma Desktop Environment.
@@ -92,7 +95,6 @@
     # wayland.enable = true;
     # theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
   };
-  #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
