@@ -208,6 +208,7 @@
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
     ghidra
+    prismlauncher
 
     # spell checking
     hunspell
