@@ -8,14 +8,14 @@
       {
         mode = "n";
         key = "<leader>xx";
-        action = "<cmd>TroubleToggle document_diagnostics<cr>";
-        options.desc = "Document Diagnostics (Trouble)";
+        action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+        options.desc = "Buffer Diagnostics (Trouble)";
       }
       {
         mode = "n";
         key = "<leader>xX";
-        action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
-        options.desc = "Document Diagnostics (Trouble)";
+        action = "<cmd>Trouble diagnostics toggle<cr>";
+        options.desc = "Workspace Diagnostics (Trouble)";
       }
     ];
   };
