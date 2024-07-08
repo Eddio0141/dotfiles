@@ -152,6 +152,7 @@
     nmap <leader>/ <Action>(FindInPath)
 
     nmap gI <Action>(GotoImplementation)
+    nmap gr <Action>(GotoDeclaration)
 
     imap <C-Space> <Action>(EditorChooseLookupItem)
 
