@@ -2,7 +2,9 @@
   description = "my system flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # TODO: restore
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/262a6fe785d56a5748ba590484f3499b370dbbb8";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/287858
     nixpkgs-awatcher-temp.url = "github:nixos/nixpkgs/44a5529bbad6159aaf72b066419081319c37f4a1";
