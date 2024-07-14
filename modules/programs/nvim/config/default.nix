@@ -44,6 +44,7 @@
     ./ts-autotag.nix
     ./todo-comments.nix
     ./nvim-autopairs.nix
+    ./overseer-nvim.nix
   ];
 
   config = {
