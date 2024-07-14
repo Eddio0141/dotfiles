@@ -119,7 +119,7 @@
         event = [ "BufRead" "BufNewFile" ];
         command = "setlocal tabstop=2 shiftwidth=2 expandtab softtabstop=2";
         desc = "Tab to spaces, 2 spaces";
-        pattern = [ "*.js" ];
+        pattern = [ "*.js" "*.cpp" "*.h" ];
       }
       {
         event = [ "BufRead" "BufNewFile" ];
