@@ -79,6 +79,7 @@
       confirm = true;
       cursorline = true;
       expandtab = true;
+      foldmethod = "manual";
     };
 
     viAlias = true;
