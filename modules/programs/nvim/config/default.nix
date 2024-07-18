@@ -127,8 +127,33 @@
       }
     ];
 
-    # TODO separate this to own files
     keymaps = [
+      # command line movement
+      {
+        mode = "c";
+        key = "<c-h>";
+        action = "<left>";
+        options.desc = "Cmdline left";
+      }
+      {
+        mode = "c";
+        key = "<c-l>";
+        action = "<right>";
+        options.desc = "Cmdline right";
+      }
+      {
+        mode = "c";
+        key = "<c-k>";
+        action = "<up>";
+        options.desc = "Cmdline up";
+      }
+      {
+        mode = "c";
+        key = "<c-j>";
+        action = "<down>";
+        options.desc = "Cmdline down";
+      }
+
       {
         mode = [ "i" "x" "n" "s" ];
         key = "<C-s>";
