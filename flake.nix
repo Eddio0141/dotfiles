@@ -2,6 +2,7 @@
   description = "my system flake";
 
   inputs = {
+    # TODO: programs.gpu-screen-recorder.enable = true; when nixpkgs upgrade
     # TODO: restore
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/262a6fe785d56a5748ba590484f3499b370dbbb8";

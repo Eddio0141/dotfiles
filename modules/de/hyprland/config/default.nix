@@ -2,6 +2,7 @@
 let
   mainMod = "SUPER";
   altCombo = "${mainMod} ALT";
+  recordingMod = "ALT";
 in
 {
   # "$border_pink_active" = "rgba(ff8cecff)";
@@ -251,8 +252,8 @@ in
 
     # gpu-screen-recorder
     # TODO: expand on this and make it better
-    "ALT, F9, exec, ${pkgs.killall}/bin/killall -SIGINT gpu-screen-recorder"
-    "ALT, F10, exec, ${pkgs.killall}/bin/killall -SIGUSR1 gpu-screen-recorder"
+    "${recordingMod}, F9, exec, ${pkgs.dunst}/bin/dunstify -a gpu-screen-recorder -u low 'F9 key' && ${pkgs.killall}/bin/killall -SIGINT gpu-screen-recorder"
+    "${recordingMod}, F10, exec, ${pkgs.dunst}/bin/dunstify -a 'GPU Screen Recorder' -u low 'Replay saved' && ${pkgs.killall}/bin/killall -SIGUSR1 gpu-screen-recorder"
   ];
 
   bindm = [
