@@ -1,4 +1,4 @@
-{ username, inputs, system, home-manager, pkgs, ... }:
+{ username, inputs, pkgs, ... }:
 {
   imports = [
     ../../modules/casual.nix
@@ -26,6 +26,11 @@
         "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1"
       ];
     };
+    # programs.gpu-screen-recorder.service = {
+    #   enable = true;
+    #   screen = "eDP-1";
+    #   save-dir = "/home/yuu/Videos";
+    # };
   };
 
   services.udev.packages = [
