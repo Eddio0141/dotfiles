@@ -1,6 +1,11 @@
 {
   config = {
-    plugins.luasnip.enable = true;
+    plugins.luasnip = {
+      enable = true;
+      fromVscode = [
+        { paths = ./snippets/vscode; }
+      ];
+    };
 
     keymaps = [
       {

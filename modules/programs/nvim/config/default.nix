@@ -34,7 +34,7 @@
     ./nvim-neotest.nix
     ./profiling.nix
     ./notify.nix
-    ./luasnip.nix
+    ./luasnip
     ./inc-rename.nix
     ./neogen.nix
     ./spectre.nix
