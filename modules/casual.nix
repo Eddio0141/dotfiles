@@ -89,13 +89,6 @@
     # automatic-timezoned.enable = true;
   };
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    # wayland.enable = true;
-    # theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
-  };
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "gb";
