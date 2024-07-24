@@ -195,7 +195,15 @@
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
-    ghidra
+    (ghidra.overrideAttrs {
+      buildInputs = [
+        # for debugging
+        python3Packages.psutil
+        python3Packages.protobuf3
+        lldb
+        gdb
+      ];
+    })
     prismlauncher
 
     # spell checking
