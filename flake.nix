@@ -56,7 +56,13 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          rocmSupport = true;
+          permittedInsecurePackages = [
+            "openssl-1.1.1w"
+          ];
+        };
       };
       pkgs-stable = import nixpkgs-stable {
         inherit system;
@@ -75,7 +81,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit nixpkgs inputs username system home-manager self pkgs-stable;
+          inherit pkgs inputs username system home-manager self pkgs-stable;
         }
       );
       packages."${system}" = import ./pkgs { inherit pkgs inputs system; };

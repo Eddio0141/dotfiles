@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 # module for a casual desktop
 
 { config, pkgs, username, inputs, system, self, pkgs-stable, ... }:
@@ -194,7 +190,6 @@
     })
     inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
-    # exodus # TODO: download still fails
     zoom-us
     slack
     gnome.gnome-calculator
