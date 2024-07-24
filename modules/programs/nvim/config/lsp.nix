@@ -5,7 +5,10 @@
     servers = {
       nil_ls = {
         enable = true;
-        settings.formatting.command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+        settings = {
+          formatting.command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+          nix.flake.autoArchive = true;
+        };
       };
       jsonls.enable = true;
       clangd.enable = true;

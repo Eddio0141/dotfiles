@@ -38,6 +38,12 @@ in
       pavucontrol
     ];
 
+    services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
+    };
+
     yuu = {
       programs = {
         waybar.enable = true;

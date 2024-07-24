@@ -1,24 +1,25 @@
-{ self, nixpkgs, lib, inputs, system, home-manager, username, pkgs-stable, ... }:
+{ self, lib, inputs, system, home-manager, username, pkgs-stable, pkgs, ... }:
+let
+  nixosSystem = lib.nixosSystem;
+  specialArgs = { inherit username inputs system self home-manager pkgs-stable pkgs; };
+in
 {
-  yuu-desktop = lib.nixosSystem {
-    inherit system;
-    specialArgs = { inherit username inputs system self home-manager pkgs-stable; };
+  yuu-desktop = nixosSystem {
+    inherit system specialArgs;
     modules = [
       ./yuu-desktop
       ../modules
     ];
   };
-  yuu-upwork = lib.nixosSystem {
-    inherit system;
-    specialArgs = { inherit username inputs system self home-manager pkgs-stable; };
+  yuu-upwork = nixosSystem {
+    inherit system specialArgs;
     modules = [
       ./yuu-upwork
       ../modules
     ];
   };
-  yuu-laptop = lib.nixosSystem {
-    inherit system;
-    specialArgs = { inherit username inputs system self home-manager pkgs-stable; };
+  yuu-laptop = nixosSystem {
+    inherit system specialArgs;
     modules = [
       ./yuu-laptop
       ../modules

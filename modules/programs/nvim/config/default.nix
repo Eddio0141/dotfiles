@@ -1,6 +1,7 @@
 { pkgs, helpers, ... }:
 {
   imports = [
+    ./dashboard.nix
     ./neo-tree.nix
     ./toggleterm.nix
     ./which-key.nix
@@ -34,7 +35,7 @@
     ./nvim-neotest.nix
     ./profiling.nix
     ./notify.nix
-    ./luasnip.nix
+    ./luasnip
     ./inc-rename.nix
     ./neogen.nix
     ./spectre.nix

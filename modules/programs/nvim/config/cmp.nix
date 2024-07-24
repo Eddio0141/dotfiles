@@ -11,21 +11,12 @@
         "<C-e>" = "cmp.mapping.abort()";
       };
       sources = [
-        {
-          name = "nvim_lsp";
-        }
-        {
-          name = "path";
-        }
-        {
-          name = "buffer";
-        }
-        {
-          name = "calc";
-        }
-        {
-          name = "omni";
-        }
+        { name = "nvim_lsp"; }
+        { name = "luasnip"; }
+        { name = "omni"; }
+        { name = "path"; }
+        { name = "buffer"; }
+        { name = "calc"; }
       ];
       snippet.expand = ''
         function(args)

@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 # module for a casual desktop
 
 { config, pkgs, username, inputs, system, self, pkgs-stable, ... }:
@@ -87,13 +83,6 @@
 
     # TODO: shit aint working
     # automatic-timezoned.enable = true;
-  };
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    # wayland.enable = true;
-    # theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
   };
 
   # Configure keymap in X11
@@ -201,13 +190,20 @@
     })
     inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
-    # exodus # TODO: download still fails
     zoom-us
     slack
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
-    ghidra
+    (ghidra.overrideAttrs {
+      buildInputs = [
+        # for debugging
+        python3Packages.psutil
+        python3Packages.protobuf3
+        lldb
+        gdb
+      ];
+    })
     prismlauncher
 
     # spell checking
