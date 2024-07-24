@@ -1,6 +1,7 @@
 { pkgs, helpers, ... }:
 {
   imports = [
+    ./dashboard.nix
     ./neo-tree.nix
     ./toggleterm.nix
     ./which-key.nix
