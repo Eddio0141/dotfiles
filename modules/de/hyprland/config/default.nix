@@ -236,6 +236,7 @@ in
 
     # screenshot
     "CTRL, Print, exec, grimblast --notify --freeze copysave area"
+    ", Print, exec, grimblast --notify copysave output"
 
     # volume
     ", XF86AudioRaiseVolume, exec, pamixer --increase 5"
