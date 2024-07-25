@@ -162,6 +162,7 @@
     thunderbird
     blender
     ani-cli
+    miru
     qbittorrent
     #davinci-resolve
     yt-dlp
