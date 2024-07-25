@@ -34,7 +34,8 @@ in
       (buildFHSEnv (
         appimageTools.defaultFhsEnvArgs //
         {
-          name = "fhs-env";
+          # fe aka fhs-env
+          name = "fe";
           multiArch = true;
           runScript = "zsh";
           profile = ''
@@ -43,11 +44,89 @@ in
           targetPkgs = pkgs: (with pkgs; [
             icu.dev
             dotnet-runtime
+            libGLU.dev
+
+            # this comes from unityhub package
+            ##########
+            # Unity Hub binary dependencies
+            xorg.libXrandr
+            xdg-utils
+
+            # GTK filepicker
+            gsettings-desktop-schemas
+            hicolor-icon-theme
+
+            # Bug Reporter dependencies
+            fontconfig
+            freetype
+            lsb-release
+            ##########
+          ]);
+          multiPkgs = pkgs: (with pkgs; [
+            # also from unityhub pacakge
+            ##########
+            # Unity Hub ldd dependencies
+            cups
+            gtk3
+            expat
+            libxkbcommon
+            lttng-ust_2_12
+            krb5
+            alsa-lib
+            nss
+            libdrm
+            mesa
+            nspr
+            atk
+            dbus
+            at-spi2-core
+            pango
+            xorg.libXcomposite
+            xorg.libXext
+            xorg.libXdamage
+            xorg.libXfixes
+            xorg.libxcb
+            xorg.libxshmfence
+            xorg.libXScrnSaver
+            xorg.libXtst
+
+            # Unity Hub additional dependencies
+            libva
+            openssl
+            cairo
+            libnotify
+            libuuid
+            libsecret
+            udev
+            libappindicator
+            wayland
+            cpio
+            icu
+            libpulseaudio
+
+            # Unity Editor dependencies
+            libglvnd # provides ligbl
+            xorg.libX11
+            xorg.libXcursor
+            glib
+            gdk-pixbuf
+            libxml2
+            zlib
+            clang
+            git # for git-based packages in unity package manager
+
+            # Unity Editor 2019 specific dependencies
+            xorg.libXi
+            xorg.libXrender
+            gnome2.GConf
+            libcap
+            ##########
           ]);
         }
       ))
       (buildFHSEnv (
         appimageTools.defaultFhsEnvArgs //
+        unityhub.fhsEnv //
         {
           name = "fhs-bepinex";
           runScript = "zsh";
