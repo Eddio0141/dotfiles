@@ -196,15 +196,40 @@
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     samba4Full
-    (ghidra.overrideAttrs {
-      buildInputs = [
-        # for debugging
-        python3Packages.psutil
-        python3Packages.protobuf3
-        lldb
-        gdb
-      ];
-    })
+    # (ghidra-bin.overrideAttrs {
+    #   # buildInputs = [
+    #   #   # for debugging
+    #   #   python3Packages.psutil
+    #   #   python3Packages.protobuf3
+    #   #   lldb
+    #   #   gdb
+    #   # ];
+    #   postFixup =
+    #     let
+    #       pkg_path = "$out/lib/ghidra";
+    #     in
+    #     ''
+    #       mkdir -p "$out/bin"
+    #       ln -s "${pkg_path}/ghidraRun" "$out/bin/ghidra"
+    #
+    #       wrapProgram "${pkg_path}/support/launch.sh" \
+    #         --prefix PATH : ${lib.makeBinPath [
+    #           openjdk17
+    #           (python3.withPackages (p: with p; [
+    #             psutil
+    #             protobuf3
+    #           ]))
+    #           lldb
+    #           gdb
+    #         ]}
+    #     '';
+    # })
+    (ghidra.overrideAttrs (prev: {
+      postFixup = (''
+        substituteInPlace "$out/lib/ghidra/ghidraRun" \
+          --replace-fail "#MAXMEM=2G" "MAXMEM=20G"
+      '' + prev.postFixup);
+    }))
     prismlauncher
 
     # spell checking
