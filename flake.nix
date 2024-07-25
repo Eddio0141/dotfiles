@@ -85,5 +85,14 @@
         }
       );
       packages."${system}" = import ./pkgs { inherit pkgs inputs system; };
+      devShells.${system}.ghidra = pkgs.mkShell {
+        packages = with pkgs; [
+          python3Packages.psutil
+          python3Packages.protobuf3
+          lldb
+          gdb
+        ];
+        shellHook = "ghidra";
+      };
     };
 }
