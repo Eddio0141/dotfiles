@@ -18,6 +18,11 @@ in
       default = [ ];
       description = "List of monitors to be added";
     };
+    using-gpus = mkOption {
+      type = types.listOf types.string;
+      default = [ ];
+      description = "Which gpu to use";
+    };
   };
 
   config = (mkIf cfg.enable {
@@ -79,6 +84,7 @@ in
         settings = mkMerge [
           ((import ./config) { inherit pkgs cfg lib; })
           (mkIf cfg.brightness-change (import ./config/brightness.nix { inherit pkgs; }))
+          (import ./config/primary-gpu.nix { inherit cfg lib; })
         ];
       };
 

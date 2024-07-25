@@ -13,6 +13,7 @@ in
   env = [
     # disables usage of newer DRM API that doesn't support tearing yet
     "WLR_DRM_NO_ATOMIC,1"
+    # scaling
     "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
   ];
   exec-once = [

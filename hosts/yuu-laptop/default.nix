@@ -25,6 +25,10 @@
       monitors = [
         "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1"
       ];
+      using-gpus = [
+        "/dev/dri/card2"
+        "/dev/dri/card1"
+      ];
     };
     # programs.gpu-screen-recorder.service = {
     #   enable = true;
