@@ -135,7 +135,6 @@
 
   environment.systemPackages = with pkgs; [
     firefox
-    kate
     vesktop
     avalonia-ilspy
     btop
@@ -146,7 +145,6 @@
     p7zip
     protontricks
     xdg-utils
-    # distrobox
     wineWowPackages.staging
     winetricks
     libreoffice-qt
@@ -168,9 +166,7 @@
     yt-dlp
     clementine
     r2modman
-    gpt4all
     libtas
-    # TODO fix
     (gimp-with-plugins.override {
       plugins = with gimpPlugins; [
         gap
@@ -191,7 +187,6 @@
     })
     inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
-    zoom-us
     slack
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
@@ -236,9 +231,6 @@
     hunspell
     hunspellDicts.en_GB-large
 
-    # vm stuff
-    virt-manager
-
     # hypr stuff
     mpv
     wofi
@@ -270,25 +262,14 @@
 
     # managing qt5 themes
     libsForQt5.qt5ct
-
-    # sddm theme TODO for hyprland only
-    sddm-chili-theme
   ];
 
   qt.platformTheme = "qt5ct";
 
-  # insecure packages
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1v"
-    "openssl-1.1.1w"
-    "electron-25.9.0"
-  ];
-
-  # java
-  programs.java.enable = true;
-
-  # steam
-  programs.steam.enable = true;
+  programs = {
+    java.enable = true;
+    steam.enable = true;
+  };
 
   systemd = {
     # HIP
@@ -380,24 +361,6 @@
 
   # virtualisation.waydroid.enable = true;
 
-  # podman for distrobox
-  # virtualisation.podman.enable = true;
-
-  # for virt-manager
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_full;
-      runAsRoot = true;
-      ovmf.enable = true;
-      verbatimConfig = ''
-        user = "${username}"
-        group = "kvm"
-        namespaces = []
-      '';
-    };
-  };
-
   programs.dconf.enable = true;
 
   # env vars
@@ -405,15 +368,6 @@
     # TODO fix this
     # GTK_IM_MODULE = "";
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
-  };
-
-  services.teamviewer.enable = true;
-
-  # services.flatpak.enable = true;
-
-  virtualisation.docker = {
-    enable = true;
-    rootless.enable = true;
   };
 
   services.sunshine = {
