@@ -33,7 +33,7 @@ in
     "${mod}+w" = "kill";
     "${mod}+e" = "exec dolphin";
     "${mod}+t" = "floating toggle";
-    "${mod}+s" = "exec wofi --show drun -I -m -i -W 25% -H 75%";
+    "${mod}+s" = "exec wofi --show drun -I -m -i -W 30% -H 75%";
     "${mod}+shift+s" = "move scratchpad";
     "${mod}+ctrl+s" = "scratchpad show";
     # bind = $mainMod, P, pseudo, # dwindle
