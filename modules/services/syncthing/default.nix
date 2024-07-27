@@ -51,8 +51,12 @@ in
                 id = "music";
                 devices = deviceNames;
               };
-              "/home/yuu/ghidra-projects" = {
+              "/home/${username}/ghidra-projects" = {
                 id = "ghidra-projects";
+                devices = deviceNames;
+              };
+              "/home/${username}/binary-ninja-projects" = {
+                id = "binary-ninja-projects";
                 devices = deviceNames;
               };
             };
