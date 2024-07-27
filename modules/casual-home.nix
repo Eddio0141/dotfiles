@@ -1,4 +1,4 @@
-{ config, pkgs, username, inputs, system, ... }:
+{ pkgs, inputs, system, ... }:
 {
   home = {
     stateVersion = "23.05";
@@ -25,11 +25,6 @@
   };
 
   programs.home-manager.enable = true;
-
-  services.home-manager.autoUpgrade = {
-    enable = true;
-    frequency = "daily";
-  };
 
   programs = {
     ssh = {

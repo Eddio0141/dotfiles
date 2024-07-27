@@ -1,4 +1,4 @@
-{ home-manager, username, config, lib, pkgs, inputs, system, self, ... }:
+{ config, lib, pkgs, inputs, system, ... }:
 with lib;
 let
   cfg = config.yuu.programs.nvim;

@@ -1,4 +1,4 @@
-{ inputs, system, username, home-manager, pkgs, ... }:
+{ username, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -30,7 +30,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-  # TODO extra locale settings if required
   console.keyMap = "uk";
 
   # Enable the X11 windowing system.
