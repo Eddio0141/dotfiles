@@ -115,6 +115,18 @@
 
   programs = {
     ssh.startAgent = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        libGL
+        fontconfig
+        libxkbcommon
+        freetype
+        dbus
+        wayland
+        xorg.libX11
+      ];
+    };
   };
 
   programs.noisetorch.enable = true;
