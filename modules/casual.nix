@@ -136,6 +136,8 @@
         alsa-lib
         gnome2.GConf
         expat
+        cups
+        libcap
         xorg.libX11
         xorg.libXext
         xorg.libXcursor
@@ -145,6 +147,7 @@
         xorg.libXdamage
         xorg.libXfixes
         xorg.libXtst
+        xorg.libXrender
       ];
     };
   };
