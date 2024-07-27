@@ -136,6 +136,8 @@
         alsa-lib
         gnome2.GConf
         expat
+        cups
+        libcap
         xorg.libX11
         xorg.libXext
         xorg.libXcursor
@@ -145,11 +147,13 @@
         xorg.libXdamage
         xorg.libXfixes
         xorg.libXtst
+        xorg.libXrender
       ];
     };
+    command-not-found.enable = false;
+    noisetorch.enable = true;
   };
 
-  programs.noisetorch.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -161,9 +165,6 @@
     # kvm and libvirtd groups are needed for virt-manager
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "docker" ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     firefox
