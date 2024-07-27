@@ -119,12 +119,32 @@
       enable = true;
       libraries = with pkgs; [
         libGL
+        libGLU
         fontconfig
         libxkbcommon
         freetype
         dbus
         wayland
+        gtk3
+        pango
+        atk
+        cairo
+        gdk-pixbuf
+        glib
+        nss
+        nspr
+        alsa-lib
+        gnome2.GConf
+        expat
         xorg.libX11
+        xorg.libXext
+        xorg.libXcursor
+        xorg.libXrandr
+        xorg.libXi
+        xorg.libXcomposite
+        xorg.libXdamage
+        xorg.libXfixes
+        xorg.libXtst
       ];
     };
   };
@@ -235,6 +255,9 @@
       postFixup = (''
         substituteInPlace "$out/lib/ghidra/ghidraRun" \
           --replace-fail "#MAXMEM=2G" "MAXMEM=20G"
+
+        substituteInPlace "$out/lib/ghidra/support/launch.properties" \
+          --replace-fail "uiScale=1" "uiScale=2"
       '' + prev.postFixup);
     }))
     prismlauncher
