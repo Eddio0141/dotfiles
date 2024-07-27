@@ -44,6 +44,9 @@
   };
   services.displayManager.sddm.enable = true;
 
+  # this config is always on a vm, so this should be on
+  services.spice-vdagentd.enable = true;
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
