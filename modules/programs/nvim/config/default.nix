@@ -46,6 +46,7 @@
     ./todo-comments.nix
     ./nvim-autopairs.nix
     ./overseer-nvim.nix
+    ./lazygit.nix
   ];
 
   config = {
@@ -55,12 +56,7 @@
 
     extraPackages = with pkgs; [
       ripgrep
-      lazygit
       fd
-    ];
-
-    extraPlugins = with pkgs.vimPlugins; [
-      lazygit-nvim
     ];
 
     globals = {
@@ -196,12 +192,6 @@
         key = "<S-l>";
         action = "<cmd>bnext<cr>";
         options.desc = "Next buffer";
-      }
-      {
-        mode = "n";
-        key = "<leader>gg";
-        action = "<cmd>LazyGit<cr>";
-        options.desc = "Open LazyGit";
       }
       {
         mode = "n";

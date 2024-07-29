@@ -2,13 +2,8 @@
   description = "my system flake";
 
   inputs = {
-    # TODO: programs.gpu-screen-recorder.enable = true; when nixpkgs upgrade
-    # TODO: restore
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/262a6fe785d56a5748ba590484f3499b370dbbb8";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    # NOTE: https://github.com/NixOS/nixpkgs/pull/287858
-    nixpkgs-awatcher-temp.url = "github:nixos/nixpkgs/44a5529bbad6159aaf72b066419081319c37f4a1";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     home-manager = {

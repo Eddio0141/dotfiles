@@ -79,7 +79,7 @@
     package = pkgs.aw-server-rust;
     watchers = {
       awatcher = {
-        package = inputs.nixpkgs-awatcher-temp.legacyPackages.${system}.awatcher;
+        package = pkgs.awatcher;
       };
       aw-watcher-steam = {
         package = pkgs.python3Packages.buildPythonApplication {

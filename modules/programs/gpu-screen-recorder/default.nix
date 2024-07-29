@@ -46,25 +46,10 @@ in
       ];
 
       environment.systemPackages = with pkgs; [
-        gpu-screen-recorder
         gpu-screen-recorder-gtk
       ];
 
-      # to avoid the need to auth
-      security.wrappers = {
-        "gsr-kms-server" = {
-          owner = "root";
-          group = "root";
-          capabilities = "cap_sys_admin+ep";
-          source = "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server";
-        };
-        "gpu-screen-recorder" = {
-          owner = "root";
-          group = "root";
-          capabilities = "cap_sys_nice+ep";
-          source = "${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder";
-        };
-      };
+      programs.gpu-screen-recorder.enable = true;
     })
     # (mkIf cfg.service.enable {
     #   systemd.user.services.gpu-screen-recorder = {

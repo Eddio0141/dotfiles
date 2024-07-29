@@ -207,7 +207,7 @@
     })
     wl-clipboard
     cliphist
-    (quickemu.override { qemu = qemu_full; })
+    quickemu
     (godot_4.overrideAttrs rec {
       version = "4.1.1-stable";
       commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
@@ -223,7 +223,6 @@
     slack
     gnome.gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
-    samba4Full
     # (ghidra-bin.overrideAttrs {
     #   # buildInputs = [
     #   #   # for debugging
