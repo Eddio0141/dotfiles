@@ -88,6 +88,9 @@ in
 
     # calc
     "float,initialClass:^org.gnome.Calculator$"
+
+    # ilspy
+    "center,initialClass:^ILSp$,title:^Open file$"
   ];
   input = {
     kb_layout = "gb";
