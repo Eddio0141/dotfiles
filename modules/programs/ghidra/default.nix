@@ -10,7 +10,6 @@ in
   options.yuu.programs.ghidra = {
     enable = mkEnableOption "ghidra";
     uiScale = mkOption {
-      name = "uiScale";
       type = types.int;
     };
   };
@@ -24,7 +23,7 @@ in
           else
             ''
               substituteInPlace "$out/lib/ghidra/support/launch.properties" \
-                --replace-fail "uiScale=1" "uiScale=${cfg.uiScale}"
+                --replace-fail "uiScale=1" "uiScale=${toString cfg.uiScale}"
             '';
       in
       with pkgs; [
