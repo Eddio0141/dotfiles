@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, username, ... }:
+{ config, lib, pkgs, username, ... }:
 with lib;
 let
   cfg = config.yuu.pack.comfy-shell;
@@ -7,6 +7,10 @@ in
   options.yuu.pack.comfy-shell.enable = mkEnableOption "shell environment";
 
   config = (mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      tldr
+    ];
+
     # zsh setups
     users.users.${username}.shell = pkgs.zsh;
 
