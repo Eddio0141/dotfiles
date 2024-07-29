@@ -12,7 +12,7 @@ in
 
     programs = {
       zsh.enable = true;
-
+      nix-index.enable = true;
       nh = {
         enable = true;
         flake = "/home/${username}/dotfiles";
@@ -30,6 +30,11 @@ in
 
     home-manager.users.${username} = {
       programs = {
+        nix-index = {
+          enable = true;
+          enableZshIntegration = true;
+        };
+
         # direnv
         direnv = {
           enable = true;

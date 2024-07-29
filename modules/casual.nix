@@ -150,6 +150,7 @@
         xorg.libXrender
       ];
     };
+    command-not-found.enable = false;
   };
 
   programs.noisetorch.enable = true;
