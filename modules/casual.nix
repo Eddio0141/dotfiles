@@ -251,15 +251,6 @@
     #         ]}
     #     '';
     # })
-    (ghidra.overrideAttrs (prev: {
-      postFixup = (''
-        substituteInPlace "$out/lib/ghidra/ghidraRun" \
-          --replace-fail "#MAXMEM=2G" "MAXMEM=20G"
-
-        substituteInPlace "$out/lib/ghidra/support/launch.properties" \
-          --replace-fail "uiScale=1" "uiScale=2"
-      '' + prev.postFixup);
-    }))
     prismlauncher
 
     # spell checking
@@ -425,6 +416,7 @@
       git.enable = true;
       nvim.enable = true;
       gpu-screen-recorder.enable = true;
+      ghidra.enable = true;
     };
     pack.comfy-shell.enable = true;
     services.syncthing.enable = true;

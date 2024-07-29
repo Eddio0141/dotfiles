@@ -30,6 +30,7 @@
         "/dev/dri/card1"
       ];
     };
+    programs.ghidra.uiScale = 2;
     # programs.gpu-screen-recorder.service = {
     #   enable = true;
     #   screen = "eDP-1";

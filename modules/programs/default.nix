@@ -6,5 +6,6 @@
     ./kitty
     ./gpu-screen-recorder
     ./fastfetch
+    ./ghidra
   ];
 }
