@@ -252,6 +252,7 @@
     #     '';
     # })
     prismlauncher
+    file
 
     # spell checking
     hunspell
