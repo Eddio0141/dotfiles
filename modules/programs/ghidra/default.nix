@@ -4,13 +4,12 @@ let
   mkEnableOption = lib.mkEnableOption;
   mkIf = lib.mkIf;
   mkOption = lib.mkOption;
-  types = lib.types;
 in
 {
   options.yuu.programs.ghidra = {
     enable = mkEnableOption "ghidra";
     uiScale = mkOption {
-      type = types.int;
+      default = null;
     };
   };
 
