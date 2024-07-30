@@ -1,6 +1,7 @@
 { stdenv
 , fetchzip
 , lib
+, makeWrapper
 , free ? true
 , ...
 }:
@@ -17,11 +18,15 @@ stdenv.mkDerivation {
     else
       throw "TODO";
 
+  buildInputs = [ makeWrapper ];
+
   installPhase = ''
     mkdir -p $out/bin
     mkdir -p $out/opt
     cp * -r $out/opt
-    ln -s $out/opt/binaryninja $out/bin/binaryninja
+    makeWrapper $out/opt/binaryninja \
+      $out/bin/binaryninja \
+      --prefix "QT_QPA_PLATFORM" ":" "wayland"
   '';
 
   meta = with lib; {
