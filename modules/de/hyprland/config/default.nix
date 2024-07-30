@@ -1,8 +1,10 @@
 { pkgs, cfg, lib }:
 let
   mainMod = "SUPER";
-  altCombo = "${mainMod} ALT";
+  musicMod = "${mainMod} ALT";
   recordingMod = "ALT";
+  moveWindowMod = "SHIFT";
+  moveMod = "CTRL";
 in
 {
   # "$border_pink_active" = "rgba(ff8cecff)";
@@ -172,7 +174,7 @@ in
     "${mainMod}, End, lockactivegroup, toggle"
     "${mainMod}, Next, changegroupactive, f"
     "${mainMod}, Prior, changegroupactive, b"
-    "${mainMod} SHIFT, End, moveoutofgroup,"
+    "${mainMod} ${moveWindowMod}, End, moveoutofgroup,"
 
     # Move focus with mainMod + arrow keys
     "${mainMod}, left, movefocus, l"
@@ -184,15 +186,15 @@ in
     "${mainMod}, k, movefocus, u"
     "${mainMod}, j, movefocus, d"
 
-    # Move windows with mainMod + SHIFT + arrow keys
-    "${mainMod} SHIFT, left, movewindow, l"
-    "${mainMod} SHIFT, right, movewindow, r"
-    "${mainMod} SHIFT, up, movewindow, u"
-    "${mainMod} SHIFT, down, movewindow, d"
-    "${mainMod} SHIFT, h, movewindow, l"
-    "${mainMod} SHIFT, l, movewindow, r"
-    "${mainMod} SHIFT, k, movewindow, u"
-    "${mainMod} SHIFT, j, movewindow, d"
+    # Move windows with mainMod + moveWindowMod + arrow keys
+    "${mainMod} ${moveWindowMod}, left, movewindow, l"
+    "${mainMod} ${moveWindowMod}, right, movewindow, r"
+    "${mainMod} ${moveWindowMod}, up, movewindow, u"
+    "${mainMod} ${moveWindowMod}, down, movewindow, d"
+    "${mainMod} ${moveWindowMod}, h, movewindow, l"
+    "${mainMod} ${moveWindowMod}, l, movewindow, r"
+    "${mainMod} ${moveWindowMod}, k, movewindow, u"
+    "${mainMod} ${moveWindowMod}, j, movewindow, d"
 
     # Switch workspaces with mainMod + [0-9]
     "${mainMod}, 1, workspace, 1"
@@ -207,28 +209,28 @@ in
     "${mainMod}, 0, workspace, 10"
 
     # Switch workspaces
-    "${mainMod} CTRL, h, workspace, e-1"
-    "${mainMod} CTRL, l, workspace, e+1"
+    "${mainMod} ${moveMod}, h, workspace, e-1"
+    "${mainMod} ${moveMod}, l, workspace, e+1"
 
-    # Move active window to a workspace with mainMod + SHIFT + [0-9]
-    "${mainMod} SHIFT, 1, movetoworkspace, 1"
-    "${mainMod} SHIFT, 2, movetoworkspace, 2"
-    "${mainMod} SHIFT, 3, movetoworkspace, 3"
-    "${mainMod} SHIFT, 4, movetoworkspace, 4"
-    "${mainMod} SHIFT, 5, movetoworkspace, 5"
-    "${mainMod} SHIFT, 6, movetoworkspace, 6"
-    "${mainMod} SHIFT, 7, movetoworkspace, 7"
-    "${mainMod} SHIFT, 8, movetoworkspace, 8"
-    "${mainMod} SHIFT, 9, movetoworkspace, 9"
-    "${mainMod} SHIFT, 0, movetoworkspace, 10"
+    # Move active window to a workspace with mainMod + moveWindowMod + [0-9]
+    "${mainMod} ${moveWindowMod}, 1, movetoworkspace, 1"
+    "${mainMod} ${moveWindowMod}, 2, movetoworkspace, 2"
+    "${mainMod} ${moveWindowMod}, 3, movetoworkspace, 3"
+    "${mainMod} ${moveWindowMod}, 4, movetoworkspace, 4"
+    "${mainMod} ${moveWindowMod}, 5, movetoworkspace, 5"
+    "${mainMod} ${moveWindowMod}, 6, movetoworkspace, 6"
+    "${mainMod} ${moveWindowMod}, 7, movetoworkspace, 7"
+    "${mainMod} ${moveWindowMod}, 8, movetoworkspace, 8"
+    "${mainMod} ${moveWindowMod}, 9, movetoworkspace, 9"
+    "${mainMod} ${moveWindowMod}, 0, movetoworkspace, 10"
 
     # empty workspace
-    "${mainMod} SHIFT, e, workspace, empty"
-    "${mainMod} CTRL, e, movetoworkspace, empty"
+    "${mainMod} ${moveMod}, e, workspace, empty"
+    "${mainMod} ${moveWindowMod}, e, movetoworkspace, empty"
 
     # Special workspace actions
-    "${mainMod} SHIFT, S, movetoworkspacesilent, special"
-    "${mainMod} CTRL, S, togglespecialworkspace"
+    "${mainMod} ${moveWindowMod}, S, movetoworkspacesilent, special"
+    "${mainMod} ${moveMod}, S, togglespecialworkspace"
 
     # Scroll through existing workspaces with mainMod + scroll
     "${mainMod}, mouse_up, workspace, e+1"
@@ -248,9 +250,9 @@ in
     ", XF86AudioMute, exec, pamixer --toggle-mute"
 
     # music
-    "${altCombo}, P, exec, clementine --play-pause"
-    "${altCombo}, O, exec, clementine --next"
-    "${altCombo}, I, exec, clementine --previous"
+    "${musicMod}, P, exec, clementine --play-pause"
+    "${musicMod}, O, exec, clementine --next"
+    "${musicMod}, I, exec, clementine --previous"
     ", XF86AudioPlay, exec, clementine --play-pause"
     ", XF86AudioNext, exec, clementine --next"
     ", XF86AudioPrev, exec, clementine --previous"
