@@ -96,6 +96,7 @@ in
   ];
   input = {
     kb_layout = "gb";
+    kb_options = "caps:escape";
     follow_mouse = 1;
     sensitivity = -0.35;
     accel_profile = "flat";

@@ -12,7 +12,6 @@
     ./alpha.nix
     ./treesitter.nix
     ./mini.nix
-    ./better-escape.nix
     ./comment.nix
     ./conform-nvim.nix
     ./coverage.nix
