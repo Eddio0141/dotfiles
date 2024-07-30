@@ -12,7 +12,15 @@
       };
       jsonls.enable = true;
       clangd.enable = true;
-      omnisharp.enable = true;
+      omnisharp = {
+        enable = true;
+        settings = {
+          enableImportCompletion = true;
+          enableRoslynAnalyzers = true;
+          organizeImportsOnFormat = true;
+          enableMsBuildLoadProjectsOnDemand = true;
+        };
+      };
     };
   };
 }
