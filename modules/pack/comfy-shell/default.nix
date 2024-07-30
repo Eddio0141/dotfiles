@@ -67,7 +67,6 @@ in
           };
 
           initExtra = ''
-            ZVM_VI_INSERT_ESCAPE_BINDKEY=jk # for jk escape
             
             if [[ $- = *i* ]]; then
             fastfetch

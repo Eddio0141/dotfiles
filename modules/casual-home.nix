@@ -133,8 +133,6 @@
     set clipboard=unnamedplus
     let mapleader = " "
 
-    imap jk <Esc>
-
     nmap <S-H> <Action>(PreviousTab)
     nmap <S-L> <Action>(NextTab)
     nmap <leader>bd <Action>(CloseContent)
