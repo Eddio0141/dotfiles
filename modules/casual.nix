@@ -166,7 +166,7 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "docker" ];
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; with own-pkgs; [
     firefox
     vesktop
     avalonia-ilspy
@@ -253,6 +253,7 @@
     # })
     prismlauncher
     file
+    binaryninja-free
 
     # spell checking
     hunspell
