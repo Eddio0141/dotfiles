@@ -67,6 +67,9 @@ in
           };
 
           initExtra = ''
+            function zvm_after_init() {
+              bindkey '^ ' autosuggest-accept
+            }
             
             if [[ $- = *i* ]]; then
             fastfetch
