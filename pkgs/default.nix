@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   callPackage = pkgs.callPackage;
-  mkDerivation = pkgs.stdenv.mkDerivation;
 in
 {
   # scripts
@@ -9,5 +8,6 @@ in
   dl-music = callPackage ./scripts/dl-music { };
 
   # apps
-  uabea = callPackage./apps/uabea { };
+  uabea = callPackage ./apps/uabea { };
+  binaryninja-free = callPackage ./apps/binaryninja { free = true; };
 }
