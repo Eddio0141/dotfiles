@@ -70,16 +70,19 @@
           allowUnfree = true;
         };
       };
+      own-pkgs = import ./pkgs {
+        inherit pkgs inputs system;
+      };
       username = "yuu";
     in
     {
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit pkgs inputs username system home-manager self pkgs-stable;
+          inherit pkgs inputs username system home-manager self pkgs-stable own-pkgs;
         }
       );
-      packages."${system}" = import ./pkgs { inherit pkgs inputs system; };
+      packages."${system}" = own-pkgs;
       devShells.${system}.ghidra = pkgs.mkShell {
         packages = with pkgs; [
           python3Packages.psutil

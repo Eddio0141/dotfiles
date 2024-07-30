@@ -1,6 +1,6 @@
 # module for a casual desktop
 
-{ config, pkgs, username, inputs, system, self, pkgs-stable, ... }:
+{ config, pkgs, username, inputs, system, self, pkgs-stable, own-pkgs, ... }:
 {
   imports = [
     inputs.stylix.nixosModules.stylix
