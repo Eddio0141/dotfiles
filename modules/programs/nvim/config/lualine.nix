@@ -7,14 +7,24 @@
         {
           name = "macro-recording";
           fmt = ''
-          function()
+            function()
               local recording_register = vim.fn.reg_recording()
               if recording_register == "" then
-                  return ""
+                return ""
               else
-                  return "Recording @" .. recording_register
+                return "Recording @" .. recording_register
               end
-          end
+            end
+          '';
+        }
+        # TODO: make this actually refresh on some stuff
+        {
+          name = "better-escape";
+          fmt = ''
+            function()
+              local ok, m = pcall(require, 'better_escape')
+              return ok and m.waiting and '✺' or ""
+            end
           '';
         }
       ];
@@ -24,18 +34,18 @@
       {
         event = "RecordingEnter";
         callback = helpers.mkRaw ''
-        function()
+          function()
             require('lualine').refresh({
-                place = { "statusline" },
+              place = { "statusline" },
             })
-        end
+          end
         '';
         desc = "Refresh lualine on recording";
       }
       {
         event = "RecordingLeave";
         callback = helpers.mkRaw ''
-        function()
+          function()
             -- This is going to seem really weird!
             -- Instead of just calling refresh we need to wait a moment because of the nature of
             -- `vim.fn.reg_recording`. If we tell lualine to refresh right now it actually will
@@ -44,15 +54,15 @@
             -- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
             local timer = vim.loop.new_timer()
             timer:start(
-                50,
-                0,
-                vim.schedule_wrap(function()
-                    require('lualine').refresh({
-                        place = { "statusline" },
-                    })
-                end)
+              50,
+              0,
+              vim.schedule_wrap(function()
+                require('lualine').refresh({
+                  place = { "statusline" },
+                })
+              end)
             )
-        end
+          end
         '';
         desc = "Refresh lualine on recording";
       }
