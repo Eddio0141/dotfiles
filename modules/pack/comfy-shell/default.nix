@@ -67,12 +67,22 @@ in
           };
 
           initExtra = ''
+            ZVM_VI_INSERT_ESCAPE_BINDKEY=jk # for jk escape
+            
             if [[ $- = *i* ]]; then
             fastfetch
 
             echo "Welcome back $USER!"
             fi
           '';
+
+          plugins = [
+            {
+              name = "vi-mode";
+              src = pkgs.zsh-vi-mode;
+              file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+            }
+          ];
         };
       };
     };
