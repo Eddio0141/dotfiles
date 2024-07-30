@@ -131,10 +131,6 @@
     pack.comfy-shell.enable = true;
   };
 
-  security.sudo.wheelNeedsPassword = false;
-
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.auto-optimise-store = true;
 
   # fonts
