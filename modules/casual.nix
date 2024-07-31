@@ -1,26 +1,27 @@
 # module for a casual desktop
 
-{ config, pkgs, username, inputs, system, self, pkgs-stable, own-pkgs, ... }:
+{ pkgs, username, inputs, system, own-pkgs, nixpkgs-options, ... }:
 {
   imports = [
     inputs.stylix.nixosModules.stylix
     ./stylix.nix
   ];
 
-  time.timeZone = "Europe/London";
+  nixpkgs = nixpkgs-options // {
+    overlays = [
+      # fixes 32 bit source games not launching
+      # NOTE: https://github.com/NixOS/nixpkgs/issues/271483
+      (final: prev: {
+        steam = prev.steam.override ({ extraLibraries ? pkgs': [ ], ... }: {
+          extraLibraries = pkgs': (extraLibraries pkgs') ++ [
+            pkgs'.gperftools
+          ];
+        });
+      })
+    ];
+  };
 
-  # TODO rewrite this shit
-  nixpkgs.overlays = [
-    # fixes 32 bit source games not launching
-    # TODO: issue to be tracked needs to be put here
-    (final: prev: {
-      steam = prev.steam.override ({ extraLibraries ? pkgs': [ ], ... }: {
-        extraLibraries = pkgs': (extraLibraries pkgs') ++ [
-          pkgs'.gperftools
-        ];
-      });
-    })
-  ];
+  time.timeZone = "Europe/London";
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;

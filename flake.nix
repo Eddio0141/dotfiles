@@ -1,9 +1,10 @@
 {
   description = "my system flake";
 
+  # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     home-manager = {
@@ -46,10 +47,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-stable, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
+      own-pkgs = import ./pkgs {
+        inherit pkgs nixpkgs-options inputs system;
+      };
+      username = "yuu";
+      nixpkgs-options = {
         inherit system;
         config = {
           allowUnfree = true;
@@ -59,27 +64,17 @@
           ];
         };
       };
-      pkgs-stable = import nixpkgs-stable {
-        inherit system;
-        config = {
-          permittedInsecurePackages = [
-            "curl-impersonate-0.5.4"
-            "curl-impersonate-ff-0.5.4"
-            "curl-impersonate-chrome-0.5.4"
-          ];
-          allowUnfree = true;
-        };
+      # TODO: this isn't great
+      pkgs = import nixpkgs {
+        system = nixpkgs-options.system;
+        config = nixpkgs-options.config;
       };
-      own-pkgs = import ./pkgs {
-        inherit pkgs inputs system;
-      };
-      username = "yuu";
     in
     {
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit pkgs inputs username system home-manager self pkgs-stable own-pkgs;
+          inherit nixpkgs inputs username system home-manager self own-pkgs nixpkgs-options;
         }
       );
       packages."${system}" = own-pkgs;

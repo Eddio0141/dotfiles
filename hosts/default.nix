@@ -1,7 +1,7 @@
-{ self, lib, inputs, system, home-manager, username, pkgs-stable, pkgs, own-pkgs, ... }:
+{ self, lib, inputs, system, home-manager, username, nixpkgs, own-pkgs, nixpkgs-options, ... }:
 let
   nixosSystem = lib.nixosSystem;
-  specialArgs = { inherit username inputs system self home-manager pkgs-stable pkgs own-pkgs; };
+  specialArgs = { inherit username inputs system self home-manager own-pkgs nixpkgs nixpkgs-options; };
 in
 {
   yuu-desktop = nixosSystem {
