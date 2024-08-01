@@ -10,12 +10,29 @@
     modules-center = [ "hyprland/window" ];
     # modules-left = [ "sway/workspaces" ];
     # modules-center = [ "sway/window" ];
-    modules-right = [ "pulseaudio" "network" "cpu" "memory" "temperature" "battery" "clock" "tray" ];
+    modules-right = [ "cava" "pulseaudio" "cpu" "memory" "battery" "clock" "tray" ];
 
     # Modules configuration
+    cava = {
+      framerate = 60;
+      autosens = 1;
+      bars = 10;
+      hide_on_silence = true;
+      sleep_timer = 5;
+      bar_delimiter = 0;
+      waves = false;
+      monstercat = false;
+      noise_reduction = 0.55;
+      input_delay = 2;
+      ascii_max_range = 8;
+      format-icons = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+      actions = {
+        on-click-right = "mode";
+      };
+    };
     battery = {
       format = "{capacity}% {icon}";
-      format-icons = [ "" "" "" "" "" ];
+      format-icons = [ " " " " " " " " " " ];
     };
     "pulseaudio" = {
       "format" = "{volume}% {icon}";
@@ -63,12 +80,6 @@
     };
     "memory" = {
       "format" = "{}% ";
-      interval = 1;
-    };
-    "temperature" = {
-      "critical-threshold" = 80;
-      "format" = "{temperatureC}°C {icon}";
-      "format-icons" = [ "" "" "" ];
       interval = 1;
     };
   };
