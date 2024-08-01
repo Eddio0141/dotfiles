@@ -16,6 +16,12 @@
           fonts = [ "JetBrainsMono" ];
         });
       };
+      sansSerif = {
+        name = "DejaVuSansM Nerd Font";
+        package = (pkgs.nerdfonts.override {
+          fonts = [ "DejaVuSansMono" ];
+        });
+      };
     };
   };
 }
