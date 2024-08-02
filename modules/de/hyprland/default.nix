@@ -44,6 +44,9 @@ in
       theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
     };
 
+    # obviously for hyprlock
+    security.pam.services.hyprlock = { };
+
     yuu = {
       programs = {
         waybar.enable = true;
