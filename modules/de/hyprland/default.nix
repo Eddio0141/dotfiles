@@ -34,7 +34,6 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      dunst
       pavucontrol
       sddm-chili-theme # idk why but it has to be here
     ];
@@ -70,6 +69,7 @@ in
             };
           };
         };
+        dunst.enable = true;
       };
 
       wayland.windowManager.hyprland = {
