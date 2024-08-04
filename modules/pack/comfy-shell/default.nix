@@ -86,6 +86,8 @@ in
             }
           ];
         };
+
+        fd.enable = true;
       };
     };
 
