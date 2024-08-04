@@ -131,6 +131,9 @@
   home.file.".ideavimrc".text = ''
     set relativenumber
     set clipboard=unnamedplus
+    set smartcase 
+    set ignorecase
+
     let mapleader = " "
 
     nmap <S-H> <Action>(PreviousTab)
