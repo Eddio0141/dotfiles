@@ -17,16 +17,6 @@
             end
           '';
         }
-        # TODO: make this actually refresh on some stuff
-        {
-          name = "better-escape";
-          fmt = ''
-            function()
-              local ok, m = pcall(require, 'better_escape')
-              return ok and m.waiting and '✺' or ""
-            end
-          '';
-        }
       ];
     };
 
