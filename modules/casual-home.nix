@@ -136,6 +136,8 @@
 
     let mapleader = " "
 
+    Plug 'machakann/vim-highlightedyank'
+
     nmap <S-H> <Action>(PreviousTab)
     nmap <S-L> <Action>(NextTab)
     nmap <leader>bd <Action>(CloseContent)
@@ -156,6 +158,8 @@
     vmap gc <Action>(CommentByLineComment)
     nmap <leader>gg <Action>(ActivateCommitToolWindow)
     nmap <leader>e <Action>(ActivateProjectToolWindow)
+
+    inoremap <c-s> <esc> \| <Action>(ReformatCode) \| :w<cr>
   '';
 }
 
