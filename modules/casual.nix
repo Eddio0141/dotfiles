@@ -173,6 +173,9 @@
     description = "${username}";
     # kvm and libvirtd groups are needed for virt-manager
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "docker" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIe9xUjQ2cvylpFcYh7BCqIcMGnHuThTjNgYC71CinB yuu@yuu-laptop"
+    ];
   };
 
   environment.systemPackages = with pkgs; with own-pkgs; [
