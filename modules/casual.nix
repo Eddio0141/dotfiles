@@ -357,7 +357,9 @@
   ];
   fonts.fontDir.enable = true;
 
-  nix.settings = {
+  nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    settings = {
     auto-optimise-store = true;
     substituters = [
       "https://nix-community.cachix.org"
@@ -368,6 +370,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
     ];
+  };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
