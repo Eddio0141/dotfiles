@@ -266,6 +266,7 @@
     prismlauncher
     file
     binaryninja-free
+    imhex
 
     # spell checking
     hunspell
