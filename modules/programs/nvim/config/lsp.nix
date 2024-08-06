@@ -1,13 +1,11 @@
-{ pkgs, ... }:
 {
   plugins.lsp = {
     enable = true;
     servers = {
-      nil_ls = {
+      nixd = {
         enable = true;
         settings = {
-          formatting.command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
-          nix.flake.autoArchive = true;
+          # nixpkgs = nixpkgs;
         };
       };
       jsonls.enable = true;
@@ -21,6 +19,7 @@
           enableMsBuildLoadProjectsOnDemand = true;
         };
       };
+      lua-ls.enable = true;
     };
   };
 }
