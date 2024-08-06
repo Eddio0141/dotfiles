@@ -159,7 +159,8 @@
     nmap <leader>gg <Action>(ActivateCommitToolWindow)
     nmap <leader>e <Action>(ActivateProjectToolWindow)
 
-    inoremap <c-s> <esc> \| <Action>(ReformatCode) \| :w<cr>
+    inoremap <c-s> <esc> \| :w<cr>
+    nnoremap <c-s> <esc> \| :w<cr>
   '';
 }
 
