@@ -25,17 +25,18 @@ in
 
     nixpkgs.overlays = [
       # NOTE: check flake.nix
-      (final: prev: {
-        omnisharp-roslyn = prev.omnisharp-roslyn.overrideAttrs {
-          version = "1.39.11-fix";
-          src = prev.fetchFromGitHub {
-            owner = "Eddio0141";
-            repo = "omnisharp-roslyn";
-            rev = "fix-nvim-lsp";
-            hash = "sha256-FyWHdug2NZGGcn7/eiTi0RklxdC+rtEb51+/l8lebk4=";
-          };
-        };
-      })
+      # TODO: this is not working fuck this
+      # (final: prev: {
+      #   omnisharp-roslyn = prev.omnisharp-roslyn.overrideAttrs {
+      #     version = "1.39.11-fix";
+      #     src = prev.fetchFromGitHub {
+      #       owner = "Eddio0141";
+      #       repo = "omnisharp-roslyn";
+      #       rev = "fix-nvim-lsp";
+      #       hash = "sha256-FyWHdug2NZGGcn7/eiTi0RklxdC+rtEb51+/l8lebk4=";
+      #     };
+      #   };
+      # })
     ];
   });
 }
