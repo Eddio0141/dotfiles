@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, system, lib, ... }:
 {
   home = {
     stateVersion = "23.05";
@@ -42,7 +42,7 @@
 
   programs.wofi = {
     enable = true;
-    style = builtins.readFile ../config/wofi/style.css;
+    style = lib.mkForce (builtins.readFile ../config/wofi/style.css);
   };
 
   # mangohud
