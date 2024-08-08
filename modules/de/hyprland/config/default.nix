@@ -14,7 +14,7 @@ in
   monitor = [ ",preferred,auto,1" ] ++ cfg.monitors;
   env = [
     # disables usage of newer DRM API that doesn't support tearing yet
-    "WLR_DRM_NO_ATOMIC,1"
+    "AQ_NO_ATOMIC,1"
     # scaling
     "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
   ];
@@ -57,7 +57,6 @@ in
     "tile,class:hl.exe"
 
     # jetbrains
-    "windowdance,class:^(jetbrains-.*)$"
     "dimaround,class:^(jetbrains-.*)$,floating:1,title:^(?!win)"
     "center,class:^(jetbrains-.*)$,floating:1,title:^(?!win)"
     "noanim,class:^(jetbrains-.*)$,title:^(win.*)$"
@@ -71,21 +70,14 @@ in
     "center,class:^Unity$,initialTitle:^Unity$,floating:0"
     "float,class:^Unity$,initialTitle:^Unity$,floating:0"
 
-    # steam
-    #"forceinput,class:steam"
-
     # steam notification
     "nofocus,class:steam,title:^notificationtoasts_\d+_desktop$"
 
     # cs2 tearing
     "immediate, class:^(cs2)$"
 
-    # qemu
-    "forceinput,class:^qemu-system-.+$"
-
     # ghidra
     "nofocus,class:^ghidra-Ghidra$,title:^win\d+$"
-    "windowdance,class:^ghidra-Ghidra$,title:^win\d+$"
     "tile,class:^ghidra-Ghidra$,initialTitle:^CodeBrowser$" # main window
 
     # calc
@@ -112,7 +104,7 @@ in
     "col.active_border" = lib.mkForce "rgba(ffffffff)";
     # "col.inactive_border" = "$border_pink_inactive";
     layout = "dwindle";
-    allow_tearing = true;
+    allow_tearing = false;
   };
   decoration = {
     rounding = 5;
@@ -142,7 +134,9 @@ in
   misc = {
     disable_splash_rendering = true;
     enable_swallow = true;
-    no_direct_scanout = true;
+  };
+  render = {
+    direct_scanout = false;
   };
   xwayland = {
     force_zero_scaling = true;
