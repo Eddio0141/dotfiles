@@ -1,6 +1,22 @@
 # module for a casual desktop
 
-{ pkgs, username, inputs, system, own-pkgs, nixpkgs-options, ... }:
+{ pkgs, username, inputs, system, own-pkgs, nixpkgs-options, config, ... }:
+let
+    # for steam games
+  steam-game-wrap = pkgs.writeShellApplication {
+    name = "steam-game-wrap";
+    runtimeInputs = [ pkgs.gamemode ];
+    text =
+      (if config.yuu.pack.dri-prime.enable then
+        "export DRI_PRIME=1"
+      else
+        "")
+      + ''
+        # shellcheck disable=SC2163
+        gamemoderun "$@"
+      '';
+  };
+in
 {
   imports = [
     inputs.stylix.nixosModules.stylix
@@ -267,6 +283,7 @@
     file
     binaryninja-free
     imhex
+    steam-game-wrap
 
     # spell checking
     hunspell
