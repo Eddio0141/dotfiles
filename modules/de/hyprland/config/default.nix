@@ -13,8 +13,6 @@ in
   # automatically add new monitors
   monitor = [ ",preferred,auto,1" ] ++ cfg.monitors;
   env = [
-    # disables usage of newer DRM API that doesn't support tearing yet
-    "AQ_NO_ATOMIC,1"
     # scaling
     "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
   ];
