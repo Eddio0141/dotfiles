@@ -27,6 +27,7 @@
       ];
     };
     programs.ghidra.uiScale = 2;
+    pack.dri-prime.enable = true;
     # programs.gpu-screen-recorder.service = {
     #   enable = true;
     #   screen = "eDP-1";

@@ -45,6 +45,11 @@
         home-manager.follows = "home-manager";
       };
     };
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+      # WM's nixpkgs is only used for tests, you can safely drop this if needed.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
