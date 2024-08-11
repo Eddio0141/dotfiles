@@ -168,7 +168,7 @@ in
         };
       };
 
-      which-key.registrations."<leader>d" = "  Debug";
+      # which-key.registrations."<leader>d" = "  Debug";
     };
 
     keymaps = [

@@ -14,7 +14,7 @@ in
     brightness-change = mkEnableOption "monitor brightness adjustment";
     monitors = mkOption {
       # TODO: make this a proper structure
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       default = [ ];
       description = "List of monitors to be added";
     };

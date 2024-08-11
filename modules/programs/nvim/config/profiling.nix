@@ -32,11 +32,10 @@
       }
     ];
 
-    plugins.which-key = {
-      enable = true;
-      registrations = {
-        "<leader>up" = "Profiling";
-      };
-    };
+    # plugins.which-key = {
+    #   registrations = {
+    #     "<leader>up" = "Profiling";
+    #   };
+    # };
   };
 }

@@ -80,7 +80,8 @@ in
 
   # input method
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
@@ -249,7 +250,7 @@ in
     inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
     slack
-    gnome.gnome-calculator
+    gnome-calculator
     aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
     # (ghidra-bin.overrideAttrs {
     #   # buildInputs = [
@@ -336,19 +337,20 @@ in
     ];
   };
 
-  hardware.opengl.extraPackages = with pkgs; [
-    # OpenCL
-    rocm-opencl-icd
-    rocm-opencl-runtime
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      # OpenCL
+      rocm-opencl-icd
+      rocm-opencl-runtime
 
-    # vulkan
-    amdvlk
-  ];
-
-  hardware.opengl.extraPackages32 = with pkgs; [
-    # vulkan 32 bit apps
-    driversi686Linux.amdvlk
-  ];
+      # vulkan
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      # vulkan 32 bit apps
+      driversi686Linux.amdvlk
+    ];
+  };
 
   # fonts
   fonts.packages = with pkgs; [
