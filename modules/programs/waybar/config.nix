@@ -10,9 +10,20 @@
     modules-center = [ "hyprland/window" ];
     # modules-left = [ "sway/workspaces" ];
     # modules-center = [ "sway/window" ];
-    modules-right = [ "cava" "pulseaudio" "cpu" "memory" "battery" "clock" "tray" ];
+    modules-right = [ "cava" "pulseaudio" "cpu" "memory" "battery" "power-profiles-daemon" "clock" "tray" ];
 
     # Modules configuration
+    power-profiles-daemon = {
+      format = "{icon}";
+      tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+      tooltip = true;
+      format-icons = {
+        default = " ";
+        performance = " ";
+        balanced = " ";
+        power-saver = " ";
+      };
+    };
     cava = {
       framerate = 60;
       autosens = 1;
