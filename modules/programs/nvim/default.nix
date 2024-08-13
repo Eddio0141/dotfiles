@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, system, ... }:
+{ config, lib, pkgs, inputs, system, username, ... }:
 let
   cfg = config.yuu.programs.nvim;
   nixvim = inputs.nixvim.legacyPackages.${system};
@@ -12,7 +12,6 @@ in
   options.yuu.programs.nvim.enable = lib.mkEnableOption "nvim";
 
   config = (lib.mkIf cfg.enable {
-    # TODO: i swear there were hm module that enables those
     environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -20,10 +19,11 @@ in
     };
     # TODO: also hm for this too? idk
     environment.systemPackages = [
-      (nixvim.makeNixvimWithModule nixvimModule)
+    #   (nixvim.makeNixvimWithModule nixvimModule)
+      pkgs.nvim-pkg
     ];
-
     nixpkgs.overlays = [
+      inputs.meowvim.overlays.default
       # NOTE: check flake.nix
       # TODO: this is not working fuck this
       # (final: prev: {
@@ -38,5 +38,7 @@ in
       #   };
       # })
     ];
+
+    home-manager.users.${username}.programs.zsh.shellAliases = { vimdiff = "nvim -d"; vi = "nvim"; vim = "nvim"; };
   });
 }
