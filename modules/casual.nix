@@ -1,16 +1,22 @@
 # module for a casual desktop
 
-{ pkgs, username, inputs, system, own-pkgs, nixpkgs-options, config, ... }:
+{
+  pkgs,
+  username,
+  inputs,
+  system,
+  own-pkgs,
+  nixpkgs-options,
+  config,
+  ...
+}:
 let
-    # for steam games
+  # for steam games
   steam-game-wrap = pkgs.writeShellApplication {
     name = "steam-game-wrap";
     runtimeInputs = [ pkgs.gamemode ];
     text =
-      (if config.yuu.pack.dri-prime.enable then
-        "export DRI_PRIME=1"
-      else
-        "")
+      (if config.yuu.pack.dri-prime.enable then "export DRI_PRIME=1" else "")
       + ''
         # shellcheck disable=SC2163
         gamemoderun "$@"
@@ -28,11 +34,15 @@ in
       # fixes 32 bit source games not launching
       # NOTE: https://github.com/NixOS/nixpkgs/issues/271483
       (final: prev: {
-        steam = prev.steam.override ({ extraLibraries ? pkgs': [ ], ... }: {
-          extraLibraries = pkgs': (extraLibraries pkgs') ++ [
-            pkgs'.gperftools
-          ];
-        });
+        steam = prev.steam.override (
+          {
+            extraLibraries ? pkgs': [ ],
+            ...
+          }:
+          {
+            extraLibraries = pkgs': (extraLibraries pkgs') ++ [ pkgs'.gperftools ];
+          }
+        );
       })
     ];
   };
@@ -178,9 +188,7 @@ in
     };
     command-not-found.enable = false;
     noisetorch.enable = true;
-    firefox.enable = true;
   };
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -190,138 +198,141 @@ in
     isNormalUser = true;
     description = "${username}";
     # kvm and libvirtd groups are needed for virt-manager
-    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "kvm"
+      "libvirtd"
+      "docker"
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIe9xUjQ2cvylpFcYh7BCqIcMGnHuThTjNgYC71CinB yuu@yuu-laptop"
     ];
   };
 
-  environment.systemPackages = with pkgs; with own-pkgs; [
-    vesktop
-    avalonia-ilspy
-    btop
-    obsidian
-    (jetbrains.plugins.addPlugins jetbrains.rider [
-      "ideavim"
-    ])
-    p7zip
-    protontricks
-    xdg-utils
-    wineWowPackages.staging
-    winetricks
-    libreoffice-qt
-    # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-    (unityhub.override {
-      extraLibs = pkgs: with pkgs; [
-        openssl_1_1
-        dotnet-sdk_7
-      ];
-    })
-    ffmpeg
-    lutris
-    thunderbird
-    blender
-    ani-cli
-    miru
-    qbittorrent
-    #davinci-resolve
-    yt-dlp
-    clementine
-    r2modman
-    libtas
-    (gimp-with-plugins.override {
-      plugins = with gimpPlugins; [
-        gap
-      ];
-    })
-    wl-clipboard
-    cliphist
-    quickemu
-    (godot_4.overrideAttrs rec {
-      version = "4.1.1-stable";
-      commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
-      src = fetchFromGitHub {
-        owner = "godotengine";
-        repo = "godot";
-        rev = commitHash;
-        hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
-      };
-    })
-    inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
-    # citra-canary
-    slack
-    gnome-calculator
-    aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
-    # (ghidra-bin.overrideAttrs {
-    #   # buildInputs = [
-    #   #   # for debugging
-    #   #   python3Packages.psutil
-    #   #   python3Packages.protobuf3
-    #   #   lldb
-    #   #   gdb
-    #   # ];
-    #   postFixup =
-    #     let
-    #       pkg_path = "$out/lib/ghidra";
-    #     in
-    #     ''
-    #       mkdir -p "$out/bin"
-    #       ln -s "${pkg_path}/ghidraRun" "$out/bin/ghidra"
-    #
-    #       wrapProgram "${pkg_path}/support/launch.sh" \
-    #         --prefix PATH : ${lib.makeBinPath [
-    #           openjdk17
-    #           (python3.withPackages (p: with p; [
-    #             psutil
-    #             protobuf3
-    #           ]))
-    #           lldb
-    #           gdb
-    #         ]}
-    #     '';
-    # })
-    prismlauncher
-    file
-    binaryninja-free
-    imhex
-    steam-game-wrap
+  environment.systemPackages =
+    with pkgs;
+    with own-pkgs;
+    [
+      avalonia-ilspy
+      btop
+      obsidian
+      (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
+      p7zip
+      protontricks
+      xdg-utils
+      wineWowPackages.staging
+      winetricks
+      libreoffice-qt
+      # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+      (unityhub.override {
+        extraLibs =
+          pkgs: with pkgs; [
+            openssl_1_1
+            dotnet-sdk_7
+          ];
+      })
+      ffmpeg
+      lutris
+      thunderbird
+      blender
+      ani-cli
+      miru
+      qbittorrent
+      #davinci-resolve
+      yt-dlp
+      clementine
+      r2modman
+      libtas
+      (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
+      wl-clipboard
+      cliphist
+      quickemu
+      (godot_4.overrideAttrs rec {
+        version = "4.1.1-stable";
+        commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
+        src = fetchFromGitHub {
+          owner = "godotengine";
+          repo = "godot";
+          rev = commitHash;
+          hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
+        };
+      })
+      inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
+      # citra-canary
+      slack
+      gnome-calculator
+      aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
+      # (ghidra-bin.overrideAttrs {
+      #   # buildInputs = [
+      #   #   # for debugging
+      #   #   python3Packages.psutil
+      #   #   python3Packages.protobuf3
+      #   #   lldb
+      #   #   gdb
+      #   # ];
+      #   postFixup =
+      #     let
+      #       pkg_path = "$out/lib/ghidra";
+      #     in
+      #     ''
+      #       mkdir -p "$out/bin"
+      #       ln -s "${pkg_path}/ghidraRun" "$out/bin/ghidra"
+      #
+      #       wrapProgram "${pkg_path}/support/launch.sh" \
+      #         --prefix PATH : ${lib.makeBinPath [
+      #           openjdk17
+      #           (python3.withPackages (p: with p; [
+      #             psutil
+      #             protobuf3
+      #           ]))
+      #           lldb
+      #           gdb
+      #         ]}
+      #     '';
+      # })
+      prismlauncher
+      file
+      binaryninja-free
+      imhex
+      steam-game-wrap
 
-    # spell checking
-    hunspell
-    hunspellDicts.en_GB-large
+      # spell checking
+      hunspell
+      hunspellDicts.en_GB-large
 
-    # hypr stuff
-    mpv
-    wofi
-    # TODO merge this into grimblast
-    inputs.hyprpicker.packages.${system}.default
-    inputs.hyprcontrib.packages.${system}.grimblast
-    libsForQt5.gwenview
-    pamixer # volume control
+      # hypr stuff
+      mpv
+      wofi
+      # TODO merge this into grimblast
+      inputs.hyprpicker.packages.${system}.default
+      inputs.hyprcontrib.packages.${system}.grimblast
+      libsForQt5.gwenview
+      pamixer # volume control
 
-    # external storage
-    gvfs
-    udisks
+      # external storage
+      gvfs
+      udisks
 
-    # dolphin
-    libsForQt5.kio-extras
-    libsForQt5.dolphin
-    libsForQt5.dolphin-plugins
-    libsForQt5.kdegraphics-thumbnailers
-    ffmpegthumbnailer
-    libsForQt5.kimageformats
-    libheif
-    libsForQt5.qt5.qtimageformats
-    resvg
-    libsForQt5.ffmpegthumbs
-    taglib
-    libsForQt5.breeze-qt5
-    libsForQt5.breeze-icons
-    libsForQt5.ark
+      # dolphin
+      libsForQt5.kio-extras
+      libsForQt5.dolphin
+      libsForQt5.dolphin-plugins
+      libsForQt5.kdegraphics-thumbnailers
+      ffmpegthumbnailer
+      libsForQt5.kimageformats
+      libheif
+      libsForQt5.qt5.qtimageformats
+      resvg
+      libsForQt5.ffmpegthumbs
+      taglib
+      libsForQt5.breeze-qt5
+      libsForQt5.breeze-icons
+      libsForQt5.ark
 
-    # managing qt5 themes
-    libsForQt5.qt5ct
-  ];
+      # managing qt5 themes
+      libsForQt5.qt5ct
+    ];
 
   qt.platformTheme = "qt5ct";
 
@@ -332,9 +343,7 @@ in
 
   systemd = {
     # HIP
-    tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
+    tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
   };
 
   hardware.graphics = {
@@ -379,17 +388,17 @@ in
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
-    auto-optimise-store = true;
-    substituters = [
-      "https://nix-community.cachix.org"
-      "https://cache.nixos.org"
-      "https://colmena.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
-    ];
-  };
+      auto-optimise-store = true;
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org"
+        "https://colmena.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
+      ];
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -452,4 +461,3 @@ in
     services.syncthing.enable = true;
   };
 }
-
