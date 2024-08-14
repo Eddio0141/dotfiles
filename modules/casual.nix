@@ -178,6 +178,7 @@ in
     };
     command-not-found.enable = false;
     noisetorch.enable = true;
+    firefox.enable = true;
   };
 
 
@@ -196,7 +197,6 @@ in
   };
 
   environment.systemPackages = with pkgs; with own-pkgs; [
-    firefox
     vesktop
     avalonia-ilspy
     btop
