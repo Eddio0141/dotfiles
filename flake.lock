@@ -705,11 +705,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723581777,
-        "narHash": "sha256-fG4F3XgFVLuuZy15TE0Q+/OymnfFSR/BFMQPNVScI04=",
+        "lastModified": 1723894504,
+        "narHash": "sha256-rXpsXBbVpmB0p0+Ej1vlUw7zCencSc03ySerFm2NHKY=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "cfe57f0533cce75b71080d976f1e9fc257d78b04",
+        "rev": "0a07835d27afaeabcbe66fbac4a6a27aef556f9d",
         "type": "github"
       },
       "original": {
