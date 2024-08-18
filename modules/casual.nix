@@ -44,6 +44,8 @@ in
           }
         );
       })
+      # https://github.com/NixOS/nixpkgs/pull/334286
+      (_: _: { ceph = inputs.ceph-fix.legacyPackages.${system}.ceph; })
     ];
   };
 

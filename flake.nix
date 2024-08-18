@@ -5,6 +5,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # NOTE: https://github.com/NixOS/nixpkgs/pull/334286, remove ceph override when done
+    ceph-fix.url = "github:nh2/nixpkgs/ceph-18.2.4-staging-next-fix";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     home-manager = {
@@ -16,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.42.0&submodules=1"; 
+      url = "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.42.0&submodules=1";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         xdph.follows = "xdph";
@@ -56,11 +58,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       own-pkgs = import ./pkgs {
-        inherit pkgs nixpkgs-options inputs system;
+        inherit
+          pkgs
+          nixpkgs-options
+          inputs
+          system
+          ;
       };
       username = "yuu";
       nixpkgs-options = {
@@ -68,9 +81,7 @@
         config = {
           allowUnfree = true;
           rocmSupport = true;
-          permittedInsecurePackages = [
-            "openssl-1.1.1w"
-          ];
+          permittedInsecurePackages = [ "openssl-1.1.1w" ];
         };
       };
       # TODO: this isn't great
@@ -83,7 +94,16 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit nixpkgs inputs username system home-manager self own-pkgs nixpkgs-options;
+          inherit
+            nixpkgs
+            inputs
+            username
+            system
+            home-manager
+            self
+            own-pkgs
+            nixpkgs-options
+            ;
         }
       );
       packages."${system}" = own-pkgs;
