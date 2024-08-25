@@ -9,6 +9,7 @@
     ceph-fix.url = "github:nh2/nixpkgs/ceph-18.2.4-staging-next-fix";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
+    nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

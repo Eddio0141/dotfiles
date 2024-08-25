@@ -250,16 +250,17 @@ in
       wl-clipboard
       cliphist
       quickemu
-      (godot_4.overrideAttrs rec {
-        version = "4.1.1-stable";
-        commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
-        src = fetchFromGitHub {
-          owner = "godotengine";
-          repo = "godot";
-          rev = commitHash;
-          hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
-        };
-      })
+      inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
+      # (godot_4.overrideAttrs rec {
+      #   version = "4.1.1-stable";
+      #   commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
+      #   src = fetchFromGitHub {
+      #     owner = "godotengine";
+      #     repo = "godot";
+      #     rev = commitHash;
+      #     hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
+      #   };
+      # })
       inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
       # citra-canary
       slack
