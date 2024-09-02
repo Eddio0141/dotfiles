@@ -4,9 +4,9 @@
   # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # NOTE: https://github.com/NixOS/nixpkgs/pull/334286, remove ceph override when done
-    ceph-fix.url = "github:nh2/nixpkgs/ceph-18.2.4-staging-next-fix";
+    # TODO: restore
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/a66c653fd6f5cdefa4a63965c9ac02370de2898b";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
