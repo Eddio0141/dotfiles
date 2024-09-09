@@ -4,9 +4,7 @@
   # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
 
   inputs = {
-    # TODO: restore
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/a66c653fd6f5cdefa4a63965c9ac02370de2898b";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
@@ -19,15 +17,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.42.0&submodules=1";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        xdph.follows = "xdph";
-      };
+      url = "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.43.0&submodules=1";
+      # inputs = {
+      #   nixpkgs.follows = "nixpkgs";
+      #   xdph.follows = "xdph";
+      # };
     };
     xdph = {
       url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
