@@ -242,7 +242,7 @@ in
       ani-cli
       miru
       qbittorrent
-      #davinci-resolve
+      davinci-resolve
       yt-dlp
       clementine
       r2modman
