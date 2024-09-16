@@ -39,8 +39,8 @@ in
 
       programs.hyprland = {
         enable = true;
-        package = inputs.hyprland.packages.${system}.default;
-        portalPackage = inputs.xdph.packages.${system}.default;
+        # package = inputs.hyprland.packages.${system}.default;
+        # portalPackage = inputs.xdph.packages.${system}.default;
       };
 
       environment.systemPackages = with pkgs; [
