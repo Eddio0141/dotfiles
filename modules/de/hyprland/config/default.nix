@@ -1,7 +1,12 @@
-{ pkgs, cfg, lib }:
+{
+  pkgs,
+  cfg,
+  lib,
+}:
 let
   mainMod = "SUPER";
-  musicMod = "${mainMod} ALT";
+  # for various applications that I don't always use
+  appMod = "${mainMod} ALT";
   recordingMod = "ALT";
   moveWindowMod = "SHIFT";
   moveMod = "CTRL";
@@ -242,13 +247,14 @@ in
     ", XF86AudioLowerVolume, exec, pamixer --decrease 5"
     ", XF86AudioMute, exec, pamixer --toggle-mute"
 
-    # music
-    "${musicMod}, P, exec, clementine --play-pause"
-    "${musicMod}, O, exec, clementine --next"
-    "${musicMod}, I, exec, clementine --previous"
-    ", XF86AudioPlay, exec, clementine --play-pause"
-    ", XF86AudioNext, exec, clementine --next"
-    ", XF86AudioPrev, exec, clementine --previous"
+    # media control
+    "${appMod}, P, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+    "${appMod}, O, exec, ${pkgs.playerctl}/bin/playerctl next"
+    "${appMod}, I, exec, ${pkgs.playerctl}/bin/playerctl previous"
+    ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+    ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+    ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+    ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
 
     # gpu-screen-recorder
     # TODO: expand on this and make it better
