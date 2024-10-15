@@ -755,11 +755,11 @@
     "lz-n": {
       "flake": false,
       "locked": {
-        "lastModified": 1727574854,
-        "narHash": "sha256-qDWNleR2NHFkiEKE/+LNVOBRwEeskMC4dWTl5BTyZuE=",
+        "lastModified": 1729002656,
+        "narHash": "sha256-OFCdZcCnx6gOR1+DqLbdAGzFDT5xOfiNgc+4TxHtn+M=",
         "owner": "nvim-neorocks",
         "repo": "lz.n",
-        "rev": "470173e3cbef763c6d1b918f3f129b67db75e1f8",
+        "rev": "801332a8e646d6ad6156af244028f34ffe4eb9f9",
         "type": "github"
       },
       "original": {
@@ -774,16 +774,14 @@
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
         "lz-n": "lz-n",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1727629749,
-        "narHash": "sha256-cypFrEnbLjjBO71SaemduwX/hWFvUmsuRpOU8YUH5KA=",
+        "lastModified": 1729010397,
+        "narHash": "sha256-7l9MXXI9N8xfURlLpyKcnpmv5DwqHrFGfj7QtW0Wyu4=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "a2583a271753f8355891faa293be6f94009eeb92",
+        "rev": "355e9c719db56cfcc28c853a2acf9000806f1464",
         "type": "github"
       },
       "original": {
@@ -902,6 +900,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1728888510,
+        "narHash": "sha256-nsNdSldaAyu6PE3YUA+YQLqUDJh+gRbBooMMekZJwvI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a3c0b3b21515f74fd2665903d4ce6bc4dc81c77c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1728492678,
         "narHash": "sha256-9UTxR8eukdg+XZeHgxW5hQA9fIKHsKCdOIUycTryeVw=",
         "owner": "nixos",
@@ -916,7 +930,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1726463316,
         "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
@@ -940,7 +954,7 @@
         "hyprpicker": "hyprpicker",
         "meowvim": "meowvim",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-citra-yuzu-temp": "nixpkgs-citra-yuzu-temp",
         "nixpkgs-godot-4": "nixpkgs-godot-4",
         "stylix": "stylix",
@@ -1170,7 +1184,7 @@
         "hyprlang": "hyprlang_2",
         "hyprutils": "hyprutils_4",
         "hyprwayland-scanner": "hyprwayland-scanner_3",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "systems": "systems_5"
       },
       "locked": {
