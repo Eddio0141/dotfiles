@@ -44,10 +44,7 @@
       # WM's nixpkgs is only used for tests, you can safely drop this if needed.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    meowvim = {
-      url = "github:Eddio0141/meowvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    meowvim.url = "github:Eddio0141/meowvim";
   };
 
   outputs =
