@@ -1,4 +1,10 @@
-{ pkgs, inputs, system, lib, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  lib,
+  ...
+}:
 {
   home = {
     stateVersion = "23.05";
@@ -56,13 +62,14 @@
 
   xdg.configFile."qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
 
-  xdg.configFile."qt5ct/colors/Dracula.conf".source = pkgs.fetchFromGitHub
-    {
+  xdg.configFile."qt5ct/colors/Dracula.conf".source =
+    pkgs.fetchFromGitHub {
       owner = "dracula";
       repo = "qt5";
       rev = "master";
       sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
-    } + "/Dracula.conf";
+    }
+    + "/Dracula.conf";
 
   xdg.dataFile."fonts".source = ../share/fonts;
 
@@ -161,6 +168,23 @@
 
     inoremap <c-s> <esc> \| :w<cr>
     nnoremap <c-s> <esc> \| :w<cr>
+
+    nmap <leader>db <Action>(ToggleLineBreakpoint)
+    nmap <leader>dc <Action>(Resume)
+
+    nmap <c-Up> <Up>
+    nmap <c-Down> <Down>
+    nmap <c-Left> <Left>
+    nmap <c-Right> <Right>
+    vmap <c-Up> <Up>
+    vmap <c-Down> <Down>
+    vmap <c-Left> <Left>
+    vmap <c-Right> <Right>
+    imap <c-Up> <Up>
+    imap <c-Down> <Down>
+    imap <c-Left> <Left>
+    imap <c-Right> <Right>
+
+    nmap ]e <Action>(ReSharperGotoNextErrorInSolution)
   '';
 }
-
