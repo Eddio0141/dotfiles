@@ -1,5 +1,10 @@
-{ config, lib, username, ... }:
-with lib; with builtins;
+{
+  config,
+  lib,
+  username,
+  ...
+}:
+with builtins;
 let
   cfg = config.yuu.services.syncthing;
   allDevices = {
@@ -16,59 +21,63 @@ let
   hostName = config.networking.hostName;
 in
 {
-  options.yuu.services.syncthing.enable = mkEnableOption "syncthing";
+  options.yuu.services.syncthing.enable = lib.mkEnableOption "syncthing";
 
-  config = (mkIf cfg.enable {
-    services.syncthing = {
-      user = "${username}";
-      group = "wheel";
-      dataDir = "/home/${username}/.config/syncthing";
-      openDefaultPorts = true;
-      settings =
-        let
-          filteredDevices = filterAttrs (key: _: key != hostName) allDevices;
-        in
-        {
-          devices = filteredDevices;
-          extraOptions = {
-            startBrowser = false;
-            urAccepted = -1;
-          };
-          folders =
-            let
-              deviceNames = attrNames filteredDevices;
-            in
-            {
-              "/home/${username}/Documents/Obsidian" = {
-                id = "obsidian";
-                devices = deviceNames;
-              };
-              "/home/${username}/sync" = {
-                id = "sync";
-                devices = deviceNames;
-              };
-              "/home/${username}/Music" = {
-                id = "music";
-                devices = deviceNames;
-              };
-              "/home/${username}/ghidra-projects" = {
-                id = "ghidra-projects";
-                devices = deviceNames;
-              };
-              "/home/${username}/binary-ninja-projects" = {
-                id = "binary-ninja-projects";
-                devices = deviceNames;
-              };
+  config = (
+    lib.mkIf cfg.enable {
+      services.syncthing = {
+        user = "${username}";
+        group = "wheel";
+        dataDir = "/home/${username}/.config/syncthing";
+        openDefaultPorts = true;
+        settings =
+          let
+            filteredDevices = lib.filterAttrs (key: _: key != hostName) allDevices;
+          in
+          {
+            devices = filteredDevices;
+            extraOptions = {
+              startBrowser = false;
+              urAccepted = -1;
             };
-        };
-      enable = true;
-    };
+            folders =
+              let
+                deviceNames = attrNames filteredDevices;
+                # pixel7 doesn't need everything
+                deviceNamesExclPixel7 = attrNames (lib.filterAttrs (key: _: key != "pixel7") filteredDevices);
+              in
+              {
+                "/home/${username}/Documents/Obsidian" = {
+                  id = "obsidian";
+                  devices = deviceNames;
+                };
+                "/home/${username}/sync" = {
+                  id = "sync";
+                  devices = deviceNames;
+                };
+                "/home/${username}/Music" = {
+                  id = "music";
+                  devices = deviceNames;
+                };
+                "/home/${username}/ghidra-projects" = {
+                  id = "ghidra-projects";
+                  devices = deviceNamesExclPixel7;
+                };
+                "/home/${username}/binary-ninja-projects" = {
+                  id = "binary-ninja-projects";
+                  devices = deviceNamesExclPixel7;
+                };
+              };
+          };
+        enable = true;
+      };
 
-    assertions = [
-      {
-        assertion = hasAttr hostName allDevices;
-        message = "No syncthing device defined for this host. Add a device for this host in the syncthing module";
-      }
-    ];
-  });
+      assertions = [
+        {
+          assertion = hasAttr hostName allDevices;
+          message = "No syncthing device defined for this host. Add a device for this host in the syncthing module";
+        }
+      ];
+    }
+  );
 }
