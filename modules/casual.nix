@@ -306,6 +306,7 @@ in
       binaryninja-free
       imhex
       steam-game-wrap
+      (inputs.umu.packages.${pkgs.system}.umu.override { version = "${inputs.umu.shortRev}"; })
 
       # spell checking
       hunspell
