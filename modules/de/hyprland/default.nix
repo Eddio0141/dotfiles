@@ -100,7 +100,7 @@ in
         # TODO: home manager has this option
         xdg.configFile."hypr/hyprlock.conf".text = ''
           background {
-            path = /home/yuu/Pictures/wallpaper/frieren.png
+            path = ${../../../assets/wallpaper/frieren.png}
             blur_passes = 1
             blur_size = 1
           }
