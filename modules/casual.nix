@@ -352,16 +352,27 @@ in
     steam.enable = true;
   };
 
-  systemd = {
-    # HIP
-    tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
-  };
+  systemd.tmpfiles.rules =
+    let
+      rocmEnv = pkgs.symlinkJoin {
+        name = "rocm-combined";
+        paths = with pkgs.rocmPackages; [
+          rocblas
+          hipblas
+          clr
+        ];
+      };
+    in
+    [
+      "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+    ];
 
   hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       # OpenCL
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      rocmPackages.clr.icd
 
       # vulkan
       amdvlk
@@ -425,7 +436,7 @@ in
   system.stateVersion = "23.05"; # Did you read the comment?
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = "experimental-features = nix-command flakes";
   };
 
