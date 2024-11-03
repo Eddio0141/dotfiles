@@ -43,16 +43,28 @@
         halign = "center";
         valign = "center";
       };
-      label = {
-        text = "$TIME";
-        text_align = "center";
-        color = "rgb(200, 200, 200)";
-        font_size = 25;
-        font_family = "Noto Sans";
-        position = "0, 80";
-        halign = "center";
-        valign = "center";
-      };
+      label = [
+        {
+          text = "$TIME";
+          text_align = "center";
+          color = "rgb(200, 200, 200)";
+          font_size = 25;
+          font_family = "Noto Sans";
+          position = "0, 80";
+          halign = "center";
+          valign = "center";
+        }
+        {
+          text = "$FPRINTMESSAGE";
+          text_align = "center";
+          color = "white";
+          font_size = 20;
+          font_family = "Noto Sans";
+          position = "0, -80";
+          halign = "center";
+          valign = "center";
+        }
+      ];
     };
   };
 }
