@@ -52,4 +52,6 @@ imap <c-Down> <Down>
 imap <c-Left> <Left>
 imap <c-Right> <Right>
 
+nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
+
 nmap ]e <Action>(ReSharperGotoNextErrorInSolution)
