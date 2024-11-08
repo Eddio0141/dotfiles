@@ -32,6 +32,7 @@ imap <C-Space> <Action>(EditorChooseLookupItem)
 
 nmap <leader>gg <Action>(ActivateCommitToolWindow)
 nmap <leader>e <Action>(ActivateProjectToolWindow)
+nmap <leader>r <Action>(SelectInProjectView)
 
 inoremap <c-s> <esc> \| :w<cr>
 nnoremap <c-s> <esc> \| :w<cr>
