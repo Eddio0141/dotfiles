@@ -59,6 +59,10 @@ in
             autosuggestion.enable = true;
             enableCompletion = true;
             syntaxHighlighting.enable = true;
+            # for umu-run
+            sessionVariables = {
+              GAMEID = "0";
+            };
 
             shellAliases = {
               update = "nh os switch";
