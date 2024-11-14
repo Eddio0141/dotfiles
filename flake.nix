@@ -76,7 +76,10 @@
         config = {
           allowUnfree = true;
           rocmSupport = true;
-          permittedInsecurePackages = [ "openssl-1.1.1w" ];
+          permittedInsecurePackages = [
+            "openssl-1.1.1w"
+            "libgcrypt-1.5.3"
+          ];
         };
       };
       # TODO: this isn't great

@@ -110,6 +110,20 @@ in
                 gnome2.GConf
                 libcap
                 ##########
+
+                # run half life native
+                libvorbis
+                SDL2
+                fontconfig
+                freetype
+                openal
+                gtk2
+                libpng12
+                libgpg-error
+                (import (fetchTarball {
+                  url = "https://github.com/NixOS/nixpkgs/archive/30ac32ae45a80cbe2b42ca9feb44eaa6d677da80.tar.gz";
+                  sha256 = "0gddy4v35djzfqziwwxi0r1z62xkpgvz9d897vbki0v0kyshgkwm";
+                }) { system = "i686-linux"; }).libgcrypt
               ]);
           }
         ))
