@@ -113,6 +113,7 @@ in
 
                 # run half life native
                 libvorbis
+                SDL
                 SDL2
                 fontconfig
                 freetype
@@ -120,10 +121,21 @@ in
                 gtk2
                 libpng12
                 libgpg-error
-                (import (fetchTarball {
-                  url = "https://github.com/NixOS/nixpkgs/archive/30ac32ae45a80cbe2b42ca9feb44eaa6d677da80.tar.gz";
-                  sha256 = "0gddy4v35djzfqziwwxi0r1z62xkpgvz9d897vbki0v0kyshgkwm";
-                }) { system = "i686-linux"; }).libgcrypt
+                (stdenv.mkDerivation {
+                  name = "libgcrypt-11";
+                  src = ./libgcrypt.so.11.8.2;
+
+                  dontUnpack = true;
+                  dontBuild = true;
+                  dontStrip = true;
+
+                  installPhase = ''
+                    mkdir -p $out/lib
+                    cp $src $out/lib/libgcrypt.so.11
+
+                    chmod +x $out/lib/libgcrypt.so.11
+                  '';
+                })
               ]);
           }
         ))
