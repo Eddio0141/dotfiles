@@ -44,6 +44,11 @@ in
           }
         );
       })
+      # TODO: remove me!
+      (final: prev: {
+        fcitx5-mozc = inputs.nixpkgs-temp.legacyPackages.x86_64-linux.fcitx5-mozc;
+        libsecret = inputs.nixpkgs-temp.legacyPackages.x86_64-linux.libsecret;
+      })
     ];
   };
 
@@ -446,6 +451,10 @@ in
   security.polkit.enable = true;
 
   # virtualisation.waydroid.enable = true;
+  # virtualisation.docker = {
+  #   enable = true;
+  #   rootless.enable = true;
+  # };
 
   programs.dconf.enable = true;
 

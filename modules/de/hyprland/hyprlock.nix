@@ -1,4 +1,4 @@
-{ username }:
+{ username, lib }:
 {
   security.pam.services.hyprlock = { };
 
@@ -11,7 +11,7 @@
         fingerprint_present_message = "scanning...";
       };
       background = {
-        path = "${../../../assets/wallpaper/frieren.png}";
+        path = lib.mkForce "${../../../assets/wallpaper/frieren.png}";
         blur_passes = 1;
         blur_size = 1;
       };
@@ -22,16 +22,16 @@
         dots_spacing = 0.15; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = false;
         dots_rounding = -1; # -1 default circle, -2 follow input-field rounding
-        outer_color = "rgb(151515)";
-        inner_color = "rgb(200, 200, 200)";
-        font_color = "rgb(10, 10, 10)";
+        # outer_color = "rgb(151515)";
+        # inner_color = "rgb(200, 200, 200)";
+        # font_color = "rgb(10, 10, 10)";
         fade_on_empty = true;
         fade_timeout = 1000; # Milliseconds before fade_on_empty is triggered.
         placeholder_text = "<i>Input Password...</i>"; # Text rendered in the input box when it's empty.
         hide_input = false;
         rounding = -1; # -1 means complete rounding (circle/oval)
-        check_color = "rgb(204, 136, 34)";
-        fail_color = "rgb(204, 34, 34)"; # if authentication failed, changes outer_color and fail message color
+        # check_color = "rgb(204, 136, 34)";
+        # fail_color = "rgb(204, 34, 34)"; # if authentication failed, changes outer_color and fail message color
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>"; # can be set to empty
         fail_transition = 300; # transition time in ms between normal outer_color and fail_color
         capslock_color = -1;
