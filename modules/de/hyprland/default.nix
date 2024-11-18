@@ -91,6 +91,6 @@ in
         };
       };
     })
-    (import ./hyprlock.nix { inherit username lib; })
+    (import ./hyprlock.nix { inherit username; })
   ];
 }
