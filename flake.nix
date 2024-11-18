@@ -17,7 +17,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?ref=refs/tags/v0.45.0&submodules=1";
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      ref = "refs/tags/v0.45.1";
       # inputs = {
       #   nixpkgs.follows = "nixpkgs";
       #   xdph.follows = "xdph";
