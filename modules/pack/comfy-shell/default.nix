@@ -222,6 +222,11 @@ in
           };
 
           fd.enable = true;
+
+          yazi = {
+            enable = true;
+            enableZshIntegration = true;
+          };
         };
       };
 
