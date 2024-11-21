@@ -227,7 +227,7 @@ in
       btop
       obsidian
       (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
-      p7zip
+      p7zip-rar
       protontricks
       xdg-utils
       wineWowPackages.staging
