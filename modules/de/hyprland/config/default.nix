@@ -26,7 +26,6 @@ in
     "dunst"
     "firefox"
     "clementine"
-    "dolphin --daemon"
     "fcitx5 -d"
     "[ workspace special silent ] slack"
 
@@ -158,7 +157,7 @@ in
     # general binds
     "${mainMod}, Q, exec, kitty"
     "${mainMod}, W, killactive,"
-    "${mainMod}, E, exec, dolphin"
+    "${mainMod}, E, exec, kitty yazi"
     "${mainMod}, S, exec, pidof wofi || wofi --show drun -I -m -i -W 30% -H 75%"
 
     "CTRL ALT, Delete, exec, pidof wlogout || wlogout"

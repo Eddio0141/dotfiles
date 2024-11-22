@@ -73,8 +73,6 @@
 
   xdg.dataFile."fonts".source = ../share/fonts;
 
-  # TODO add dolphin settings
-
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;

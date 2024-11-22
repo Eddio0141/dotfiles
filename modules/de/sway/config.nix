@@ -9,7 +9,6 @@ in
     { command = "dunst"; }
     { command = "firefox"; }
     { command = "clementine"; }
-    { command = "dolphin --daemon"; }
     { command = "thunderbird"; }
     { command = "obsidian"; }
     { command = "steam -silent"; }
@@ -31,7 +30,7 @@ in
   keybindings = pkgs.lib.mkOptionDefault {
     "${mod}+q" = "exec ${term}";
     "${mod}+w" = "kill";
-    "${mod}+e" = "exec dolphin";
+    "${mod}+e" = "exec ${term} yazi";
     "${mod}+t" = "floating toggle";
     "${mod}+s" = "exec wofi --show drun -I -m -i -W 30% -H 75%";
     "${mod}+shift+s" = "move scratchpad";

@@ -2,6 +2,7 @@
   description = "my system flake";
 
   # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
+  # TODO: retheme yazi, fix colours in help menu hover
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

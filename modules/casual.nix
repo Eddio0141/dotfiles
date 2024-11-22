@@ -323,22 +323,6 @@ in
       gvfs
       udisks
 
-      # dolphin
-      libsForQt5.kio-extras
-      libsForQt5.dolphin
-      libsForQt5.dolphin-plugins
-      libsForQt5.kdegraphics-thumbnailers
-      ffmpegthumbnailer
-      libsForQt5.kimageformats
-      libheif
-      libsForQt5.qt5.qtimageformats
-      resvg
-      libsForQt5.ffmpegthumbs
-      taglib
-      libsForQt5.breeze-qt5
-      libsForQt5.breeze-icons
-      libsForQt5.ark
-
       # managing qt5 themes
       libsForQt5.qt5ct
     ];
