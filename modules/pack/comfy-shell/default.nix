@@ -16,6 +16,8 @@ in
     mkIf cfg.enable {
       environment.systemPackages = with pkgs; [
         tldr
+        _7zz-rar
+        trash-cli
         (buildFHSEnv (
           appimageTools.defaultFhsEnvArgs
           // {
