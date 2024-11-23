@@ -3,11 +3,23 @@
   lib,
   pkgs,
   username,
+  inputs,
   ...
 }:
 with lib;
 let
   cfg = config.yuu.de.hyprland;
+  xdg-desktop-portal-termfilechooser =
+    inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser.overrideAttrs
+      {
+        src = pkgs.fetchFromGitHub {
+          owner = "boydaihungst";
+          repo = "xdg-desktop-portal-termfilechooser";
+          rev = "a0b20c06e3d45cf57218c03fce1111671a617312";
+          hash = "sha256-MOS2dS2PeH5O0FKxZfcJUAmCViOngXHZCyjRmwAqzqE=";
+        };
+        patches = [ ];
+      };
 in
 {
   options.yuu.de.hyprland = {
@@ -43,6 +55,7 @@ in
       environment.systemPackages = with pkgs; [
         pavucontrol
         sddm-chili-theme # idk why but it has to be here
+        xdg-desktop-portal-termfilechooser
       ];
 
       services.displayManager.sddm = {
@@ -88,6 +101,25 @@ in
             ((import ./config) { inherit pkgs cfg lib; })
             (mkIf cfg.brightness-change (import ./config/brightness.nix { inherit pkgs; }))
           ];
+        };
+
+        xdg.configFile = {
+          "xdg-desktop-portal/hyprland-portals.conf" = {
+            enable = true;
+            text = ''
+              [preferred]
+              default = hyprland;gtk
+              org.freedesktop.impl.portal.FileChooser = termfilechooser
+            '';
+          };
+          "xdg-desktop-portal-termfilechooser/config" = {
+            enable = true;
+            text = ''
+              [filechooser]
+              cmd=${xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+              default_dir=$HOME
+            '';
+          };
         };
       };
     })

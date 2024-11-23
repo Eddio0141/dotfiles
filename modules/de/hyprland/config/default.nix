@@ -20,6 +20,7 @@ in
   env = [
     # scaling
     "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
+    "GTK_USE_PORTAL,1"
   ];
   exec-once = [
     "waybar"

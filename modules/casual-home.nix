@@ -44,6 +44,25 @@
         obs-vkcapture
       ];
     };
+    firefox = {
+      enable = true;
+      profiles.default = {
+        settings = {
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
+          "extensions.autoDisableScopes" = 0;
+          search.default = "DuckDuckGo";
+        };
+        extensions = with inputs.rycee-firefox-extensions.packages.${system}; [
+          tridactyl
+          ublock-origin
+          darkreader
+          bitwarden
+          return-youtube-dislikes
+          sponsorblock
+          aw-watcher-web
+        ];
+      };
+    };
   };
 
   programs.wofi = {
@@ -54,7 +73,6 @@
   # mangohud
   programs.mangohud = {
     enable = true;
-    enableSessionWide = true;
     settings = {
       position = "top-right";
     };
