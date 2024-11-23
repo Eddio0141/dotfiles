@@ -134,4 +134,27 @@
 
   # for ideavim
   home.file.".ideavimrc".source = ./ideavimrc.vim;
+
+  xdg = {
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "inode/directory" = [ "yazi-kitty.desktop" ];
+      };
+    };
+    desktopEntries = {
+      yazi-kitty = {
+        name = "Yazi in Kitty";
+        genericName = "File Manager";
+        exec = "kitty yazi %f";
+        terminal = false;
+        categories = [
+          "System"
+          "FileTools"
+          "FileManager"
+        ];
+        mimeType = [ "inode/directory" ];
+      };
+    };
+  };
 }
