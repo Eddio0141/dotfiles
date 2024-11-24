@@ -8,7 +8,7 @@ in
     { command = "waybar"; }
     { command = "dunst"; }
     { command = "firefox"; }
-    { command = "clementine"; }
+    { command = "strawberry"; }
     { command = "thunderbird"; }
     { command = "obsidian"; }
     { command = "steam -silent"; }
@@ -48,9 +48,9 @@ in
     "${mod}+comma" = "focus output DP-3";
     "${mod}+period" = "focus output HDMI-A-1";
     "ctrl+print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify savecopy area";
-    "${mod}+alt+p" = "exec clementine --play-pause";
-    "${mod}+alt+o" = "exec clementine --next";
-    "${mod}+alt+i" = "exec clementine --previous";
+    "${mod}+alt+p" = "exec strawberry --play-pause";
+    "${mod}+alt+o" = "exec strawberry --next";
+    "${mod}+alt+i" = "exec strawberry --previous";
     "ctrl+alt+delete" = "exec sway exit";
 
     "Mod1+F9" = "exec ${pkgs.killall}/bin/killall -SIGINT gpu-screen-recorder";

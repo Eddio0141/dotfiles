@@ -26,7 +26,7 @@ in
     "waybar"
     "dunst"
     "firefox"
-    "clementine"
+    "strawberry"
     "fcitx5 -d"
     "[ workspace special silent ] slack"
 

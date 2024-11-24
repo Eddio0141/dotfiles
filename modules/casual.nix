@@ -248,7 +248,7 @@ in
       qbittorrent
       davinci-resolve
       yt-dlp
-      clementine
+      strawberry-qt6
       r2modman
       libtas
       (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
