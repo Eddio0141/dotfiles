@@ -39,9 +39,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     stylix = {
-      # url = "github:danth/stylix";
-      # TODO: https://github.com/danth/stylix/pull/610
-      url = "github:diniamo/stylix/fix-hyprland";
+      url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
