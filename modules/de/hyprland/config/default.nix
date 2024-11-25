@@ -88,6 +88,9 @@ in
 
     # ilspy
     "center,initialClass:^ILSp$,title:^Open file$"
+
+    # qemu
+    "allowsinput on,initialClass:^.qemu-system-"
   ];
   input = {
     kb_layout = "gb";
