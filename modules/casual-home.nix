@@ -160,7 +160,7 @@
   xdg = {
     mimeApps = {
       enable = true;
-      associations.added = {
+      defaultApplications = {
         "inode/directory" = [ "yazi-kitty.desktop" ];
       };
     };
