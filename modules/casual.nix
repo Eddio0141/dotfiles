@@ -26,7 +26,7 @@ in
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ./stylix.nix
+    ./stylix-nixos.nix
   ];
 
   nixpkgs = nixpkgs-options // {

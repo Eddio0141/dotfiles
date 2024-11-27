@@ -6,6 +6,10 @@
   ...
 }:
 {
+  imports = [
+    ./stylix-hm.nix
+  ];
+
   home = {
     stateVersion = "23.05";
     pointerCursor = {

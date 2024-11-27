@@ -230,6 +230,12 @@ in
             enableZshIntegration = true;
           };
         };
+
+        # directly grab
+        xdg.configFile."yazi/theme.toml".source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/macchiato/catppuccin-macchiato-pink.toml";
+          hash = "sha256-+h8+QfUoYq7Un07GFnpg5f2ZeQORdhDpAgwX0iNDfnI=";
+        };
       };
 
       yuu.programs.fastfetch.enable = true;
