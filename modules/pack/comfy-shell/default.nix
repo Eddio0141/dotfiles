@@ -231,10 +231,13 @@ in
           };
         };
 
-        # directly grab
-        xdg.configFile."yazi/theme.toml".source = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/macchiato/catppuccin-macchiato-pink.toml";
-          hash = "sha256-+h8+QfUoYq7Un07GFnpg5f2ZeQORdhDpAgwX0iNDfnI=";
+        xdg.configFile = {
+          # yazi extra stuff
+          "yazi/theme.toml".source = pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/macchiato/catppuccin-macchiato-pink.toml";
+            hash = "sha256-+h8+QfUoYq7Un07GFnpg5f2ZeQORdhDpAgwX0iNDfnI=";
+          };
+          "yazi/init.lua".source = ./yazi/init.lua;
         };
       };
 
