@@ -787,11 +787,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1732559641,
-        "narHash": "sha256-AVXQ5h4yUaIFddnsK2lLLq23BU2dHn2KeT7IwvtVcoM=",
+        "lastModified": 1732682857,
+        "narHash": "sha256-SJ4XBDMnIbcPMteB0Eeyf8WUr12HoTKej/nKMyn8t4I=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "b38230bb71b613830afa7cbc8195730f564023d1",
+        "rev": "df5615aba85f669cba6f8a7f5c5cdf88961280f9",
         "type": "github"
       },
       "original": {
