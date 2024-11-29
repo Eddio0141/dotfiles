@@ -122,6 +122,8 @@ in
         KbdInteractiveAuthentication = false;
       };
     };
+
+    playerctld.enable = true;
   };
 
   # Configure keymap in X11
