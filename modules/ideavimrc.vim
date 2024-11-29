@@ -37,8 +37,16 @@ nmap <leader>r <Action>(SelectInProjectView)
 inoremap <c-s> <esc> \| :w<cr>
 nnoremap <c-s> <esc> \| :w<cr>
 
+nmap <leader>dC <Action>(RunToCursor)
+nmap <leader>di <Action>(StepInto)
+nmap <leader>do <Action>(StepOver)
+nmap <leader>dO <Action>(StepOut)
+nmap <leader>dt <Action>(Stop)
 nmap <leader>db <Action>(ToggleLineBreakpoint)
 nmap <leader>dc <Action>(Resume)
+nmap <leader>dr <Action>(NavigateToImmediateWindow)
+
+nmap <leader>dU <Action>(TriggerPlayInUnity)
 
 nmap <c-Up> <Up>
 nmap <c-Down> <Down>
