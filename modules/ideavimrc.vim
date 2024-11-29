@@ -38,6 +38,7 @@ inoremap <c-s> <esc> \| :w<cr>
 nnoremap <c-s> <esc> \| :w<cr>
 
 nmap <leader>dC <Action>(RunToCursor)
+nmap <leader>dS <Action>(JumpToStatement)
 nmap <leader>di <Action>(StepInto)
 nmap <leader>do <Action>(StepOver)
 nmap <leader>dO <Action>(StepOut)
