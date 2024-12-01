@@ -54,14 +54,17 @@ in
 
       environment.systemPackages = with pkgs; [
         pavucontrol
-        sddm-chili-theme # idk why but it has to be here
         xdg-desktop-portal-termfilechooser
       ];
 
-      services.displayManager.sddm = {
+      services.greetd = {
         enable = true;
-        wayland.enable = true;
-        theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+            user = "greeter";
+          };
+        };
       };
 
       yuu = {
