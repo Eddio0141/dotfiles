@@ -2,6 +2,8 @@
   description = "my system flake";
 
   # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
+  # NOTE: omnisharp causes shit to go down, for now added insecure package "dotnet-core-combined"
+  # NOTE: also same with dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
   # TODO: retheme yazi, fix colours in help menu hover
 
   inputs = {
@@ -84,6 +86,13 @@
           permittedInsecurePackages = [
             "openssl-1.1.1w"
             "libgcrypt-1.5.3"
+            "dotnet-core-combined"
+            "dotnet-sdk-6.0.428"
+            "dotnet-sdk-wrapped-6.0.428"
+            "dotnet-runtime-wrapped-6.0.36"
+            "dotnet-runtime-6.0.36"
+            "dotnet-sdk-7.0.410"
+            "dotnet-sdk-wrapped-7.0.410"
           ];
         };
       };

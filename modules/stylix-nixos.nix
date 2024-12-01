@@ -12,15 +12,11 @@
     fonts = {
       monospace = {
         name = "JetBrainsMono Nerd Font";
-        package = (pkgs.nerdfonts.override {
-          fonts = [ "JetBrainsMono" ];
-        });
+        package = pkgs.nerd-fonts.jetbrains-mono;
       };
       sansSerif = {
         name = "DejaVuSansM Nerd Font";
-        package = (pkgs.nerdfonts.override {
-          fonts = [ "DejaVuSansMono" ];
-        });
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
       };
     };
   };

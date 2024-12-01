@@ -134,20 +134,18 @@
   nix.settings.auto-optimise-store = true;
 
   # fonts
-  fonts.packages = with pkgs; [
-    # basic stuff
-    corefonts
+  fonts.packages =
+    with pkgs;
+    [
+      # basic stuff
+      corefonts
 
-    # code stuff
-    (nerdfonts.override {
-      fonts = [
-        "CodeNewRoman"
-        "JetBrainsMono"
-      ];
-    })
-
-    # emojis
-    openmoji-color
-    noto-fonts-emoji
-  ];
+      # emojis
+      openmoji-color
+      noto-fonts-emoji
+    ]
+    ++ (with pkgs.nerd-fonts; [
+      code-new-roman
+      jetbrains-mono
+    ]);
 }
