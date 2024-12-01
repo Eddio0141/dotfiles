@@ -21,8 +21,7 @@
     "terminal"
     "terminalfont"
     "cpu"
-    # TODO: override option for modules since like laptop can't really load gpu info fast enough
-    # "gpu"
+    "gpu"
     "memory"
     "swap"
     "disk"

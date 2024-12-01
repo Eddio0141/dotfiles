@@ -7,7 +7,6 @@
         footer = [
           "It's like vscode but for weirdos!"
         ];
-        # TODO: fix
         # header = [
         #   ""
         #   "                   _             _"
@@ -23,4 +22,3 @@
     };
   };
 }
-

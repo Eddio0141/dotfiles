@@ -245,19 +245,19 @@ in
       ffmpeg
       lutris
       thunderbird
-      blender
+      # blender
       ani-cli
       qbittorrent
-      davinci-resolve
+      # davinci-resolve
       yt-dlp
       strawberry-qt6
       r2modman
-      libtas
+      # libtas
       (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
       wl-clipboard
       cliphist
       quickemu
-      inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
+      # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
       # (godot_4.overrideAttrs rec {
       #   version = "4.1.1-stable";
       #   commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
@@ -268,9 +268,9 @@ in
       #     hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
       #   };
       # })
-      inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
+      # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
       # citra-canary
-      slack
+      # slack
       gnome-calculator
       aw-qt # TODO make this a service with proper env variables (test with empty env and you will see whats missing)
       # (ghidra-bin.overrideAttrs {
@@ -303,7 +303,7 @@ in
       # })
       prismlauncher
       file
-      binaryninja-free
+      # binaryninja-free
       imhex
       steam-game-wrap
       (inputs.umu.packages.${pkgs.system}.umu.override { version = "${inputs.umu.shortRev}"; })
@@ -437,8 +437,6 @@ in
 
   # env vars
   environment.sessionVariables = {
-    # TODO fix this
-    # GTK_IM_MODULE = "";
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
   };
 
