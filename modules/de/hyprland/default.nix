@@ -4,6 +4,7 @@
   pkgs,
   username,
   inputs,
+  system,
   ...
 }:
 with lib;
@@ -46,10 +47,14 @@ in
         trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
       };
 
-      programs.hyprland = {
-        enable = true;
-        # package = inputs.hyprland.packages.${system}.default;
-        # portalPackage = inputs.xdph.packages.${system}.default;
+      programs = {
+        hyprland = {
+          enable = true;
+          # package = inputs.hyprland.packages.${system}.default;
+          # portalPackage = inputs.xdph.packages.${system}.default;
+          withUWSM = true;
+        };
+        uwsm.enable = true;
       };
 
       environment.systemPackages = with pkgs; [
@@ -97,7 +102,7 @@ in
 
         wayland.windowManager.hyprland = {
           enable = true;
-          systemd.enable = true;
+          systemd.enable = false; # use uwsm
           xwayland.enable = true;
           # if variable or colours, quote them
           settings = mkMerge [
