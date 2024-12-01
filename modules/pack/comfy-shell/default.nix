@@ -16,8 +16,9 @@ in
     mkIf cfg.enable {
       environment.systemPackages = with pkgs; [
         tldr
-        _7zz-rar
         trash-cli
+        ouch
+
         (buildFHSEnv (
           appimageTools.defaultFhsEnvArgs
           // {
@@ -228,6 +229,48 @@ in
           yazi = {
             enable = true;
             enableZshIntegration = true;
+            plugins = {
+              ouch = pkgs.fetchFromGitHub {
+                owner = "ndtoan96";
+                repo = "ouch.yazi";
+                rev = "main";
+                hash = "sha256-fEfsHEddL7bg4z85UDppspVGlfUJIa7g11BwjHbufrE=";
+              };
+              restore = pkgs.fetchFromGitHub {
+                owner = "boydaihungst";
+                repo = "restore.yazi";
+                rev = "master";
+                hash = "sha256-yjjmy96tg10s+PSzPlL/BdyUUXwI0u+U00COrLwX8WI=";
+              };
+            };
+            settings = {
+              opener = {
+                extract = [
+                  {
+                    run = "ouch d -y \"$@\"";
+                    desc = "Extract here with ouch";
+                    for = "unix";
+                  }
+                ];
+              };
+            };
+            keymap = {
+              manager.append_keymap = [
+                {
+                  on = [
+                    "c"
+                    "a"
+                  ];
+                  run = "plugin ouch --args=zip";
+                  desc = "Archive selected files";
+                }
+                {
+                  on = "u";
+                  run = "plugin restore";
+                  desc = "Restore last deleted files/folders";
+                }
+              ];
+            };
           };
         };
 
