@@ -10,6 +10,10 @@
     ./stylix-hm.nix
   ];
 
+  # TODO: https://github.com/nix-community/home-manager/issues/5899
+  systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
+  systemd.user.services.hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
+
   home = {
     stateVersion = "23.05";
     pointerCursor = {
@@ -143,7 +147,6 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    XCURSOR_SIZE = "24";
   };
 
   programs.ripgrep.enable = true;

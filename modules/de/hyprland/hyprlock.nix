@@ -1,6 +1,6 @@
 { username, lib }:
 {
-  security.pam.services.hyprlock = { };
+  programs.hyprlock.enable = true;
 
   home-manager.users.${username}.programs.hyprlock = {
     enable = true;

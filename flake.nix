@@ -6,6 +6,7 @@
   # NOTE: also same with dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
   # TODO: retheme yazi, fix colours in help menu hover
   # TODO: stylix-nixos.nix, remove overrideAttrs once this is resolved https://github.com/ful1e5/Bibata_Cursor/issues/173
+  # TODO: casual-home.nix, https://github.com/nix-community/home-manager/issues/5899
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
