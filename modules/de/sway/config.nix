@@ -19,7 +19,6 @@ in
     { command = "thunar --daemon"; }
     { command = "exec ${pkgs.autotiling-rs}/bin/autotiling-rs"; }
     { command = "exec slack"; }
-    { command = "exec aw-qt"; }
   ];
   modifier = "${mod}";
   terminal = "${term}";

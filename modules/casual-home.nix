@@ -120,7 +120,7 @@
           src = pkgs.fetchFromGitHub {
             owner = "Edwardsoen";
             repo = "aw-watcher-steam";
-            rev = "13c4b65e3ea68b60112d359128272475cf69ce93";
+            rev = "master";
             hash = "sha256-WTgu/3NrZyHXFMTAgp9SC3OeS/spThNBG2TFhiJDnno=";
           };
           nativeBuildInputs = with pkgs.python3Packages; [
