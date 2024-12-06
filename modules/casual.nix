@@ -445,6 +445,14 @@ in
 
   programs.gamemode.enable = true;
 
+  hardware.logitech = {
+    lcd.enable = true;
+    wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+  };
+
   yuu = {
     de = {
       hyprland = {
