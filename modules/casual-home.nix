@@ -109,8 +109,11 @@
     enable = true;
     package = pkgs.aw-server-rust;
     watchers = {
-      awatcher = {
-        package = pkgs.awatcher;
+      aw-watcher-window-wayland = {
+        package = pkgs.aw-watcher-window-wayland;
+      };
+      aw-watcher-afk = {
+        package = pkgs.aw-watcher-afk;
       };
       aw-watcher-steam = {
         package = pkgs.python3Packages.buildPythonApplication {
