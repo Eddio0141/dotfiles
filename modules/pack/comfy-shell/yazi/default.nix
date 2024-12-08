@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
 
@@ -13,6 +13,8 @@ in
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    # TODO: remove once yazi 0.4.0 is in nixpkgs unstable
+    package = inputs.yazi.packages.x86_64-linux.yazi;
     plugins = {
       ouch = fetchFromGitHub {
         owner = "ndtoan96";

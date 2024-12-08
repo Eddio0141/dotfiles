@@ -4,11 +4,12 @@
   # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
   # NOTE: omnisharp causes shit to go down, for now added insecure package "dotnet-core-combined"
   # NOTE: also same with dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
-  # TODO: retheme yazi, fix colours in help menu hover
   # TODO: stylix-nixos.nix, remove overrideAttrs once this is resolved https://github.com/ful1e5/Bibata_Cursor/issues/173
   # TODO: casual-home.nix, https://github.com/nix-community/home-manager/issues/5899
 
   inputs = {
+    # TODO: remove once yazi 0.4.0 is in unstable, check yazi/default.nix too
+    yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
@@ -88,7 +89,6 @@
           permittedInsecurePackages = [
             "openssl-1.1.1w"
             "libgcrypt-1.5.3"
-            "dotnet-core-combined"
             "dotnet-sdk-6.0.428"
             "dotnet-sdk-wrapped-6.0.428"
             "dotnet-runtime-wrapped-6.0.36"
