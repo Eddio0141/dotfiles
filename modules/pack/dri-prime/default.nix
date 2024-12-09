@@ -1,8 +1,8 @@
 {
   config,
   lib,
-  # inputs,
-  # pkgs,
+  inputs,
+  pkgs,
   username,
   ...
 }:
@@ -10,7 +10,6 @@ let
   cfg = config.yuu.pack.dri-prime;
   mkEnableOption = lib.mkEnableOption;
   mkIf = lib.mkIf;
-
 in
 # wrappers =
 #   (inputs.wrapper-manager.lib {
@@ -18,24 +17,9 @@ in
 #     modules = [
 #       {
 #         wrappers = {
-#           firefox = {
-#             # basePackage = (
-#             #   config.programs.firefox.package.override (old: {
-#             #     extraPrefsFiles = old.extraPrefsFiles or [ ] ++ [
-#             #       (pkgs.writeText "firefox-autoconfig.js" config.programs.firefox.autoConfig)
-#             #     ];
-#             #     nativeMessagingHosts =
-#             #       old.nativeMessagingHosts or [ ] ++ config.programs.firefox.nativeMessagingHosts.packages;
-#             #     cfg = (old.cfg or { }) // config.programs.firefox.wrapperConfig;
-#             #   })
-#             # );
-#             basePackage = pkgs.firefox-unwrapped;
-#
-#             env.DRI_PRIME.value = "1";
-#           };
-#           vesktop = {
-#             basePackage = pkgs.vesktop;
-#             env.DRI_PRIME.value = "1";
+#           steam = {
+#             basePackage = pkgs.steam;
+#             env.DRI_PRIME.value = "0";
 #           };
 #         };
 #       }
@@ -46,9 +30,15 @@ in
 
   config = lib.mkMerge [
     (mkIf cfg.enable {
-      # environment.systemPackages = [
-      #   wrappers.vesktop
+      # environment.systemPackages = with wrappers; [
       # ];
+
+      programs.steam.package = pkgs.steam.override {
+        extraEnv = {
+          MANGOHUD = true;
+          DRI_PRIME = false;
+        };
+      };
 
       home-manager.users.${username} = {
         wayland.windowManager.hyprland.settings.env = [ "DRI_PRIME,1" ];
