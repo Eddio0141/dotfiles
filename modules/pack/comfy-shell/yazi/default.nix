@@ -19,8 +19,8 @@ in
       ouch = fetchFromGitHub {
         owner = "ndtoan96";
         repo = "ouch.yazi";
-        rev = "main";
-        hash = "sha256-fEfsHEddL7bg4z85UDppspVGlfUJIa7g11BwjHbufrE=";
+        rev = "v0.4.0";
+        hash = "sha256-eRjdcBJY5RHbbggnMHkcIXUF8Sj2nhD/o7+K3vD3hHY=";
       };
       restore = fetchFromGitHub {
         owner = "boydaihungst";
