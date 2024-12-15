@@ -8,8 +8,7 @@
   # TODO: casual-home.nix, https://github.com/nix-community/home-manager/issues/5899
 
   inputs = {
-    # TODO: remove once yazi 0.4.0 is in unstable, check yazi/default.nix too
-    yazi.url = "github:sxyazi/yazi/v0.4.0";
+    # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
