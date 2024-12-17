@@ -59,6 +59,7 @@ in
     "tile,class:hl.exe"
 
     # jetbrains
+    # TODO: better regex
     "dimaround,class:^(jetbrains-.*)$,floating:1,title:^(?!win)"
     "center,class:^(jetbrains-.*)$,floating:1,title:^(?!win)"
     "noanim,class:^(jetbrains-.*)$,title:^(win.*)$"
@@ -76,7 +77,7 @@ in
     "nofocus,class:steam,title:^notificationtoasts_\d+_desktop$"
 
     # cs2 tearing
-    "immediate, class:^(cs2)$"
+    # "immediate, class:^(cs2)$"
 
     # ghidra
     "nofocus,class:^ghidra-Ghidra$,title:^win\d+$"
