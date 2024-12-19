@@ -437,11 +437,11 @@ in
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
   };
 
-  services.sunshine = {
-    enable = true;
-    capSysAdmin = true;
-    openFirewall = true;
-  };
+  # services.sunshine = {
+  #   enable = true;
+  #   capSysAdmin = true;
+  #   openFirewall = true;
+  # };
 
   programs.gamemode.enable = true;
 
