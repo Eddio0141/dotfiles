@@ -6,6 +6,7 @@
   # NOTE: also same with dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
   # TODO: stylix-nixos.nix, remove overrideAttrs once this is resolved https://github.com/ful1e5/Bibata_Cursor/issues/173
   # TODO: casual-home.nix, https://github.com/nix-community/home-manager/issues/5899
+  # TODO: hyprland/default.nix, restore plugins to be nightly
 
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
@@ -33,10 +34,14 @@
       #   xdph.follows = "xdph";
       # };
     };
-    # xdph = {
-    #   url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    #   # inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    xdph = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";

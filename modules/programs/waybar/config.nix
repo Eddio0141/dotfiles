@@ -7,10 +7,19 @@
     spacing = 4;
     # TODO: hyprland, sway
     modules-left = [ "hyprland/workspaces" ];
-    modules-center = [ "hyprland/window" ];
+    # modules-center = [ "hyprland/window" ];
     # modules-left = [ "sway/workspaces" ];
     # modules-center = [ "sway/window" ];
-    modules-right = [ "cava" "pulseaudio" "cpu" "memory" "battery" "power-profiles-daemon" "clock" "tray" ];
+    modules-right = [
+      "cava"
+      "pulseaudio"
+      "cpu"
+      "memory"
+      "battery"
+      "power-profiles-daemon"
+      "clock"
+      "tray"
+    ];
 
     # Modules configuration
     power-profiles-daemon = {
@@ -36,25 +45,44 @@
       noise_reduction = 0.55;
       input_delay = 2;
       ascii_max_range = 8;
-      format-icons = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+      format-icons = [
+        "▁"
+        "▂"
+        "▃"
+        "▄"
+        "▅"
+        "▆"
+        "▇"
+        "█"
+      ];
       actions = {
         on-click-right = "mode";
       };
     };
     battery = {
       format = "{capacity}% {icon}";
-      format-icons = [ " " " " " " " " " " ];
+      format-icons = [
+        " "
+        " "
+        " "
+        " "
+        " "
+      ];
     };
     "pulseaudio" = {
       "format" = "{volume}% {icon}";
       "format-icons" = {
-        "default" = [ "" "" "" ];
+        "default" = [
+          ""
+          ""
+          ""
+        ];
       };
     };
-    "hyprland/window" = {
-      "max-length" = 200;
-      "separate-outputs" = true;
-    };
+    # "hyprland/window" = {
+    #   "max-length" = 200;
+    #   "separate-outputs" = true;
+    # };
     "tray" = {
       "spacing" = 10;
     };
@@ -95,4 +123,3 @@
     };
   };
 }
-

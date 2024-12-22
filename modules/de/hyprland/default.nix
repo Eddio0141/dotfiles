@@ -50,8 +50,8 @@ in
       programs = {
         hyprland = {
           enable = true;
-          # package = inputs.hyprland.packages.${system}.default;
-          # portalPackage = inputs.xdph.packages.${system}.default;
+          package = inputs.hyprland.packages.${system}.default;
+          portalPackage = inputs.xdph.packages.${system}.default;
           withUWSM = true;
         };
         uwsm.enable = true;
@@ -104,6 +104,12 @@ in
           enable = true;
           systemd.enable = false; # use uwsm
           xwayland.enable = true;
+          package = inputs.hyprland.packages.${system}.default;
+          # TODO: restore to be from inputs
+          # plugins = with inputs.hyprland-plugins.packages.${system}; [
+          plugins = with pkgs.hyprlandPlugins; [
+            hyprbars
+          ];
           # if variable or colours, quote them
           settings = mkMerge [
             ((import ./config) { inherit pkgs cfg lib; })
