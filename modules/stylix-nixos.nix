@@ -46,5 +46,8 @@
         package = pkgs.nerd-fonts.dejavu-sans-mono;
       };
     };
+    targets = {
+      grub.useImage = true;
+    };
   };
 }
