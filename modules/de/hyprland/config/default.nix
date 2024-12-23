@@ -41,6 +41,9 @@ in
     # cliphist
     "wl-paste --type text --watch cliphist store" # Stores only text data
     "wl-paste --type image --watch cliphist store" # Stores only image data
+
+    "swww-daemon"
+    "swww-random-wallpaper ~/Pictures/wallpaper"
   ];
   windowrulev2 = [
     # vesktop

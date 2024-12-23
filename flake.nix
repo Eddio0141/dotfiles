@@ -65,6 +65,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rycee-firefox-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    swww.url = "github:LGFae/swww";
   };
 
   outputs =

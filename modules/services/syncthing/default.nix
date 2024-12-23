@@ -67,6 +67,10 @@ in
                   id = "binary-ninja-projects";
                   devices = deviceNamesExclPixel7;
                 };
+                "/home/${username}/Pictures/wallpaper" = {
+                  id = "wallpaper";
+                  devices = deviceNames;
+                };
               };
           };
         enable = true;
