@@ -274,4 +274,11 @@ in
     "${mainMod}, mouse:272, movewindow"
     "${mainMod}, mouse:273, resizewindow"
   ];
+
+  plugin = {
+    hyprbars = {
+      bar_height = 20;
+      bar_blur = true;
+    };
+  };
 }
