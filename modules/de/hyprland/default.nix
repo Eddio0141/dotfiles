@@ -21,11 +21,6 @@ let
         };
         patches = [ ];
       };
-
-  swww-random-wallpaper = pkgs.writeShellApplication {
-    name = "swww-random-wallpaper";
-    text = builtins.readFile ./swww-random-wallpaper.sh;
-  };
 in
 {
   options.yuu.de.hyprland = {
@@ -67,7 +62,7 @@ in
         xdg-desktop-portal-termfilechooser
         ### wallpaper
         inputs.swww.packages.${system}.swww
-        swww-random-wallpaper
+        waypaper
         ###
       ];
 

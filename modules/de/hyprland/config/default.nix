@@ -43,7 +43,7 @@ in
     "wl-paste --type image --watch cliphist store" # Stores only image data
 
     "swww-daemon"
-    "swww-random-wallpaper ~/Pictures/wallpaper"
+    "waypaper --restore"
   ];
   windowrulev2 = [
     # vesktop
