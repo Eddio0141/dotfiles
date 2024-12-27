@@ -7,7 +7,7 @@
     spacing = 4;
     # TODO: hyprland, sway
     modules-left = [ "hyprland/workspaces" ];
-    # modules-center = [ "hyprland/window" ];
+    modules-center = [ "hyprland/window" ];
     # modules-left = [ "sway/workspaces" ];
     # modules-center = [ "sway/window" ];
     modules-right = [
@@ -79,10 +79,10 @@
         ];
       };
     };
-    # "hyprland/window" = {
-    #   "max-length" = 200;
-    #   "separate-outputs" = true;
-    # };
+    "hyprland/window" = {
+      "max-length" = 200;
+      "separate-outputs" = true;
+    };
     "tray" = {
       "spacing" = 10;
     };
