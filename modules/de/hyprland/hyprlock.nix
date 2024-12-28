@@ -5,10 +5,10 @@
   home-manager.users.${username}.programs.hyprlock = {
     enable = true;
     settings = {
-      general = {
-        enable_fingerprint = true;
-        fingerprint_ready_message = "finger print ready to read!";
-        fingerprint_present_message = "scanning...";
+      auth.fingerprint = {
+        enable = true;
+        ready_message = "finger print ready to read!";
+        present_message = "scanning...";
       };
       background = {
         path = lib.mkForce "${../../../assets/wallpaper/frieren.png}";
