@@ -50,6 +50,7 @@
       plugins = with pkgs.obs-studio-plugins; [
         input-overlay
         obs-vkcapture
+        obs-multi-rtmp
       ];
     };
     firefox = {
