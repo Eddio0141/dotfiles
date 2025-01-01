@@ -53,7 +53,7 @@ in
       ];
     };
     keymap = {
-      manager.append_keymap = [
+      manager.prepend_keymap = [
         {
           on = [
             "c"
@@ -66,6 +66,14 @@ in
           on = "u";
           run = "plugin restore";
           desc = "Restore last deleted files/folders";
+        }
+        {
+          on = [
+            "g"
+            "q"
+          ];
+          run = "cd '~/.local/share/Steam/steamapps/compatdata/2855711661/pfx/drive_c/users/steamuser/AppData/LocalLow/ZeekerssRBLX/Lethal Company/VLogs'";
+          desc = "[G]oto high [q]uota v56 logs";
         }
       ];
     };
