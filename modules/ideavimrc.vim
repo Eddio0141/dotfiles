@@ -65,3 +65,5 @@ imap <c-Right> <Right>
 nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 
 nmap ]e <Action>(ReSharperGotoNextErrorInSolution)
+
+nmap <leader>ss <Action>(GotoSymbol)
