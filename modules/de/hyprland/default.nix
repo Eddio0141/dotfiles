@@ -51,7 +51,7 @@ in
         hyprland = {
           enable = true;
           package = inputs.hyprland.packages.${system}.default;
-          portalPackage = inputs.xdph.packages.${system}.default;
+          # portalPackage = inputs.xdph.packages.${system}.default;
           withUWSM = true;
         };
         uwsm.enable = true;
