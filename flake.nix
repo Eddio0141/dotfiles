@@ -38,10 +38,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    xdph = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # xdph = {
+    #   url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
