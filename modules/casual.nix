@@ -274,7 +274,6 @@ in
       # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
       # citra-canary
       # slack
-      gnome-calculator
       # (ghidra-bin.overrideAttrs {
       #   # buildInputs = [
       #   #   # for debugging
@@ -321,7 +320,6 @@ in
       # TODO merge this into grimblast
       inputs.hyprpicker.packages.${system}.default
       inputs.hyprcontrib.packages.${system}.grimblast
-      libsForQt5.gwenview
       pamixer # volume control
 
       # external storage
