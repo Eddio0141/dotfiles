@@ -50,7 +50,7 @@ in
       programs = {
         hyprland = {
           enable = true;
-          # package = inputs.hyprland.packages.${system}.default;
+          # package = inputs.hyprland.packages.${system}.hyprland;
           # portalPackage = inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
           withUWSM = true;
         };

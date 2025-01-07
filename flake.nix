@@ -24,16 +24,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-      ref = "refs/tags/v0.46.2";
-      # inputs = {
-      #   nixpkgs.follows = "nixpkgs";
-      #   xdph.follows = "xdph";
-      # };
-    };
+    hyprland.url = "github:hyprwm/hyprland/v0.46.2";
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
