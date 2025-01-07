@@ -108,7 +108,6 @@ in
           enable = true;
           systemd.enable = false; # use uwsm
           xwayland.enable = true;
-          package = inputs.hyprland.packages.${system}.default;
           # if variable or colours, quote them
           settings = mkMerge [
             ((import ./config) { inherit pkgs cfg lib; })
