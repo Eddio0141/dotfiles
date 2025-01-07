@@ -34,10 +34,6 @@
       #   xdph.follows = "xdph";
       # };
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     # xdph = {
     #   url = "github:hyprwm/xdg-desktop-portal-hyprland";
     #   inputs.nixpkgs.follows = "nixpkgs";

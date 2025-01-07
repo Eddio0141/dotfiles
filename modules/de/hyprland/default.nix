@@ -109,10 +109,6 @@ in
           systemd.enable = false; # use uwsm
           xwayland.enable = true;
           package = inputs.hyprland.packages.${system}.default;
-          plugins = with inputs.hyprland-plugins.packages.${system}; [
-            # TODO: restore
-            # hyprbars
-          ];
           # if variable or colours, quote them
           settings = mkMerge [
             ((import ./config) { inherit pkgs cfg lib; })
