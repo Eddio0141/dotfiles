@@ -259,7 +259,7 @@ in
       wl-clipboard
       cliphist
       # TODO: restore
-      # quickemu
+      inputs.nixpkgs-working.legacyPackages.${system}.quickemu
       # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
       # (godot_4.overrideAttrs rec {
       #   version = "4.1.1-stable";

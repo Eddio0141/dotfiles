@@ -11,6 +11,7 @@
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-working.url = "github:nixos/nixpkgs/24.05";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
