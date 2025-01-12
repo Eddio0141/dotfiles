@@ -39,18 +39,20 @@ in
           }
         ];
       };
-      plugin.prepend_fetchers = [
+      open.prepend_rules = [
         {
-          id = "git";
-          name = "*";
-          run = "git";
-        }
-        {
-          id = "git";
-          name = "*/";
-          run = "git";
+          name = "*.zip";
+          use = "extract";
         }
       ];
+      plugin = {
+        prepend_previewers = [
+          {
+            name = "*.zip";
+            run = "archive";
+          }
+        ];
+      };
     };
     keymap = {
       manager.prepend_keymap = [
