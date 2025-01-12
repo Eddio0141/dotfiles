@@ -6,12 +6,11 @@
   # NOTE: also same with dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
   # TODO: stylix-nixos.nix, remove overrideAttrs once this is resolved https://github.com/ful1e5/Bibata_Cursor/issues/173
   # TODO: casual-home.nix, https://github.com/nix-community/home-manager/issues/5899
-  # TODO: hyprland/default.nix, restore plugins to be nightly
 
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-working.url = "github:nixos/nixpkgs/f4be7b83f15447ff536269e88baf5218d9ad6047";
+    # nixpkgs-working.url = "github:nixos/nixpkgs/f4be7b83f15447ff536269e88baf5218d9ad6047";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587

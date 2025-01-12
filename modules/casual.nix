@@ -229,8 +229,7 @@ in
       btop
       obsidian
       (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
-      # TODO: restore
-      # protontricks
+      protontricks
       xdg-utils
       wineWowPackages.staging
       winetricks
@@ -254,12 +253,10 @@ in
       strawberry-qt6
       r2modman
       # libtas
-      # TODO: restore
       # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
       wl-clipboard
       cliphist
-      # TODO: restore
-      inputs.nixpkgs-working.legacyPackages.${system}.quickemu
+      quickemu
       # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
       # (godot_4.overrideAttrs rec {
       #   version = "4.1.1-stable";
