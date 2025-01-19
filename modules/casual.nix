@@ -304,7 +304,8 @@ in
       # binaryninja-free
       imhex
       steam-game-wrap
-      (inputs.umu.packages.${pkgs.system}.umu.override { version = "${inputs.umu.shortRev}"; })
+      # TODO: restore
+      # (inputs.umu.packages.${pkgs.system}.umu.override { version = "${inputs.umu.shortRev}"; })
       vesktop
 
       # spell checking
