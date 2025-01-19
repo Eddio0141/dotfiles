@@ -14,7 +14,10 @@ let
     name = getName pkg;
     value = {
       basePackage = pkg;
-      env.DRI_PRIME.value = "0";
+      env.DRI_PRIME = {
+        value = "0";
+        force = true;
+      };
     };
   };
   apps = with pkgs; [
