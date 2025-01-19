@@ -37,6 +37,11 @@ in
       default = [ ];
       description = "List of monitors to be added";
     };
+    exec-once = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+      description = "Additional programs to start up";
+    };
   };
 
   config = mkMerge [

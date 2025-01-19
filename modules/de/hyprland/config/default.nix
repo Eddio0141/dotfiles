@@ -32,7 +32,6 @@ in
 
     "[ workspace special silent ] thunderbird"
     "obsidian"
-    "steam -silent"
     "vesktop"
 
     # TODO fix this
@@ -44,7 +43,7 @@ in
 
     "swww-daemon"
     "waypaper --restore"
-  ];
+  ] ++ cfg.exec-once;
   windowrulev2 = [
     # vesktop
     "workspace 2 silent, class:^(vesktop)$"
