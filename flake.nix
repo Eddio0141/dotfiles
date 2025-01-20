@@ -10,6 +10,7 @@
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs";
     # nixpkgs-working.url = "github:nixos/nixpkgs/f4be7b83f15447ff536269e88baf5218d9ad6047";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";

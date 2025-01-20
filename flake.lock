@@ -886,6 +886,21 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1737410094,
+        "narHash": "sha256-nekBsDNzF35S/jFnZHrNaOSOSuHPzdFK4N38WQ4QtUE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4a75ef3d7157a5bdaae7c7fec4f0db76e4d7ff6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1730741070,
@@ -1049,6 +1064,7 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-citra-yuzu-temp": "nixpkgs-citra-yuzu-temp",
         "nixpkgs-godot-4": "nixpkgs-godot-4",
+        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-termfilechooser": "nixpkgs-termfilechooser",
         "rycee-firefox-extensions": "rycee-firefox-extensions",
         "stylix": "stylix",

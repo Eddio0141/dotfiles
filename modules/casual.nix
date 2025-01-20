@@ -305,6 +305,7 @@ in
       imhex
       steam-game-wrap
       # TODO: restore
+      inputs.nixpkgs-master.legacyPackages.${system}.umu-launcher
       # (inputs.umu.packages.${pkgs.system}.umu.override { version = "${inputs.umu.shortRev}"; })
       vesktop
 
