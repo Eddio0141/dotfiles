@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  home-manager,
   username,
   ...
 }:
@@ -22,6 +21,11 @@ in
       home-manager.users.${username}.programs.kitty = {
         enable = true;
         shellIntegration.enableZshIntegration = true;
+        font = {
+          package = config.stylix.fonts.monospace.package;
+          name = config.stylix.fonts.monospace.name;
+          size = config.stylix.fonts.sizes.terminal;
+        };
         extraConfig = ''
           # Jump around neighboring window Vi key binding
           map ctrl+shift+w>h neighboring_window left
