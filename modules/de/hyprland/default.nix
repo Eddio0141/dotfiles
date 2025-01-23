@@ -60,7 +60,10 @@ in
           withUWSM = true;
         };
         uwsm.enable = true;
+        ydotool.enable = true;
       };
+
+      users.users.${username}.extraGroups = [ config.programs.ydotool.group ];
 
       environment.systemPackages = with pkgs; [
         pavucontrol

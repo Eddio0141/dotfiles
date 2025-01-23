@@ -6,10 +6,10 @@
 let
   mainMod = "SUPER";
   # for various applications that I don't always use
-  appMod = "${mainMod} ALT";
   recordingMod = "ALT";
   moveWindowMod = "SHIFT";
   moveMod = "CTRL";
+  miscMod = "SHIFT ALT";
 in
 {
   # "$border_pink_active" = "rgba(ff8cecff)";
@@ -254,13 +254,19 @@ in
     ", XF86AudioMute, exec, pamixer --toggle-mute"
 
     # media control
-    "${appMod}, P, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-    "${appMod}, O, exec, ${pkgs.playerctl}/bin/playerctl next"
-    "${appMod}, I, exec, ${pkgs.playerctl}/bin/playerctl previous"
+    "${miscMod}, P, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+    "${miscMod}, O, exec, ${pkgs.playerctl}/bin/playerctl next"
+    "${miscMod}, I, exec, ${pkgs.playerctl}/bin/playerctl previous"
     ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
     ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
     ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
     ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+
+    # to let you use arrow keys
+    "${miscMod}, H, exec, ydotool key 105:1 105:0"
+    "${miscMod}, L, exec, ydotool key 106:1 106:0"
+    "${miscMod}, J, exec, ydotool key 108:1 108:0"
+    "${miscMod}, K, exec, ydotool key 103:1 103:0"
 
     # gpu-screen-recorder
     # TODO: expand on this and make it better
