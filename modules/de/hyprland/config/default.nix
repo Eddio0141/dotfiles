@@ -263,10 +263,11 @@ in
     ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
 
     # to let you use arrow keys
-    "${miscMod}, H, exec, ydotool key 105:1 105:0"
-    "${miscMod}, L, exec, ydotool key 106:1 106:0"
-    "${miscMod}, J, exec, ydotool key 108:1 108:0"
-    "${miscMod}, K, exec, ydotool key 103:1 103:0"
+    # these binds also unpress whatever miscMod is pressing
+    "${miscMod}, H, exec, ydotool key 42:0 56:0 105:1 105:0"
+    "${miscMod}, L, exec, ydotool key 42:0 56:0 106:1 106:0"
+    "${miscMod}, J, exec, ydotool key 42:0 56:0 108:1 108:0"
+    "${miscMod}, K, exec, ydotool key 42:0 56:0 103:1 103:0"
 
     # gpu-screen-recorder
     # TODO: expand on this and make it better
