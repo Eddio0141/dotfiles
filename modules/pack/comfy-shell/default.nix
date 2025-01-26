@@ -8,6 +8,132 @@
 with lib;
 let
   cfg = config.yuu.pack.comfy-shell;
+
+  fhs-env = (
+    buildFHSEnv (
+      appimageTools.defaultFhsEnvArgs
+      // {
+        # fe aka fhs-env
+        name = "fe";
+        multiArch = true;
+        runScript = "zsh";
+        profile = ''
+          export DOTNET_ROOT="${pkgs.dotnet-runtime}"
+        '';
+        targetPkgs =
+          pkgs:
+          (with pkgs; [
+            icu.dev
+            dotnet-runtime
+            libGLU.dev
+
+            # this comes from unityhub package
+            ##########
+            # Unity Hub binary dependencies
+            xorg.libXrandr
+            xdg-utils
+
+            # GTK filepicker
+            gsettings-desktop-schemas
+            hicolor-icon-theme
+
+            # Bug Reporter dependencies
+            fontconfig
+            freetype
+            lsb-release
+            ##########
+          ]);
+        multiPkgs =
+          pkgs:
+          (with pkgs; [
+            # also from unityhub pacakge
+            ##########
+            # Unity Hub ldd dependencies
+            cups
+            gtk3
+            expat
+            libxkbcommon
+            lttng-ust_2_12
+            krb5
+            alsa-lib
+            nss
+            libdrm
+            mesa
+            nspr
+            atk
+            dbus
+            at-spi2-core
+            pango
+            xorg.libXcomposite
+            xorg.libXext
+            xorg.libXdamage
+            xorg.libXfixes
+            xorg.libxcb
+            xorg.libxshmfence
+            xorg.libXScrnSaver
+            xorg.libXtst
+
+            # Unity Hub additional dependencies
+            libva
+            openssl
+            cairo
+            libnotify
+            libuuid
+            libsecret
+            udev
+            libappindicator
+            wayland
+            cpio
+            icu
+            libpulseaudio
+
+            # Unity Editor dependencies
+            libglvnd # provides ligbl
+            xorg.libX11
+            xorg.libXcursor
+            glib
+            gdk-pixbuf
+            libxml2
+            zlib
+            clang
+            git # for git-based packages in unity package manager
+
+            # Unity Editor 2019 specific dependencies
+            xorg.libXi
+            xorg.libXrender
+            gnome2.GConf
+            libcap
+            ##########
+
+            # run half life native
+            libvorbis
+            SDL
+            SDL2
+            fontconfig
+            freetype
+            openal
+            gtk2
+            libpng12
+            libgpg-error
+            (stdenv.mkDerivation {
+              name = "libgcrypt-11";
+              src = ./libgcrypt.so.11.8.2;
+
+              dontUnpack = true;
+              dontBuild = true;
+              dontStrip = true;
+
+              installPhase = ''
+                mkdir -p $out/lib
+                cp $src $out/lib/libgcrypt.so.11
+
+                chmod +x $out/lib/libgcrypt.so.11
+              '';
+            })
+          ]);
+      }
+    )
+  );
 in
 {
   options.yuu.pack.comfy-shell.enable = mkEnableOption "shell environment";
@@ -18,130 +144,7 @@ in
         tldr
         trash-cli
         ouch
-
-        (buildFHSEnv (
-          appimageTools.defaultFhsEnvArgs
-          // {
-            # fe aka fhs-env
-            name = "fe";
-            multiArch = true;
-            runScript = "zsh";
-            profile = ''
-              export DOTNET_ROOT="${pkgs.dotnet-runtime}"
-            '';
-            targetPkgs =
-              pkgs:
-              (with pkgs; [
-                icu.dev
-                dotnet-runtime
-                libGLU.dev
-
-                # this comes from unityhub package
-                ##########
-                # Unity Hub binary dependencies
-                xorg.libXrandr
-                xdg-utils
-
-                # GTK filepicker
-                gsettings-desktop-schemas
-                hicolor-icon-theme
-
-                # Bug Reporter dependencies
-                fontconfig
-                freetype
-                lsb-release
-                ##########
-              ]);
-            multiPkgs =
-              pkgs:
-              (with pkgs; [
-                # also from unityhub pacakge
-                ##########
-                # Unity Hub ldd dependencies
-                cups
-                gtk3
-                expat
-                libxkbcommon
-                lttng-ust_2_12
-                krb5
-                alsa-lib
-                nss
-                libdrm
-                mesa
-                nspr
-                atk
-                dbus
-                at-spi2-core
-                pango
-                xorg.libXcomposite
-                xorg.libXext
-                xorg.libXdamage
-                xorg.libXfixes
-                xorg.libxcb
-                xorg.libxshmfence
-                xorg.libXScrnSaver
-                xorg.libXtst
-
-                # Unity Hub additional dependencies
-                libva
-                openssl
-                cairo
-                libnotify
-                libuuid
-                libsecret
-                udev
-                libappindicator
-                wayland
-                cpio
-                icu
-                libpulseaudio
-
-                # Unity Editor dependencies
-                libglvnd # provides ligbl
-                xorg.libX11
-                xorg.libXcursor
-                glib
-                gdk-pixbuf
-                libxml2
-                zlib
-                clang
-                git # for git-based packages in unity package manager
-
-                # Unity Editor 2019 specific dependencies
-                xorg.libXi
-                xorg.libXrender
-                gnome2.GConf
-                libcap
-                ##########
-
-                # run half life native
-                libvorbis
-                SDL
-                SDL2
-                fontconfig
-                freetype
-                openal
-                gtk2
-                libpng12
-                libgpg-error
-                (stdenv.mkDerivation {
-                  name = "libgcrypt-11";
-                  src = ./libgcrypt.so.11.8.2;
-
-                  dontUnpack = true;
-                  dontBuild = true;
-                  dontStrip = true;
-
-                  installPhase = ''
-                    mkdir -p $out/lib
-                    cp $src $out/lib/libgcrypt.so.11
-
-                    chmod +x $out/lib/libgcrypt.so.11
-                  '';
-                })
-              ]);
-          }
-        ))
+        # fhs-env
       ];
 
       # zsh setups
