@@ -159,9 +159,9 @@ in
       # "col.inactive" = "rgba(3c0054aa)";
     };
   };
-  ecosystem = {
-    no_donation_nag = true;
-  };
+  # ecosystem = {
+  #   no_donation_nag = true;
+  # };
 
   bind = [
     # general binds
