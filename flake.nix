@@ -10,7 +10,8 @@
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # TODO: https://github.com/NixOS/nixpkgs/issues/376930, https://nixpk.gs/pr-tracker.html?pr=376529
+    # TODO: https://github.com/NixOS/nixpkgs/issues/376930
+    # TODO: restore rocblas and shit in casual.nix
     # nixpkgs-working.url = "github:nixos/nixpkgs/f4be7b83f15447ff536269e88baf5218d9ad6047";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
@@ -25,7 +26,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/hyprland/v0.46.2";
+    hyprland.url = "github:hyprwm/hyprland/v0.47.0";
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
