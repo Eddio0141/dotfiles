@@ -141,6 +141,7 @@ in
   master.new_status = "master";
   gestures.workspace_swipe = "off";
   misc = {
+    disable_hyprland_logo = true;
     disable_splash_rendering = true;
     enable_swallow = true;
   };
@@ -157,6 +158,9 @@ in
       # "col.active" = "rgba(b700ffff)";
       # "col.inactive" = "rgba(3c0054aa)";
     };
+  };
+  ecosystem = {
+    no_donation_nag = true;
   };
 
   bind = [
