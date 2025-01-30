@@ -314,7 +314,6 @@ in
       # hypr stuff
       mpv
       wofi
-      # TODO merge this into grimblast
       inputs.hyprpicker.packages.${system}.default
       inputs.hyprcontrib.packages.${system}.grimblast
       pamixer # volume control

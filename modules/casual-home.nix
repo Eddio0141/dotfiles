@@ -10,10 +10,6 @@
     ./stylix-hm.nix
   ];
 
-  # TODO: https://github.com/nix-community/home-manager/issues/5899
-  systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
-  systemd.user.services.hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
-
   home = {
     stateVersion = "23.05";
     pointerCursor = {
@@ -105,7 +101,6 @@
     enableZshIntegration = true;
   };
 
-  # TODO bundle this in a module
   services.activitywatch = {
     enable = true;
     package = pkgs.aw-server-rust;

@@ -61,7 +61,6 @@ in
     "tile,class:hl.exe"
 
     # jetbrains
-    # TODO: better regex
     "dimaround,class:^(jetbrains-.*)$,floating:1,title:^(?!win)"
     "center,class:^(jetbrains-.*)$,floating:1,title:^(?!win)"
     "noanim,class:^(jetbrains-.*)$,title:^(win.*)$"
