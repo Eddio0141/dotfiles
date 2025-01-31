@@ -306,6 +306,7 @@ in
       steam-game-wrap
       (inputs.umu.packages.${pkgs.system}.umu.override { version = "${inputs.umu.shortRev}"; })
       vesktop
+      pinta
 
       # spell checking
       hunspell
