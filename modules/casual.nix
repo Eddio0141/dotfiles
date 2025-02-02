@@ -306,6 +306,7 @@ in
       steam-game-wrap
       inputs.umu.packages.${system}.default
       vesktop
+      pinta
 
       # spell checking
       hunspell
