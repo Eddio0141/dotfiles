@@ -9,9 +9,7 @@
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # TODO: https://github.com/NixOS/nixpkgs/issues/376930
-    # TODO: restore rocblas and shit in casual.nix
-    # nixpkgs-working.url = "github:nixos/nixpkgs/f4be7b83f15447ff536269e88baf5218d9ad6047";
+    nixpkgs-master.url = "github:nixos/nixpkgs";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
@@ -25,7 +23,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/hyprland/v0.47.1";
+    hyprland.url = "github:hyprwm/hyprland/v0.47.2";
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,10 +42,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     meowvim.url = "github:Eddio0141/meowvim";
-    umu = {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
     rycee-firefox-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     swww.url = "github:LGFae/swww";
   };
@@ -74,7 +69,7 @@
         inherit system;
         config = {
           allowUnfree = true;
-          rocmSupport = true;
+          # rocmSupport = true;
           permittedInsecurePackages = [
             "openssl-1.1.1w"
             "libgcrypt-1.5.3"

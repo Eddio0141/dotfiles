@@ -57,6 +57,8 @@ in
           enable = true;
           # package = inputs.hyprland.packages.${system}.hyprland;
           # portalPackage = inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+          package = inputs.nixpkgs-master.legacyPackages.${system}.hyprland;
+          portalPackage = inputs.nixpkgs-master.legacyPackages.${system}.xdg-desktop-portal-hyprland;
           withUWSM = true;
         };
         uwsm.enable = true;
@@ -115,8 +117,9 @@ in
         wayland.windowManager.hyprland = {
           enable = true;
           systemd.enable = false; # use uwsm
+          package = null;
+          portalPackage = null;
           xwayland.enable = true;
-          # if variable or colours, quote them
           settings = mkMerge [
             ((import ./config) { inherit pkgs cfg lib; })
             (mkIf cfg.brightness-change (import ./config/brightness.nix { inherit pkgs; }))

@@ -1,6 +1,5 @@
 {
   username,
-  inputs,
   ...
 }:
 {
@@ -12,7 +11,6 @@
   home-manager.users.${username} = {
     imports = [
       ../../modules/casual-home.nix
-      inputs.hyprland.homeManagerModules.default
     ];
   };
 

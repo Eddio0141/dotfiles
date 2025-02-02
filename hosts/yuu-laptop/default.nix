@@ -1,4 +1,8 @@
-{ username, inputs, pkgs, ... }:
+{
+  username,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ../../modules/casual.nix
@@ -8,7 +12,6 @@
   home-manager.users.${username} = {
     imports = [
       ../../modules/casual-home.nix
-      inputs.hyprland.homeManagerModules.default
     ];
   };
 
