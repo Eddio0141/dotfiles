@@ -10,6 +10,7 @@
 with lib;
 let
   cfg = config.yuu.de.hyprland;
+  # TODO: make this its own thing?
   xdg-desktop-portal-termfilechooser =
     inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser.overrideAttrs
       {

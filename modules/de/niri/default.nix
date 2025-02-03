@@ -3,12 +3,25 @@
   lib,
   username,
   pkgs,
+  inputs,
   ...
 }:
 let
   cfg = config.yuu.de.niri;
   mkEnableOption = lib.mkEnableOption;
   mkIf = lib.mkIf;
+  # TODO: make this its own thing? (its a duplicate from hyprland module)
+  xdg-desktop-portal-termfilechooser =
+    inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser.overrideAttrs
+      {
+        src = pkgs.fetchFromGitHub {
+          owner = "boydaihungst";
+          repo = "xdg-desktop-portal-termfilechooser";
+          rev = "9ba9f982424b0271d6209e1055e934205fa7bc01";
+          hash = "sha256-MOS2dS2PeH5O0FKxZfcJUAmCViOngXHZCyjRmwAqzqE=";
+        };
+        patches = [ ];
+      };
 in
 {
   options.yuu.de.niri = {
@@ -21,6 +34,7 @@ in
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite-unstable
+      xdg-desktop-portal-termfilechooser
     ];
 
     nix.settings = {
@@ -37,9 +51,31 @@ in
     };
 
     home-manager.users.${username} = {
-      programs.niri.settings =
-        import ./settings.nix
-          config.home-manager.users.${username}.lib.niri.actions;
+      programs = {
+        niri.settings = import ./settings.nix config.home-manager.users.${username}.lib.niri.actions;
+
+        waybar.settings.mainBar = {
+          modules-left = [ "niri/workspaces" ];
+          modules-center = [ "niri/window" ];
+        };
+      };
+
+      xdg.configFile = {
+        "xdg-desktop-portal/portals.conf" = {
+          enable = true;
+          text = ''
+            org.freedesktop.impl.portal.FileChooser=termfilechooser
+          '';
+        };
+        "xdg-desktop-portal-termfilechooser/config" = {
+          enable = true;
+          text = ''
+            [filechooser]
+            cmd=${xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+            default_dir=$HOME
+          '';
+        };
+      };
     };
   };
 }

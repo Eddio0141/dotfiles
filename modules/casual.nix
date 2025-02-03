@@ -434,6 +434,7 @@ in
   # env vars
   environment.sessionVariables = {
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
+    XKB_DEFAULT_LAYOUT = "gb";
   };
 
   # services.sunshine = {
