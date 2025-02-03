@@ -31,6 +31,7 @@ in
     modules = [
       ./yuu-desktop
       ../modules
+      inputs.niri.nixosModules.niri
     ];
   };
   yuu-upwork = nixosSystem {
