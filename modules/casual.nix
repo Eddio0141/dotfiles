@@ -44,6 +44,7 @@ in
           }
         );
       })
+      inputs.niri.overlays.niri
     ];
   };
 

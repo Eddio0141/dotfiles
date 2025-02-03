@@ -23,11 +23,14 @@
   programs.nm-applet.enable = true;
 
   yuu = {
-    de.hyprland = {
-      xwaylandScale = 2;
-      monitors = [
-        "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1"
-      ];
+    de = {
+      niri.enable = true;
+      hyprland = {
+        xwaylandScale = 2;
+        monitors = [
+          "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1"
+        ];
+      };
     };
     programs.ghidra.uiScale = 2;
     pack.dri-prime.enable = true;

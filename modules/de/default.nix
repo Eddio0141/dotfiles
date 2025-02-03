@@ -2,5 +2,6 @@
   imports = [
     ./hyprland
     ./sway
+    ./niri
   ];
 }

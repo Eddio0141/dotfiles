@@ -1,7 +1,29 @@
-{ self, lib, inputs, system, home-manager, username, nixpkgs, own-pkgs, nixpkgs-options, ... }:
+{
+  self,
+  lib,
+  inputs,
+  system,
+  home-manager,
+  username,
+  nixpkgs,
+  own-pkgs,
+  nixpkgs-options,
+  ...
+}:
 let
   nixosSystem = lib.nixosSystem;
-  specialArgs = { inherit username inputs system self home-manager own-pkgs nixpkgs nixpkgs-options; };
+  specialArgs = {
+    inherit
+      username
+      inputs
+      system
+      self
+      home-manager
+      own-pkgs
+      nixpkgs
+      nixpkgs-options
+      ;
+  };
 in
 {
   yuu-desktop = nixosSystem {
@@ -24,6 +46,7 @@ in
       ./yuu-laptop
       ../modules
       inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+      inputs.niri.nixosModules.niri
     ];
   };
 }

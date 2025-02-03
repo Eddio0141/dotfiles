@@ -45,6 +45,7 @@
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
     rycee-firefox-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     swww.url = "github:LGFae/swww";
+    niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs =
