@@ -98,6 +98,10 @@ in
         programs = {
           wlogout.enable = true;
           hyprlock.enable = true;
+          waybar.settings.mainBar = {
+            modules-left = [ "hyprland/workspaces" ];
+            modules-center = [ "hyprland/window" ];
+          };
         };
 
         services = {
