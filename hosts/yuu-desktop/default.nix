@@ -12,6 +12,13 @@
     imports = [
       ../../modules/casual-home.nix
     ];
+
+    programs.niri.settings.outputs = {
+      "DP-3".position = {
+        x = 0;
+        y = 0;
+      };
+    };
   };
 
   networking.hostName = "yuu-desktop";

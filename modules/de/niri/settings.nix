@@ -6,6 +6,10 @@ actions: {
       accel-profile = "flat";
       accel-speed = 0.5;
     };
+    mouse = {
+      accel-profile = "flat";
+      accel-speed = -0.35;
+    };
     keyboard.xkb.options = "caps:escape";
   };
   layout = {
