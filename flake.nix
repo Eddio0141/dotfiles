@@ -11,7 +11,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
-    nixpkgs-termfilechooser.url = "github:bpeetz/nixpkgs/termfilechooser/package";
+    nixpkgs-termfilechooser.url = "github:body20002/nixpkgs/add-xdg-desktop-portal-termfilechooser";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";

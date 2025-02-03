@@ -1082,16 +1082,16 @@
     },
     "nixpkgs-termfilechooser": {
       "locked": {
-        "lastModified": 1732296277,
-        "narHash": "sha256-nrqgGsHXF6rpZp+CXyXgHn1g5WEQ+3EOPzjO4+KFNzQ=",
-        "owner": "bpeetz",
+        "lastModified": 1736473534,
+        "narHash": "sha256-3oR1xf3Tlm3V0aupvsVN3Zpvun3huVxz7BiLIgmnZ+E=",
+        "owner": "body20002",
         "repo": "nixpkgs",
-        "rev": "ecc701f86f1d132304f59497c83a135a735a4ee6",
+        "rev": "b6675967696c959e4ea1991a0b696ecede56e423",
         "type": "github"
       },
       "original": {
-        "owner": "bpeetz",
-        "ref": "termfilechooser/package",
+        "owner": "body20002",
+        "ref": "add-xdg-desktop-portal-termfilechooser",
         "repo": "nixpkgs",
         "type": "github"
       }

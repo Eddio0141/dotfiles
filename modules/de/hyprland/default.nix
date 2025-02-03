@@ -69,7 +69,6 @@ in
       users.users.${username}.extraGroups = [ config.programs.ydotool.group ];
 
       environment.systemPackages = with pkgs; [
-        pavucontrol
         xdg-desktop-portal-termfilechooser
         ### wallpaper
         inputs.swww.packages.${system}.swww

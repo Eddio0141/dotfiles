@@ -35,37 +35,57 @@ actions: {
       "Mod+E".action = spawn "kitty" "yazi";
 
       "Mod+W".action = close-window;
+      "Mod+T".action = toggle-window-floating;
+      "Mod+R".action = switch-focus-between-floating-and-tiling;
+      "Mod+F".action = fullscreen-window;
 
       "Mod+H".action = focus-column-left;
       "Mod+L".action = focus-column-right;
-      "Mod+K".action = focus-workspace-up;
-      "Mod+J".action = focus-workspace-down;
+      "Mod+K".action = focus-window-or-workspace-up;
+      "Mod+J".action = focus-window-or-workspace-down;
       "Mod+WheelScrollDown".action = focus-workspace-down;
       "Mod+WheelScrollUp".action = focus-workspace-up;
       "Mod+WheelScrollRight".action = focus-column-right;
       "Mod+WheelScrollLeft".action = focus-column-left;
+      "Mod+Comma".action = focus-monitor-left;
+      "Mod+Period".action = focus-monitor-right;
 
       "Mod+Shift+H".action = move-column-left;
       "Mod+Shift+L".action = move-column-right;
       "Mod+Shift+J".action = move-window-down-or-to-workspace-down;
       "Mod+Shift+K".action = move-window-up-or-to-workspace-up;
+      "Mod+Shift+M".action = consume-or-expel-window-right;
+      "Mod+Shift+N".action = consume-or-expel-window-left;
+      "Mod+Shift+Comma".action = move-window-to-monitor-left;
+      "Mod+Shift+Period".action = move-window-to-monitor-right;
 
       "Mod+Shift+bracketright".action = switch-preset-window-width;
       "Mod+Shift+bracketleft".action = switch-preset-window-height;
       "Mod+Shift+P".action = maximize-column;
       "Mod+Shift+O".action = reset-window-height;
-      # "Mod+Shift+P".action = set-column-width "+25%";
-      # "Mod+Shift+O".action = set-column-width "-25%";
 
-      "Mod+Shift+F".action = fullscreen-window;
+      "Print".action = screenshot-screen;
+      "Ctrl+Print".action = screenshot-window;
 
       "Shift+Alt+P".action = spawn "playerctl" "play-pause";
       "Shift+Alt+O".action = spawn "playerctl" "next";
       "Shift+Alt+I".action = spawn "playerctl" "previous";
+
+      "Ctrl+Alt+Delete".action = sh ''pidof wlogout || wlogout'';
+      # waiting for https://github.com/YaLTeR/niri/issues/119 to be resolved, have to do this or screen goes red
+      "Mod+Shift+BackSpace".action =
+        sh ''pidof hyprlock || niri msg action do-screen-transition --delay-ms 300 && hyprlock'';
     };
   spawn-at-startup = [
     { command = [ "xwayland-satellite" ]; }
     { command = [ "waybar" ]; }
+    { command = [ "swww-daemon" ]; }
+    {
+      command = [
+        "waypaper"
+        "--restore"
+      ];
+    }
   ];
   environment = {
     DISPLAY = ":0";

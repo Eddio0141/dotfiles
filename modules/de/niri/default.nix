@@ -15,12 +15,11 @@ let
     inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser.overrideAttrs
       {
         src = pkgs.fetchFromGitHub {
-          owner = "boydaihungst";
+          owner = "hunkyburrito";
           repo = "xdg-desktop-portal-termfilechooser";
-          rev = "9ba9f982424b0271d6209e1055e934205fa7bc01";
-          hash = "sha256-MOS2dS2PeH5O0FKxZfcJUAmCViOngXHZCyjRmwAqzqE=";
+          rev = "main";
+          hash = "sha256-F4B0s5mXJNNy4e9QDg1Sh91Fw42sUzvcLjqulIC2O9Q=";
         };
-        patches = [ ];
       };
 in
 {
@@ -36,6 +35,16 @@ in
       xwayland-satellite-unstable
       xdg-desktop-portal-termfilechooser
     ];
+
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+          user = "greeter";
+        };
+      };
+    };
 
     nix.settings = {
       substituters = [ "https://niri.cachix.org" ];
@@ -53,7 +62,9 @@ in
     home-manager.users.${username} = {
       programs = {
         niri.settings = import ./settings.nix config.home-manager.users.${username}.lib.niri.actions;
+        hyprlock.enable = true;
 
+        wlogout.enable = true;
         waybar.settings.mainBar = {
           modules-left = [ "niri/workspaces" ];
           modules-center = [ "niri/window" ];
@@ -64,17 +75,19 @@ in
         "xdg-desktop-portal/portals.conf" = {
           enable = true;
           text = ''
-            org.freedesktop.impl.portal.FileChooser=termfilechooser
+            [preferred]
+            default = gtk;gnome
+            org.freedesktop.impl.portal.FileChooser = termfilechooser
           '';
         };
-        "xdg-desktop-portal-termfilechooser/config" = {
-          enable = true;
-          text = ''
-            [filechooser]
-            cmd=${xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-            default_dir=$HOME
-          '';
-        };
+        # "xdg-desktop-portal-termfilechooser/config" = {
+        #   enable = true;
+        #   text = ''
+        #     [filechooser]
+        #     cmd=yazi-wrapper.sh
+        #     default_dir=$HOME
+        #   '';
+        # };
       };
     };
   };

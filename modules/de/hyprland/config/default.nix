@@ -28,7 +28,6 @@ in
     "dunst"
     "firefox"
     "strawberry"
-    "fcitx5 -d"
     "[ workspace special silent ] slack"
 
     "[ workspace special silent ] thunderbird"
