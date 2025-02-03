@@ -21,6 +21,7 @@ in
     # scaling
     "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
     "GTK_USE_PORTAL,1"
+    "NIXOS_OZONE_WL,1"
   ];
   exec-once = [
     "waybar"
