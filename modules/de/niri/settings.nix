@@ -13,13 +13,16 @@ actions: {
       { proportion = 1. / 4.; }
       { proportion = 1. / 2.; }
       { proportion = 3. / 4.; }
+      { proportion = 0.9 / 1.; }
     ];
     preset-window-heights = [
       { proportion = 1. / 4.; }
       { proportion = 1. / 2.; }
       { proportion = 3. / 4.; }
     ];
-    default-column-width = { };
+    default-column-width = {
+      proportion = 0.9 / 1.;
+    };
     border.active = {
       color = "rgb(255 255 255)";
     };
