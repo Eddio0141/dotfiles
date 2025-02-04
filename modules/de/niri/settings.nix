@@ -72,7 +72,7 @@ actions: {
       "Mod+Shift+O".action = reset-window-height;
 
       "Print".action = screenshot-screen;
-      "Ctrl+Print".action = screenshot-window;
+      "Ctrl+Print".action = screenshot;
 
       "Shift+Alt+P".action = spawn "playerctl" "play-pause";
       "Shift+Alt+O".action = spawn "playerctl" "next";
