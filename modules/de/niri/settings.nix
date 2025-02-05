@@ -31,6 +31,21 @@ actions: {
       color = "rgb(255 255 255)";
     };
   };
+  spawn-at-startup = [
+    { command = [ "xwayland-satellite" ]; }
+    { command = [ "waybar" ]; }
+    { command = [ "swww-daemon" ]; }
+    {
+      command = [
+        "waypaper"
+        "--restore"
+      ];
+    }
+  ];
+  environment = {
+    DISPLAY = ":0";
+    NIXOS_OZONE_WL = "1";
+  };
   binds =
     with actions;
     let
@@ -83,19 +98,4 @@ actions: {
       "Mod+Shift+BackSpace".action =
         sh ''pidof hyprlock || niri msg action do-screen-transition --delay-ms 300 && hyprlock'';
     };
-  spawn-at-startup = [
-    { command = [ "xwayland-satellite" ]; }
-    { command = [ "waybar" ]; }
-    { command = [ "swww-daemon" ]; }
-    {
-      command = [
-        "waypaper"
-        "--restore"
-      ];
-    }
-  ];
-  environment = {
-    DISPLAY = ":0";
-    NIXOS_OZONE_WL = "1";
-  };
 }
