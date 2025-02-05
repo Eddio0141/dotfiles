@@ -46,6 +46,18 @@ actions: {
     DISPLAY = ":0";
     NIXOS_OZONE_WL = "1";
   };
+  window-rules = [
+    {
+      matches = [
+        {
+          title = "^Unity$";
+          app-id = "^Unity$";
+          # is-floating = true;
+        }
+      ];
+      open-focused = false;
+    }
+  ];
   binds =
     with actions;
     let
