@@ -8,7 +8,6 @@
 
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
-    # TODO: https://nixpk.gs/pr-tracker.html?pr=379771 vesktop update
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
