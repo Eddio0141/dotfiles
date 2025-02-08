@@ -30,24 +30,18 @@ in
     inherit system specialArgs;
     modules = [
       ./yuu-desktop
-      ../modules
-      inputs.niri.nixosModules.niri
     ];
   };
   yuu-upwork = nixosSystem {
     inherit system specialArgs;
     modules = [
       ./yuu-upwork
-      ../modules
     ];
   };
   yuu-laptop = nixosSystem {
     inherit system specialArgs;
     modules = [
       ./yuu-laptop
-      ../modules
-      inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-      inputs.niri.nixosModules.niri
     ];
   };
 }

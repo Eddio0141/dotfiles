@@ -7,6 +7,7 @@
   home-manager.users.${username} = {
     imports = [
       ./home.nix
+      ../../modules
     ];
   };
 

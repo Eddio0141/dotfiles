@@ -1,12 +1,16 @@
 {
   username,
   pkgs,
+  inputs,
   ...
 }:
 {
   imports = [
     ../../modules/casual.nix
     ./hardware-configuration.nix
+    ../../modules
+    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+    inputs.niri.nixosModules.niri
   ];
 
   home-manager.users.${username} = {

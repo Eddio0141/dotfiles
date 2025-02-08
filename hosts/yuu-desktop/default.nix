@@ -1,11 +1,17 @@
 {
   username,
+  inputs,
   ...
 }:
 {
   imports = [
     ../../modules/casual.nix
     ./hardware-configuration.nix
+    ../../modules
+    inputs.niri.nixosModules.niri
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
+    inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
   ];
 
   home-manager.users.${username} = {
