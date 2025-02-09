@@ -58,8 +58,6 @@ in
           enable = true;
           # package = inputs.hyprland.packages.${system}.hyprland;
           # portalPackage = inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
-          package = inputs.nixpkgs-master.legacyPackages.${system}.hyprland;
-          portalPackage = inputs.nixpkgs-master.legacyPackages.${system}.xdg-desktop-portal-hyprland;
           withUWSM = true;
         };
         uwsm.enable = true;

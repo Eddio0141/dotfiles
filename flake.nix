@@ -9,12 +9,11 @@
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:body20002/nixpkgs/add-xdg-desktop-portal-termfilechooser";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
-    nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
-    nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
+    # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
+    # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,11 +35,7 @@
         home-manager.follows = "home-manager";
       };
     };
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
-      # WM's nixpkgs is only used for tests, you can safely drop this if needed.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    wrapper-manager.url = "github:viperML/wrapper-manager";
     meowvim.url = "github:Eddio0141/meowvim";
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
     rycee-firefox-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -81,6 +76,8 @@
             "dotnet-sdk-7.0.410"
             "dotnet-sdk-wrapped-7.0.410"
           ];
+          # TODO: remove below
+          allowBroken = true;
         };
       };
       # TODO: this isn't great

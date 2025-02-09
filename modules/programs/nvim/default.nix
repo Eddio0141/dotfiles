@@ -20,7 +20,6 @@ in
         GIT_EDITOR = "nvim";
       };
       environment.systemPackages = [
-        #   (nixvim.makeNixvimWithModule nixvimModule)
         pkgs.nvim-pkg
       ];
       nixpkgs.overlays = [

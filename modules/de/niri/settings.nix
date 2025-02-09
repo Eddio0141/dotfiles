@@ -45,6 +45,7 @@ actions: {
   environment = {
     DISPLAY = ":0";
     NIXOS_OZONE_WL = "1";
+    GTK_IM_MODULE = "fcitx";
   };
   window-rules = [
     {

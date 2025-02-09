@@ -1,5 +1,0 @@
-{
-  plugins.yanky = {
-    enable = true;
-  };
-}

@@ -989,38 +989,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-citra-yuzu-temp": {
-      "locked": {
-        "lastModified": 1710429098,
-        "narHash": "sha256-irN9RgAuoouk7PhQapw6/p2hhwUNHwIPHE6b6ZaE5nE=",
-        "owner": "Atemu",
-        "repo": "nixpkgs",
-        "rev": "f20a0c955555fb68cfc72886d7476de2aacd1b4e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Atemu",
-        "ref": "revert-yuzu-removal",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-godot-4": {
-      "locked": {
-        "lastModified": 1691846419,
-        "narHash": "sha256-25sN0Cda63Zz+x/G1kd6oZghO9ALhhAPECrYN42qyrw=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "347b77eba12b3f54850d2824d742f9aa18c1f60d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "347b77eba12b3f54850d2824d742f9aa18c1f60d",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1717284937,
@@ -1031,21 +999,6 @@
       "original": {
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
-      }
-    },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1738522379,
-        "narHash": "sha256-Iopc1ETW2qN+7ZAvAfz2jO6MwsLuJFsqHNecXzNqPmg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "14e6ebd47b7de105c126983b79874b1e77843881",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
       }
     },
     "nixpkgs-stable": {
@@ -1208,6 +1161,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_9": {
+      "locked": {
+        "lastModified": 1739020877,
+        "narHash": "sha256-mIvECo/NNdJJ/bXjNqIh8yeoSjVLAuDuTUzAo7dzs8Y=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a79cfe0ebd24952b580b1cf08cd906354996d547",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1241,9 +1210,6 @@
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-citra-yuzu-temp": "nixpkgs-citra-yuzu-temp",
-        "nixpkgs-godot-4": "nixpkgs-godot-4",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-termfilechooser": "nixpkgs-termfilechooser",
         "rycee-firefox-extensions": "rycee-firefox-extensions",
         "stylix": "stylix",
@@ -1511,9 +1477,7 @@
     },
     "wrapper-manager": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
         "lastModified": 1724503599,
