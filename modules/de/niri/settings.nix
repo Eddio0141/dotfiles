@@ -66,7 +66,7 @@ actions: {
     in
     {
       "Mod+Q".action = spawn "kitty";
-      "Mod+S".action = sh ''pidof wofi || wofi --show drun -I -m -i -W 30% -H 75%'';
+      "Mod+S".action = sh ''pidof wofi || wofi'';
       "Mod+E".action = spawn "kitty" "yazi";
 
       "Mod+W".action = close-window;

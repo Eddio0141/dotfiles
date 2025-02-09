@@ -167,7 +167,7 @@ in
     "${mainMod}, Q, exec, kitty"
     "${mainMod}, W, killactive,"
     "${mainMod}, E, exec, kitty yazi"
-    "${mainMod}, S, exec, pidof wofi || wofi --show drun -I -m -i -W 30% -H 75%"
+    "${mainMod}, S, exec, pidof wofi || wofi"
 
     "CTRL ALT, Delete, exec, pidof wlogout || wlogout"
     "CTRL ALT, BackSpace, exec, hyprlock"
