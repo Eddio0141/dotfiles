@@ -1035,11 +1035,11 @@
     },
     "nixpkgs-termfilechooser": {
       "locked": {
-        "lastModified": 1736473534,
-        "narHash": "sha256-3oR1xf3Tlm3V0aupvsVN3Zpvun3huVxz7BiLIgmnZ+E=",
+        "lastModified": 1739123169,
+        "narHash": "sha256-D1/zB6U41zn4lUyBrJBxwbHU5xBIRb01pRqpekaGOkU=",
         "owner": "body20002",
         "repo": "nixpkgs",
-        "rev": "b6675967696c959e4ea1991a0b696ecede56e423",
+        "rev": "dc57667f6a6565efc619b771aa35c63e481df5ba",
         "type": "github"
       },
       "original": {
