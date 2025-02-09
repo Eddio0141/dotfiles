@@ -1049,6 +1049,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-working": {
+      "locked": {
+        "lastModified": 1738799668,
+        "narHash": "sha256-RgwnqjYoC3nK1IwPdeAUgT7q3LbXRYiu+m2WEV3qf6A=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1e8e30b5720174e11f998b3cc0af8c05f428ed91",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1e8e30b5720174e11f998b3cc0af8c05f428ed91",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1718714799,
@@ -1099,11 +1115,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1738410390,
-        "narHash": "sha256-xvTo0Aw0+veek7hvEVLzErmJyQkEcRk6PSR4zsRQFEc=",
+        "lastModified": 1739020877,
+        "narHash": "sha256-mIvECo/NNdJJ/bXjNqIh8yeoSjVLAuDuTUzAo7dzs8Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3a228057f5b619feb3186e986dbe76278d707b6e",
+        "rev": "a79cfe0ebd24952b580b1cf08cd906354996d547",
         "type": "github"
       },
       "original": {
@@ -1211,6 +1227,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-termfilechooser": "nixpkgs-termfilechooser",
+        "nixpkgs-working": "nixpkgs-working",
         "rycee-firefox-extensions": "rycee-firefox-extensions",
         "stylix": "stylix",
         "swww": "swww",
