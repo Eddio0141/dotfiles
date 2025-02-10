@@ -1,13 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
-  fetchFromGitHub = pkgs.fetchFromGitHub;
-
-  yazi-plugins = fetchFromGitHub {
-    owner = "yazi-rs";
-    repo = "plugins";
-    rev = "main";
-    hash = "sha256-By8XuqVJvS841u+8Dfm6R8GqRAs0mO2WapK6r2g7WI8=";
-  };
+  yazi-plugins = inputs.yazi-rs-plugins;
 in
 {
   programs.yazi = {
@@ -15,18 +8,8 @@ in
     enableZshIntegration = true;
     # package = inputs.yazi.packages.x86_64-linux.yazi;
     plugins = {
-      ouch = fetchFromGitHub {
-        owner = "ndtoan96";
-        repo = "ouch.yazi";
-        rev = "v0.4.0";
-        hash = "sha256-eRjdcBJY5RHbbggnMHkcIXUF8Sj2nhD/o7+K3vD3hHY=";
-      };
-      restore = fetchFromGitHub {
-        owner = "boydaihungst";
-        repo = "restore.yazi";
-        rev = "master";
-        hash = "sha256-yjjmy96tg10s+PSzPlL/BdyUUXwI0u+U00COrLwX8WI=";
-      };
+      ouch = inputs.ouch-yazi;
+      restore = inputs.restore-yazi;
       git = "${yazi-plugins}/git.yazi";
     };
     settings = {

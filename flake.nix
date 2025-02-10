@@ -45,6 +45,18 @@
     rycee-firefox-extensions.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     swww.url = "github:LGFae/swww";
     niri.url = "github:sodiboo/niri-flake";
+    ouch-yazi = {
+      url = "github:ndtoan96/ouch.yazi";
+      flake = false;
+    };
+    restore-yazi = {
+      url = "github:boydaihungst/restore.yazi";
+      flake = false;
+    };
+    yazi-rs-plugins = {
+      url = "github:yazi-rs/plugins";
+      flake = false;
+    };
   };
 
   outputs =
