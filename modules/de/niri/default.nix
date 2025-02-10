@@ -12,15 +12,7 @@ let
   mkIf = lib.mkIf;
   # TODO: make this its own thing? (its a duplicate from hyprland module)
   xdg-desktop-portal-termfilechooser =
-    inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser.overrideAttrs
-      {
-        src = pkgs.fetchFromGitHub {
-          owner = "hunkyburrito";
-          repo = "xdg-desktop-portal-termfilechooser";
-          rev = "main";
-          hash = "sha256-F4B0s5mXJNNy4e9QDg1Sh91Fw42sUzvcLjqulIC2O9Q=";
-        };
-      };
+    inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser;
 in
 {
   options.yuu.de.niri = {
