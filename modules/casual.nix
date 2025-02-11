@@ -471,7 +471,7 @@ in
       git.enable = true;
       nvim.enable = true;
       gpu-screen-recorder.enable = true;
-      # ghidra.enable = true;
+      ghidra.enable = true;
     };
     pack.comfy-shell.enable = true;
     services.syncthing.enable = true;
