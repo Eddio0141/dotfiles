@@ -51,14 +51,43 @@ actions: {
     _JAVA_AWT_WM_NONREPARENTING = "1";
   };
   window-rules = [
+    # unity
     {
       matches = [
         {
           title = "^Unity$";
           app-id = "^Unity$";
-          # is-floating = true;
         }
       ];
+      open-focused = false;
+    }
+
+    # ghidra
+    {
+      # shrink and don't focus oversized popups
+      matches = [
+        {
+          title = "^Merge Version Tracking Session$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Version Tracking Wizard$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      max-height = 300;
+      max-width = 500;
+      open-focused = false;
+    }
+    {
+      # popups that should float
+      matches = [
+        {
+          title = "^win\\d+$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      open-floating = true;
       open-focused = false;
     }
   ];
