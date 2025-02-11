@@ -232,7 +232,7 @@ in
     with own-pkgs;
     [
       avalonia-ilspy
-      btop
+      btop-rocm
       obsidian
       (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
       protontricks
