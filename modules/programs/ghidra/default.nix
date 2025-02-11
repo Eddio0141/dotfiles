@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.yuu.programs.ghidra;
   mkEnableOption = lib.mkEnableOption;
@@ -13,27 +18,41 @@ in
     };
   };
 
-  config = (mkIf cfg.enable {
-    environment.systemPackages =
-      let
-        scaleUi =
-          if isNull cfg.uiScale then
-            ""
-          else
+  config = (
+    mkIf cfg.enable {
+      environment.systemPackages = [
+        (pkgs.symlinkJoin {
+          name = "ghidra";
+          paths = [ pkgs.ghidra ];
+          postBuild =
+            let
+              scaleUi =
+                if isNull cfg.uiScale then
+                  ""
+                else
+                  ''
+                    source="$out/lib/ghidra/support/launch.properties"
+                    ${replace-source-with-readlink}
+
+                    substituteInPlace "$source" \
+                      --replace-fail "uiScale=1" "uiScale=${toString cfg.uiScale}"
+                  '';
+              replace-source-with-readlink = ''
+                target=$(readlink -f "$source")
+                rm $source
+                cp "$target" "$source"
+              '';
+            in
             ''
-              substituteInPlace "$out/lib/ghidra/support/launch.properties" \
-                --replace-fail "uiScale=1" "uiScale=${toString cfg.uiScale}"
-            '';
-      in
-      with pkgs; [
-        (ghidra.overrideAttrs (prev: {
-          postFixup = (''
-            substituteInPlace "$out/lib/ghidra/ghidraRun" \
-              --replace-fail "#MAXMEM=2G" "MAXMEM=20G"
-          ''
-          + scaleUi
-          + prev.postFixup);
-        }))
+              source="$out/lib/ghidra/ghidraRun"
+              ${replace-source-with-readlink}
+
+              substituteInPlace "$source" \
+                --replace-fail "#MAXMEM=2G" "MAXMEM=20G"
+            ''
+            + scaleUi;
+        })
       ];
-  });
+    }
+  );
 }
