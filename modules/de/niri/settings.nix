@@ -61,6 +61,16 @@ actions: {
       ];
       open-focused = false;
     }
+    # firefox
+    {
+      matches = [
+        {
+          title = "^Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox$";
+          app-id = "^firefox$";
+        }
+      ];
+      open-floating = true;
+    }
   ];
   binds =
     with actions;
