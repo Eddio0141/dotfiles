@@ -75,6 +75,16 @@ actions: {
 
     # ghidra
     {
+      matches = [
+        {
+          title = "^Version Tracking Wizard$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      max-height = 900;
+      max-width = 600;
+    }
+    {
       # shrink and don't focus oversized popups
       matches = [
         {
@@ -82,7 +92,7 @@ actions: {
           app-id = "^ghidra-Ghidra$";
         }
         {
-          title = "^Version Tracking Wizard$";
+          title = "^Loading Associations$";
           app-id = "^ghidra-Ghidra$";
         }
       ];
@@ -95,6 +105,14 @@ actions: {
       matches = [
         {
           title = "^win\\d+$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Opening VT Session$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Choose a \\d+ program$";
           app-id = "^ghidra-Ghidra$";
         }
       ];
