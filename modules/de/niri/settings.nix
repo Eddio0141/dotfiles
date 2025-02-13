@@ -115,6 +115,18 @@ actions: {
           title = "^Choose a \\d+ program$";
           app-id = "^ghidra-Ghidra$";
         }
+        {
+          title = "^Confirm Delete$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Save Program$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Rename Local Variable$";
+          app-id = "^ghidra-Ghidra$";
+        }
       ];
       open-floating = true;
       open-focused = false;
