@@ -45,7 +45,6 @@ actions: {
   environment = {
     DISPLAY = ":0";
     NIXOS_OZONE_WL = "1";
-    GTK_IM_MODULE = "fcitx";
     GDK_DEBUG = "portals";
     # xwayland-satellite fix for java apps
     _JAVA_AWT_WM_NONREPARENTING = "1";
