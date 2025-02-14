@@ -50,16 +50,17 @@ actions: {
     _JAVA_AWT_WM_NONREPARENTING = "1";
   };
   window-rules = [
+    # unity
     {
       matches = [
         {
           title = "^Unity$";
           app-id = "^Unity$";
-          # is-floating = true;
         }
       ];
       open-focused = false;
     }
+
     # firefox
     {
       matches = [
@@ -69,6 +70,65 @@ actions: {
         }
       ];
       open-floating = true;
+    }
+
+    # ghidra
+    {
+      matches = [
+        {
+          title = "^Version Tracking Wizard$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      max-height = 900;
+      max-width = 600;
+    }
+    {
+      # shrink and don't focus oversized popups
+      matches = [
+        {
+          title = "^Merge Version Tracking Session$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Loading Associations$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      max-height = 300;
+      max-width = 500;
+      open-focused = false;
+    }
+    {
+      # popups that should float
+      matches = [
+        {
+          title = "^win\\d+$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Opening VT Session$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Choose a \\d+ program$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Confirm Delete$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Save Program$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Rename Local Variable$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      open-floating = true;
+      open-focused = false;
     }
   ];
   binds =

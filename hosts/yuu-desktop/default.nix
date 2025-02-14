@@ -28,8 +28,13 @@
         mode = {
           width = 1920;
           height = 1080;
-          refresh = 144.001;
+          refresh = 239.76;
         };
+      };
+      "DP-2".mode = {
+        width = 1920;
+        height = 1080;
+        refresh = 144.001;
       };
     };
   };
