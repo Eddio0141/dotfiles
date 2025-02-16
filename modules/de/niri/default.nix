@@ -68,7 +68,7 @@ in
           enable = true;
           text = ''
             [preferred]
-            default = gtk;gnome
+            default = gnome;gtk;
             org.freedesktop.impl.portal.FileChooser = termfilechooser
           '';
         };
