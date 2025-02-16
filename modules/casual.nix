@@ -440,6 +440,7 @@ in
   environment.sessionVariables = {
     XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
     XKB_DEFAULT_LAYOUT = "gb";
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 
   # services.sunshine = {
