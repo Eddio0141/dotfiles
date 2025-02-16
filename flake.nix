@@ -8,11 +8,7 @@
 
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
-    # TODO: wait for https://github.com/NixOS/nixpkgs/issues/380196 to fix
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/1e8e30b5720174e11f998b3cc0af8c05f428ed91";
-    # TODO: remove when https://github.com/NixOS/nixpkgs/issues/380196
-    nixpkgs-working.url = "github:nixos/nixpkgs/1e8e30b5720174e11f998b3cc0af8c05f428ed91";
     # TODO: https://github.com/NixOS/nixpkgs/pull/358205
     nixpkgs-termfilechooser.url = "github:body20002/nixpkgs/add-xdg-desktop-portal-termfilechooser";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587

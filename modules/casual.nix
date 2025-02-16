@@ -45,11 +45,6 @@ in
         );
       })
       inputs.niri.overlays.niri
-      # TODO: https://github.com/NixOS/nixpkgs/issues/380196
-      (final: prev: {
-        vscode-extensions.vadimcn.vscode-lldb =
-          inputs.nixpkgs-working.legacyPackages.x86_64-linux.vscode-extensions.vadimcn.vscode-lldb;
-      })
     ];
   };
 
