@@ -37,13 +37,8 @@
         refresh = 144.001;
       };
     };
-  };
-
-  networking.hostName = "yuu-desktop";
-
-  yuu.de = {
-    hyprland = {
-      monitors = [
+    wayland.windowManager.hyprland.settings = {
+      monitor = [
         "DP-3, 1920x1080@144, 0x0, 1"
         "HDMI-A-1, 1920x1080@60, 1920x0, 1"
       ];
@@ -51,6 +46,9 @@
         "steam -silent"
       ];
     };
-    niri.enable = true;
   };
+
+  networking.hostName = "${username}-desktop";
+
+  yuu.de.niri.enable = true;
 }

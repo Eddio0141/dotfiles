@@ -19,9 +19,10 @@
     ];
 
     programs.niri.settings.outputs.eDP-2.variable-refresh-rate = true;
+    wayland.windowManager.hyprland.settings.monitor = [ "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1" ];
   };
 
-  networking.hostName = "yuu-laptop";
+  networking.hostName = "${username}-laptop";
 
   services.blueman.enable = true;
 
@@ -31,20 +32,10 @@
   yuu = {
     de = {
       niri.enable = true;
-      hyprland = {
-        xwaylandScale = 2;
-        monitors = [
-          "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1"
-        ];
-      };
+      hyprland.xwaylandScale = 2;
     };
     programs.ghidra.uiScale = 2;
     pack.dri-prime.enable = true;
-    # programs.gpu-screen-recorder.service = {
-    #   enable = true;
-    #   screen = "eDP-1";
-    #   save-dir = "/home/yuu/Videos";
-    # };
   };
 
   services.udev.packages = [

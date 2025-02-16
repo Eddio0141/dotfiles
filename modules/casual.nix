@@ -5,8 +5,6 @@
   username,
   inputs,
   system,
-  own-pkgs,
-  nixpkgs-options,
   config,
   ...
 }:
@@ -29,7 +27,7 @@ in
     ./stylix-nixos.nix
   ];
 
-  nixpkgs = nixpkgs-options // {
+  nixpkgs = {
     overlays = [
       # fixes 32 bit source games not launching
       # NOTE: https://github.com/NixOS/nixpkgs/issues/271483
@@ -44,8 +42,21 @@ in
           }
         );
       })
-      inputs.niri.overlays.niri
     ];
+
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+        "libgcrypt-1.5.3"
+        "dotnet-sdk-6.0.428"
+        "dotnet-sdk-wrapped-6.0.428"
+        "dotnet-runtime-wrapped-6.0.36"
+        "dotnet-runtime-6.0.36"
+        "dotnet-sdk-7.0.410"
+        "dotnet-sdk-wrapped-7.0.410"
+      ];
+    };
   };
 
   time.timeZone = "Europe/London";
@@ -222,111 +233,108 @@ in
     ];
   };
 
-  environment.systemPackages =
-    with pkgs;
-    with own-pkgs;
-    [
-      avalonia-ilspy
-      btop-rocm
-      obsidian
-      (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
-      protontricks
-      xdg-utils
-      wineWowPackages.staging
-      winetricks
-      libreoffice-qt
-      # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-      (unityhub.override {
-        extraLibs =
-          pkgs: with pkgs; [
-            openssl_1_1
-            dotnet-sdk_7
-          ];
-      })
-      ffmpeg
-      lutris
-      thunderbird
-      # blender
-      ani-cli
-      qbittorrent
-      # davinci-resolve
-      yt-dlp
-      strawberry-qt6
-      r2modman
-      # libtas
-      # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
-      wl-clipboard
-      cliphist
-      quickemu
-      # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
-      # (godot_4.overrideAttrs rec {
-      #   version = "4.1.1-stable";
-      #   commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
-      #   src = fetchFromGitHub {
-      #     owner = "godotengine";
-      #     repo = "godot";
-      #     rev = commitHash;
-      #     hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
-      #   };
-      # })
-      # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
-      # citra-canary
-      # slack
-      # (ghidra-bin.overrideAttrs {
-      #   # buildInputs = [
-      #   #   # for debugging
-      #   #   python3Packages.psutil
-      #   #   python3Packages.protobuf3
-      #   #   lldb
-      #   #   gdb
-      #   # ];
-      #   postFixup =
-      #     let
-      #       pkg_path = "$out/lib/ghidra";
-      #     in
-      #     ''
-      #       mkdir -p "$out/bin"
-      #       ln -s "${pkg_path}/ghidraRun" "$out/bin/ghidra"
-      #
-      #       wrapProgram "${pkg_path}/support/launch.sh" \
-      #         --prefix PATH : ${lib.makeBinPath [
-      #           openjdk17
-      #           (python3.withPackages (p: with p; [
-      #             psutil
-      #             protobuf3
-      #           ]))
-      #           lldb
-      #           gdb
-      #         ]}
-      #     '';
-      # })
-      prismlauncher
-      file
-      # binaryninja-free
-      imhex
-      steam-game-wrap
-      inputs.umu.packages.${system}.default
-      vesktop
-      pinta
+  environment.systemPackages = with pkgs; [
+    avalonia-ilspy
+    btop-rocm
+    obsidian
+    (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
+    protontricks
+    xdg-utils
+    wineWowPackages.staging
+    winetricks
+    libreoffice-qt
+    # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+    (unityhub.override {
+      extraLibs =
+        pkgs: with pkgs; [
+          openssl_1_1
+          dotnet-sdk_7
+        ];
+    })
+    ffmpeg
+    lutris
+    thunderbird
+    # blender
+    ani-cli
+    qbittorrent
+    # davinci-resolve
+    yt-dlp
+    strawberry-qt6
+    r2modman
+    # libtas
+    # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
+    wl-clipboard
+    cliphist
+    quickemu
+    # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
+    # (godot_4.overrideAttrs rec {
+    #   version = "4.1.1-stable";
+    #   commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
+    #   src = fetchFromGitHub {
+    #     owner = "godotengine";
+    #     repo = "godot";
+    #     rev = commitHash;
+    #     hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
+    #   };
+    # })
+    # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
+    # citra-canary
+    # slack
+    # (ghidra-bin.overrideAttrs {
+    #   # buildInputs = [
+    #   #   # for debugging
+    #   #   python3Packages.psutil
+    #   #   python3Packages.protobuf3
+    #   #   lldb
+    #   #   gdb
+    #   # ];
+    #   postFixup =
+    #     let
+    #       pkg_path = "$out/lib/ghidra";
+    #     in
+    #     ''
+    #       mkdir -p "$out/bin"
+    #       ln -s "${pkg_path}/ghidraRun" "$out/bin/ghidra"
+    #
+    #       wrapProgram "${pkg_path}/support/launch.sh" \
+    #         --prefix PATH : ${lib.makeBinPath [
+    #           openjdk17
+    #           (python3.withPackages (p: with p; [
+    #             psutil
+    #             protobuf3
+    #           ]))
+    #           lldb
+    #           gdb
+    #         ]}
+    #     '';
+    # })
+    prismlauncher
+    file
+    # binaryninja-free
+    imhex
+    steam-game-wrap
+    inputs.umu.packages.${system}.default
+    vesktop
+    pinta
 
-      # spell checking
-      hunspell
-      hunspellDicts.en_GB-large
+    # spell checking
+    hunspell
+    hunspellDicts.en_GB-large
 
-      # hypr stuff
-      mpv
-      wofi
-      inputs.hyprpicker.packages.${system}.default
-      inputs.hyprcontrib.packages.${system}.grimblast
-      pamixer # volume control
+    # hypr stuff
+    mpv
+    wofi
+    inputs.hyprpicker.packages.${system}.default
+    inputs.hyprcontrib.packages.${system}.grimblast
+    pamixer # volume control
 
-      # external storage
-      gvfs
-      udisks
+    # external storage
+    gvfs
+    udisks
 
-      # managing qt5 themes
-      libsForQt5.qt5ct
-    ];
+    # managing qt5 themes
+    libsForQt5.qt5ct
+  ];
 
   qt.platformTheme = "qt5ct";
 

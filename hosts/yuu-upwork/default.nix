@@ -11,7 +11,7 @@
     ];
   };
 
-  networking.hostName = "yuu-upwork";
+  networking.hostName = "${username}-upwork";
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

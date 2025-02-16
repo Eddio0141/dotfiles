@@ -1,45 +1,46 @@
 {
   self,
-  lib,
   inputs,
-  system,
   home-manager,
   username,
   nixpkgs,
-  own-pkgs,
-  nixpkgs-options,
-  ...
 }:
 let
-  nixosSystem = lib.nixosSystem;
-  specialArgs = {
+  nixosSystem = nixpkgs.lib.nixosSystem;
+  baseSpecialArgs = {
     inherit
       username
       inputs
-      system
       self
       home-manager
-      own-pkgs
       nixpkgs
-      nixpkgs-options
       ;
   };
 in
 {
-  yuu-desktop = nixosSystem {
-    inherit system specialArgs;
+  yuu-desktop = nixosSystem rec {
+    system = "x86_64-linux";
+    specialArgs = baseSpecialArgs // {
+      inherit system;
+    };
     modules = [
       ./yuu-desktop
     ];
   };
-  yuu-upwork = nixosSystem {
-    inherit system specialArgs;
+  yuu-upwork = nixosSystem rec {
+    system = "x86_64-linux";
+    specialArgs = baseSpecialArgs // {
+      inherit system;
+    };
     modules = [
       ./yuu-upwork
     ];
   };
-  yuu-laptop = nixosSystem {
-    inherit system specialArgs;
+  yuu-laptop = nixosSystem rec {
+    system = "x86_64-linux";
+    specialArgs = baseSpecialArgs // {
+      inherit system;
+    };
     modules = [
       ./yuu-laptop
     ];

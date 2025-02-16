@@ -1,9 +1,5 @@
 {
-  description = "my system flake";
-
-  # NOTE: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
-  # NOTE: omnisharp causes shit to go down, for now added insecure package "dotnet-core-combined"
-  # NOTE: also same with dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
+  # NOTE: dotnet-sdk-6.0.428, dotnet-sdk-wrapped-6.0.428, dotnet-runtime-wrapped-6.0.36, dotnet-runtime-6.0.36, dotnet-sdk-7.0.410, dotnet-sdk-wrapped-7.0.410
   # TODO: stylix-nixos.nix, remove overrideAttrs once this is resolved https://github.com/ful1e5/Bibata_Cursor/issues/173
 
   inputs = {
@@ -63,66 +59,19 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-      own-pkgs = import ./pkgs {
-        inherit
-          pkgs
-          nixpkgs-options
-          inputs
-          system
-          ;
-      };
       username = "yuu";
-      nixpkgs-options = {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          # rocmSupport = true;
-          permittedInsecurePackages = [
-            "openssl-1.1.1w"
-            "libgcrypt-1.5.3"
-            "dotnet-sdk-6.0.428"
-            "dotnet-sdk-wrapped-6.0.428"
-            "dotnet-runtime-wrapped-6.0.36"
-            "dotnet-runtime-6.0.36"
-            "dotnet-sdk-7.0.410"
-            "dotnet-sdk-wrapped-7.0.410"
-          ];
-          # TODO: remove below
-          allowBroken = true;
-        };
-      };
-      # TODO: this isn't great
-      pkgs = import nixpkgs {
-        system = nixpkgs-options.system;
-        config = nixpkgs-options.config;
-      };
     in
     {
       nixosConfigurations = (
         import ./hosts {
-          inherit (nixpkgs) lib;
           inherit
             nixpkgs
             inputs
             username
-            system
             home-manager
             self
-            own-pkgs
-            nixpkgs-options
             ;
         }
       );
-      packages."${system}" = own-pkgs;
-      devShells.${system}.ghidra = pkgs.mkShell {
-        packages = with pkgs; [
-          python3Packages.psutil
-          python3Packages.protobuf3
-          lldb
-          gdb
-        ];
-        shellHook = "ghidra";
-      };
     };
 }

@@ -155,11 +155,12 @@
 
   programs.ripgrep.enable = true;
 
-  xdg.configFile."nixpkgs/config.nix".text = ''
-    {
-      allowUnfree = true;
-    }
-  '';
+  # TODO: declare properly?
+  # xdg.configFile."nixpkgs/config.nix".text = ''
+  #   {
+  #     allowUnfree = true;
+  #   }
+  # '';
 
   # for ideavim
   home.file.".ideavimrc".source = ./ideavimrc.vim;

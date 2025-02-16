@@ -16,7 +16,7 @@ in
   # "$border_pink_inactive" = "rgba(595959aa)";
 
   # automatically add new monitors
-  monitor = [ ",preferred,auto,1" ] ++ cfg.monitors;
+  monitor = [ ",preferred,auto,1" ];
   env = [
     # scaling
     "GDK_SCALE,${builtins.toString cfg.xwaylandScale}"
@@ -43,7 +43,7 @@ in
 
     "swww-daemon"
     "waypaper --restore"
-  ] ++ cfg.exec-once;
+  ];
   windowrulev2 = [
     # vesktop
     "workspace 2 silent, class:^(vesktop)$"
@@ -271,11 +271,6 @@ in
     "${miscMod}, L, exec, ydotool key 42:0 56:0 106:1 106:0"
     "${miscMod}, J, exec, ydotool key 42:0 56:0 108:1 108:0"
     "${miscMod}, K, exec, ydotool key 42:0 56:0 103:1 103:0"
-
-    # gpu-screen-recorder
-    # TODO: expand on this and make it better
-    "${recordingMod}, F9, exec, ${pkgs.dunst}/bin/dunstify -a gpu-screen-recorder -u low 'F9 key' && ${pkgs.killall}/bin/killall -SIGINT gpu-screen-recorder"
-    "${recordingMod}, F10, exec, ${pkgs.dunst}/bin/dunstify -a 'GPU Screen Recorder' -u low 'Replay saved' && ${pkgs.killall}/bin/killall -SIGUSR1 gpu-screen-recorder"
   ];
 
   bindm = [

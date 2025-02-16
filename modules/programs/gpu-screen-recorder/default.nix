@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.yuu.programs.gpu-screen-recorder;
@@ -6,15 +11,6 @@ in
 {
   options.yuu.programs.gpu-screen-recorder = {
     enable = mkEnableOption "gpu-screen-recorder";
-    # TODO: FIX
-    # service = {
-    #   enable = mkEnableOption "gpu-screen-recorder service";
-    #   # TODO: does it work with record as well
-    #   screen = mkOption { type = types.str; };
-    #   # TODO: make it check path
-    #   # save-dir = mkOption { type = types.path; };
-    #   save-dir = mkOption { type = types.str; };
-    # };
   };
 
   config = mkMerge [

@@ -48,6 +48,12 @@ actions: {
     GDK_DEBUG = "portals";
     # xwayland-satellite fix for java apps
     _JAVA_AWT_WM_NONREPARENTING = "1";
+    QT_IM_MODULE = "fcitx";
+    # # Fixes IM on some application, don't use GTK_IM_MODULE="xim" because it breaks wayland apps IM
+    # environment.variables = {
+    #     # Only for QT 6.7+, which, by the virtue of using KDE plasma 6, I have
+    #     QT_IM_MODULES="wayland;fcitx;ibus";
+    # };
   };
   window-rules = [
     # unity
