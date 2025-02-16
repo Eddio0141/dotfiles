@@ -10,6 +10,7 @@
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
+    # TODO: wait for https://github.com/danth/stylix/issues/865 before updating home-manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
