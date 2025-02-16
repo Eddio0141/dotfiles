@@ -48,11 +48,6 @@ in
       allowUnfree = true;
       permittedInsecurePackages = [
         "openssl-1.1.1w"
-        "libgcrypt-1.5.3"
-        "dotnet-sdk-6.0.428"
-        "dotnet-sdk-wrapped-6.0.428"
-        "dotnet-runtime-wrapped-6.0.36"
-        "dotnet-runtime-6.0.36"
         "dotnet-sdk-7.0.410"
         "dotnet-sdk-wrapped-7.0.410"
       ];
