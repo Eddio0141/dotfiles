@@ -34,9 +34,6 @@ in
     "obsidian"
     "vesktop"
 
-    # TODO fix this
-    # "noisetorch -i alsa_input.usb-Razer_Inc_Razer_Seiren_Mini_UC2220L03401755-00.mono-fallback"
-
     # cliphist
     "wl-paste --type text --watch cliphist store" # Stores only text data
     "wl-paste --type image --watch cliphist store" # Stores only image data

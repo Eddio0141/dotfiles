@@ -17,6 +17,7 @@
   home-manager.users.${username} = {
     imports = [
       ../../modules/casual-home.nix
+      ./home.nix
     ];
 
     programs.niri.settings.outputs = {
