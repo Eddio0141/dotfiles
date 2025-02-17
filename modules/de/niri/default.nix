@@ -20,8 +20,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.niri.enable = true;
-    # programs.niri.package = pkgs.niri-unstable;
+    programs.niri = {
+      enable = true;
+      # package = pkgs.niri-unstable;
+    };
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite-unstable
@@ -36,11 +38,6 @@ in
           user = "greeter";
         };
       };
-    };
-
-    nix.settings = {
-      substituters = [ "https://niri.cachix.org" ];
-      trusted-public-keys = [ "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=" ];
     };
 
     nixpkgs.overlays = [
