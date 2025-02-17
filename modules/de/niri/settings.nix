@@ -47,6 +47,10 @@ in
       };
       inactive.color = "rgb(12,0,22)";
     };
+    struts = {
+      left = 20;
+      right = 20;
+    };
   };
   spawn-at-startup = [
     { command = [ "xwayland-satellite" ]; }
