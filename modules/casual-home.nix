@@ -43,6 +43,7 @@
     };
     obs-studio = {
       enable = true;
+      package = inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio;
       plugins = with pkgs.obs-studio-plugins; [
         input-overlay
         obs-vkcapture

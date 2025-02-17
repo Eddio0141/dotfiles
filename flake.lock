@@ -1001,6 +1001,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
       }
     },
+    "nixpkgs-obs": {
+      "locked": {
+        "lastModified": 1739404775,
+        "narHash": "sha256-ZAM4Cvc62hHuwhBF1JOxnpNnQbAKO+rH6iHm4PW7SA0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "be208c66f98e61d50065b41fba656f5524b92512",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "be208c66f98e61d50065b41fba656f5524b92512",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720386169,
@@ -1242,6 +1258,7 @@
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-obs": "nixpkgs-obs",
         "nixpkgs-termfilechooser": "nixpkgs-termfilechooser",
         "ouch-yazi": "ouch-yazi",
         "restore-yazi": "restore-yazi",
