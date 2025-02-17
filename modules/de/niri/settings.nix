@@ -37,8 +37,15 @@ in
     default-column-width = {
       proportion = 0.9 / 1.;
     };
-    border.active = {
-      color = "rgb(255 255 255)";
+    border = {
+      active.gradient = {
+        angle = 5;
+        relative-to = "workspace-view";
+        from = "rgb(59,28,100)";
+        in' = "srgb-linear";
+        to = "rgb(235,205,235)";
+      };
+      inactive.color = "rgb(12,0,22)";
     };
   };
   spawn-at-startup = [
