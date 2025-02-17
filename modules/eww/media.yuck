@@ -1,0 +1,13 @@
+(deflisten media-title :initial ""
+  `playerctl --follow metadata --format {{title}}`)
+(deflisten media-image :initial ""
+  `playerctl --follow metadata --format {{mpris:artUrl}}`)
+
+(defwidget media []
+    (box :orientation "vertical"
+         :halign "center"
+      (image :path {substring(media-image, 7, strlength(media-image) - 7)}
+             :image-width 120
+             :image-height 120)
+      {media-title}
+    ))

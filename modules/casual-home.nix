@@ -69,6 +69,11 @@
         ];
       };
     };
+    eww = {
+      enable = true;
+      enableZshIntegration = true;
+      configDir = ./eww;
+    };
   };
 
   programs.wofi = {

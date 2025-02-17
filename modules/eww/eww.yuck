@@ -1,0 +1,22 @@
+(include "./media.yuck")
+
+(defwindow cute-bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0%"
+                               :width "120px"
+                               :height "500px"
+                               :anchor "top left")
+           :stacking "fg"
+           :exclusive false
+           :focusable "none"
+           :namespace "cute-bar"
+  (media)
+)
+
+;; (defwidget greeter [?text name]
+;;   (box :orientation "horizontal"
+;;        :halign "center"
+;;     text
+;;     (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
+;;       "Greet")))
