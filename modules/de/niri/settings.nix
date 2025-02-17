@@ -27,7 +27,6 @@ in
       { proportion = 1. / 4.; }
       { proportion = 1. / 2.; }
       { proportion = 3. / 4.; }
-      { proportion = 0.9 / 1.; }
     ];
     preset-window-heights = [
       { proportion = 1. / 4.; }
@@ -35,7 +34,7 @@ in
       { proportion = 3. / 4.; }
     ];
     default-column-width = {
-      proportion = 0.9 / 1.;
+      proportion = 1.;
     };
     border = {
       active.gradient = {
@@ -48,8 +47,8 @@ in
       inactive.color = "rgb(12,0,22)";
     };
     struts = {
-      left = 20;
-      right = 20;
+      left = 25;
+      right = 25;
     };
   };
   spawn-at-startup = [
