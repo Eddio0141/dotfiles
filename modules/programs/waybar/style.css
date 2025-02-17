@@ -23,7 +23,7 @@ window#waybar {
     color: rgb(85,85,85);
     text-shadow: inherit;
     border-radius: inherit;
-    transition: padding .5s;
+    transition: padding .3s;
 }
 
 #workspaces button:hover {
