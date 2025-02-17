@@ -1,91 +1,96 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     border: none;
-    border-radius: 15px;
     min-height: 0;
 }
 
-#workspaces,
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: rgba(0, 0, 0, 0);
+}
+
+#workspaces {
+    color: #ffffff;
+    margin-left: 15px;
+    padding: 0;
+    background-color: #ffffff;
+    border-radius: 10px 0px 10px 0px;
+}
+
+#workspaces button {
+    padding: 4px 12px;
+    margin: 0;
+    color: rgb(85,85,85);
+    text-shadow: inherit;
+    border-radius: inherit;
+    transition: padding .5s;
+}
+
+#workspaces button:hover {
+    background: rgb(214, 214, 214);
+    border-radius: inherit;
+}
+
+#workspaces button.active {
+    padding: 4px 24px;
+    color: #ffffff;
+    background: rgb(255,213,252);
+    background: linear-gradient(65deg, rgba(255,213,252,1) 20%, rgba(205,152,255,1) 45%);
+    border-radius: inherit;
+}
+
+#workspaces button.urgent {
+    background: #eb4d4b;
+}
+
+#window {
+    background: rgb(15, 15, 15);
+    padding: 0px 12px;
+    margin: 0px 5px;
+    min-width: 200px;
+    border-radius: 8px;
+    color: rgb(85,85,85);
+    background: rgba(255,213,252,1);
+}
+
 #pulseaudio,
 #network,
 #cpu,
 #memory,
 #temperature,
 #clock,
+#cava,
 #tray {
     padding: 0px 10px;
-    margin: 0px 7px;
-}
-
-window#waybar {
-    background-color: rgba(0, 0, 0, 0);
-    border-bottom: rgba(0, 0, 0, 0);
-    transition-property: background-color;
-    transition-duration: .5s;
-}
-
-#workspaces {
-    color: #ffffff;
-}
-
-#workspaces button {
-    padding: 5px 15px;
-    margin: 0 2px;
-    background-color: #ffffff;
-    color: rgb(255, 137, 229);
-    text-shadow: inherit;
-}
-
-#workspaces button:hover {
-    background: rgb(214, 214, 214);
-}
-
-#workspaces button.active {
-    padding: 5px 30px;
-    color: #ffffff;
-    background: rgb(255, 213, 252);
-    background: linear-gradient(65deg, rgba(255, 213, 252, 1) 0%, rgba(205, 152, 255, 1) 37%);
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#window {
-    background: rgb(255, 178, 241);
-    background: linear-gradient(65deg, rgba(255, 178, 241, 1) 0%, rgba(210, 178, 255, 1) 100%);
-    padding: 0px 12px;
     margin: 0px 5px;
-    min-width: 200px;
+    border-radius: 0px 10px 0px 10px;
+    color: rgb(85,85,85);
+    background: rgba(255,213,252,1);
+}
+
+#cava {
 }
 
 #pulseaudio {
-    background-color: #f6ff7e;
-    color: #000000;
 }
 
 #network {
-    background-color: green;
 }
 
 #cpu {
-    background-color: red;
 }
 
 #memory {
-    background-color: orange;
 }
 
 #temperature {
-    background-color: grey;
 }
 
 #clock {
-    background-color: lightblue;
 }
 
 #tray {
-    background-color: blue;
+    margin-right: 15px;
+    background: rgb(255,213,252);
+    background: linear-gradient(90deg, rgba(255,213,252,1) 0%, rgba(173,145,171,1) 100%);
 }

@@ -1,6 +1,6 @@
 {
   mainBar = {
-    # margin-top = 8;
+    margin-top = 8;
     layer = "top";
     position = "top";
     height = 30;

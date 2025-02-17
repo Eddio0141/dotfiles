@@ -1,4 +1,14 @@
-actions: {
+actions:
+let
+  radius = 15.;
+  window-geo = {
+    top-left = radius;
+    top-right = 0.0;
+    bottom-left = 0.0;
+    bottom-right = radius;
+  };
+in
+{
   prefer-no-csd = true;
   input = {
     touchpad = {
@@ -56,6 +66,12 @@ actions: {
     # };
   };
   window-rules = [
+    # global
+    {
+      geometry-corner-radius = window-geo;
+      clip-to-geometry = true;
+    }
+
     # unity
     {
       matches = [
@@ -135,6 +151,21 @@ actions: {
       ];
       open-floating = true;
       open-focused = false;
+    }
+  ];
+  # TODO: wait for next niri release
+  layer-rules = [
+    #   {
+    #     matches = [
+    #       {
+    #         namespace = "^wofi$";
+    #       }
+    #     ];
+    #     geometry-corner-radius = window-geo;
+    #   }
+    {
+      matches = [ { namespace = "^waybar$"; } ];
+      opacity = 0.85;
     }
   ];
   binds =
