@@ -6,6 +6,7 @@
 (defwidget media []
     (box :orientation "vertical"
          :halign "center"
+         :valign "start"
       (image :path {substring(media-image, 7, strlength(media-image) - 7)}
              :image-width 120
              :image-height 120)

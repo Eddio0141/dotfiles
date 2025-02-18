@@ -1,14 +1,24 @@
 (include "./media.yuck")
 
-(defwindow cute-bar
+;; (deflisten show-cute-bar :initial "0"
+;;     `niri msg event-stream | while read -r line; do
+;;        if [[ "$line" == "Window focus changed: None" ]]; then
+;;          echo "1"
+;;        elif [[ "$line" == "Window focus changed: Some"* ]]; then
+;;          echo "0"
+;;        fi
+;;     done`)
+(defvar show-cute-bar "1")
+
+(defwindow cute-bar [exclusive]
            :monitor 0
+           :exclusive {exclusive}
            :geometry (geometry :x "0%"
                                :y "0%"
-                               :width "120px"
-                               :height "500px"
-                               :anchor "top left")
-           :stacking "fg"
-           :exclusive false
+                               :width "200px"
+                               :height "1080px"
+                               :anchor "left center")
+           :stacking "bg"
            :focusable "none"
            :namespace "cute-bar"
   (media)
