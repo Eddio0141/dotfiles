@@ -158,6 +158,10 @@ in
           title = "^Rename Local Variable$";
           app-id = "^ghidra-Ghidra$";
         }
+        {
+          title = "^Rename Structure Field$";
+          app-id = "^ghidra-Ghidra$";
+        }
       ];
       open-floating = true;
       open-focused = false;
