@@ -10,9 +10,9 @@
 ;;     done`)
 (defvar show-cute-bar "1")
 
-(defwindow cute-bar [exclusive]
+(defwindow cute-bar
            :monitor 0
-           :exclusive {exclusive}
+           :exclusive false
            :geometry (geometry :x "0%"
                                :y "0%"
                                :width "200px"
