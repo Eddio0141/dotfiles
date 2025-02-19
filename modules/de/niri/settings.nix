@@ -132,7 +132,6 @@ in
       open-focused = false;
     }
     {
-      # popups that should float
       matches = [
         {
           title = "^win\\d+$";
@@ -154,17 +153,40 @@ in
           title = "^Save Program$";
           app-id = "^ghidra-Ghidra$";
         }
+      ];
+      open-floating = true;
+    }
+    {
+      matches = [
         {
-          title = "^Rename Local Variable$";
+          title = "^win\\d+$";
           app-id = "^ghidra-Ghidra$";
         }
         {
-          title = "^Rename Structure Field$";
+          title = "^Opening VT Session$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Choose a \\d+ program$";
+          app-id = "^ghidra-Ghidra$";
+        }
+      ];
+      open-focused = false;
+    }
+    {
+      matches = [
+        {
+          title = "^Rename ";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Edit label at";
           app-id = "^ghidra-Ghidra$";
         }
       ];
       open-floating = true;
-      open-focused = false;
+      max-height = 300;
+      max-width = 500;
     }
   ];
   # TODO: wait for next niri release
