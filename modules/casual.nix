@@ -275,34 +275,6 @@ in
     # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
     # citra-canary
     # slack
-    # (ghidra-bin.overrideAttrs {
-    #   # buildInputs = [
-    #   #   # for debugging
-    #   #   python3Packages.psutil
-    #   #   python3Packages.protobuf3
-    #   #   lldb
-    #   #   gdb
-    #   # ];
-    #   postFixup =
-    #     let
-    #       pkg_path = "$out/lib/ghidra";
-    #     in
-    #     ''
-    #       mkdir -p "$out/bin"
-    #       ln -s "${pkg_path}/ghidraRun" "$out/bin/ghidra"
-    #
-    #       wrapProgram "${pkg_path}/support/launch.sh" \
-    #         --prefix PATH : ${lib.makeBinPath [
-    #           openjdk17
-    #           (python3.withPackages (p: with p; [
-    #             psutil
-    #             protobuf3
-    #           ]))
-    #           lldb
-    #           gdb
-    #         ]}
-    #     '';
-    # })
     prismlauncher
     file
     # binaryninja-free

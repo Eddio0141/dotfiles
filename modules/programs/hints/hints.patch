@@ -1,0 +1,26 @@
+diff --git a/hints/hints.py b/hints/hints.py
+index 23dda5d..2ade920 100644
+--- a/hints/hints.py
++++ b/hints/hints.py
+@@ -294,7 +294,7 @@ def get_window_system(window_system_id: str = "") -> Type[WindowSystem]:
+             window_system_id = (
+                 run(
+                     "ps -e -o comm | grep -m 1 -o -E "
+-                    + " ".join([f"-e '^{wm}$'" for wm in supported_wayland_wms]),
++                    + " ".join([f"-e '{wm}'" for wm in supported_wayland_wms]),
+                     capture_output=True,
+                     shell=True,
+                 )
+diff --git a/setup.py b/setup.py
+index e7246d7..ef86851 100644
+--- a/setup.py
++++ b/setup.py
+@@ -85,7 +85,7 @@ class PostInstallCommand(install):
+ 
+     def run(self):
+         install.run(self)
+-        self.install_hintsd_service()
++        # self.install_hintsd_service()
+ 
+ 
+ dynamic_version = find_version("hints", "__init__.py")

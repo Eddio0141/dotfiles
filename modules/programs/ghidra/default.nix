@@ -9,6 +9,16 @@ let
   mkEnableOption = lib.mkEnableOption;
   mkIf = lib.mkIf;
   mkOption = lib.mkOption;
+  scaleUi = if isNull cfg.uiScale then "" else "; s,uiScale=1,uiScale=${cfg.uiScale},g";
+  pathAdd = with pkgs; [
+    lldb
+    (python3.withPackages (
+      p: with p; [
+        psutil
+        protobuf
+      ]
+    ))
+  ];
 in
 {
   options.yuu.programs.ghidra = {
@@ -21,37 +31,21 @@ in
   config = (
     mkIf cfg.enable {
       environment.systemPackages = [
-        (pkgs.symlinkJoin {
-          name = "ghidra";
-          paths = [ pkgs.ghidra ];
-          postBuild =
-            let
-              scaleUi =
-                if isNull cfg.uiScale then
-                  ""
-                else
-                  ''
-                    source="$out/lib/ghidra/support/launch.properties"
-                    ${replace-source-with-readlink}
-
-                    substituteInPlace "$source" \
-                      --replace-fail "uiScale=1" "uiScale=${toString cfg.uiScale}"
-                  '';
-              replace-source-with-readlink = ''
-                target=$(readlink -f "$source")
-                rm $source
-                cp "$target" "$source"
-              '';
-            in
-            ''
-              source="$out/lib/ghidra/ghidraRun"
-              ${replace-source-with-readlink}
-
-              substituteInPlace "$source" \
-                --replace-fail "#MAXMEM=2G" "MAXMEM=20G"
-            ''
-            + scaleUi;
-        })
+        (pkgs.runCommand "ghidra"
+          {
+            nativeBuildInputs = with pkgs; [ makeBinaryWrapper ];
+          }
+          ''
+            mkdir -p "$out"
+            cp -r "${pkgs.ghidra}"/* "$out/"
+              chmod -R +w "$out"
+              makeWrapper "$out/lib/ghidra/support/.launch.sh-wrapped" "$out/lib/ghidra/support/launch.sh" \
+                --inherit-argv0 \
+                --set-default NIX_GHIDRAHOME "$out/lib/ghidra/Ghidra" \
+                --prefix PATH : ${lib.makeBinPath ([ pkgs.openjdk21 ] ++ pathAdd)}
+              sed -i 's,#MAXMEM=2G,MAXMEM=20G,g${scaleUi}' "$out/lib/ghidra/support/launch.properties"
+          ''
+        )
       ];
     }
   );
