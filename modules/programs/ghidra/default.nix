@@ -9,7 +9,7 @@ let
   mkEnableOption = lib.mkEnableOption;
   mkIf = lib.mkIf;
   mkOption = lib.mkOption;
-  scaleUi = if isNull cfg.uiScale then "" else "; s,uiScale=1,uiScale=${cfg.uiScale},g";
+  scaleUi = if isNull cfg.uiScale then "" else "; s,uiScale=1,uiScale=${toString cfg.uiScale},g";
   pathAdd = with pkgs; [
     lldb
     (python3.withPackages (
