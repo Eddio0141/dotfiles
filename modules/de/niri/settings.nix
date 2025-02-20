@@ -153,6 +153,10 @@ in
           title = "^Save Program$";
           app-id = "^ghidra-Ghidra$";
         }
+        {
+          title = "^Copy Special$";
+          app-id = "^ghidra-Ghidra$";
+        }
       ];
       open-floating = true;
     }
@@ -184,7 +188,11 @@ in
           app-id = "^ghidra-Ghidra$";
         }
         {
-          title = "^Edit label at";
+          title = "^Edit Label at";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
+          title = "^Data Type Chooser Dialog$";
           app-id = "^ghidra-Ghidra$";
         }
       ];
