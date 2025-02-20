@@ -69,6 +69,25 @@
         ];
       };
     };
+    floorp = {
+      enable = true;
+      profiles.default = {
+        settings = {
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
+          "extensions.autoDisableScopes" = 0;
+        };
+        extensions = with inputs.rycee-firefox-extensions.packages.${system}; [
+          tridactyl
+          ublock-origin
+          darkreader
+          bitwarden
+          return-youtube-dislikes
+          sponsorblock
+          aw-watcher-web
+        ];
+        search.default = "DuckDuckGo";
+      };
+    };
     eww = {
       enable = true;
       enableZshIntegration = true;
