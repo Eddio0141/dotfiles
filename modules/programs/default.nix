@@ -7,5 +7,6 @@
     ./gpu-screen-recorder
     ./fastfetch
     ./ghidra
+    ./hints
   ];
 }
