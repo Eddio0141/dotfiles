@@ -180,6 +180,10 @@ in
           app-id = "^ghidra-Ghidra$";
         }
         {
+          title = "^Name New Variable$";
+          app-id = "^ghidra-Ghidra$";
+        }
+        {
           title = "^Edit label at";
           app-id = "^ghidra-Ghidra$";
         }
