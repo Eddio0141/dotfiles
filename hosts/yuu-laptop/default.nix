@@ -34,7 +34,7 @@
       niri.enable = true;
       hyprland.xwaylandScale = 2;
     };
-    programs.ghidra.uiScale = 2;
+    programs.ghidra.uiScale = 1.5;
     pack.dri-prime.enable = true;
   };
 
