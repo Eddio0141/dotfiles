@@ -65,8 +65,6 @@
     }@inputs:
     let
       username = "yuu";
-      dotfilesPath = "/home/${username}/dotfiles";
-      yuulib = import ./lib.nix { inherit home-manager dotfilesPath; };
     in
     {
       nixosConfigurations = (
@@ -77,8 +75,6 @@
             username
             home-manager
             self
-            yuulib
-            dotfilesPath
             ;
         }
       );

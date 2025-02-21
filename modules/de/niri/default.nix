@@ -4,6 +4,7 @@
   username,
   pkgs,
   inputs,
+  link,
   ...
 }:
 let
@@ -13,12 +14,6 @@ let
   # TODO: make this its own thing? (its a duplicate from hyprland module)
   xdg-desktop-portal-termfilechooser =
     inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser;
-  link =
-    path:
-    config.home-manager.users.${username}.lib.file.mkOutOfStoreSymlink (
-      "${config.programs.nh.flake}/modules/de/niri"
-      + (builtins.substring 1 ((builtins.stringLength path) - 1) path)
-    );
 in
 {
   options.yuu.de.niri = {
@@ -59,7 +54,7 @@ in
     };
 
     home-manager.users.${username} = {
-      xdg.configFile."niri/config.kdl".source = link "./config.kdl";
+      xdg.configFile."niri/config.kdl".source = link ./config.kdl;
 
       programs = {
         niri.config = null;

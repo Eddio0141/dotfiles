@@ -3,7 +3,6 @@
   lib,
   pkgs,
   username,
-  dotfilesPath,
   ...
 }:
 with lib;
@@ -156,7 +155,7 @@ in
         nix-index.enable = true;
         nh = {
           enable = true;
-          flake = dotfilesPath;
+          flake = "/home/${username}/dotfiles";
           clean = {
             enable = true;
             dates = "weekly";
