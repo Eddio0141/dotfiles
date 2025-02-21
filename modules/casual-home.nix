@@ -81,21 +81,109 @@ in
     };
     floorp = {
       enable = true;
-      profiles.default = {
-        settings = {
-          "widget.use-xdg-desktop-portal.file-picker" = 1;
-          "extensions.autoDisableScopes" = 0;
+      profiles = {
+        default = {
+          settings = {
+            "widget.use-xdg-desktop-portal.file-picker" = 1;
+            "extensions.autoDisableScopes" = 0;
+          };
+          extensions = with inputs.rycee-firefox-extensions.packages.${system}; [
+            tridactyl
+            ublock-origin
+            darkreader
+            bitwarden
+            return-youtube-dislikes
+            sponsorblock
+            aw-watcher-web
+          ];
+          search = {
+            force = true;
+            default = "DuckDuckGo";
+            engines = {
+              "Nix Packages" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+
+              "NixOs Options" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@no" ];
+              };
+
+              "Nix Home Manager" = {
+                urls = [
+                  {
+                    template = "https://home-manager-options.extranix.com";
+                    params = [
+                      {
+                        name = "release";
+                        value = "master";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+
+                definedAliases = [ "@hm" ];
+              };
+
+              "NixOS Wiki" = {
+                urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
+                definedAliases = [ "@nw" ];
+              };
+
+              "DuckDuckGo".metaData.alias = "@d";
+            };
+          };
+          id = 0;
+          isDefault = true;
         };
-        extensions = with inputs.rycee-firefox-extensions.packages.${system}; [
-          tridactyl
-          ublock-origin
-          darkreader
-          bitwarden
-          return-youtube-dislikes
-          sponsorblock
-          aw-watcher-web
-        ];
-        search.default = "DuckDuckGo";
+        etc = {
+          id = 1;
+        };
       };
     };
     eww = {
