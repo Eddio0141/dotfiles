@@ -4,6 +4,8 @@
   home-manager,
   username,
   nixpkgs,
+  yuulib,
+  dotfilesPath,
 }:
 let
   nixosSystem = nixpkgs.lib.nixosSystem;
@@ -14,6 +16,8 @@ let
       self
       home-manager
       nixpkgs
+      yuulib
+      dotfilesPath
       ;
   };
 in

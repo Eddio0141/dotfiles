@@ -222,6 +222,13 @@ in
       "kvm"
       "libvirtd"
       "docker"
+      "power"
+      "input"
+      "storage"
+      "video"
+      "libvirt"
+      "nix-users"
+      "macisajt"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIe9xUjQ2cvylpFcYh7BCqIcMGnHuThTjNgYC71CinB yuu@yuu-laptop"

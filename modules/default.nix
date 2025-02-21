@@ -1,4 +1,11 @@
-{ username, inputs, system, home-manager, ... }:
+{
+  username,
+  inputs,
+  system,
+  home-manager,
+  config,
+  ...
+}:
 {
   imports = [
     ./de
@@ -11,7 +18,14 @@
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = { inherit username inputs system; };
+        extraSpecialArgs = {
+          inherit
+            username
+            inputs
+            system
+            ;
+          nixConfig = config;
+        };
         users.${username}.imports = [
           {
             home = {

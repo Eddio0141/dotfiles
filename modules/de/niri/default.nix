@@ -13,6 +13,12 @@ let
   # TODO: make this its own thing? (its a duplicate from hyprland module)
   xdg-desktop-portal-termfilechooser =
     inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser;
+  link =
+    path:
+    config.home-manager.users.${username}.lib.file.mkOutOfStoreSymlink (
+      "${config.programs.nh.flake}/modules/de/niri"
+      + (builtins.substring 1 ((builtins.stringLength path) - 1) path)
+    );
 in
 {
   options.yuu.de.niri = {
@@ -53,8 +59,10 @@ in
     };
 
     home-manager.users.${username} = {
+      xdg.configFile."niri/config.kdl".source = link "./config.kdl";
+
       programs = {
-        niri.settings = import ./settings.nix config.home-manager.users.${username}.lib.niri.actions;
+        niri.config = null;
         hyprlock.enable = true;
 
         wlogout.enable = true;

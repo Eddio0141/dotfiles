@@ -1,0 +1,171 @@
+input {
+    keyboard {
+        xkb {
+            layout ""
+            model ""
+            rules ""
+            variant ""
+            options "caps:escape"
+        }
+        repeat-delay 600
+        repeat-rate 25
+        track-layout "global"
+    }
+    touchpad {
+        tap
+        accel-speed 0.500000
+        accel-profile "flat"
+    }
+    mouse {
+        accel-speed -0.350000
+        accel-profile "flat"
+    }
+    trackpoint { accel-speed 0.000000; }
+    trackball { accel-speed 0.000000; }
+    tablet
+    touch
+}
+output "DP-2" {
+    transform "normal"
+    mode "1920x1080@144.001000"
+}
+output "DP-3" {
+    transform "normal"
+    position x=0 y=0
+    mode "1920x1080@239.760000"
+}
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+layout {
+    gaps 16
+    struts {
+        left 25
+        right 25
+        top 0
+        bottom 0
+    }
+    focus-ring { off; }
+    border {
+        width 4
+        active-gradient angle=5 from="rgb(59,28,100)" in="srgb-linear" relative-to="workspace-view" to="rgb(235,205,235)"
+        inactive-color "rgb(12,0,22)"
+    }
+    insert-hint { color "rgba(127 200 255 50%)"; }
+    default-column-width { proportion 1.000000; }
+    preset-column-widths {
+        proportion 0.250000
+        proportion 0.500000
+        proportion 0.750000
+    }
+    preset-window-heights {
+        proportion 0.250000
+        proportion 0.500000
+        proportion 0.750000
+    }
+    center-focused-column "never"
+}
+cursor {
+    xcursor-theme "Bibata-Modern-Amber"
+    xcursor-size 24
+}
+hotkey-overlay
+environment {
+    DISPLAY ":0"
+    "GDK_DEBUG" "portals"
+    "NIXOS_OZONE_WL" "1"
+    "QT_IM_MODULE" "fcitx"
+    "_JAVA_AWT_WM_NONREPARENTING" "1"
+}
+binds {
+    Ctrl+Alt+Delete { spawn "sh" "-c" "pidof wlogout || wlogout"; }
+    Ctrl+Print { screenshot; }
+    Mod+Comma { focus-monitor-left; }
+    Mod+E { spawn "kitty" "yazi"; }
+    Mod+F { fullscreen-window; }
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+    Mod+L { focus-column-right; }
+    Mod+Period { focus-monitor-right; }
+    Mod+Q { spawn "kitty"; }
+    Mod+R { switch-focus-between-floating-and-tiling; }
+    Mod+S { spawn "sh" "-c" "pidof wofi || wofi"; }
+    Mod+Shift+BackSpace { spawn "sh" "-c" "pidof hyprlock || niri msg action do-screen-transition --delay-ms 300 && hyprlock"; }
+    Mod+Shift+Comma { move-window-to-monitor-left; }
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K { move-window-up-or-to-workspace-up; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Shift+M { consume-or-expel-window-right; }
+    Mod+Shift+N { consume-or-expel-window-left; }
+    Mod+Shift+O { reset-window-height; }
+    Mod+Shift+P { maximize-column; }
+    Mod+Shift+Period { move-window-to-monitor-right; }
+    Mod+Shift+bracketleft { switch-preset-window-height; }
+    Mod+Shift+bracketright { switch-preset-window-width; }
+    Mod+T { toggle-window-floating; }
+    Mod+W { close-window; }
+    Mod+WheelScrollDown { focus-workspace-down; }
+    Mod+WheelScrollLeft { focus-column-left; }
+    Mod+WheelScrollRight { focus-column-right; }
+    Mod+WheelScrollUp { focus-workspace-up; }
+    Print { screenshot-screen; }
+    Shift+Alt+I { spawn "playerctl" "previous"; }
+    Shift+Alt+O { spawn "playerctl" "next"; }
+    Shift+Alt+P { spawn "playerctl" "play-pause"; }
+}
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waybar"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "waypaper" "--restore"
+window-rule {
+    geometry-corner-radius 15.000000 0.000000 15.000000 0.000000
+    clip-to-geometry true
+}
+window-rule {
+    match app-id="^Unity$" title="^Unity$"
+    open-focused false
+}
+window-rule {
+    match app-id="^firefox$" title="^Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox$"
+    open-floating true
+}
+window-rule {
+    match app-id="^ghidra-Ghidra$" title="^Version Tracking Wizard$"
+    max-width 600
+    max-height 900
+}
+window-rule {
+    match app-id="^ghidra-Ghidra$" title="^Merge Version Tracking Session$"
+    match app-id="^ghidra-Ghidra$" title="^Loading Associations$"
+    open-focused false
+    max-width 500
+    max-height 300
+}
+window-rule {
+    match app-id="^ghidra-Ghidra$" title="^win\\d+$"
+    match app-id="^ghidra-Ghidra$" title="^Opening VT Session$"
+    match app-id="^ghidra-Ghidra$" title="^Choose a \\d+ program$"
+    match app-id="^ghidra-Ghidra$" title="^Confirm Delete$"
+    match app-id="^ghidra-Ghidra$" title="^Save Program$"
+    match app-id="^ghidra-Ghidra$" title="^Copy Special$"
+    match app-id="^ghidra-Ghidra$" title="^Rename "
+    match app-id="^ghidra-Ghidra$" title="^Name New Variable$"
+    match app-id="^ghidra-Ghidra$" title="^Edit Label at"
+    match app-id="^ghidra-Ghidra$" title="^Data Type Chooser Dialog$"
+    open-floating true
+    open-focused false
+}
+window-rule {
+    match app-id="^ghidra-Ghidra$" title="^Rename "
+    match app-id="^ghidra-Ghidra$" title="^Name New Variable$"
+    match app-id="^ghidra-Ghidra$" title="^Edit Label at"
+    match app-id="^ghidra-Ghidra$" title="^Data Type Chooser Dialog$"
+    max-width 500
+    max-height 300
+}
+layer-rule {
+    match namespace="^waybar$"
+    opacity 0.850000
+}
+animations { slowdown 1.000000; }

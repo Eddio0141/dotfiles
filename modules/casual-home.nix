@@ -3,8 +3,18 @@
   inputs,
   system,
   lib,
+  config,
+  nixConfig,
   ...
 }:
+let
+  link =
+    path:
+    config.lib.file.mkOutOfStoreSymlink (
+      "${nixConfig.programs.nh.flake}/modules"
+      + (builtins.substring 1 ((builtins.stringLength path) - 1) path)
+    );
+in
 {
   imports = [
     ./stylix-hm.nix
@@ -181,7 +191,7 @@
   programs.ripgrep.enable = true;
 
   # for ideavim
-  home.file.".ideavimrc".source = ./ideavimrc.vim;
+  home.file.".ideavimrc".source = link "./ideavimrc.vim";
 
   xdg = {
     mimeApps = {
