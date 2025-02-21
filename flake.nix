@@ -4,6 +4,7 @@
 
   inputs = {
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
+    # TODO: https://nixpk.gs/pr-tracker.html?pr=372528
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # TODO: https://github.com/NixOS/nixpkgs/pull/369193 fucking broke obs browser sources on purpose
     nixpkgs-obs.url = "github:nixos/nixpkgs/be208c66f98e61d50065b41fba656f5524b92512";
