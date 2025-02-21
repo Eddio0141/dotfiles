@@ -1266,6 +1266,7 @@
         "stylix": "stylix",
         "swww": "swww",
         "umu": "umu",
+        "vesktop-fix-temp": "vesktop-fix-temp",
         "wrapper-manager": "wrapper-manager",
         "yazi-rs-plugins": "yazi-rs-plugins"
       }
@@ -1541,6 +1542,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vesktop-fix-temp": {
+      "locked": {
+        "lastModified": 1740071001,
+        "narHash": "sha256-XKdF1/58U+rLTSfd4xHyMbet4KCXN/Q/ookdugasPTI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f17378b5064789c524b635ed25988f59dc1cf24c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/383706/head",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },

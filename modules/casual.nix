@@ -288,7 +288,9 @@ in
     imhex
     steam-game-wrap
     inputs.umu.packages.${system}.default
-    vesktop
+    # TODO: wait for fix
+    # vesktop
+    inputs.vesktop-fix-temp.legacyPackages.${system}.vesktop
     pinta
 
     # spell checking

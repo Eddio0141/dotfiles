@@ -17,6 +17,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # TODO: https://github.com/NixOS/nixpkgs/issues/380429, for vesktop
+    vesktop-fix-temp.url = "github:NixOS/nixpkgs/pull/383706/head";
     hyprcontrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
