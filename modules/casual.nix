@@ -292,6 +292,7 @@ in
     # vesktop
     inputs.vesktop-fix-temp.legacyPackages.${system}.vesktop
     pinta
+    floorp
 
     # spell checking
     hunspell
