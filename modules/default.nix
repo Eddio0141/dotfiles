@@ -12,7 +12,7 @@ let
   relativePath =
     path:
     assert lib.types.path.check path;
-    builtins.elemAt (builtins.match "^/nix/store/[^/]+(/.*$)" (toString path)) 0;
+    builtins.elemAt (builtins.match "^/nix/store/[^/]+(.*$)" (toString path)) 0;
   link =
     path:
     let
