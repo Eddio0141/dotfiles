@@ -142,34 +142,18 @@ window-rule {
     max-height 900
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$"
-    match title="^Merge Version Tracking Session$"
-    match title="^Loading Associations$"
+    match app-id="^ghidra-Ghidra$" title="^Merge Version Tracking Session$|^Loading Associations$"
     open-focused false
     max-width 500
     max-height 300
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$"
-    match title="^win\\d+$"
-    match title="^Opening VT Session$"
-    match title="^Choose a \\d+ program$"
-    match title="^Confirm Delete$"
-    match title="^Save Program$"
-    match title="^Copy Special$"
-    match title="^Rename "
-    match title="^Name New Variable$"
-    match title="^Edit Label at"
-    match title="^Data Type Chooser Dialog$"
+    match app-id="^ghidra-Ghidra$" title=r#"^win\d+$|^Opening VT Session$|^Choose a \\d+ program$|^Confirm Delete$|^Save Program$|^Copy Special$|^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$"#
     open-floating true
     open-focused false
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$"
-    match title="^Rename "
-    match title="^Name New Variable$"
-    match title="^Edit Label at"
-    match title="^Data Type Chooser Dialog$"
+    match app-id="^ghidra-Ghidra$" title="^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$"
     max-width 500
     max-height 300
 }
