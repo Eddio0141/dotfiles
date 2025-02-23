@@ -60,16 +60,27 @@
     };
   };
 
-  xdg.configFile."qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
-
-  xdg.configFile."qt5ct/colors/Dracula.conf".source =
-    pkgs.fetchFromGitHub {
-      owner = "dracula";
-      repo = "qt5";
-      rev = "master";
-      sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
-    }
-    + "/Dracula.conf";
+  xdg.configFile = {
+    "xdg-desktop-portal-termfilechooser/config".text = ''
+      [filechooser]
+      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+      default_dir=$HOME
+    '';
+    "xdg-desktop-portal/portals.conf".text = ''
+      [preferred]
+      default = gnome;gtk;
+      org.freedesktop.impl.portal.FileChooser = termfilechooser
+    '';
+    "qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
+    "qt5ct/colors/Dracula.conf".source =
+      pkgs.fetchFromGitHub {
+        owner = "dracula";
+        repo = "qt5";
+        rev = "master";
+        sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
+      }
+      + "/Dracula.conf";
+  };
 
   xdg.dataFile."fonts".source = ../share/fonts;
 

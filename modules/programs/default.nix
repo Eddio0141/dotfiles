@@ -8,5 +8,6 @@
     ./fastfetch
     ./ghidra
     ./hints
+    ./hyprlock
   ];
 }

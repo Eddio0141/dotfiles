@@ -6,30 +6,26 @@
     # yazi.url = "github:sxyazi/yazi/v0.4.0";
     # TODO: https://nixpk.gs/pr-tracker.html?pr=372528
     # TODO: https://nixpk.gs/pr-tracker.html?pr=383706
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     # TODO: https://github.com/NixOS/nixpkgs/pull/369193 fucking broke obs browser sources on purpose
     nixpkgs-obs.url = "github:nixos/nixpkgs/be208c66f98e61d50065b41fba656f5524b92512";
-    # TODO: https://github.com/NixOS/nixpkgs/pull/358205
-    nixpkgs-termfilechooser.url = "github:body20002/nixpkgs/add-xdg-desktop-portal-termfilechooser";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
-    # TODO: wait for https://github.com/danth/stylix/issues/865 before updating home-manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # TODO: https://github.com/NixOS/nixpkgs/issues/380429, for vesktop
-    vesktop-fix-temp.url = "github:NixOS/nixpkgs/pull/383706/head";
-    hyprcontrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland.url = "github:hyprwm/hyprland/v0.47.2";
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprcontrib = {
+    #   url = "github:hyprwm/contrib";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # hyprland.url = "github:hyprwm/hyprland/v0.47.2";
+    # hyprpicker = {
+    #   url = "github:hyprwm/hyprpicker";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     stylix = {
       url = "github:danth/stylix";

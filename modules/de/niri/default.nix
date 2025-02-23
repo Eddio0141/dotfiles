@@ -11,9 +11,6 @@ let
   cfg = config.yuu.de.niri;
   mkEnableOption = lib.mkEnableOption;
   mkIf = lib.mkIf;
-  # TODO: make this its own thing? (its a duplicate from hyprland module)
-  xdg-desktop-portal-termfilechooser =
-    inputs.nixpkgs-termfilechooser.legacyPackages.x86_64-linux.xdg-desktop-portal-termfilechooser;
 in
 {
   options.yuu.de.niri = {
@@ -21,14 +18,22 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.niri = {
-      enable = true;
-      # package = pkgs.niri-unstable;
+    programs = {
+      niri = {
+        enable = true;
+        package = pkgs.niri-unstable;
+      };
     };
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite-unstable
       xdg-desktop-portal-termfilechooser
+      inputs.swww.packages.${system}.swww
+      waypaper
+    ];
+
+    nixpkgs.overlays = [
+      inputs.niri.overlays.niri
     ];
 
     services.greetd = {
@@ -41,16 +46,9 @@ in
       };
     };
 
-    nixpkgs.overlays = [
-      inputs.niri.overlays.niri
-    ];
-
-    yuu = {
-      programs = {
-        waybar.enable = true;
-        kitty.enable = true;
-      };
-      security.polkit-gnome.enable = true;
+    yuu.programs = {
+      waybar.enable = true;
+      kitty.enable = true;
     };
 
     home-manager.users.${username} = {
@@ -67,24 +65,7 @@ in
         };
       };
 
-      xdg.configFile = {
-        "xdg-desktop-portal/portals.conf" = {
-          enable = true;
-          text = ''
-            [preferred]
-            default = gnome;gtk;
-            org.freedesktop.impl.portal.FileChooser = termfilechooser
-          '';
-        };
-        # "xdg-desktop-portal-termfilechooser/config" = {
-        #   enable = true;
-        #   text = ''
-        #     [filechooser]
-        #     cmd=yazi-wrapper.sh
-        #     default_dir=$HOME
-        #   '';
-        # };
-      };
+      services.dunst.enable = true;
     };
   };
 }

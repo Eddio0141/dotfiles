@@ -131,6 +131,16 @@ in
     };
 
     playerctld.enable = true;
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+          user = "greeter";
+        };
+      };
+    };
   };
 
   # Configure keymap in X11
@@ -297,23 +307,18 @@ in
     imhex
     steam-game-wrap
     inputs.umu.packages.${system}.default
-    # TODO: wait for fix
-    # vesktop
-    inputs.vesktop-fix-temp.legacyPackages.${system}.vesktop
+    vesktop
     pinta
     floorp
     ripgrep
+    xdg-desktop-portal-termfilechooser
+    mpv
+    wofi
+    pamixer # volume control
 
     # spell checking
     hunspell
     hunspellDicts.en_GB-large
-
-    # hypr stuff
-    mpv
-    wofi
-    inputs.hyprpicker.packages.${system}.default
-    inputs.hyprcontrib.packages.${system}.grimblast
-    pamixer # volume control
 
     # external storage
     gvfs
@@ -453,12 +458,7 @@ in
   # };
 
   yuu = {
-    de = {
-      hyprland = {
-        enable = true;
-        brightness-change = true;
-      };
-    };
+    de.niri.enable = true;
     programs = {
       git.enable = true;
       nvim.enable = true;

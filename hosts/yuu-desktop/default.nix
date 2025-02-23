@@ -50,6 +50,4 @@
   };
 
   networking.hostName = "${username}-desktop";
-
-  yuu.de.niri.enable = true;
 }
