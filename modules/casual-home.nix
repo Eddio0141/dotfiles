@@ -1,18 +1,9 @@
 {
   pkgs,
   lib,
-  config,
-  nixConfig,
+  link,
   ...
 }:
-let
-  link =
-    path:
-    config.lib.file.mkOutOfStoreSymlink (
-      "${nixConfig.programs.nh.flake}/modules"
-      + (builtins.substring 1 ((builtins.stringLength path) - 1) path)
-    );
-in
 {
   imports = [
     ./stylix-hm.nix
@@ -28,18 +19,10 @@ in
 
   gtk = {
     enable = true;
-    # theme = {
-    #   package = pkgs.libsForQt5.breeze-gtk;
-    #   name = "Breeze-Dark";
-    # };
     iconTheme = {
       package = pkgs.libsForQt5.breeze-icons;
       name = "breeze-dark";
     };
-    # font = {
-    #   name = "Noto Sans";
-    #   size = 10;
-    # };
   };
 
   programs.home-manager.enable = true;
@@ -139,10 +122,8 @@ in
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
   };
 
-  programs.ripgrep.enable = true;
-
   # for ideavim
-  home.file.".ideavimrc".source = link "./ideavimrc.vim";
+  home.file.".ideavimrc".source = link ./ideavimrc.vim;
 
   xdg = {
     mimeApps = {

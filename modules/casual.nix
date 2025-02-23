@@ -302,6 +302,7 @@ in
     inputs.vesktop-fix-temp.legacyPackages.${system}.vesktop
     pinta
     floorp
+    ripgrep
 
     # spell checking
     hunspell

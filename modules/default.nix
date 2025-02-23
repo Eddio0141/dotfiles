@@ -40,8 +40,8 @@ in
             username
             inputs
             system
+            link
             ;
-          nixConfig = config;
         };
         users.${username}.imports = [
           {
