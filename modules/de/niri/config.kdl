@@ -96,6 +96,7 @@ binds {
     Mod+Q { spawn "kitty"; }
     Mod+R { switch-focus-between-floating-and-tiling; }
     Mod+S { spawn "sh" "-c" "pidof wofi || wofi"; }
+    Mod+A { toggle-column-tabbed-display; }
     Mod+Shift+BackSpace { spawn "sh" "-c" "pidof hyprlock || niri msg action do-screen-transition --delay-ms 300 && hyprlock"; }
     Mod+Shift+Comma { move-window-to-monitor-left; }
     Mod+Shift+H { move-column-left; }
