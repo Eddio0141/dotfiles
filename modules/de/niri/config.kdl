@@ -59,14 +59,14 @@ layout {
     insert-hint { color "rgba(127 200 255 50%)"; }
     default-column-width { proportion 1.000000; }
     preset-column-widths {
-        proportion 0.250000
-        proportion 0.500000
-        proportion 0.750000
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
     }
     preset-window-heights {
-        proportion 0.250000
-        proportion 0.500000
-        proportion 0.750000
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
     }
     center-focused-column "never"
 }
@@ -77,10 +77,10 @@ cursor {
 hotkey-overlay
 environment {
     DISPLAY ":0"
-    "GDK_DEBUG" "portals"
-    "NIXOS_OZONE_WL" "1"
-    "QT_IM_MODULE" "fcitx"
-    "_JAVA_AWT_WM_NONREPARENTING" "1"
+    GDK_DEBUG "portals"
+    NIXOS_OZONE_WL "1"
+    QT_IM_MODULE "fcitx"
+    _JAVA_AWT_WM_NONREPARENTING "1"
 }
 binds {
     Ctrl+Alt+Delete { spawn "sh" "-c" "pidof wlogout || wlogout"; }
@@ -125,45 +125,31 @@ spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waypaper" "--restore"
 window-rule {
-    geometry-corner-radius 15.000000 0.000000 15.000000 0.000000
+    geometry-corner-radius 15 0 15 0
     clip-to-geometry true
 }
 window-rule {
     match app-id="^Unity$" title="^Unity$"
     open-focused false
 }
-
 window-rule {
     match app-id="^ghidra-Ghidra$" title="^Version Tracking Wizard$"
     max-width 600
     max-height 900
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$" title="^Merge Version Tracking Session$"
-    match app-id="^ghidra-Ghidra$" title="^Loading Associations$"
+    match app-id="^ghidra-Ghidra$" title="^Merge Version Tracking Session$|^Loading Associations$"
     open-focused false
     max-width 500
     max-height 300
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$" title="^win\\d+$"
-    match app-id="^ghidra-Ghidra$" title="^Opening VT Session$"
-    match app-id="^ghidra-Ghidra$" title="^Choose a \\d+ program$"
-    match app-id="^ghidra-Ghidra$" title="^Confirm Delete$"
-    match app-id="^ghidra-Ghidra$" title="^Save Program$"
-    match app-id="^ghidra-Ghidra$" title="^Copy Special$"
-    match app-id="^ghidra-Ghidra$" title="^Rename "
-    match app-id="^ghidra-Ghidra$" title="^Name New Variable$"
-    match app-id="^ghidra-Ghidra$" title="^Edit Label at"
-    match app-id="^ghidra-Ghidra$" title="^Data Type Chooser Dialog$"
+    match app-id="^ghidra-Ghidra$" title=r#"^win\d+$|^Opening VT Session$|^Choose a \\d+ program$|^Confirm Delete$|^Save Program$|^Copy Special$|^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$"#
     open-floating true
     open-focused false
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$" title="^Rename "
-    match app-id="^ghidra-Ghidra$" title="^Name New Variable$"
-    match app-id="^ghidra-Ghidra$" title="^Edit Label at"
-    match app-id="^ghidra-Ghidra$" title="^Data Type Chooser Dialog$"
+    match app-id="^ghidra-Ghidra$" title="^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$"
     max-width 500
     max-height 300
 }
