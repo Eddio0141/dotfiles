@@ -60,25 +60,6 @@ in
         obs-multi-rtmp
       ];
     };
-    firefox = {
-      enable = true;
-      profiles.default = {
-        settings = {
-          "widget.use-xdg-desktop-portal.file-picker" = 1;
-          "extensions.autoDisableScopes" = 0;
-          search.default = "DuckDuckGo";
-        };
-        extensions = with inputs.rycee-firefox-extensions.packages.${system}; [
-          tridactyl
-          ublock-origin
-          darkreader
-          bitwarden
-          return-youtube-dislikes
-          sponsorblock
-          aw-watcher-web
-        ];
-      };
-    };
     eww = {
       enable = true;
       enableZshIntegration = true;

@@ -73,7 +73,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    firefox
+    floorp
     upwork
     xclip
     anydesk

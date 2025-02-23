@@ -7,7 +7,7 @@ in
   startup = [
     { command = "waybar"; }
     { command = "dunst"; }
-    { command = "firefox"; }
+    { command = "floorp"; }
     { command = "strawberry"; }
     { command = "thunderbird"; }
     { command = "obsidian"; }

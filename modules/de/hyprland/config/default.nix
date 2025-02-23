@@ -26,7 +26,7 @@ in
   exec-once = [
     "waybar"
     "dunst"
-    "firefox"
+    "floorp"
     "strawberry"
     "[ workspace special silent ] slack"
 

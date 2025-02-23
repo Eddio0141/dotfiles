@@ -132,10 +132,7 @@ window-rule {
     match app-id="^Unity$" title="^Unity$"
     open-focused false
 }
-window-rule {
-    match app-id="^firefox$" title="^Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox$"
-    open-floating true
-}
+
 window-rule {
     match app-id="^ghidra-Ghidra$" title="^Version Tracking Wizard$"
     max-width 600
