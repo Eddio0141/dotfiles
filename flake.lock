@@ -420,11 +420,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1739730794,
-        "narHash": "sha256-4xdb7iUHvQ+THOr70HbhLRd1bR8kmhoB4h+ASrl72Sk=",
+        "lastModified": 1740342669,
+        "narHash": "sha256-0B6fTM9p0BrqRHxhxVbYrUAnoDwoID61v9wddhrF3L0=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "a0e27eba77f0aabebe518308559d2dbd37dc4829",
+        "rev": "2e4b8cbd46dd01f505dee00737f383646c0a6726",
         "type": "github"
       },
       "original": {
@@ -583,11 +583,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1739580444,
-        "narHash": "sha256-+/bSz4EAVbqz8/HsIGLroF8aNaO8bLRL7WfACN+24g4=",
+        "lastModified": 1740126099,
+        "narHash": "sha256-ozoOtE2hGsqh4XkTJFsrTkNxkRgShxpQxDynaPZUGxk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8bb37161a0488b89830168b81c48aed11569cb93",
+        "rev": "32fb99ba93fea2798be0e997ea331dd78167f814",
         "type": "github"
       },
       "original": {
