@@ -448,7 +448,6 @@ in
         enable = true;
         brightness-change = true;
       };
-      # sway.enable = true;
     };
     programs = {
       git.enable = true;
