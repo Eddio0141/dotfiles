@@ -69,6 +69,12 @@ layout {
         proportion 0.75
     }
     center-focused-column "never"
+    shadow {
+        on
+    }
+    tab-indicator {
+        inactive-color "rgb(45,0,45)"
+    }
 }
 cursor {
     xcursor-theme "Bibata-Modern-Amber"
@@ -152,6 +158,14 @@ window-rule {
     max-width 500
     max-height 300
 }
+
+window-rule {
+    match app-id="^thunderbird$"
+    match app-id="^obsidian$"
+
+    block-out-from "screen-capture"
+}
+
 layer-rule {
     match namespace="^waybar$"
     opacity 0.850000
