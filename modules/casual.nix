@@ -169,6 +169,17 @@ in
 
   programs = {
     ssh.startAgent = true;
+    command-not-found.enable = false;
+    noisetorch.enable = true;
+    obs-studio = {
+      enable = true;
+      package = inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio;
+      plugins = with pkgs.obs-studio-plugins; [
+        input-overlay
+        obs-vkcapture
+        obs-multi-rtmp
+      ];
+    };
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -204,8 +215,6 @@ in
         xorg.libXrender
       ];
     };
-    command-not-found.enable = false;
-    noisetorch.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

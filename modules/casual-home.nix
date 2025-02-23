@@ -1,7 +1,5 @@
 {
   pkgs,
-  inputs,
-  system,
   lib,
   config,
   nixConfig,
@@ -50,15 +48,6 @@ in
     ssh = {
       enable = true;
       addKeysToAgent = "yes";
-    };
-    obs-studio = {
-      enable = true;
-      package = inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio;
-      plugins = with pkgs.obs-studio-plugins; [
-        input-overlay
-        obs-vkcapture
-        obs-multi-rtmp
-      ];
     };
     eww = {
       enable = true;
