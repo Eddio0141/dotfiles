@@ -105,10 +105,14 @@ binds {
     Mod+A { toggle-column-tabbed-display; }
     Mod+Shift+BackSpace { spawn "sh" "-c" "pidof hyprlock || niri msg action do-screen-transition --delay-ms 300 && hyprlock"; }
     Mod+Shift+Comma { move-window-to-monitor-left; }
+    
     Mod+Shift+H { move-column-left; }
     Mod+Shift+J { move-window-down-or-to-workspace-down; }
     Mod+Shift+K { move-window-up-or-to-workspace-up; }
     Mod+Shift+L { move-column-right; }
+    Mod+Shift+Ctrl+J { move-workspace-down; }
+    Mod+Shift+Ctrl+K { move-workspace-up; }
+
     Mod+Shift+M { consume-or-expel-window-right; }
     Mod+Shift+N { consume-or-expel-window-left; }
     Mod+Shift+O { reset-window-height; }
@@ -157,6 +161,10 @@ window-rule {
     match app-id="^ghidra-Ghidra$" title="^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$|^Merge Version Tracking Session$|^Loading Associations$"
     max-width 500
     max-height 300
+}
+window-rule {
+    match app-id="^ghidra-Ghidra$" title="Search"
+    default-column-width { proportion 0.5; }
 }
 
 window-rule {
