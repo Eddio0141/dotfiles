@@ -201,6 +201,7 @@ in
         dbus
         wayland
         gtk3
+        gtk2-x11
         pango
         atk
         cairo
