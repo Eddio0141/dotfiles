@@ -58,16 +58,16 @@ layout {
     }
     insert-hint { color "rgba(127 200 255 50%)"; }
     default-column-width { proportion 1.000000; }
-    preset-column-widths {
-        proportion 0.25
-        proportion 0.5
-        proportion 0.75
-    }
-    preset-window-heights {
-        proportion 0.25
-        proportion 0.5
-        proportion 0.75
-    }
+    // preset-column-widths {
+    //     proportion 0.25
+    //     proportion 0.5
+    //     proportion 0.75
+    // }
+    // preset-window-heights {
+    //     proportion 0.25
+    //     proportion 0.5
+    //     proportion 0.75
+    // }
     center-focused-column "never"
     shadow {
         on
@@ -118,8 +118,10 @@ binds {
     Mod+Shift+O { reset-window-height; }
     Mod+Shift+P { maximize-column; }
     Mod+Shift+Period { move-window-to-monitor-right; }
-    Mod+Shift+bracketleft { switch-preset-window-height; }
-    Mod+Shift+bracketright { switch-preset-window-width; }
+    Mod+Shift+bracketright { set-column-width "+25%"; }
+    Mod+Shift+bracketleft { set-column-width "-25%"; }
+    Mod+Shift+numbersign { set-window-height "+25%"; }
+    Mod+Shift+apostrophe { set-window-height "-25%"; }
     Mod+T { toggle-window-floating; }
     Mod+W { close-window; }
     Mod+WheelScrollDown { focus-workspace-down; }
@@ -130,6 +132,11 @@ binds {
     Shift+Alt+I { spawn "playerctl" "previous"; }
     Shift+Alt+O { spawn "playerctl" "next"; }
     Shift+Alt+P { spawn "playerctl" "play-pause"; }
+    
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 }
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
