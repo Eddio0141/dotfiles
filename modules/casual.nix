@@ -177,11 +177,11 @@ in
     obs-studio = {
       enable = true;
       package = inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio;
-      plugins = with pkgs.obs-studio-plugins; [
-        input-overlay
-        obs-vkcapture
-        obs-multi-rtmp
-      ];
+      # plugins = with inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio-plugins; [
+      #   input-overlay
+      #   obs-vkcapture
+      #   obs-multi-rtmp
+      # ];
     };
     nix-ld = {
       enable = true;
