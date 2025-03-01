@@ -450,6 +450,8 @@ in
   #   };
   # };
 
+  xdg.portal.xdgOpenUsePortal = true;
+
   yuu = {
     de.niri.enable = true;
     programs = {
