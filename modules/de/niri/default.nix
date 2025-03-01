@@ -27,9 +27,12 @@ in
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite-unstable
-      xdg-desktop-portal-termfilechooser
       inputs.swww.packages.${system}.swww
       waypaper
+    ];
+
+    xdg.portal.extraPortals = with pkgs; [
+      xdg-desktop-portal-termfilechooser
     ];
 
     nixpkgs.overlays = [
