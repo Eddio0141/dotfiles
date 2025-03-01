@@ -38,6 +38,9 @@ in
           map ctrl+shift+w>shift+j move_window down
           map ctrl+shift+w>shift+k move_window up
 
+          map ctrl+shift+k scroll_page_up
+          map ctrl+shift+j scroll_page_down
+
           # Create a new window splitting the space used by the existing one so that
           # the two windows are placed one above the other
           map ctrl+shift+w>s launch --location=hsplit
