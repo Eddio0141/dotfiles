@@ -160,12 +160,12 @@ window-rule {
     open-focused false
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$" title=r#"^win\d+$|^Opening VT Session$|^Choose a \\d+ program$|^Confirm Delete$|^Save Program$|^Copy Special$|^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$"#
+    match app-id="^ghidra-Ghidra$" title=r#"^win\d+$|^Opening VT Session$|^Choose a \\d+ program$|^Confirm Delete$|^Save Program$|^Copy Special$|^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$|^Decompiler Find Text$"#
     open-floating true
     open-focused false
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$" title="^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$|^Merge Version Tracking Session$|^Loading Associations$"
+    match app-id="^ghidra-Ghidra$" title="^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$|^Merge Version Tracking Session$|^Loading Associations$|^Decompiler Find Text$"
     max-width 500
     max-height 300
 }
