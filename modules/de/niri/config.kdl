@@ -138,10 +138,18 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 }
+
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waypaper" "--restore"
+
+spawn-at-startup "vesktop"
+spawn-at-startup "floorp"
+spawn-at-startup "obsidian"
+spawn-at-startup "thunderbird"
+spawn-at-startup "kitty"
+
 window-rule {
     geometry-corner-radius 15 0 15 0
     clip-to-geometry true
