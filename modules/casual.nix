@@ -141,6 +141,12 @@ in
         };
       };
     };
+
+    journald = {
+      extraConfig = ''
+        MaxRetentionSec=7day
+      '';
+    };
   };
 
   # Configure keymap in X11
