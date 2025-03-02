@@ -45,6 +45,9 @@ in
                 deviceNames = attrNames filteredDevices;
                 # pixel7 doesn't need everything
                 deviceNamesExclPixel7 = attrNames (lib.filterAttrs (key: _: key != "pixel7") filteredDevices);
+                deviceNamesPcPixel7 = attrNames (
+                  lib.filterAttrs (key: _: key == "pixel7" || key == "yuu-desktop") filteredDevices
+                );
               in
               {
                 "/home/${username}/Documents/Obsidian" = {
@@ -70,6 +73,10 @@ in
                 "/home/${username}/Pictures/wallpaper" = {
                   id = "wallpaper";
                   devices = deviceNames;
+                };
+                "/home/${username}/Pictures/photos" = {
+                  id = "photos";
+                  devices = deviceNamesPcPixel7;
                 };
               };
           };
