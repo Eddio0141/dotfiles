@@ -22,7 +22,7 @@ let
     pkgs.runCommand "link${relative}" { } "ln -s ${full} $out";
 in
 {
-  _module.args = { inherit link; };
+  _module.args = { inherit link relativePath; };
 
   imports = [
     ./de
@@ -30,6 +30,7 @@ in
     ./pack
     ./security
     ./services
+    ./file
     home-manager.nixosModules.home-manager
     {
       home-manager = {

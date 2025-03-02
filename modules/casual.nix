@@ -468,5 +468,8 @@ in
     };
     pack.comfy-shell.enable = true;
     services.syncthing.enable = true;
+
+    # for ideavim
+    file.home.".ideavimrc" = ./ideavimrc.vim;
   };
 }
