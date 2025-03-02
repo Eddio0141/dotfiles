@@ -77,6 +77,7 @@ in
                 "/home/${username}/Pictures/photos" = {
                   id = "photos";
                   devices = deviceNamesPcPixel7;
+                  type = "receiveonly";
                 };
               };
           };
