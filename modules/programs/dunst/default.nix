@@ -16,6 +16,11 @@ in
 
       home-manager.users.${username}.services.dunst = {
         enable = true;
+        settings = {
+          global = {
+            follow = "keyboard";
+          };
+        };
         # configFile = ./dunstrc;
       };
     }
