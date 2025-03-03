@@ -11,6 +11,7 @@ let
   mapAttrsToList = lib.attrsets.mapAttrsToList;
 in
 {
+  # TODO: the folders need to have user permission too
   options.yuu.file.home = mkOption {
     default = { };
   };
