@@ -190,6 +190,12 @@ window-rule {
 }
 
 layer-rule {
+    match namespace="^notifications$"
+
+    block-out-from "screen-capture"
+}
+
+layer-rule {
     match namespace="^waybar$"
     opacity 0.850000
 }
