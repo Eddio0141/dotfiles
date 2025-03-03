@@ -52,6 +52,7 @@ in
     yuu.programs = {
       waybar.enable = true;
       kitty.enable = true;
+      dunst.enable = true;
     };
 
     home-manager.users.${username} = {
@@ -67,8 +68,6 @@ in
           modules-center = [ "niri/window" ];
         };
       };
-
-      services.dunst.enable = true;
     };
   };
 }

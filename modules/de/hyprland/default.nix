@@ -52,6 +52,7 @@ in
       programs = {
         waybar.enable = true;
         kitty.enable = true;
+        dunst.enable = true;
       };
       security.polkit-gnome.enable = true;
     };
@@ -77,7 +78,6 @@ in
             };
           };
         };
-        dunst.enable = true;
       };
 
       wayland.windowManager.hyprland = {

@@ -9,5 +9,6 @@
     ./ghidra
     ./hints
     ./hyprlock
+    ./dunst
   ];
 }
