@@ -1,0 +1,45 @@
+window {
+    /* margin: 5px; */
+    /* border: 2px solid rgb(0, 140, 255); */
+    background-color: rgb(30,30,30);
+    border-radius: 30px;
+}
+
+/* #input { */
+/*     margin: 5px; */
+/*     border: 2px solid rgb(0, 247, 255); */
+/*     /* background-color: blue; */ */
+/* } */
+/**/
+
+#inner-box {
+    /* border: 2px solid yellow; */
+    /* background-color: yellow; */
+    /* margin: 50px; */
+    /* padding: 50px; */
+}
+
+#outer-box {
+    /* margin: 5px; */
+    /* border: 2px solid green; */
+    /* background-color: green; */
+    padding: 25px;
+}
+
+#entry {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 13px 0px 13px 0px;
+}
+
+#entry:selected {
+    background-color: rgb(250,185,250);
+}
+
+#text:selected {
+    color: black;
+}
+
+#text {
+    margin: 5px;
+}

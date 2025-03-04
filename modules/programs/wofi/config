@@ -1,0 +1,7 @@
+width = 850
+height = 400
+insensitive = true
+allow_markup = true
+allow_images = true
+show = drun
+columns = 2

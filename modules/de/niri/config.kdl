@@ -199,4 +199,9 @@ layer-rule {
     match namespace="^waybar$"
     opacity 0.850000
 }
+layer-rule {
+    match namespace="^wofi$"
+    // TODO: not sure if this is ideal
+    opacity 0.99
+}
 animations { slowdown 1.000000; }

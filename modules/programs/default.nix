@@ -10,5 +10,6 @@
     ./hints
     ./hyprlock
     ./dunst
+    ./wofi
   ];
 }

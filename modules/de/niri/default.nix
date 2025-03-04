@@ -53,6 +53,7 @@ in
       waybar.enable = true;
       kitty.enable = true;
       dunst.enable = true;
+      wofi.enable = true;
     };
 
     home-manager.users.${username} = {

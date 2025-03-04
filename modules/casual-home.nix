@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -35,19 +34,6 @@
       enable = true;
       enableZshIntegration = true;
       configDir = ./eww;
-    };
-  };
-
-  programs.wofi = {
-    enable = true;
-    style = lib.mkForce (builtins.readFile ../config/wofi/style.css);
-    settings = {
-      width = "30%";
-      height = "75%";
-      insensitive = true;
-      allow_markup = true;
-      allow_images = true;
-      show = "drun";
     };
   };
 
