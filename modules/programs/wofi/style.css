@@ -40,6 +40,9 @@ window {
 
 #entry:selected {
     background-color: rgb(250,185,250);
+    margin: none;
+    padding: none;
+    border: none;
 }
 
 #text:selected {
