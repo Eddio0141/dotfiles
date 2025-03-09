@@ -141,7 +141,7 @@ in
   config = (
     mkIf cfg.enable {
       environment.systemPackages = with pkgs; [
-        tldr
+        tealdeer
         trash-cli
         ouch
         # fhs-env
