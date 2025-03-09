@@ -5,7 +5,7 @@ in
 {
   programs.yazi = {
     enable = true;
-    enableZshIntegration = true;
+    enableNushellIntegration = true;
     # package = inputs.yazi.packages.x86_64-linux.yazi;
     plugins = {
       ouch = inputs.ouch-yazi;

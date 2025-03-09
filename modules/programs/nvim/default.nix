@@ -26,7 +26,7 @@ in
         inputs.meowvim.overlays.default
       ];
 
-      home-manager.users.${username}.programs.zsh.shellAliases = {
+      home-manager.users.${username}.programs.nushell.shellAliases = {
         vimdiff = "nvim -d";
         vi = "nvim";
         vim = "nvim";

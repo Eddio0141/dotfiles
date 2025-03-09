@@ -32,7 +32,7 @@
     };
     eww = {
       enable = true;
-      enableZshIntegration = true;
+      # TODO: enableNushellIntegration = true;
       configDir = ./eww;
     };
   };
@@ -68,11 +68,6 @@
   };
 
   xdg.dataFile."fonts".source = ../share/fonts;
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 
   services.activitywatch = {
     enable = true;

@@ -20,7 +20,6 @@ in
 
       home-manager.users.${username}.programs.kitty = {
         enable = true;
-        shellIntegration.enableZshIntegration = true;
         font = {
           package = config.stylix.fonts.monospace.package;
           name = config.stylix.fonts.monospace.name;
