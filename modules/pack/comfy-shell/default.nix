@@ -195,18 +195,12 @@ in
               upgrade = "nh os switch -u";
             };
             configFile.source = ./config.nu;
-            # initExtra = ''
-            #   if [[ $- = *i* ]]; then
-            #   fastfetch
-            #
-            #   echo "Welcome back $USER!"
-            #   fi
-            # '';
           };
 
           oh-my-posh = {
             enable = true;
             enableNushellIntegration = true;
+            useTheme = "catppuccin_frappe";
           };
 
           fd.enable = true;
