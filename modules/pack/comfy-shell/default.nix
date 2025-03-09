@@ -194,6 +194,7 @@ in
               update-test = "nh os test";
               upgrade = "nh os switch -u";
             };
+            configFile.source = ./config.nu;
             # initExtra = ''
             #   if [[ $- = *i* ]]; then
             #   fastfetch
