@@ -1,5 +1,6 @@
 {
   pkgs,
+  link,
   ...
 }:
 {
@@ -65,6 +66,7 @@
         sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
       }
       + "/Dracula.conf";
+    "tealdeer/config.toml".source = link ./tealdeer.toml;
   };
 
   xdg.dataFile."fonts".source = ../share/fonts;
