@@ -6,5 +6,6 @@
     kitty.enable = false;
     waybar.enable = false;
     wofi.enable = false;
+    nushell.enable = false;
   };
 }
