@@ -145,6 +145,8 @@ in
         tokei
         trash-cli
         ouch
+        fish # for nushell completions
+        carapace
         # fhs-env
       ];
 
