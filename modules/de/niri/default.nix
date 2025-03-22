@@ -30,6 +30,7 @@ in
       xwayland-satellite-unstable
       inputs.swww.packages.${system}.swww
       waypaper
+      brightnessctl
     ];
 
     xdg.portal.extraPortals = with pkgs; [
