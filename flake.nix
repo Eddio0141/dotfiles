@@ -7,7 +7,6 @@
     # TODO: https://github.com/NixOS/nixpkgs/pull/369193 fucking broke obs browser sources on purpose, do i just sue plugin?
     # nixpkgs-obs.url = "github:nixos/nixpkgs/be208c66f98e61d50065b41fba656f5524b92512";
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
-    # TODO: restore niri to use flake package, currently using nixpkgs version
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
     home-manager = {
