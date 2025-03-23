@@ -182,12 +182,9 @@ in
     noisetorch.enable = true;
     obs-studio = {
       enable = true;
-      # package = inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio;
-      # plugins = with inputs.nixpkgs-obs.legacyPackages.${system}.obs-studio-plugins; [
-      #   input-overlay
-      #   obs-vkcapture
-      #   obs-multi-rtmp
-      # ];
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-webkitgtk
+      ];
     };
     nix-ld = {
       enable = true;
