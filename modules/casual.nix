@@ -258,7 +258,8 @@ in
     (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
     protontricks
     xdg-utils
-    wineWowPackages.staging
+    wineWowPackages.full
+    samba4Full
     winetricks
     libreoffice-qt
     # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
