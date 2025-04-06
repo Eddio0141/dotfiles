@@ -210,6 +210,7 @@ in
         expat
         cups
         libcap
+        fuse
         xorg.libX11
         xorg.libXext
         xorg.libXcursor
@@ -220,6 +221,7 @@ in
         xorg.libXfixes
         xorg.libXtst
         xorg.libXrender
+        xorg.libxcb
       ];
     };
   };
@@ -245,6 +247,7 @@ in
       "libvirt"
       "nix-users"
       "macisajt"
+      "users"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIe9xUjQ2cvylpFcYh7BCqIcMGnHuThTjNgYC71CinB yuu@yuu-laptop"
