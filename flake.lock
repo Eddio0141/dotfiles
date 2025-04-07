@@ -416,14 +416,15 @@
         "eyeliner-nvim": "eyeliner-nvim",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-master": "nixpkgs-master"
       },
       "locked": {
-        "lastModified": 1743959666,
-        "narHash": "sha256-KIRSSTui+2/QQTCQG+elvnJM2U5qmatnhUREV4R/L1s=",
+        "lastModified": 1744036622,
+        "narHash": "sha256-TCS7uAFE63RZeo6/dvRRvxQDFuJJvurzkcuoiFf9gCo=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "f5ef89682b46f956e129ab2b076cef3000b43d0e",
+        "rev": "caadb4f6db5185462fdfa9f5d5f4db559b913128",
         "type": "github"
       },
       "original": {
@@ -530,6 +531,21 @@
       "original": {
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
+      }
+    },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1744035660,
+        "narHash": "sha256-bia00ydEdR+0wqNN/TPTLQisgndMCY6NVSGW0uPmOy0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0bd982a343634fb29bb14a114592110125ef9128",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-stable": {
