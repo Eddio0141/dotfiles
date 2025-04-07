@@ -94,6 +94,7 @@ binds {
     Mod+Comma { focus-monitor-left; }
     Mod+E { spawn "kitty" "yazi"; }
     Mod+F { fullscreen-window; }
+    Mod+D { maximize-column; }
     Mod+H { focus-column-left; }
     Mod+J { focus-window-or-workspace-down; }
     Mod+K { focus-window-or-workspace-up; }
@@ -116,7 +117,6 @@ binds {
     Mod+Shift+M { consume-or-expel-window-right; }
     Mod+Shift+N { consume-or-expel-window-left; }
     Mod+Shift+O { reset-window-height; }
-    Mod+Shift+P { maximize-column; }
     Mod+Shift+Period { move-window-to-monitor-right; }
     Mod+Shift+bracketright { set-column-width "+25%"; }
     Mod+Shift+bracketleft { set-column-width "-25%"; }
