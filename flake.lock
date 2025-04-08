@@ -420,11 +420,11 @@
         "nixpkgs-master": "nixpkgs-master"
       },
       "locked": {
-        "lastModified": 1744036622,
-        "narHash": "sha256-TCS7uAFE63RZeo6/dvRRvxQDFuJJvurzkcuoiFf9gCo=",
+        "lastModified": 1744147001,
+        "narHash": "sha256-KagsFkQ0Wl4zxDa7nwYfbfarzSE86a9WXafjKQfMejo=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "caadb4f6db5185462fdfa9f5d5f4db559b913128",
+        "rev": "38c27fbee43814dfeab4e8638cf7b7947e2bf3dc",
         "type": "github"
       },
       "original": {
@@ -545,6 +545,22 @@
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-mesa": {
+      "locked": {
+        "lastModified": 1737617410,
+        "narHash": "sha256-9wOr8IsCa81BN4k10zuryS1TjZr7Cf3SVzzWXHtTbLw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "bcad4f36b978bd56017dd57bfb71892ce9c9e959",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "bcad4f36b978bd56017dd57bfb71892ce9c9e959",
         "type": "github"
       }
     },
@@ -738,6 +754,7 @@
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-mesa": "nixpkgs-mesa",
         "ouch-yazi": "ouch-yazi",
         "restore-yazi": "restore-yazi",
         "stylix": "stylix",
