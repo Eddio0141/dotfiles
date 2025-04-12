@@ -315,6 +315,7 @@ in
     mpv
     wofi
     pamixer # volume control
+    vial
 
     # spell checking
     hunspell
