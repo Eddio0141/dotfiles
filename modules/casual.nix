@@ -259,7 +259,6 @@ in
     btop-rocm
     obsidian
     (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
-    protontricks
     xdg-utils
     wineWowPackages.full
     samba4Full
@@ -333,7 +332,10 @@ in
 
   programs = {
     java.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      protontricks.enable = true;
+    };
   };
 
   # systemd.tmpfiles.rules =
