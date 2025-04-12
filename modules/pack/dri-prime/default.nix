@@ -43,18 +43,11 @@ in
     (mkIf cfg.enable {
       environment.systemPackages = builtins.attrValues wrappers;
 
-      programs.steam.package = pkgs.steam.override {
-        extraEnv = {
-          MANGOHUD = true;
-          DRI_PRIME = false;
-        };
-      };
-
       home-manager.users.${username} = {
         wayland.windowManager.hyprland.settings.env = [ "DRI_PRIME,1" ];
-        programs.niri.settings.environment = {
-          DRI_PRIME = "1";
-        };
+        # programs.niri.settings.environment = {
+        #   DRI_PRIME = "1";
+        # };
       };
     })
 
