@@ -100,8 +100,8 @@
         };
         settings.aw-watcher-steam = {
           steam_id = "76561198289540452";
-          # TODO api key needs to be hidden or something if i wanna make this public
-          api_key = "3FA1BD7B6A76089A081DEE6A3E33C8C6";
+          # TODO: regenerate https://steamcommunity.com/dev/apikey
+          api_key = "";
         };
       };
     };
