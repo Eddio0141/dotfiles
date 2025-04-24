@@ -6,6 +6,22 @@
   lib,
   ...
 }:
+let
+  externalKbName = "splitkb.com Aurora Lily58 rev1";
+  laptopKbDevice = "/sys/devices/pci0000:00/0000:00:08.1/0000:c5:00.3/usb1/1-4/1-4.2/1-4.2:1.2/0003:32AC:0018.000C/input/input24/inhibited";
+  disableLaptopKb = pkgs.writeShellApplication {
+    name = "disableLaptopKb";
+    text = ''
+      echo 1 > ${laptopKbDevice}
+    '';
+  };
+  enableLaptopKb = pkgs.writeShellApplication {
+    name = "enableLaptopKb";
+    text = ''
+      echo 0 > ${laptopKbDevice}
+    '';
+  };
+in
 {
   imports = [
     ../../modules/casual.nix
@@ -44,6 +60,14 @@
       destination = "/etc/udev/rules.d/50-framework-inputmodule.rules";
     })
   ];
+
+  services.udev.extraRules = ''
+    # disable / enable laptop keyboard on split kb connect
+    # check https://blog.hackeriet.no/udev-disable-keyboard
+    ATTRS{name}=="${externalKbName}", ACTION=="add", RUN+="${lib.getExe disableLaptopKb}"
+    ATTRS{name}=="${externalKbName}", ACTION=="remove", RUN+="${lib.getExe enableLaptopKb}"
+  '';
+
   # HACK: downgrade mesa to 24
   # https://www.reddit.com/r/framework/comments/1jbqr56/dying_igpu/
   # https://community.frame.work/t/screen-is-glitchy-with-colored-pixels-moving-on-fedora-41-laptop-13-amd-ryzen-7040/66117/1
