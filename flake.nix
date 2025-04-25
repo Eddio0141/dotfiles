@@ -7,6 +7,7 @@
     # TODO: update yazi plugins once yazi is v25.4.4 at least
     # TODO: https://github.com/NixOS/nixpkgs/pull/369193 broke obs browser sources on purpose
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
+    # TODO: casual.nix, https://github.com/NixOS/nixpkgs/pull/391845
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
     # TODO: this is to fix igpu on laptop by rolling back mesa

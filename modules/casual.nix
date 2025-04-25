@@ -54,8 +54,6 @@ in
     };
   };
 
-  time.timeZone = "Europe/London";
-
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
   boot.loader.grub = {
@@ -119,8 +117,12 @@ in
     # dbus for updating firmware
     fwupd.enable = true;
 
-    # TODO: shit aint working
-    # automatic-timezoned.enable = true;
+    automatic-timezoned.enable = true;
+    # TODO: remove when this is merged: https://github.com/NixOS/nixpkgs/pull/391845
+    geoclue2 = {
+      geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
+      submissionUrl = "https://api.beacondb.net/v2/geosubmit";
+    };
 
     openssh = {
       enable = true;
