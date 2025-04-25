@@ -61,6 +61,9 @@ alias l = ls
 alias ll = ls -a
 alias lll = ls -la
 
+alias update = nh os switch -- --impure
+alias upgrade = nh os switch -u -- --impure
+
 if $nu.is-interactive {
     fastfetch
 

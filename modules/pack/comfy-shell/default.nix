@@ -191,11 +191,6 @@ in
             environmentVariables = {
               GAMEID = "0"; # for umu-run
             };
-            shellAliases = {
-              update = "nh os switch";
-              update-test = "nh os test";
-              upgrade = "nh os switch -u";
-            };
             configFile.source = ./config.nu;
           };
 
