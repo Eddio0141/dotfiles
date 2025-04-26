@@ -7,16 +7,21 @@
   ...
 }:
 let
-  externalKbName = "splitkb.com Aurora Lily58 rev1";
-  laptopKbDevice = "/sys/devices/pci0000:00/0000:00:08.1/0000:c5:00.3/usb1/1-4/1-4.2/1-4.2:1.2/0003:32AC:0018.000C/input/input24/inhibited";
+  laptopKbDevice = ''"$(rg -U '^N: Name="Framework Laptop 16 Keyboard Module - ISO Keyboard"\n.*\nS: Sysfs=(.*$)' -or '/sys$1/inhibited' '/proc/bus/input/devices')"'';
   disableLaptopKb = pkgs.writeShellApplication {
     name = "disableLaptopKb";
+    runtimeInputs = with pkgs; [
+      ripgrep
+    ];
     text = ''
       echo 1 > ${laptopKbDevice}
     '';
   };
   enableLaptopKb = pkgs.writeShellApplication {
     name = "enableLaptopKb";
+    runtimeInputs = with pkgs; [
+      ripgrep
+    ];
     text = ''
       echo 0 > ${laptopKbDevice}
     '';
@@ -61,12 +66,16 @@ in
     })
   ];
 
-  services.udev.extraRules = ''
-    # disable / enable laptop keyboard on split kb connect
-    # check https://blog.hackeriet.no/udev-disable-keyboard
-    ATTRS{name}=="${externalKbName}", ACTION=="add", RUN+="${lib.getExe disableLaptopKb}"
-    ATTRS{name}=="${externalKbName}", ACTION=="remove", RUN+="${lib.getExe enableLaptopKb}"
-  '';
+  services.udev.extraRules =
+    let
+      externalKbName = "splitkb.com Aurora Lily58 rev1";
+    in
+    ''
+      # disable / enable laptop keyboard on split kb connect
+      # check https://blog.hackeriet.no/udev-disable-keyboard
+      ATTRS{name}=="${externalKbName}", ACTION=="add", RUN+="${lib.getExe disableLaptopKb}"
+      ATTRS{name}=="${externalKbName}", ACTION=="remove", RUN+="${lib.getExe enableLaptopKb}"
+    '';
 
   # HACK: downgrade mesa to 24
   # https://www.reddit.com/r/framework/comments/1jbqr56/dying_igpu/
