@@ -100,8 +100,7 @@
         };
         settings.aw-watcher-steam = {
           steam_id = "76561198289540452";
-          # TODO: regenerate https://steamcommunity.com/dev/apikey
-          api_key = "";
+          api_key = builtins.getEnv "STEAM_API";
         };
       };
     };
