@@ -167,30 +167,6 @@ window-rule {
     open-focused false
 }
 window-rule {
-    match app-id="^ghidra-Ghidra$" title="^Version Tracking Wizard$"
-    max-width 600
-    max-height 900
-}
-window-rule {
-    match app-id="^ghidra-Ghidra$" title="^Merge Version Tracking Session$|^Loading Associations$"
-    open-focused false
-}
-window-rule {
-    match app-id="^ghidra-Ghidra$" title=r#"^win\d+$|^Opening VT Session$|^Choose a \\d+ program$|^Confirm Delete$|^Save Program$|^Copy Special$|^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$|^Decompiler Find Text$"#
-    open-floating true
-    open-focused false
-}
-window-rule {
-    match app-id="^ghidra-Ghidra$" title="^Rename |^Name New Variable$|^Edit Label at|^Data Type Chooser Dialog$|^Note Bookmark$|^Merge Version Tracking Session$|^Loading Associations$|^Decompiler Find Text$"
-    max-width 500
-    max-height 300
-}
-window-rule {
-    match app-id="^ghidra-Ghidra$" title="Search"
-    default-column-width { proportion 0.5; }
-}
-
-window-rule {
     match app-id="^thunderbird$"
     match app-id="^obsidian$"
 
