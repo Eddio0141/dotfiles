@@ -132,6 +132,7 @@ binds {
     Shift+Alt+I { spawn "playerctl" "previous"; }
     Shift+Alt+O { spawn "playerctl" "next"; }
     Shift+Alt+P { spawn "playerctl" "play-pause"; }
+    Find { spawn "playerctl" "play-pause"; }
     
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
