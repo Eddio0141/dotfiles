@@ -4,14 +4,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # TODO: update yazi plugins once yazi is v25.4.4 at least
     # TODO: https://github.com/NixOS/nixpkgs/pull/369193 broke obs browser sources on purpose
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587
-    # TODO: casual.nix, https://github.com/NixOS/nixpkgs/pull/391845
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
     # TODO: this is to fix igpu on laptop by rolling back mesa
-    nixpkgs-mesa.url = "github:nixos/nixpkgs/bcad4f36b978bd56017dd57bfb71892ce9c9e959";
+    # nixpkgs-mesa.url = "github:nixos/nixpkgs/bcad4f36b978bd56017dd57bfb71892ce9c9e959";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +46,7 @@
     };
     # yazi.url = "github:sxyazi/yazi/v25.3.2";
     yazi-rs-plugins = {
-      url = "github:yazi-rs/plugins/273019910c1111a388dd20e057606016f4bd0d17";
+      url = "github:yazi-rs/plugins";
       flake = false;
     };
   };

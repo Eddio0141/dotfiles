@@ -118,11 +118,6 @@ in
     fwupd.enable = true;
 
     automatic-timezoned.enable = true;
-    # TODO: remove when this is merged: https://github.com/NixOS/nixpkgs/pull/391845
-    geoclue2 = {
-      geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
-      submissionUrl = "https://api.beacondb.net/v2/geosubmit";
-    };
 
     openssh = {
       enable = true;
