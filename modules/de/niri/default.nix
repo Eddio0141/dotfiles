@@ -55,6 +55,7 @@ in
       kitty.enable = true;
       dunst.enable = true;
       wofi.enable = true;
+      hyprlock.enable = true;
     };
 
     home-manager.users.${username} = {
@@ -62,8 +63,6 @@ in
 
       programs = {
         niri.config = null;
-        hyprlock.enable = true;
-
         wlogout = {
           enable = true;
           layout = [
