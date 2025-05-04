@@ -1,3 +1,8 @@
+load-env {
+    GDK_SCALE: 2,
+    GAMEID: 0, # for umu-run
+}
+
 $env.config = {
     edit_mode: "vi"
     use_kitty_protocol: true

@@ -188,9 +188,6 @@ in
 
           nushell = {
             enable = true;
-            environmentVariables = {
-              GAMEID = "0"; # for umu-run
-            };
             configFile.source = ./config.nu;
           };
 
