@@ -200,6 +200,8 @@ window-rule {
     match app-id="^Unity$" title="^Unity$"
     open-focused false
     open-floating false
+    // a funny way to hide the window
+    open-on-workspace "📝"
 }
 window-rule {
     match app-id="^thunderbird$"
