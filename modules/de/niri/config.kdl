@@ -25,6 +25,8 @@ input {
     tablet
     touch
 }
+
+// yuu-desktop
 output "Ancor Communications Inc VG248 KCLMQS031446" {
     transform "normal"
     mode "1920x1080@144.001000"
@@ -39,6 +41,14 @@ output "ASUSTek COMPUTER INC VG279QM S4LMQS088593" {
 output "BOE 0x0BC9 Unknown" {
     variable-refresh-rate
 }
+
+workspace "🌎";
+workspace "⌨️";
+workspace "📝";
+
+// workspace "chat" {
+//     open-on-output "Ancor Communications Inc VG248 KCLMQS031446"
+// }
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
@@ -162,6 +172,25 @@ spawn-at-startup "floorp"
 spawn-at-startup "obsidian"
 spawn-at-startup "thunderbird"
 spawn-at-startup "kitty"
+
+// rules on startup
+window-rule {
+    match at-startup=true app-id="^floorp$"
+    open-on-workspace "🌎"
+}
+
+window-rule {
+    match at-startup=true app-id="^kitty$"
+    open-on-workspace "⌨️"
+}
+
+window-rule {
+    match at-startup=true app-id="^thunderbird$"
+    match app-id="^obsidian$"
+    open-on-workspace "📝"
+}
+
+// rules that always apply
 
 window-rule {
     geometry-corner-radius 15 0 15 0
