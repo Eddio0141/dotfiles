@@ -248,7 +248,7 @@ in
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIe9xUjQ2cvylpFcYh7BCqIcMGnHuThTjNgYC71CinB yuu@yuu-laptop"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP4HdmyELMBGoC9LAerS1DCQuQayQfkE4e6wlFTtXvW2 yuu@yuu-desktop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILpFCCYta1vyxj5f+Dg7SS3HduBXo6GmIZFcwDHnZ/cC yuu@yuu-desktop"
     ];
   };
 
