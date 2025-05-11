@@ -324,6 +324,8 @@ in
 
     # managing qt5 themes
     libsForQt5.qt5ct
+
+    krita
   ];
 
   qt.platformTheme = "qt5ct";
