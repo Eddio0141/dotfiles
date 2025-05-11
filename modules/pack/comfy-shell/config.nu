@@ -1,5 +1,5 @@
 load-env {
-    GDK_SCALE: 2,
+    # GDK_SCALE: 2,
     GAMEID: 0, # for umu-run
 }
 
