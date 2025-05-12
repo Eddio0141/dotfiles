@@ -1,5 +1,4 @@
 load-env {
-    # GDK_SCALE: 2,
     GAMEID: 0, # for umu-run
 }
 
@@ -9,6 +8,14 @@ $env.config = {
     buffer_editor: "vi"
     show_banner: false
 }
+
+if ((hostname) == "yuu-laptop") {
+    load-env {
+        GDK_SCALE: 2,
+    }
+}
+
+source "~/.oh-my-posh.nu"
 
 let fish_completer = {|spans|
     fish --command $'complete "--do-complete=($spans | str join " ")"'
@@ -68,6 +75,8 @@ alias lll = ls -la
 
 alias update = nh os switch -- --impure
 alias upgrade = nh os switch -u -- --impure
+
+alias yy = yazi
 
 if $nu.is-interactive {
     fastfetch

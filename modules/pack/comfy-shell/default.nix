@@ -3,6 +3,7 @@
   lib,
   pkgs,
   username,
+  link,
   ...
 }:
 with lib;
@@ -145,6 +146,7 @@ in
         tokei
         trash-cli
         ouch
+        nushell
         fish # for nushell completions
         carapace
         # fhs-env
@@ -186,11 +188,6 @@ in
             nix-direnv.enable = true;
           };
 
-          nushell = {
-            enable = true;
-            configFile.source = ./config.nu;
-          };
-
           oh-my-posh = {
             enable = true;
             enableNushellIntegration = true;
@@ -203,6 +200,11 @@ in
             enable = true;
             enableNushellIntegration = true;
           };
+        };
+
+        xdg.configFile = {
+          "nushell/config.nu".source = link ./config.nu;
+          "nushell/env.nu".source = link ./env.nu;
         };
       };
 
