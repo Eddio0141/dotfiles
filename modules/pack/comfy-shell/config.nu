@@ -78,6 +78,8 @@ alias upgrade = nh os switch -u -- --impure
 
 alias yy = yazi
 
+source ~/.zoxide.nu
+
 if $nu.is-interactive {
     fastfetch
 
