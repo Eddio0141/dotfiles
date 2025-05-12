@@ -15,9 +15,8 @@ if ((hostname) == "yuu-laptop") {
     }
 }
 
-if ("~/.oh-my-posh.nu" | path exists) {
-    source "~/.oh-my-posh.nu"
-}
+const file = "~/.oh-my-posh.nu"
+source (if ($file | path exists) { $file })
 
 let fish_completer = {|spans|
     fish --command $'complete "--do-complete=($spans | str join " ")"'
