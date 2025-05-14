@@ -221,6 +221,13 @@ in
         xorg.libxcb
       ];
     };
+
+    thunderbird = {
+      enable = true;
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -272,7 +279,6 @@ in
     })
     ffmpeg
     lutris
-    thunderbird
     # blender
     ani-cli
     qbittorrent
