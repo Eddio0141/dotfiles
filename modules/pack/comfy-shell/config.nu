@@ -81,6 +81,10 @@ alias yy = yazi
 
 source ~/.zoxide.nu
 
+$env.config.hooks.pre_prompt = (
+    $env.config.hooks.pre_prompt | append (source nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
+)
+
 if $nu.is-interactive {
     fastfetch
 

@@ -638,6 +638,22 @@
         "type": "github"
       }
     },
+    "nu-scripts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747930190,
+        "narHash": "sha256-/LoeL4BILPSOv3jnURcuuQhuRLdE0amBGnEOTB+LLgI=",
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "rev": "765555beddc3c81555e6b70abb2542c37a1c0ad6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -703,6 +719,7 @@
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
+        "nu-scripts": "nu-scripts",
         "ouch-yazi": "ouch-yazi",
         "restore-yazi": "restore-yazi",
         "stylix": "stylix",

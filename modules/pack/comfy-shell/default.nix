@@ -4,6 +4,7 @@
   pkgs,
   username,
   link,
+  inputs,
   ...
 }:
 with lib;
@@ -205,6 +206,7 @@ in
         xdg.configFile = {
           "nushell/config.nu".source = link ./config.nu;
           "nushell/env.nu".source = link ./env.nu;
+          "nushell/nu_scripts".source = inputs.nu-scripts;
         };
       };
 

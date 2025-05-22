@@ -50,6 +50,10 @@
       url = "github:yazi-rs/plugins";
       flake = false;
     };
+    nu-scripts = {
+      url = "github:nushell/nu_scripts";
+      flake = false;
+    };
   };
 
   outputs =
