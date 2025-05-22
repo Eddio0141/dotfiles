@@ -21,7 +21,17 @@ in
     programs = {
       niri = {
         enable = true;
-        # package = pkgs.niri-unstable;
+        package = (
+          pkgs.niri-unstable.overrideAttrs {
+            version = "25.05";
+            src = pkgs.fetchFromGitHub {
+              owner = "yalter";
+              repo = "niri";
+              rev = "v25.05";
+              hash = "sha256-ngQ+iTHmBJkEbsjYfCWTJdV8gHhOCTkV8K0at6Y+YHI=";
+            };
+          }
+        );
       };
     };
 
