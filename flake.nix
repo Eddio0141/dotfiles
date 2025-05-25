@@ -9,8 +9,6 @@
     # TODO: remove weird overrideAttrs for niri once niri-stable has latest release
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
     # nixpkgs-godot-4.url = "github:nixos/nixpkgs/347b77eba12b3f54850d2824d742f9aa18c1f60d";
-    # TODO: this is to fix igpu on laptop by rolling back mesa
-    # nixpkgs-mesa.url = "github:nixos/nixpkgs/bcad4f36b978bd56017dd57bfb71892ce9c9e959";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

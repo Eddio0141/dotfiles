@@ -76,23 +76,4 @@ in
       ATTRS{name}=="${externalKbName}", ACTION=="add", RUN+="${lib.getExe disableLaptopKb}"
       ATTRS{name}=="${externalKbName}", ACTION=="remove", RUN+="${lib.getExe enableLaptopKb}"
     '';
-
-  # HACK: downgrade mesa to 24
-  # https://www.reddit.com/r/framework/comments/1jbqr56/dying_igpu/
-  # https://community.frame.work/t/screen-is-glitchy-with-colored-pixels-moving-on-fedora-41-laptop-13-amd-ryzen-7040/66117/1
-  hardware.graphics = {
-    package = inputs.nixpkgs-mesa.legacyPackages.${system}.mesa.drivers;
-    package32 = inputs.nixpkgs-mesa.legacyPackages.${system}.driversi686Linux.mesa.drivers;
-  };
-
-  system.replaceDependencies.replacements = [
-    {
-      oldDependency = pkgs.mesa.out;
-      newDependency = inputs.nixpkgs-mesa.legacyPackages.${system}.mesa.out;
-    }
-    {
-      oldDependency = pkgs.pkgsi686Linux.mesa.out;
-      newDependency = inputs.nixpkgs-mesa.legacyPackages.${system}.pkgsi686Linux.mesa.out;
-    }
-  ];
 }
