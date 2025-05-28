@@ -224,6 +224,7 @@ in
 
     thunderbird = {
       enable = true;
+      # TODO: create term file picker module to enable this for thunderbird!
       preferences = {
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };

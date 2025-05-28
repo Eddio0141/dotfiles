@@ -45,4 +45,14 @@ in
       ./yuu-laptop
     ];
   };
+  yuu-work-laptop = nixosSystem rec {
+    system = "x86_64-linux";
+    specialArgs = baseSpecialArgs // {
+      inherit system;
+      username = "edcope";
+    };
+    modules = [
+      ./yuu-work-laptop
+    ];
+  };
 }

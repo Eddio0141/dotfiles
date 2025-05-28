@@ -23,6 +23,10 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {
