@@ -289,8 +289,6 @@ in
     r2modman
     # libtas
     # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
-    wl-clipboard
-    cliphist
     quickemu
     # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
     # (godot_4.overrideAttrs rec {
@@ -318,7 +316,6 @@ in
     ripgrep
     mpv
     wofi
-    pamixer # volume control
     vial
 
     # spell checking

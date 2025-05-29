@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, modulesPath, ... }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -31,7 +31,9 @@
                 type = "luks";
                 name = "lassicrypt";
                 askPassword = true;
-                settings = { allowDiscards = true; };
+                settings = {
+                  allowDiscards = true;
+                };
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
@@ -45,7 +47,9 @@
                     };
                     "/swap" = {
                       mountpoint = "/.swapvol";
-                      swap = { swapfile.size = "35G"; };
+                      swap = {
+                        swapfile.size = "35G";
+                      };
                     };
                     "/home" = {
                       mountpoint = "/home";

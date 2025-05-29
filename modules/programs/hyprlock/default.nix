@@ -2,6 +2,7 @@
   config,
   lib,
   username,
+  pkgs,
   ...
 }:
 let
@@ -14,6 +15,34 @@ in
 
   config = mkIf cfg.enable {
     programs.hyprlock.enable = true;
+
+    systemd.user.services.lock-on-suspend =
+      let
+        script = pkgs.writeShellApplication {
+          name = "lock-on-suspend";
+          text = ''
+            pidof hyprlock || ${config.programs.hyprlock.package}/bin/hyprlock
+          '';
+        };
+      in
+      {
+        description = "lock the screen on suspend";
+        after = [
+          "suspend.target"
+          "hibernate.target"
+          "hybrid-sleep.target"
+          "suspend-then-hibernate.target"
+        ];
+        serviceConfig = {
+          ExecStart = lib.getExe script;
+        };
+        wantedBy = [
+          "suspend.target"
+          "hibernate.target"
+          "hybrid-sleep.target"
+          "suspend-then-hibernate.target"
+        ];
+      };
 
     home-manager.users.${username}.programs.hyprlock = {
       enable = true;

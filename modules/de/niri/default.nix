@@ -38,9 +38,12 @@ in
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite-unstable
-      inputs.swww.packages.${system}.swww
+      # inputs.swww.packages.${system}.swww
       waypaper
       brightnessctl
+      pamixer # volume control
+      wl-clipboard
+      cliphist
     ];
 
     xdg.portal.extraPortals = with pkgs; [

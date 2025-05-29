@@ -8,7 +8,14 @@ let
   cfg = config.yuu.programs.git;
 in
 {
-  options.yuu.programs.git.enable = mkEnableOption "git";
+  # TODO: config option
+  options.yuu.programs.git = {
+    enable = mkEnableOption "git";
+    config = mkOption {
+      type = lib.types.attrs;
+      default = { };
+    };
+  };
 
   config = (
     mkIf cfg.enable {
@@ -23,7 +30,7 @@ in
           pull.rebase = false;
           init.defaultBranch = "main";
           advice.addIgnoredFile = false;
-        };
+        } // cfg.config;
       };
     }
   );
