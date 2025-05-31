@@ -151,8 +151,7 @@
     ];
   };
 
-  # for work, username for consistency
-  networking.hostName = username;
+  networking.hostName = "yuu-work-laptop";
 
   services = {
     blueman.enable = true;
