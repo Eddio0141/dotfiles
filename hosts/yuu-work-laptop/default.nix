@@ -2,32 +2,9 @@
   username,
   pkgs,
   inputs,
-  system,
   lib,
   ...
 }:
-let
-  # TODO: copied from yuu-laptop/default.nix, should merge
-  laptopKbDevice = ''"$(rg -U '^N: Name="Framework Laptop 16 Keyboard Module - ISO Keyboard"\n.*\nS: Sysfs=(.*$)' -or '/sys$1/inhibited' '/proc/bus/input/devices')"'';
-  disableLaptopKb = pkgs.writeShellApplication {
-    name = "disableLaptopKb";
-    runtimeInputs = with pkgs; [
-      ripgrep
-    ];
-    text = ''
-      echo 1 > ${laptopKbDevice}
-    '';
-  };
-  enableLaptopKb = pkgs.writeShellApplication {
-    name = "enableLaptopKb";
-    runtimeInputs = with pkgs; [
-      ripgrep
-    ];
-    text = ''
-      echo 0 > ${laptopKbDevice}
-    '';
-  };
-in
 {
   # TODO: many of the stuff can be modules, it comes from casual.nix
   imports = [
@@ -364,17 +341,8 @@ in
     })
   ];
 
-  services.udev.extraRules =
-    let
-      externalKbName = "splitkb.com Aurora Lily58 rev1";
-    in
-    ''
-      # vial devices
-      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-
-        # disable / enable laptop keyboard on split kb connect
-        # check https://blog.hackeriet.no/udev-disable-keyboard
-        ATTRS{name}=="${externalKbName}", ACTION=="add", RUN+="${lib.getExe disableLaptopKb}"
-        ATTRS{name}=="${externalKbName}", ACTION=="remove", RUN+="${lib.getExe enableLaptopKb}"
-    '';
+  services.udev.extraRules = ''
+    # vial devices
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
 }
