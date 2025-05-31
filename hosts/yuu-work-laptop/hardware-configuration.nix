@@ -54,7 +54,6 @@
               format = "ext4";
               mountpoint = "/";
               mountOptions = [
-                "compress=zstd"
                 "noatime"
               ];
             };
