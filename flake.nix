@@ -56,6 +56,10 @@
       url = "github:nushell/nu_scripts";
       flake = false;
     };
+    catppuccin-yazi = {
+      url = "github:catppuccin/yazi";
+      flake = false;
+    };
   };
 
   outputs =

@@ -67,6 +67,22 @@
         "type": "github"
       }
     },
+    "catppuccin-yazi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745086812,
+        "narHash": "sha256-ILaPj84ZlNc6MBwrpwBDNhGhXge9mPse4FYdSMU4eO8=",
+        "owner": "catppuccin",
+        "repo": "yazi",
+        "rev": "fca8e93e0a408671fa54cc0cb103e76b85e8c011",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "yazi",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -735,6 +751,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-yazi": "catppuccin-yazi",
         "disko": "disko",
         "home-manager": "home-manager",
         "meowvim": "meowvim",
