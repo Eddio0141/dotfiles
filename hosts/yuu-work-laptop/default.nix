@@ -144,7 +144,7 @@ in
   };
 
   home-manager.users.${username} = {
-    home.system.stateVersion = "25.05";
+    home.stateVersion = "25.05";
 
     imports = [
     ];
