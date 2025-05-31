@@ -33,6 +33,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ../../modules
+    ../../modules/stylix.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen5
     inputs.niri.nixosModules.niri
   ];
@@ -147,6 +148,7 @@ in
     home.stateVersion = "25.05";
 
     imports = [
+      ../../modules/stylix-hm.nix
     ];
   };
 
