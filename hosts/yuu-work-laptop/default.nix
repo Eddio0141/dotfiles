@@ -143,10 +143,12 @@ in
     };
   };
 
-  # home-manager.users.${username} = {
-  #   imports = [
-  #   ];
-  # };
+  home-manager.users.${username} = {
+    home.system.stateVersion = "25.05";
+
+    imports = [
+    ];
+  };
 
   users.users.${username} = {
     isNormalUser = true;
