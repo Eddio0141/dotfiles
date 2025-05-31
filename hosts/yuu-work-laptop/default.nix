@@ -335,15 +335,6 @@
     # pack.dri-prime.enable = true;
   };
 
-  # TODO: this is also shared from yuu-laptop
-  services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "inputmodule-rs-udev";
-      text = builtins.readFile ./50-framework-inputmodule.rules;
-      destination = "/etc/udev/rules.d/50-framework-inputmodule.rules";
-    })
-  ];
-
   services.udev.extraRules = ''
     # vial devices
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
