@@ -38,7 +38,7 @@ in
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite-unstable
-      # inputs.swww.packages.${system}.swww
+      inputs.swww.packages.${system}.swww # this is needed for waypaper backend!
       waypaper
       brightnessctl
       pamixer # volume control
