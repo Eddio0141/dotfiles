@@ -36,6 +36,7 @@ in
     ../../modules/stylix.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel-gen5
     inputs.niri.nixosModules.niri
+    inputs.stylix.nixosModules.stylix
   ];
 
   nixpkgs.config = {
