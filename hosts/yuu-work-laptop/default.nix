@@ -320,7 +320,10 @@
       git = {
         enable = true;
         config = {
-          user = null;
+          user = {
+            name = "edcope";
+            email = "";
+          };
         };
       };
       nvim.enable = true;
