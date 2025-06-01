@@ -173,6 +173,8 @@ spawn-at-startup "floorp"
 spawn-at-startup "obsidian"
 spawn-at-startup "thunderbird"
 spawn-at-startup "kitty"
+spawn-at-startup "quasselclient"
+spawn-at-startup "nextcloud"
 
 // rules on startup
 window-rule {

@@ -2,7 +2,7 @@
   username,
   pkgs,
   inputs,
-  lib,
+  link,
   ...
 }:
 {
@@ -128,6 +128,72 @@
     imports = [
       ../../modules/stylix-hm.nix
     ];
+
+    # TODO: stuff comes from casual-home.nix
+    xdg.configFile = {
+      "xdg-desktop-portal-termfilechooser/config".text = ''
+        [filechooser]
+        cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+        default_dir=$HOME
+      '';
+      "xdg-desktop-portal/portals.conf".text = ''
+        [preferred]
+        default = gnome;gtk;
+        org.freedesktop.impl.portal.FileChooser = termfilechooser
+      '';
+      "qt5ct/qt5ct.conf".source = ../../config/qt5ct/qt5ct.conf;
+      "qt5ct/colors/Dracula.conf".source =
+        pkgs.fetchFromGitHub {
+          owner = "dracula";
+          repo = "qt5";
+          rev = "master";
+          sha256 = "tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
+        }
+        + "/Dracula.conf";
+      "tealdeer/config.toml".source = link ../../modules/tealdeer.toml;
+    };
+
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.libsForQt5.breeze-icons;
+        name = "breeze-dark";
+      };
+    };
+
+    programs.home-manager.enable = true;
+
+    programs = {
+      ssh = {
+        enable = true;
+        addKeysToAgent = "yes";
+      };
+    };
+
+    xdg.dataFile."fonts".source = ../../share/fonts;
+
+    xdg = {
+      mimeApps = {
+        enable = true;
+        defaultApplications = {
+          "inode/directory" = [ "yazi-kitty.desktop" ];
+        };
+      };
+      desktopEntries = {
+        yazi-kitty = {
+          name = "Yazi in Kitty";
+          genericName = "File Manager";
+          exec = "kitty yazi %f";
+          terminal = false;
+          categories = [
+            "System"
+            "FileTools"
+            "FileManager"
+          ];
+          mimeType = [ "inode/directory" ];
+        };
+      };
+    };
   };
 
   users.users.${username} = {
@@ -155,10 +221,6 @@
 
   services = {
     blueman.enable = true;
-    quassel = {
-      enable = true;
-      user = "edcope";
-    };
   };
 
   programs = {
@@ -231,6 +293,10 @@
     udisks
     # managing qt5 themes
     libsForQt5.qt5ct
+
+    nextcloud-client
+    keepassxc
+    quasselClient
   ];
 
   qt.platformTheme = "qt5ct";
