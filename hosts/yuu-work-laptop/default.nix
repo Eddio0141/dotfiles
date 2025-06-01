@@ -387,7 +387,7 @@
         config = {
           user = {
             name = "edcope";
-            email = "";
+            email = "ed.cope@codethink.co.uk";
           };
         };
       };
