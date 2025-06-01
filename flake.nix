@@ -60,6 +60,10 @@
       url = "github:catppuccin/yazi";
       flake = false;
     };
+    programsdb = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -17,6 +17,10 @@ in
         xdg-desktop-portal-termfilechooser
       ];
 
+      programs.thunderbird.preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+
       home-manager.users.${username}.xdg.configFile = {
         "xdg-desktop-portal-termfilechooser/config".text = ''
           [filechooser]

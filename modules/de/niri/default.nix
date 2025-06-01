@@ -50,14 +50,17 @@ in
       inputs.niri.overlays.niri
     ];
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
-          user = "greeter";
+    services = {
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+            user = "greeter";
+          };
         };
       };
+      playerctld.enable = true;
     };
 
     yuu = {

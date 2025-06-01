@@ -25,6 +25,7 @@ in
   imports = [
     inputs.stylix.nixosModules.stylix
     ./stylix.nix
+    ./shared.nix
   ];
 
   nixpkgs = {
@@ -45,7 +46,6 @@ in
     ];
 
     config = {
-      allowUnfree = true;
       permittedInsecurePackages = [
         "openssl-1.1.1w"
         "dotnet-sdk-7.0.410"
@@ -63,119 +63,12 @@ in
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking = {
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Enable networking
-    networkmanager.enable = true;
-
-    # Open ports in the firewall.
-    # firewall.allowedTCPPorts = [ ... ];
-    # firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # firewall.enable = false;
-  };
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
-  # input method
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5 = {
-      addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-gtk
-        libsForQt5.fcitx5-qt
-      ];
-      waylandFrontend = true;
-    };
-  };
-
   services = {
-    # Enable the X11 windowing system.
-    xserver = {
-      enable = true;
-      videoDrivers = [ "amdgpu" ];
-    };
-
-    # dbus for updating firmware
-    fwupd.enable = true;
-
-    automatic-timezoned.enable = true;
-
-    openssh = {
-      enable = true;
-      settings = {
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
-      };
-    };
-
-    playerctld.enable = true;
-
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
-          user = "greeter";
-        };
-      };
-    };
-
-    journald = {
-      extraConfig = ''
-        MaxRetentionSec=7day
-      '';
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "gb";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "uk";
-
-  # Enable CUPS to print documents.
-  #services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.extraConfig."11-bluetooth-policy" = {
-      "wireplumber.settings" = {
-        "bluetooth.autoswitch-to-headset-profile" = false;
-      };
-    };
+    # TODO: needed? TODO: not nvidia friendly?
+    xserver.videoDrivers = [ "amdgpu" ];
   };
 
   programs = {
-    ssh.startAgent = true;
-    command-not-found.enable = false;
     noisetorch.enable = true;
     obs-studio = {
       enable = true;
@@ -183,77 +76,10 @@ in
         obs-webkitgtk
       ];
     };
-    nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        libGL
-        libGLU
-        fontconfig
-        libxkbcommon
-        freetype
-        dbus
-        wayland
-        gtk3
-        gtk2-x11
-        pango
-        atk
-        cairo
-        gdk-pixbuf
-        glib
-        nss
-        nspr
-        alsa-lib
-        gnome2.GConf
-        expat
-        cups
-        libcap
-        fuse
-        xorg.libX11
-        xorg.libXext
-        xorg.libXcursor
-        xorg.libXrandr
-        xorg.libXi
-        xorg.libXcomposite
-        xorg.libXdamage
-        xorg.libXfixes
-        xorg.libXtst
-        xorg.libXrender
-        xorg.libxcb
-      ];
-    };
-
-    thunderbird = {
-      enable = true;
-      # TODO: create term file picker module to enable this for thunderbird!
-      preferences = {
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-      };
-    };
+    thunderbird.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    # kvm and libvirtd groups are needed for virt-manager
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "kvm"
-      "libvirtd"
-      "docker"
-      "power"
-      "input"
-      "storage"
-      "video"
-      "libvirt"
-      "nix-users"
-      "macisajt"
-      "users"
-    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIe9xUjQ2cvylpFcYh7BCqIcMGnHuThTjNgYC71CinB yuu@yuu-laptop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILpFCCYta1vyxj5f+Dg7SS3HduBXo6GmIZFcwDHnZ/cC yuu@yuu-desktop"
@@ -262,10 +88,8 @@ in
 
   environment.systemPackages = with pkgs; [
     avalonia-ilspy
-    btop-rocm
     obsidian
     (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
-    xdg-utils
     wineWowPackages.full
     samba4Full
     winetricks
@@ -305,7 +129,6 @@ in
     # citra-canary
     # slack
     prismlauncher
-    file
     # binaryninja-free
     imhex
     steam-game-wrap
@@ -313,20 +136,10 @@ in
     vesktop
     pinta
     floorp
-    ripgrep
-    mpv
     wofi
     vial
-    ## spell checking
-    hunspell
-    hunspellDicts.en_GB-large
-    ##
-    udisks
-    libsForQt5.qt5ct # managing qt5 themes
     krita
   ];
-
-  qt.platformTheme = "qt5ct";
 
   programs = {
     java.enable = true;
@@ -367,45 +180,6 @@ in
     ];
   };
 
-  # fonts
-  fonts.packages =
-    with pkgs;
-    [
-      # basic stuff
-      corefonts
-
-      # japanese
-      ipafont
-      ipaexfont
-      kochi-substitute
-
-      # emojis
-      openmoji-color
-      noto-fonts-emoji
-    ]
-    ++ (with pkgs.nerd-fonts; [
-      code-new-roman
-      jetbrains-mono
-    ]);
-  fonts.fontDir.enable = true;
-
-  nix = {
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-    settings = {
-      auto-optimise-store = true;
-      substituters = [
-        "https://nix-community.cachix.org"
-        "https://cache.nixos.org"
-        "https://colmena.cachix.org"
-      ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
-      ];
-      access-tokens = builtins.getEnv "NIX_ACCESS_TOKENS";
-    };
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -418,34 +192,12 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  nix = {
-    package = pkgs.nixVersions.stable;
-    extraOptions = "experimental-features = nix-command flakes";
-  };
-
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
-
   # polkit
   security.polkit.enable = true;
 
   # virtualisation.waydroid.enable = true;
 
   programs.dconf.enable = true;
-
-  # env vars
-  environment.sessionVariables = {
-    XDG_SCREENSHOTS_DIR = "/home/${username}/Pictures/screenshots";
-    XKB_DEFAULT_LAYOUT = "gb";
-    NIXPKGS_ALLOW_UNFREE = "1";
-  };
-
-  # services.sunshine = {
-  #   enable = true;
-  #   capSysAdmin = true;
-  #   openFirewall = true;
-  # };
-
   programs.gamemode.enable = true;
 
   # TODO: restore
@@ -457,14 +209,11 @@ in
   #   };
   # };
 
-  xdg.portal.xdgOpenUsePortal = true;
-
+  # TODO: introduce module for splitkb
   services.udev.extraRules = ''
     # vial devices
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
-
-  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
 
   yuu = {
     de.niri.enable = true;

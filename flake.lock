@@ -733,6 +733,27 @@
         "type": "github"
       }
     },
+    "programsdb": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1748786602,
+        "narHash": "sha256-tJjefJgoYMpl8Mm/pqHIqdpYd37UjscLEL3sA7rYtsw=",
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "rev": "1bdc71940219109414023caf1ddcc8590084af56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
     "restore-yazi": {
       "flake": false,
       "locked": {
@@ -760,6 +781,7 @@
         "nixpkgs": "nixpkgs_4",
         "nu-scripts": "nu-scripts",
         "ouch-yazi": "ouch-yazi",
+        "programsdb": "programsdb",
         "restore-yazi": "restore-yazi",
         "stylix": "stylix",
         "swww": "swww",
@@ -811,7 +833,7 @@
       "inputs": {
         "flake-compat": "flake-compat_3",
         "nixpkgs": "nixpkgs_5",
-        "utils": "utils"
+        "utils": "utils_2"
       },
       "locked": {
         "lastModified": 1747226816,
@@ -996,6 +1018,21 @@
       }
     },
     "utils": {
+      "locked": {
+        "lastModified": 1678901627,
+        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "utils_2": {
       "inputs": {
         "systems": "systems_3"
       },
