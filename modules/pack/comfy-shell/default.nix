@@ -192,7 +192,6 @@ in
           oh-my-posh = {
             enable = true;
             enableNushellIntegration = true;
-            useTheme = "catppuccin_frappe";
           };
 
           fd.enable = true;
