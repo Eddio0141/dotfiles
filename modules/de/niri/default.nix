@@ -46,10 +46,6 @@ in
       cliphist
     ];
 
-    xdg.portal.extraPortals = with pkgs; [
-      xdg-desktop-portal-termfilechooser
-    ];
-
     nixpkgs.overlays = [
       inputs.niri.overlays.niri
     ];
@@ -64,12 +60,17 @@ in
       };
     };
 
-    yuu.programs = {
-      waybar.enable = true;
-      kitty.enable = true;
-      dunst.enable = true;
-      wofi.enable = true;
-      hyprlock.enable = true;
+    yuu = {
+      programs = {
+        waybar.enable = true;
+        kitty.enable = true;
+        dunst.enable = true;
+        wofi.enable = true;
+        hyprlock.enable = true;
+      };
+      services = {
+        termfilechooser.enable = true;
+      };
     };
 
     home-manager.users.${username} = {

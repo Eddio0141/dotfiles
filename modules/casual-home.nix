@@ -47,16 +47,6 @@
   };
 
   xdg.configFile = {
-    "xdg-desktop-portal-termfilechooser/config".text = ''
-      [filechooser]
-      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-      default_dir=$HOME
-    '';
-    "xdg-desktop-portal/portals.conf".text = ''
-      [preferred]
-      default = gnome;gtk;
-      org.freedesktop.impl.portal.FileChooser = termfilechooser
-    '';
     "qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
     "qt5ct/colors/Dracula.conf".source =
       pkgs.fetchFromGitHub {
