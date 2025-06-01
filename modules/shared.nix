@@ -72,6 +72,7 @@
       ];
       access-tokens = builtins.getEnv "NIX_ACCESS_TOKENS";
     };
+    channel.enable = false;
   };
 
   systemd.sleep.extraConfig = "HibernateDelaySec=1h";
