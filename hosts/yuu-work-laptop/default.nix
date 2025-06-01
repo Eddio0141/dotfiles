@@ -275,15 +275,12 @@
     obsidian
     xdg-utils
     libreoffice-qt
-    # spell checking
+    ## spell checking
     hunspell
     hunspellDicts.en_GB-large
-    # external storage
-    gvfs
+    ##
     udisks
-    # managing qt5 themes
-    libsForQt5.qt5ct
-
+    libsForQt5.qt5ct # managing qt5 themes
     nextcloud-client
     keepassxc
     quasselClient
@@ -350,9 +347,6 @@
       access-tokens = builtins.getEnv "NIX_ACCESS_TOKENS";
     };
   };
-
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  # services.tumbler.enable = true; # Thumbnail support for images
 
   # polkit
   security.polkit.enable = true;

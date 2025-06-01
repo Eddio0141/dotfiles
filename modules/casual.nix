@@ -317,18 +317,12 @@ in
     mpv
     wofi
     vial
-
-    # spell checking
+    ## spell checking
     hunspell
     hunspellDicts.en_GB-large
-
-    # external storage
-    gvfs
+    ##
     udisks
-
-    # managing qt5 themes
-    libsForQt5.qt5ct
-
+    libsForQt5.qt5ct # managing qt5 themes
     krita
   ];
 
