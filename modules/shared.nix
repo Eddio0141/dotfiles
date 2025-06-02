@@ -196,12 +196,6 @@
 
   networking.networkmanager.enable = true;
 
-  # https://blog.nobbz.dev/blog/2023-02-27-nixos-flakes-command-not-found/
-  # this adds the missing programs.sqlite making command-not-found usable
-  environment.etc."programs.sqlite".source =
-    inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
-  programs.command-not-found.dbPath = "/etc/programs.sqlite";
-  # TODO: fix
   programs.command-not-found.enable = false;
 
   # audio

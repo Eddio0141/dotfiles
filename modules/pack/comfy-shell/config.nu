@@ -15,6 +15,8 @@ if ((hostname) == "yuu-laptop") {
     }
 }
 
+$env.config.hooks.command_not_found = source command-not-found.nu
+
 const file = "~/.oh-my-posh.nu"
 source (if ($file | path exists) { $file })
 

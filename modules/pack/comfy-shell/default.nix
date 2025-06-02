@@ -5,6 +5,7 @@
   username,
   link,
   inputs,
+  system,
   ...
 }:
 with lib;
@@ -180,6 +181,7 @@ in
           nix-index = {
             enable = true;
             # TODO: this doesn't exist for nix-index: enableNushellIntegration = true;
+            package = inputs.nix-index.packages.${system}.default;
           };
 
           # direnv
@@ -206,6 +208,11 @@ in
           "nushell/config.nu".source = link ./config.nu;
           "nushell/env.nu".source = link ./env.nu;
           "nushell/nu_scripts".source = inputs.nu-scripts;
+          # TODO: restore to pkgs at some point
+          # "nushell/command-not-found.nu".source = "${pkgs.nix-index}/etc/profile.d/command-not-found.nu";
+          "nushell/command-not-found.nu".source = "${
+            inputs.nix-index.packages.${system}.default
+          }/etc/profile.d/command-not-found.nu";
         };
       };
 

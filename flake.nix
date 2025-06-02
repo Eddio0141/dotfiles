@@ -61,10 +61,7 @@
       url = "github:catppuccin/yazi";
       flake = false;
     };
-    programsdb = {
-      url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-index.url = "github:nix-community/nix-index";
   };
 
   outputs =
