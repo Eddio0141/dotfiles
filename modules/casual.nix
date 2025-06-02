@@ -149,6 +149,7 @@ in
     wofi
     vial
     krita
+    keepassxc
   ];
 
   programs = {
