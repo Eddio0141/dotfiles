@@ -62,6 +62,10 @@
       flake = false;
     };
     nix-index.url = "github:nix-community/nix-index";
+    rmpc = {
+      url = "github:mierak/rmpc";
+      flake = false;
+    };
   };
 
   outputs =

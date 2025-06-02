@@ -1,6 +1,7 @@
 {
   pkgs,
   link,
+  username,
   ...
 }:
 {
@@ -93,6 +94,23 @@
           api_key = builtins.getEnv "STEAM_API";
         };
       };
+    };
+  };
+
+  services = {
+    mpd = {
+      enable = true;
+      musicDirectory = "/home/${username}/Music";
+      extraConfig = ''
+        audio_output {
+                type            "pipewire"
+                name            "PipeWire Sound Server"
+        }
+      '';
+    };
+    mpdris2 = {
+      enable = true;
+      notifications = true;
     };
   };
 

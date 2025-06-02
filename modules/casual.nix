@@ -109,7 +109,17 @@ in
     qbittorrent
     # davinci-resolve
     yt-dlp
-    strawberry-qt6
+    (rmpc.overrideAttrs (
+      final: prev: {
+        src = inputs.rmpc;
+        version = "unstable";
+        cargoDeps = pkgs.rustPlatform.importCargoLock {
+          lockFile = final.src + "/Cargo.lock";
+          allowBuiltinFetchGit = true;
+        };
+        cargoHash = null;
+      }
+    ))
     r2modman
     # libtas
     # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
