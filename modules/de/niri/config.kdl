@@ -128,6 +128,8 @@ binds {
     Mod+Shift+L { move-column-right; }
     Mod+Shift+Ctrl+J { move-workspace-down; }
     Mod+Shift+Ctrl+K { move-workspace-up; }
+    Mod+Shift+Ctrl+H { move-workspace-to-monitor-left; }
+    Mod+Shift+Ctrl+L { move-workspace-to-monitor-right; }
 
     Mod+Shift+M { consume-or-expel-window-right; }
     Mod+Shift+N { consume-or-expel-window-left; }
