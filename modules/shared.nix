@@ -11,23 +11,6 @@
     config = {
       allowUnfree = lib.mkDefault true;
     };
-    overlays = [
-      # TODO: remove when mpv can play videos
-      (final: prev: {
-        mpv-unwrapped = prev.mpv-unwrapped.override {
-          libplacebo = prev.libplacebo.overrideAttrs {
-            version = "7.349.0";
-            src = pkgs.fetchFromGitLab {
-              domain = "code.videolan.org";
-              owner = "videolan";
-              repo = "libplacebo";
-              rev = "v7.349.0";
-              hash = "sha256-mIjQvc7SRjE1Orb2BkHK+K1TcRQvzj2oUOCUT4DzIuA=";
-            };
-          };
-        };
-      })
-    ];
   };
 
   fonts.packages =
@@ -242,11 +225,13 @@
     type = "fcitx5";
     fcitx5 = {
       addons = with pkgs; [
-        fcitx5-mozc
+        fcitx5-mozc-ut
         fcitx5-gtk
         libsForQt5.fcitx5-qt
       ];
       waylandFrontend = true;
     };
+    enableGtk2 = true;
+    enableGtk3 = true;
   };
 }
