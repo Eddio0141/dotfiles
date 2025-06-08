@@ -74,10 +74,6 @@
         ];
       };
     };
-    "hyprland/window" = {
-      "max-length" = 200;
-      "separate-outputs" = true;
-    };
     "tray" = {
       "spacing" = 10;
     };

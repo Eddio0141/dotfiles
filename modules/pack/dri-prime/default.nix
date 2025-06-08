@@ -44,7 +44,6 @@ in
       environment.systemPackages = builtins.attrValues wrappers;
 
       home-manager.users.${username} = {
-        wayland.windowManager.hyprland.settings.env = [ "DRI_PRIME,1" ];
         # programs.niri.settings.environment = {
         #   DRI_PRIME = "1";
         # };

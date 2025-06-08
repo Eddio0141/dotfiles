@@ -12,15 +12,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprcontrib = {
-    #   url = "github:hyprwm/contrib";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # hyprland.url = "github:hyprwm/hyprland/v0.47.2";
-    # hyprpicker = {
-    #   url = "github:hyprwm/hyprpicker";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko = {
       url = "github:nix-community/disko/latest";
@@ -46,7 +37,6 @@
       url = "github:boydaihungst/restore.yazi";
       flake = false;
     };
-    # yazi.url = "github:sxyazi/yazi/v25.3.2";
     yazi-rs-plugins = {
       url = "github:yazi-rs/plugins";
       flake = false;

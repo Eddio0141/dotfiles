@@ -42,7 +42,6 @@ in
     ];
 
     programs.niri.settings.outputs.eDP-2.variable-refresh-rate = true;
-    wayland.windowManager.hyprland.settings.monitor = [ "eDP-2, 2560x1600@165, 0x0, 1.6, vrr,1" ];
   };
 
   networking.hostName = "${username}-laptop";
@@ -53,7 +52,6 @@ in
   programs.nm-applet.enable = true;
 
   yuu = {
-    de.hyprland.xwaylandScale = 2;
     programs.ghidra.uiScale = 1.5;
     # pack.dri-prime.enable = true;
   };
