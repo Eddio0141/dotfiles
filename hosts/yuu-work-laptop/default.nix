@@ -139,6 +139,15 @@
 
   programs.dconf.enable = true;
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    autoPrune.enable = true;
+  };
+
   yuu = {
     programs = {
       ghidra.uiScale = 1.5;
