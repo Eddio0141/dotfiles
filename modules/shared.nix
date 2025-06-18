@@ -54,6 +54,7 @@
       ##
       udisks
       libsForQt5.qt5ct # managing qt5 themes
+      devenv
     ];
   };
 
@@ -71,6 +72,10 @@
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
+      ];
+      trusted-users = [
+        "root"
+        username
       ];
       access-tokens = builtins.getEnv "NIX_ACCESS_TOKENS";
     };
