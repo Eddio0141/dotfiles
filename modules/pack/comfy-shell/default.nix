@@ -152,6 +152,7 @@ in
         fish # for nushell completions
         carapace
         # fhs-env
+        devenv
         devbox
       ];
 
