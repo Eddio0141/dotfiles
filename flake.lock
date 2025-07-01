@@ -466,11 +466,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1751364755,
-        "narHash": "sha256-SKO6IJmgDZsZtXl7tLc4e8XnTfT+KSMIonpPmQ/udJQ=",
+        "lastModified": 1751408762,
+        "narHash": "sha256-w0CkKN8p9XcuVk7voBSS/ziWN8iad+NT283eG6TF3o0=",
         "owner": "Eddio0141",
         "repo": "meowvim",
-        "rev": "b7c1e35f754ea2e0d61d519f9125ead5a6ecc804",
+        "rev": "5bc34269578054bcf23fdaf915341e01d26c644f",
         "type": "github"
       },
       "original": {
