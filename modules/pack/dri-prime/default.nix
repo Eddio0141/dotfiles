@@ -22,7 +22,6 @@ let
   };
   apps = with pkgs; [
     loupe
-    gnome-calculator
     pavucontrol
   ];
   getName = pkg: pkg.pname or pkg.name;
