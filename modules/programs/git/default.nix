@@ -30,6 +30,17 @@ in
           pull.rebase = false;
           init.defaultBranch = "main";
           advice.addIgnoredFile = false;
+          url = {
+            "git@github.com:".insteadOf = [
+              "https://github.com/"
+            ];
+            "git@gitlab.com:".insteadOf = [
+              "https://gitlab.com/"
+            ];
+            "git@gitlab.codethink.co.uk:".insteadOf = [
+              "https://gitlab.codethink.co.uk/"
+            ];
+          };
         } // cfg.config;
       };
     }
