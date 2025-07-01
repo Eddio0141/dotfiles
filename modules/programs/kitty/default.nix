@@ -44,6 +44,9 @@ in
 
           map ctrl+shift+; show_scrollback
 
+          map ctrl+tab no_op
+          map ctrl+shift+tab no_op
+
           # Create a new window splitting the space used by the existing one so that
           # the two windows are placed one above the other
           map ctrl+shift+w>s launch --location=hsplit
