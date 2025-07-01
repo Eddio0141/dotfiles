@@ -2,7 +2,6 @@
   username,
   pkgs,
   inputs,
-  system,
   lib,
   ...
 }:
@@ -40,8 +39,6 @@ in
     imports = [
       ../../modules/casual-home.nix
     ];
-
-    programs.niri.settings.outputs.eDP-2.variable-refresh-rate = true;
   };
 
   networking.hostName = "${username}-laptop";
