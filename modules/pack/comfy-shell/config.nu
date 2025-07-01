@@ -79,6 +79,8 @@ alias lll = ls -la
 alias update = nh os switch -- --impure
 alias upgrade = nh os switch -u -- --impure
 
+alias lg = lazygit
+
 def --env yy [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
 	yazi ...$args --cwd-file $tmp
