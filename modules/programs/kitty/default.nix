@@ -39,6 +39,10 @@ in
 
           map ctrl+shift+k scroll_page_up
           map ctrl+shift+j scroll_page_down
+          map ctrl+shift+h previous_tab
+          map ctrl+shift+l next_tab
+
+          map ctrl+shift+; show_scrollback
 
           # Create a new window splitting the space used by the existing one so that
           # the two windows are placed one above the other
