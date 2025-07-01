@@ -153,7 +153,6 @@ in
         carapace
         # fhs-env
         devenv
-        devbox
       ];
 
       # nushell setups
