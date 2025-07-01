@@ -7,7 +7,7 @@
 }:
 let
   nixosSystem = nixpkgs.lib.nixosSystem;
-  baseSpecialArgs = {
+  baseSpecialArgs = system: {
     inherit
       username
       inputs
@@ -15,12 +15,25 @@ let
       home-manager
       nixpkgs
       ;
+
+    pkgs-stable = (
+      import inputs.nixpkgs-stable {
+        inherit system;
+        config = {
+          permittedInsecurePackages = [
+            "openssl-1.1.1w"
+            "dotnet-sdk-7.0.410"
+            "dotnet-sdk-wrapped-7.0.410"
+          ];
+        };
+      }
+    );
   };
 in
 {
   yuu-desktop = nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = baseSpecialArgs // {
+    specialArgs = (baseSpecialArgs system) // {
       inherit system;
     };
     modules = [
@@ -29,7 +42,7 @@ in
   };
   yuu-upwork = nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = baseSpecialArgs // {
+    specialArgs = (baseSpecialArgs system) // {
       inherit system;
     };
     modules = [
@@ -38,7 +51,7 @@ in
   };
   yuu-laptop = nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = baseSpecialArgs // {
+    specialArgs = (baseSpecialArgs system) // {
       inherit system;
     };
     modules = [
@@ -47,7 +60,7 @@ in
   };
   yuu-work-laptop = nixosSystem rec {
     system = "x86_64-linux";
-    specialArgs = baseSpecialArgs // {
+    specialArgs = (baseSpecialArgs system) // {
       inherit system;
       username = "edcope";
     };

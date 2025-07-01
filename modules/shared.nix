@@ -4,6 +4,7 @@
   inputs,
   pkgs,
   username,
+  pkgs-stable,
   ...
 }:
 {
@@ -11,6 +12,13 @@
     config = {
       allowUnfree = lib.mkDefault true;
     };
+
+    overlays = [
+      (_: _: {
+        # TODO: remove me when unityhub builds
+        gnome2.GConf = pkgs-stable.gnome2.GConf;
+      })
+    ];
   };
 
   fonts.packages =

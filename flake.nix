@@ -4,6 +4,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/25.05";
+    # TODO: in shared.nix, remove gnome2.GConf override once unityhub builds again https://github.com/NixOS/nixpkgs/issues/418451
     # TODO: https://github.com/NixOS/nixpkgs/pull/369193 broke obs browser sources on purpose
     # NOTE: https://github.com/NixOS/nixpkgs/pull/295587 citra / yuzu
     # nixpkgs-citra-yuzu-temp.url = "github:Atemu/nixpkgs/revert-yuzu-removal";
