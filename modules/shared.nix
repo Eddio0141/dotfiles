@@ -86,7 +86,6 @@
   qt.platformTheme = "qt5ct";
 
   programs = {
-    ssh.startAgent = true;
     java.enable = true;
     nix-ld = {
       enable = true;
