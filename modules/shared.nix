@@ -133,6 +133,7 @@
         xorg.libxcb
       ];
     };
+    firefox.enable = true;
   };
 
   users.users.${username} = {

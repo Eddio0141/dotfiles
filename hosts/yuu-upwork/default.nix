@@ -7,6 +7,7 @@
   home-manager.users.${username} = {
     imports = [
       ../../modules
+      ../../modules/shared.nix
     ];
   };
 
@@ -72,7 +73,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    floorp
     upwork
     xclip
     anydesk

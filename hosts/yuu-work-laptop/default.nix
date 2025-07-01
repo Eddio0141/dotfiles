@@ -103,7 +103,6 @@
   programs = {
     # wifi menu
     nm-applet.enable = true;
-    firefox.enable = true;
     thunderbird.enable = true;
   };
 

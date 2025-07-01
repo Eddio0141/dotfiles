@@ -145,7 +145,6 @@ in
     inputs.umu.packages.${system}.default
     vesktop
     pinta
-    floorp
     wofi
     vial
     krita

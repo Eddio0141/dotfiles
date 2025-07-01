@@ -171,7 +171,6 @@ spawn-at-startup "waypaper" "--restore"
 
 spawn-at-startup "vesktop"
 spawn-at-startup "firefox"
-spawn-at-startup "floorp"
 spawn-at-startup "obsidian"
 spawn-at-startup "thunderbird"
 spawn-at-startup "kitty"
@@ -180,7 +179,7 @@ spawn-at-startup "nextcloud"
 
 // rules on startup
 window-rule {
-    match at-startup=true app-id="^(floorp|firefox)$"
+    match at-startup=true app-id="^firefox$"
     open-on-workspace "🌎"
 }
 
