@@ -2,6 +2,7 @@
   pkgs,
   link,
   username,
+  inputs,
   ...
 }:
 {
@@ -74,12 +75,7 @@
           pname = "aw-watcher-steam";
           version = "0.1.0";
           pyproject = true;
-          src = pkgs.fetchFromGitHub {
-            owner = "Edwardsoen";
-            repo = "aw-watcher-steam";
-            rev = "master";
-            hash = "sha256-WTgu/3NrZyHXFMTAgp9SC3OeS/spThNBG2TFhiJDnno=";
-          };
+          src = inputs.aw-watcher-steam;
           nativeBuildInputs = with pkgs.python3Packages; [
             pkgs.poetry
             poetry-core

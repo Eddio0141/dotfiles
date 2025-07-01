@@ -54,6 +54,10 @@
       url = "github:mierak/rmpc";
       flake = false;
     };
+    aw-watcher-steam = {
+      url = "github:Edwardsoen/aw-watcher-steam";
+      flake = false;
+    };
   };
 
   outputs =

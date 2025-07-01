@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "aw-watcher-steam": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1750092996,
+        "narHash": "sha256-wd+q83MlgMeiYSHQwMtszwnDrkaDN3yVkV/P5HsU89U=",
+        "owner": "Edwardsoen",
+        "repo": "aw-watcher-steam",
+        "rev": "55ea988994acfbf729fa43612f2057a310c1cc8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Edwardsoen",
+        "repo": "aw-watcher-steam",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -614,6 +630,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable_3": {
+      "locked": {
+        "lastModified": 1748026580,
+        "narHash": "sha256-rWtXrcIzU5wm/C8F9LWvUfBGu5U5E7cFzPYT1pHIJaQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "11cb3517b3af6af300dd6c055aeda73c9bf52c48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1750741721,
@@ -817,6 +849,7 @@
     },
     "root": {
       "inputs": {
+        "aw-watcher-steam": "aw-watcher-steam",
         "catppuccin-yazi": "catppuccin-yazi",
         "disko": "disko",
         "home-manager": "home-manager",
@@ -825,6 +858,7 @@
         "nix-index": "nix-index",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-stable": "nixpkgs-stable_3",
         "nu-scripts": "nu-scripts",
         "ouch-yazi": "ouch-yazi",
         "restore-yazi": "restore-yazi",
