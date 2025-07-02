@@ -58,7 +58,7 @@ in
           # Use nvim as the pager. Remove all ASCII formatting characters.
           scrollback_pager nvim --noplugin -c 'set buftype=nofile' -c 'set noswapfile' -c 'silent! %s/\%x1b\[[0-9;]*[sumJK]//g' -c 'silent! %s/\%x1b]133;[A-Z]\%x1b\\//g' -c 'silent! %s/\%x1b\[[^m]*m//g' -c 'silent! %s///g' -
 
-          map ctrl+t launch --cwd=current --type=tab
+          map ctrl+t launch --cwd=current --type=tab --location neighbor
         '';
       };
     }
