@@ -206,8 +206,7 @@ window-rule {
     open-floating false
 }
 window-rule {
-    match app-id="^thunderbird$"
-    match app-id="^obsidian$"
+    match app-id="^(thunderbird|obsidian|org\\.keepassxc\\.KeePassXC)$"
 
     block-out-from "screen-capture"
 }
