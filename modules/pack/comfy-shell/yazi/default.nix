@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 let
   yazi-plugins = inputs.yazi-rs-plugins;
 in
@@ -38,7 +38,7 @@ in
       };
     };
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         {
           on = [
             "c"
