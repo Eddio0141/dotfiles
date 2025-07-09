@@ -57,6 +57,7 @@
       url = "github:Edwardsoen/aw-watcher-steam";
       flake = false;
     };
+    flox.url = "github:flox/flox";
   };
 
   outputs =
