@@ -21,10 +21,7 @@
     };
     stylix = {
       url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wrapper-manager.url = "github:viperML/wrapper-manager";
     meowvim.url = "github:Eddio0141/meowvim";
