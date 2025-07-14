@@ -191,6 +191,7 @@ window-rule {
 window-rule {
     match at-startup=true app-id="^thunderbird$"
     match app-id="^obsidian$"
+    match app-id=r#"^org.kde.quassel$"#
     open-on-workspace "📝"
 }
 
