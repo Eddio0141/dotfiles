@@ -146,13 +146,19 @@
 
   programs.dconf.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+  virtualisation = {
+    docker = {
       enable = true;
-      setSocketVariable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+      autoPrune.enable = true;
     };
-    autoPrune.enable = true;
+    podman = {
+      enable = true;
+      autoPrune.enable = true;
+    };
   };
 
   yuu = {
