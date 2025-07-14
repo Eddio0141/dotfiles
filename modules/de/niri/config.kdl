@@ -168,7 +168,6 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waypaper" "--restore"
-
 spawn-at-startup "vesktop"
 spawn-at-startup "firefox"
 spawn-at-startup "obsidian"
@@ -176,6 +175,7 @@ spawn-at-startup "thunderbird"
 spawn-at-startup "kitty"
 spawn-at-startup "quasselclient"
 spawn-at-startup "nextcloud"
+spawn-at-startup "keepassxc"
 
 // rules on startup
 window-rule {
@@ -192,6 +192,7 @@ window-rule {
     match at-startup=true app-id="^thunderbird$"
     match app-id="^obsidian$"
     match app-id=r#"^org.kde.quassel$"#
+    match app-id=r#"^org.keepassxc.KeePassXC$"#
     open-on-workspace "📝"
 }
 
