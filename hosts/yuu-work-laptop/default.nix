@@ -32,8 +32,13 @@
 
   services = {
     # TODO: needed? TODO: not nvidia friendly?
-    xserver.videoDrivers = [ "amdgpu" ];
+    xserver.videoDrivers = [
+      "amdgpu"
+      "nvidia"
+    ];
   };
+
+  hardware.nvidia.open = false;
 
   services.printing.enable = true;
 
