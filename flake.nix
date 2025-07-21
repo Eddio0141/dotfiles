@@ -59,6 +59,10 @@
       flake = false;
     };
     flox.url = "github:flox/flox";
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

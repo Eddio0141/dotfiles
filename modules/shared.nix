@@ -5,6 +5,7 @@
   pkgs,
   username,
   pkgs-stable,
+  system,
   ...
 }:
 {
@@ -62,6 +63,7 @@
       ##
       udisks
       libsForQt5.qt5ct # managing qt5 themes
+      inputs.quickshell.packages.${system}.default
     ];
   };
 
