@@ -127,6 +127,7 @@
     vial # TODO: combine as "splitkb" module or something with the udev rules and such
     inputs.flox.packages.${system}.flox
     pixi
+    toolbox
   ];
 
   hardware.graphics = {
