@@ -13,12 +13,10 @@ let
   steam-game-wrap = pkgs.writeShellApplication {
     name = "steam-game-wrap";
     runtimeInputs = [ pkgs.gamemode ];
-    text =
-      (if config.yuu.pack.dri-prime.enable then "export DRI_PRIME=1" else "")
-      + ''
-        # shellcheck disable=SC2163
-        gamemoderun "$@"
-      '';
+    text = (if config.yuu.pack.dri-prime.enable then "export DRI_PRIME=1" else "") + ''
+      # shellcheck disable=SC2163
+      gamemoderun "$@"
+    '';
   };
 in
 {
