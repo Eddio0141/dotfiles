@@ -86,78 +86,70 @@ in
     ];
   };
 
-  environment.systemPackages =
-    let
-      riderFix = pkgs.jetbrains.rider.override {
-        jdk = inputs.nixpkgs-stable.legacyPackages.${system}.jdk;
-      };
-    in
-    with pkgs;
-    [
-      avalonia-ilspy
-      obsidian
-      # (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
-      (jetbrains.plugins.addPlugins riderFix [ "ideavim" ])
-      wineWowPackages.full
-      # samba4Full
-      winetricks
-      libreoffice-qt
-      # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-      (unityhub.override {
-        extraLibs =
-          pkgs: with pkgs; [
-            openssl_1_1
-            dotnet-sdk_7
-          ];
-      })
-      ffmpeg
-      lutris
-      # blender
-      ani-cli
-      qbittorrent
-      # davinci-resolve
-      yt-dlp
-      (rmpc.overrideAttrs (
-        final: prev: {
-          src = inputs.rmpc;
-          version = "unstable";
-          cargoDeps = pkgs.rustPlatform.importCargoLock {
-            lockFile = final.src + "/Cargo.lock";
-            allowBuiltinFetchGit = true;
-          };
-          cargoHash = null;
-        }
-      ))
-      r2modman
-      # libtas
-      # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
-      quickemu
-      # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
-      # (godot_4.overrideAttrs rec {
-      #   version = "4.1.1-stable";
-      #   commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
-      #   src = fetchFromGitHub {
-      #     owner = "godotengine";
-      #     repo = "godot";
-      #     rev = commitHash;
-      #     hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
-      #   };
-      # })
-      # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
-      # citra-canary
-      # slack
-      prismlauncher
-      # binaryninja-free
-      imhex
-      steam-game-wrap
-      inputs.umu.packages.${system}.default
-      vesktop
-      pinta
-      wofi
-      vial
-      krita
-      keepassxc
-    ];
+  environment.systemPackages = with pkgs; [
+    avalonia-ilspy
+    obsidian
+    (jetbrains.plugins.addPlugins jetbrains.rider [ "ideavim" ])
+    wineWowPackages.full
+    samba4Full
+    winetricks
+    libreoffice-qt
+    # TODO wrap unityhub to launch with DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+    (unityhub.override {
+      extraLibs =
+        pkgs: with pkgs; [
+          openssl_1_1
+          dotnet-sdk_7
+        ];
+    })
+    ffmpeg
+    lutris
+    # blender
+    ani-cli
+    qbittorrent
+    # davinci-resolve
+    yt-dlp
+    (rmpc.overrideAttrs (
+      final: prev: {
+        src = inputs.rmpc;
+        version = "unstable";
+        cargoDeps = pkgs.rustPlatform.importCargoLock {
+          lockFile = final.src + "/Cargo.lock";
+          allowBuiltinFetchGit = true;
+        };
+        cargoHash = null;
+      }
+    ))
+    r2modman
+    # libtas
+    # (gimp-with-plugins.override { plugins = with gimpPlugins; [ gap ]; })
+    quickemu
+    # inputs.nixpkgs-godot-4.legacyPackages.${system}.godot_4
+    # (godot_4.overrideAttrs rec {
+    #   version = "4.1.1-stable";
+    #   commitHash = "bd6af8e0ea69167dd0627f3bd54f9105bda0f8b5";
+    #   src = fetchFromGitHub {
+    #     owner = "godotengine";
+    #     repo = "godot";
+    #     rev = commitHash;
+    #     hash = "sha256-0CErsMTrBC/zYcabAtjYn8BWAZ1HxgozKdgiqdsn3q8=";
+    #   };
+    # })
+    # inputs.nixpkgs-citra-yuzu-temp.legacyPackages.${system}.yuzu-early-access
+    # citra-canary
+    # slack
+    prismlauncher
+    # binaryninja-free
+    imhex
+    steam-game-wrap
+    inputs.umu.packages.${system}.default
+    vesktop
+    pinta
+    wofi
+    vial
+    krita
+    keepassxc
+  ];
 
   programs = {
     java.enable = true;

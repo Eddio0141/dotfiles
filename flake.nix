@@ -3,7 +3,6 @@
   # TODO: stylix-nixos.nix, remove overrideAttrs once this is resolved https://github.com/ful1e5/Bibata_Cursor/issues/173
 
   inputs = {
-    # TODO: remove temporary fix after https://github.com/NixOS/nixpkgs/issues/425328
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/25.05";
     # TODO: in shared.nix, remove gnome2.GConf override once unityhub builds again https://github.com/NixOS/nixpkgs/issues/418451
