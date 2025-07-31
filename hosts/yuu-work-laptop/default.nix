@@ -120,6 +120,10 @@
     vial # TODO: combine as "splitkb" module or something with the udev rules and such
     pixi
     toolbox
+    ##
+    teams-for-linux
+    stoken
+    ##
   ];
 
   hardware.graphics = {
