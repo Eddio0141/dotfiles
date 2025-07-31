@@ -17,13 +17,6 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  nix.settings = {
-    trusted-substituters = [ "https://cache.flox.dev" ];
-    trusted-public-keys = [
-      "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
-    ];
-  };
-
   boot.loader.systemd-boot = {
     enable = true;
   };
@@ -125,7 +118,6 @@
     keepassxc
     quasselClient
     vial # TODO: combine as "splitkb" module or something with the udev rules and such
-    inputs.flox.packages.${system}.flox
     pixi
     toolbox
   ];
