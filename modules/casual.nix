@@ -147,6 +147,7 @@ in
     vial
     krita
     keepassxc
+    davinci-resolve
   ];
 
   programs = {
