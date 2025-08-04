@@ -120,7 +120,7 @@
     vial # TODO: combine as "splitkb" module or something with the udev rules and such
     pixi
     toolbox
-    ## JLR stuff
+    ##
     teams-for-linux
     stoken
     ##
