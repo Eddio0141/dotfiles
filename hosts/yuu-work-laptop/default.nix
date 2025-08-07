@@ -124,6 +124,7 @@
     teams-for-linux
     stoken
     ##
+    chromium
   ];
 
   hardware.graphics = {
