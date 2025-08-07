@@ -117,6 +117,7 @@
     nextcloud-client
     keepassxc
     quasselClient
+    weechat
     vial # TODO: combine as "splitkb" module or something with the udev rules and such
     pixi
     toolbox
@@ -190,4 +191,23 @@
     # vial devices
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
+
+  services.udev.packages = with pkgs; [
+    saleae-logic-2
+  ];
+
+  users.users.${username} = {
+    subGidRanges = [
+      {
+        startGid = 100000;
+        count = 2147483648;
+      }
+    ];
+    subUidRanges = [
+      {
+        startUid = 100000;
+        count = 2147483648;
+      }
+    ];
+  };
 }
