@@ -182,4 +182,20 @@
     # vial devices
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
+
+  # work related hack, for docker images
+  users.users.${username} = {
+    subGidRanges = [
+      {
+        startGid = 100000;
+        count = 2147483648;
+      }
+    ];
+    subUidRanges = [
+      {
+        startUid = 100000;
+        count = 2147483648;
+      }
+    ];
+  };
 }
