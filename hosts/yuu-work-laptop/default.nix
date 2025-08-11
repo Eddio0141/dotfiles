@@ -150,19 +150,11 @@
 
   programs.dconf.enable = true;
 
-  virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-      autoPrune.enable = true;
-    };
-    podman = {
-      enable = true;
-      autoPrune.enable = true;
-    };
+  virtualisation.podman = {
+    enable = true;
+    autoPrune.enable = true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
   };
 
   yuu = {
